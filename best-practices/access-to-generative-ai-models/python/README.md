@@ -46,8 +46,9 @@ access-to-generative-ai-models
 5. **Run the Jupyter Notebook:**
 
    ```bash
-   jupyter notebook main.ipynb
+   jupyter notebook
    ```
+   - Open the `main.ipynb` notebook in your browser.
 
 
 ## Usage Examples
