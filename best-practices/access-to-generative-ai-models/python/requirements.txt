@@ -1,3 +1,5 @@
+notebook
+jupyterlab
 generative-ai-hub-sdk
 python-dotenv
 boto3  # for Amazon Native Implementation
