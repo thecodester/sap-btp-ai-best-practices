@@ -62,6 +62,8 @@ The notebook demonstrates various methods to call LLMs through SAP GenAI Hub:
   - OpenAI Models
   - Amazon and Anthropic Models
   - Google Vertex AI Models
+- **Orchestration Implementation:**
+  - Unified method to call any model from SAP GenAI Hub
 
 Each section in the notebook provides a detailed example of how to set up and interact with the models.
 
