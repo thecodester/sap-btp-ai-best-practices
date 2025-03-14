@@ -69,6 +69,13 @@ The notebooks demonstrate various methods to call LLMs through SAP GenAI Hub:
 
 Each section in the notebook provides a detailed example of how to set up and interact with the models.
 
+### Recommended Method
+
+The recommended method for accessing generative AI models depends on the use case:
+- **For quick calls to LLMs:** Use the `native_implementation.ipynb`.
+- **If using in conjunction with other LangChain functions or modules:** Use the `langchain_implementation.ipynb`.
+- **For integration with other GenAI Hub Modules:** Use the `orchestration_implementation.ipynb`.
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
