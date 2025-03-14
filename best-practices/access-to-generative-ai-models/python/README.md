@@ -6,7 +6,9 @@ This project demonstrates best practices for accessing generative AI models usin
 ```
 access-to-generative-ai-models
 └── python
-    ├── main.ipynb                 # Jupyter Notebook with example implementations
+    ├── langchain_implementation.ipynb  # LangChain Implementations
+    ├── native_implementation.ipynb     # Native Client Integrations
+    ├── orchestration_implementation.ipynb  # Orchestration Implementation
     ├── .env.example               # Template for environment variables
     ├── requirements.txt           # Python dependencies
     └── README.md                  # Project documentation
@@ -48,22 +50,31 @@ access-to-generative-ai-models
    ```bash
    jupyter notebook
    ```
-   - Open the `main.ipynb` notebook in your browser.
+   - Open the `langchain_implementation.ipynb`, `native_implementation.ipynb`, or `orchestration_implementation.ipynb` notebook in your browser, depending on the implementation you wish to explore.
 
 
 ## Usage Examples
 
-The notebook demonstrates various methods to call LLMs through SAP GenAI Hub:
+The notebooks demonstrate various methods to call LLMs through SAP GenAI Hub:
 
-- **Native Client Integrations:**
+- **Native Client Integrations (`native_implementation.ipynb`):**
   - Amazon and Anthropic Models
   - OpenAI Models
-- **LangChain Implementations:**
+- **LangChain Implementations (`langchain_implementation.ipynb`):**
   - OpenAI Models
   - Amazon and Anthropic Models
   - Google Vertex AI Models
+- **Orchestration Implementation (`orchestration_implementation.ipynb`):**
+  - Unified method to call any model from SAP GenAI Hub
 
 Each section in the notebook provides a detailed example of how to set up and interact with the models.
+
+### Recommended Method
+
+The recommended method for accessing generative AI models depends on the use case:
+- **For quick calls to LLMs:** Use the `native_implementation.ipynb`.
+- **If using in conjunction with other LangChain functions or modules:** Use the `langchain_implementation.ipynb`.
+- **For integration with other GenAI Hub Modules:** Use the `orchestration_implementation.ipynb`.
 
 ## Contributing
 
