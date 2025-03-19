@@ -35,7 +35,7 @@ backend-sample/
 3. Bind the application to your AI Core instance:
 
    ```bash
-   cds bind -2 AI_CORE_INSTANCE_NAME:AI_CORE_INSTANCE_SERVICE_KEY
+   cds bind -2 AI_CORE_INSTANCE_NAME:AI_CORE_INSTANCE_SERVICE_KEY_NAME
    ```
 
 4. Run the application with the binding:
