@@ -1,26 +1,16 @@
-<mvc:View
-	controllerName="ui5.typescript.helloworld.controller.App"
-	displayBlock="true"
+<mvc:View controllerName="ui5.typescript.helloworld.controller.App" displayBlock="true"
 	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc">
 
 	<App id="app">
-		<Page
-			title="Hello World"
-			id="page">
+		<Page title="Ask Capital Sample App" id="page">
 			<content>
-				<IllustratedMessage
-					title="Hello World"
-					illustrationType="sapIllus-SuccessHighFive"
-					enableVerticalResponsiveness="true"
-					description="This is a UI5 TypeScript Hello World app">
-					<additionalContent>
-						<Button
-							id="helloButton"
-							text="Say Hello"
-							press="sayHello" />
-					</additionalContent>
-				</IllustratedMessage>
+				<f:SimpleForm id="Submit" editable="true" layout="ResponsiveGridLayout" title="Ask for Capital of Country" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="true">
+					<Label text="Country" />
+					<Input id="inputCountry" value="France" submit="onSubmit"/>
+					<Button id="askButton" text="Submit" press="onSubmit" />
+				</f:SimpleForm>
 			</content>
 		</Page>
 	</App>

@@ -1,7 +1,7 @@
-@path: 'orchestration'
+@path    : 'orchestration'
 @requires: 'any'
 service OrchestrationService {
-  action askCapitalOfCountry() returns String;
+  action askCapitalOfCountry(country : String)                                           returns String;
   action chatCompletion(template : array of Template, inputParams : array of InputParam) returns String;
 }
 

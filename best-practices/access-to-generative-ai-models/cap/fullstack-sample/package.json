@@ -23,7 +23,8 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "watch": "cds-tsx w",
+    "start:ui": "npm run start --prefix app/ask-capital",
+    "watch": "cds-tsx w --profile hybrid",
     "before:cds-watch": "cds-typer \"*\""
   },
   "imports": {

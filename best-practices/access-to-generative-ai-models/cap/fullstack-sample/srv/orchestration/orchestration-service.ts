@@ -1,19 +1,22 @@
-import { OrchestrationClient } from '@sap-ai-sdk/orchestration';
+import { OrchestrationClient } from "@sap-ai-sdk/orchestration";
 
 export default class OrchestrationService {
-  async askCapitalOfCountry() {
+  async askCapitalOfCountry(req: any) {
+    const countryParam = req.data.country;
     const orchestrationClient = new OrchestrationClient({
       llm: {
-        model_name: 'gpt-4o',
+        model_name: "gpt-4o",
         model_params: {
           max_tokens: 1000,
           temperature: 0.6,
-          n: 1
-        }
+          n: 1,
+        },
       },
       templating: {
-        template: [{ role: 'user', content: 'What is the capital of France?' }]
-      }
+        template: [
+          { role: "user", content: `What is the capital of ${countryParam}?` },
+        ],
+      },
     });
 
     const result = await orchestrationClient.chatCompletion();
@@ -23,15 +26,15 @@ export default class OrchestrationService {
   async chatCompletion(req: any) {
     const { template, inputParams } = req.data;
     const llm = {
-      model_name: 'gpt-4-32k'
+      model_name: "gpt-4-32k",
     };
     const templating = { template };
 
     const response = await new OrchestrationClient({
       llm,
-      templating
+      templating,
     }).chatCompletion({
-      inputParams: mapInputParams(inputParams)
+      inputParams: mapInputParams(inputParams),
     });
 
     return response.getContent();
