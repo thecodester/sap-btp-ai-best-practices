@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-import Input from "sap/m/Input";
-import MessageBox from "sap/m/MessageBox";
-import Controller from "sap/ui/core/mvc/Controller";
-import ODataContextBinding from "sap/ui/model/odata/v4/ODataContextBinding";
-import AppComponent from "../Component";
+import Input from 'sap/m/Input';
+import MessageBox from 'sap/m/MessageBox';
+import Controller from 'sap/ui/core/mvc/Controller';
+import ODataContextBinding from 'sap/ui/model/odata/v4/ODataContextBinding';
+import AppComponent from '../Component';
 
 /**
  * @namespace ui5.typescript.helloworld.controller
@@ -20,22 +20,24 @@ export default class App extends Controller {
 	}
 
 	public async onSubmit() {
-		const oView = this.getView()!;
+		try {
+			const oView = this.getView()!;
+			const oModel = oView.getModel();
+			const sCountry = (oView.byId('inputCountry') as Input).getValue();
 
-		const oModel = oView.getModel();
-		const oActionODataContextBinding = oModel?.bindContext(
-			"/askCapitalOfCountry(...)"
-		) as ODataContextBinding;
+			// Create and execute the OData action
+			const oBinding = oModel?.bindContext(
+				'/askCapitalOfCountry(...)'
+			) as ODataContextBinding;
+			oBinding.setParameter('country', sCountry);
+			await oBinding.invoke();
 
-		const oInputCountry = oView.byId("inputCountry") as Input;
-
-		oActionODataContextBinding.setParameter(
-			"country",
-			oInputCountry.getValue()
-		);
-		await oActionODataContextBinding.execute();
-		const oActionContext = oActionODataContextBinding.getBoundContext();
-
-		MessageBox.show(oActionContext.getObject().value);
+			// Show result
+			const oResult = oBinding.getBoundContext().getObject();
+			MessageBox.show(`The capital of ${sCountry} is ${oResult.value}`);
+		} catch (error) {
+			console.log(error);
+			MessageBox.error('Could not retrieve capital information');
+		}
 	}
 }
