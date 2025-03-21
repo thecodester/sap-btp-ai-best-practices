@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import Input from 'sap/m/Input';
 import MessageBox from 'sap/m/MessageBox';
+import Text from 'sap/m/Text';
 import Controller from 'sap/ui/core/mvc/Controller';
 import ODataContextBinding from 'sap/ui/model/odata/v4/ODataContextBinding';
 import AppComponent from '../Component';
@@ -20,10 +21,20 @@ export default class App extends Controller {
 	}
 
 	public async onSubmit() {
+		const oView = this.getView()!;
 		try {
-			const oView = this.getView()!;
 			const oModel = oView.getModel();
-			const sCountry = (oView.byId('inputCountry') as Input).getValue();
+			const sCountry = (oView.byId('inputCountry') as Input).getValue().trim();
+
+			if (!sCountry) {
+				MessageBox.warning('Please enter a country name');
+				return;
+			}
+
+			// Show loading state
+			const oResultText = oView.byId('resultText') as Text;
+			oResultText.setText('Loading...');
+			oResultText.setVisible(true);
 
 			// Create and execute the OData action
 			const oBinding = oModel?.bindContext(
@@ -34,10 +45,11 @@ export default class App extends Controller {
 
 			// Show result
 			const oResult = oBinding.getBoundContext().getObject();
-			MessageBox.show(`The capital of ${sCountry} is ${oResult.value}`);
+			oResultText.setText(`Result: ${oResult.value}`);
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 			MessageBox.error('Could not retrieve capital information');
+			(oView.byId('resultText') as Text).setVisible(false);
 		}
 	}
 }

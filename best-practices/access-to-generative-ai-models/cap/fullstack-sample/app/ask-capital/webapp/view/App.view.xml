@@ -1,16 +1,17 @@
 <mvc:View controllerName="ui5.typescript.helloworld.controller.App" displayBlock="true"
 	xmlns="sap.m"
-	xmlns:f="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc">
 
 	<App id="app">
-		<Page title="Ask Capital Sample App" id="page">
+		<Page title="Country Capital Finder" id="page" class="sapUiResponsiveContentPadding">
 			<content>
-				<f:SimpleForm id="Submit" editable="true" layout="ResponsiveGridLayout" title="Ask for Capital of Country" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="true">
-					<Label text="Country" />
-					<Input id="inputCountry" value="France" submit="onSubmit"/>
-					<Button id="askButton" text="Submit" press="onSubmit" />
-				</f:SimpleForm>
+				<VBox alignItems="Center" class="sapUiMediumMarginTop">
+					<HBox alignItems="Center" class="sapUiMediumMarginBottom">
+						<Input id="inputCountry" value="France" submit="onSubmit" width="200px" />
+						<Button text="Find Capital" press="onSubmit" type="Emphasized" class="sapUiSmallMarginBegin" />
+					</HBox>
+					<Text id="resultText" class="sapUiLargeFontSize" visible="false" />
+				</VBox>
 			</content>
 		</Page>
 	</App>
