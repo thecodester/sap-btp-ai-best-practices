@@ -1,8 +1,7 @@
----
 _schema-version: 3.3.0
 ID: fullstack-sample-test
 version: 1.0.0
-description: "A simple CAP project."
+description: 'A simple CAP project.'
 parameters:
   enable-parallel-deployments: true
 build-parameters:
@@ -10,7 +9,8 @@ build-parameters:
     - builder: custom
       commands:
         - npm ci
-        - npx cds build --production
+        - npm run build
+        - npm run deploy:postbuild
 modules:
   - name: fullstack-sample-test-srv
     type: nodejs
@@ -24,6 +24,37 @@ modules:
       - name: srv-api # required by consumers of CAP services (e.g. approuter)
         properties:
           srv-url: ${default-url}
-    requires: []
+    requires:
+      - name: fullstack-sample-test-auth
 
-resources: []
+  - name: fullstack-sample-test
+    type: approuter.nodejs
+    path: app/router
+    parameters:
+      keep-existing-routes: true
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api # must be used in xs-app.json as well
+          url: ~{srv-url}
+          forwardAuthToken: true
+      - name: fullstack-sample-test-auth
+    provides:
+      - name: app-api
+        properties:
+          app-protocol: ${protocol}
+          app-uri: ${default-uri}
+
+resources:
+  - name: fullstack-sample-test-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: fullstack-sample-test-${org}-${space}
+        tenant-mode: dedicated
