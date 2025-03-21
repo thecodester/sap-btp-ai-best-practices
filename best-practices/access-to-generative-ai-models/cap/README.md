@@ -19,8 +19,3 @@ These samples showcase how to:
 ## Getting Started
 
 Each subdirectory contains a comprehensive README.md with detailed setup instructions, deployment guides, and usage examples.
-
-## License
-
-Copyright (c) 2024 SAP SE or an SAP affiliate company. All rights reserved.
-This project is licensed under the Apache Software License, version 2.0.
