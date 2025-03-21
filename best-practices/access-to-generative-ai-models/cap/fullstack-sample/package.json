@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "start:ui": "npm run start --prefix app/ask-capital",
+    "start:ui5": "npm run start --prefix app/ask-capital",
     "watch": "cds-tsx w --profile hybrid",
     "before:cds-watch": "cds-typer \"*\""
   },
