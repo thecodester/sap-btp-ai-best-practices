@@ -25,7 +25,8 @@
     "start": "cds-serve",
     "start:ui5": "npm run start --prefix app/ask-capital",
     "watch": "cds-tsx w --profile hybrid",
-    "before:cds-watch": "cds-typer \"*\""
+    "before:cds-watch": "cds-typer \"*\"",
+    "postinstall": "npm --prefix app/ask-capital install"
   },
   "imports": {
     "#cds-models/*": "./@cds-models/*/index.js"
