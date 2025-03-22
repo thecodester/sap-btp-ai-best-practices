@@ -5,6 +5,9 @@
   "repository": "<Add your repository here>",
   "license": "UNLICENSED",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "@sap-ai-sdk/ai-api": "^1.10.0",
     "@sap-ai-sdk/foundation-models": "^1.10.0",
@@ -14,6 +17,7 @@
     "express": "^4"
   },
   "devDependencies": {
+    "@cap-js/cds-test": "^0",
     "@cap-js/cds-typer": ">=0.1",
     "@cap-js/cds-types": "^0.9.0",
     "@sap/cds-dk": "^8",
@@ -25,15 +29,17 @@
     "start": "cds-serve",
     "start:ui5": "npm run start --prefix app/ask-capital",
     "watch": "cds-tsx w --profile hybrid",
+    "debug": "cds-tsx w --profile hybrid --debug",
     "before:cds-watch": "cds-typer \"*\"",
-    "postinstall": "npm --prefix app/ask-capital install",
-    "build": "pnpm cds-build && pnpm compile && pnpm cleanup",
-    "cds-build": "cds build --production",
+    "build:ui5": "npm run build --prefix app/ask-capital",
     "compile": "tsc",
-    "cleanup": "rm -f ./dist/srv/srv/**/*.ts ./dist/srv/package-lock.json",
-    "deploy:postbuild": "pushd ./dist/srv && npm i --package-lock-only && popd",
+    "cleanup": "rm -f ./gen/srv/srv/**/*.ts ./gen/srv/package-lock.json",
+    "deploy:postbuild": "pushd ./gen/srv && npm i --package-lock-only && popd",
     "deploy": "cf deploy mta_archives/fullstack-sample-test_1.0.0.mtar"
   },
+  "workspaces": [
+    "app/*"
+  ],
   "imports": {
     "#cds-models/*": "./@cds-models/*/index.js"
   },
@@ -41,10 +47,28 @@
     "app/ask-capital"
   ],
   "cds": {
+    "cdsc": {
+      "newParser": true
+    },
     "requires": {
       "[production]": {
         "auth": "xsuaa"
       }
+    },
+    "build": {
+      "target": "gen",
+      "tasks": [
+        {
+          "for": "nodejs"
+        },
+        {
+          "for": "typescript"
+        }
+      ]
+    },
+    "typer": {
+      "output_directory": "@cds-models",
+      "use_entities_proxy": true
     }
   }
 }

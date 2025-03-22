@@ -9,8 +9,8 @@ build-parameters:
     - builder: custom
       commands:
         - npm ci
-        - npm run build
-        - npm run deploy:postbuild
+        - npx -p @sap/cds-dk cds build --profile production
+
 modules:
   - name: fullstack-sample-test-srv
     type: nodejs
@@ -18,6 +18,9 @@ modules:
     parameters:
       instances: 1
       buildpack: nodejs_buildpack
+      ignore:
+        - 'node_modules/'
+        - 'orchestration/'
     build-parameters:
       builder: npm-ci
     provides:
@@ -26,6 +29,7 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: fullstack-sample-test-auth
+      - name: best-practices-aicore
 
   - name: fullstack-sample-test
     type: approuter.nodejs
@@ -42,6 +46,13 @@ modules:
           url: ~{srv-url}
           forwardAuthToken: true
       - name: fullstack-sample-test-auth
+    build-parameters:
+      ignore:
+        - 'node_modules/'
+      builder: custom
+      commands:
+        - npm install --prefix ../ask-capital
+        - npm run build --prefix ../ask-capital
     provides:
       - name: app-api
         properties:
@@ -56,5 +67,8 @@ resources:
       service-plan: application
       path: ./xs-security.json
       config:
-        xsappname: fullstack-sample-test-${org}-${space}
+        xsappname: fullstack-sample-test
         tenant-mode: dedicated
+
+  - name: best-practices-aicore
+    type: org.cloudfoundry.existing-service

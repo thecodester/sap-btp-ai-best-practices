@@ -1,5 +1,5 @@
 @path    : 'orchestration'
-@requires: 'any'
+@requires: 'authenticated-user'
 service OrchestrationService {
   action askCapitalOfCountry(country : String)                                           returns String;
   action chatCompletion(template : array of Template, inputParams : array of InputParam) returns String;
