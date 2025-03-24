@@ -35,21 +35,29 @@ fullstack-sample/
 
 1. Install dependencies using `npm install`.
 
-2. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`.
+2. Install dependencies for the UI5 application:
 
-3. Bind the application to your AI Core instance:
+   ```bash
+   cd app/ask-capital
+   npm install
+
+   ```
+
+3. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`.
+
+4. Bind the application to your AI Core instance:
 
    ```bash
    cds bind -2 AI_CORE_INSTANCE_NAME:AI_CORE_INSTANCE_SERVICE_KEY_NAME
    ```
 
-4. Start the backend with AI Core binding:
+5. Start the backend with AI Core binding:
 
    ```bash
    npm watch
    ```
 
-5. In a separate terminal, navigate to the UI5 application and start it:
+6. In a separate terminal, navigate to the UI5 application and start it:
 
    ```bash
    npm run start:ui5
