@@ -29,7 +29,7 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: fullstack-sample-test-auth
-      - name: best-practices-aicore
+      - name: fullstack-sample-test-aicore
 
   - name: fullstack-sample-test
     type: approuter.nodejs
@@ -70,5 +70,7 @@ resources:
         xsappname: fullstack-sample-test
         tenant-mode: dedicated
 
-  - name: best-practices-aicore
+  - name: fullstack-sample-test-aicore
     type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: best-practices-aicore

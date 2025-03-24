@@ -31,10 +31,8 @@
     "watch": "cds-tsx w --profile hybrid",
     "debug": "cds-tsx w --profile hybrid --debug",
     "before:cds-watch": "cds-typer \"*\"",
+    "build": "mbt build",
     "build:ui5": "npm run build --prefix app/ask-capital",
-    "compile": "tsc",
-    "cleanup": "rm -f ./gen/srv/srv/**/*.ts ./gen/srv/package-lock.json",
-    "deploy:postbuild": "pushd ./gen/srv && npm i --package-lock-only && popd",
     "deploy": "cf deploy mta_archives/fullstack-sample-test_1.0.0.mtar"
   },
   "workspaces": [

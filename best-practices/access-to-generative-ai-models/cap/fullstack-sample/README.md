@@ -35,29 +35,21 @@ fullstack-sample/
 
 1. Install dependencies using `npm install`.
 
-2. Install dependencies for the UI5 application:
+2. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`.
 
-   ```bash
-   cd app/ask-capital
-   npm install
-
-   ```
-
-3. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`.
-
-4. Bind the application to your AI Core instance:
+3. Bind the application to your AI Core instance:
 
    ```bash
    cds bind -2 AI_CORE_INSTANCE_NAME:AI_CORE_INSTANCE_SERVICE_KEY_NAME
    ```
 
-5. Start the backend with AI Core binding:
+4. Start the backend with AI Core binding:
 
    ```bash
-   npm watch
+   npm run watch
    ```
 
-6. In a separate terminal, navigate to the UI5 application and start it:
+5. In a separate terminal, navigate to the UI5 application and start it:
 
    ```bash
    npm run start:ui5
@@ -72,21 +64,11 @@ fullstack-sample/
 > Apply proper authentication mechanisms to avoid unauthorized access.
 
 1. Install dependencies using `npm install`.
-2. Transpile the CAP application using `npm build`.
-3. Run `deploy:postbuild` to add a `package-lock.json`
-4. Build the UI5 application:
-   ```bash
-   cd app/ask-capital
-   npm run build:opt
-   ```
-5. Copy the built UI5 app to the deployment folder:
-   ```bash
-   mkdir -p ../../resources/ask-capital
-   cp -r dist/* ../../resources/ask-capital/
-   ```
-6. Modify `services` and `routes` values in `manifest.yml`
-7. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`
-8. Deploy the application using `cf push`
+2. In the `mta.yml`, under the `resources` section on the `fullstack-sample-test-aicore`, modify the `service-name` from `best-practices-aicore` to the name of your AI Core Service instance.
+3. Transpile the CAP application using `npm run build`.
+4. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`
+5. Deploy the application using `npm run deploy`
+6. Open URL of the `fullstack-sample-test` in the browser to access the application.
 
 ## Usage
 
