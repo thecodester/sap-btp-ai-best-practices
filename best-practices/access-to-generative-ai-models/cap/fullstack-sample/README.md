@@ -33,7 +33,7 @@ fullstack-sample/
 
 ## Local Deployment
 
-1. Install dependencies using `pnpm install`.
+1. Install dependencies using `npm install`.
 
 2. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`.
 
@@ -46,13 +46,13 @@ fullstack-sample/
 4. Start the backend with AI Core binding:
 
    ```bash
-   pnpm watch:hybrid
+   npm watch
    ```
 
 5. In a separate terminal, navigate to the UI5 application and start it:
 
    ```bash
-   pnpm run start:ui5
+   npm run start:ui5
    ```
 
    The UI5 application will automatically connect to the running CAP backend.
@@ -63,8 +63,8 @@ fullstack-sample/
 > All CDS services are marked with `@requires: 'any'` and are publicly accessible in order to simplify the deployment process.
 > Apply proper authentication mechanisms to avoid unauthorized access.
 
-1. Install dependencies using `pnpm install`.
-2. Transpile the CAP application using `pnpm build`.
+1. Install dependencies using `npm install`.
+2. Transpile the CAP application using `npm build`.
 3. Run `deploy:postbuild` to add a `package-lock.json`
 4. Build the UI5 application:
    ```bash
