@@ -1,1 +1,0 @@
-export { getTranslations } from "./getTranslations";
