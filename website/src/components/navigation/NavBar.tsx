@@ -1,7 +1,7 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import BaseLink from "./BaseLink";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -9,9 +9,9 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light fixed-top text-bg-dark" id="mainNav">
       <div className="container">
-        <BaseLink href="/" className="navbar-brand">
+        <Link href="/" className="navbar-brand">
           SAP BTP AI Best Practices
-        </BaseLink>
+        </Link>
         <button
           className="navbar-toggler navbar-toggler-right"
           type="button"
@@ -27,14 +27,14 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
             <li className="nav-item">
-              <BaseLink href="/" className={`nav-link ${pathname === "/" ? "active" : ""}`}>
+              <Link href="/" className={`nav-link ${pathname === "/" ? "active" : ""}`}>
                 Home
-              </BaseLink>
+              </Link>
             </li>
             <li className="nav-item">
-              <BaseLink href="/about" className={`nav-link ${pathname === "/about/" ? "active" : ""}`}>
+              <Link href="/about" className={`nav-link ${pathname === "/about/" ? "active" : ""}`}>
                 About
-              </BaseLink>
+              </Link>
             </li>
           </ul>
         </div>
