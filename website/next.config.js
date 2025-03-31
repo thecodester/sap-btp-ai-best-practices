@@ -6,7 +6,8 @@ const nextConfig = {
   output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
-  assetPrefix: env === "development" ? undefined : "/sap-btp-ai-best-practices"
+  assetPrefix: env === "development" ? undefined : "/sap-btp-ai-best-practices",
+  basePath: env === "development" ? undefined : "/sap-btp-ai-best-practices"
 };
 
 module.exports = nextConfig;
