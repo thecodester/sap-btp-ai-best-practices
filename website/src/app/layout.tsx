@@ -1,7 +1,7 @@
 import { aleo } from "@/fonts";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "./styles/custom-agency.css";
+import "./styles/custom.css";
 import "./styles/global.css";
 
 export async function generateMetadata() {
