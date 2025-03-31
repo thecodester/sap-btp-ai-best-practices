@@ -16,13 +16,6 @@ export default async function AboutPage() {
       <section id="landing" className="p-0">
         <h1>About</h1>
       </section>
-      {/* <main className="container py-5">
-        <div className="row">
-          <div className="col-lg-8 mx-auto">
-            <h1>About SAP BTP AI Best Practices</h1>
-          </div>
-        </div>
-      </main> */}
     </>
   );
 }
