@@ -2,7 +2,7 @@ import Navbar from "@/components/navigation/NavBar";
 import PageViewTracker from "@/components/tracking/PageViewTracker";
 export async function generateMetadata() {
   return {
-    metadataBase: new URL("https://sap-btp-ai-best-practices.com/"),
+    metadataBase: new URL("https://sap-samples.github.io/sap-btp-ai-best-practices/"),
     title: "SAP BTP AI Best Practices",
     description: "Your Ultimate Guide for Building AI Solutions on BTP",
     openGraph: {
