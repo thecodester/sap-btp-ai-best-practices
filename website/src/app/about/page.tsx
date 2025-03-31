@@ -1,0 +1,28 @@
+import Navbar from "@/components/navigation/NavBar";
+import PageViewTracker from "@/components/tracking/PageViewTracker";
+
+export async function generateMetadata() {
+  return {
+    title: "About - SAP BTP AI Best Practices",
+    description: "Learn more about SAP BTP AI Best Practices and how to implement them in your projects."
+  };
+}
+
+export default async function AboutPage() {
+  return (
+    <>
+      <PageViewTracker featureName="ABOUT" />
+      <Navbar />
+      <section id="landing" className="p-0">
+        <h1>About</h1>
+      </section>
+      {/* <main className="container py-5">
+        <div className="row">
+          <div className="col-lg-8 mx-auto">
+            <h1>About SAP BTP AI Best Practices</h1>
+          </div>
+        </div>
+      </main> */}
+    </>
+  );
+}
