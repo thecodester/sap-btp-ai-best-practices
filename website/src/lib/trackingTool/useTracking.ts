@@ -1,5 +1,6 @@
 import { environment } from "@/config/environment";
 import SAPTrackingTool from "@sap_oss/automated-usage-tracking-tool";
+import "@sap_oss/automated-usage-tracking-tool/theme/sap_horizon.css";
 import { useEffect } from "react";
 import { TRACKING_CONFIG } from "./config";
 

@@ -1,5 +1,4 @@
 import Navbar from "@/components/navigation/NavBar";
-import Landing from "@/components/sections/landing";
 
 export async function generateMetadata() {
   return {
@@ -21,7 +20,9 @@ export default async function RootPage() {
   return (
     <>
       <Navbar />
-      <Landing />
+      <section id="landing" className="p-0">
+        <h1>Landing</h1>
+      </section>
     </>
   );
 }
