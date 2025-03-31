@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -7,25 +8,25 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light fixed-top text-bg-dark" id="mainNav">
-      <div className="container">
-        <Link href="/" className="navbar-brand">
-          SAP BTP AI Best Practices
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="container-fluid">
+        <Link href="/" className="navbar-brand d-flex align-items-center">
+          <Image src="/images/icon.svg" alt="SAP BTP AI Best Practices Logo" width={64} height={64} />
+          BTP AI Best Practices
         </Link>
         <button
-          className="navbar-toggler navbar-toggler-right"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          Menu
-          <i className="fas fa-bars ms-1"></i>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarResponsive">
-          <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
             <li className="nav-item">
               <Link href="/" className={`nav-link ${pathname === "/" ? "active" : ""}`}>
                 Home
