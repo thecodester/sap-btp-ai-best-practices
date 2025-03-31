@@ -11,7 +11,7 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <Link href="/" className="navbar-brand d-flex align-items-center">
-          <Image src="/images/icon.svg" alt="SAP BTP AI Best Practices Logo" width={64} height={64} />
+          <Image src="images/icon.svg" alt="SAP BTP AI Best Practices Logo" width={64} height={64} />
           BTP AI Best Practices
         </Link>
         <button
