@@ -8,7 +8,7 @@ const nextConfig = {
   images: { unoptimized: true },
   assetPrefix: env === "development" ? undefined : "/sap-btp-ai-best-practices",
   basePath: env === "development" ? undefined : "/sap-btp-ai-best-practices",
-  distDir: "../docs"
+  distDir: env === "development" ? undefined : "../docs"
 };
 
 module.exports = nextConfig;
