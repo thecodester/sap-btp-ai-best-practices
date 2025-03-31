@@ -6,12 +6,12 @@ export async function generateMetadata() {
     title: "SAP BTP AI Best Practices",
     description: "Your Ultimate Guide for Building AI Solutions on BTP",
     openGraph: {
-      images: "/images/thumbnail-en.jpg"
+      images: "/images/icon-square.png"
     },
     icons: {
-      icon: "/images/icon.png",
-      shortcut: "/images/icon.png",
-      apple: "/images/icon.png"
+      icon: "/images/icon-square.png",
+      shortcut: "/images/icon-square.png",
+      apple: "/images/icon-square.png"
     }
   };
 }
