@@ -79,12 +79,17 @@ const Footer: React.FC = () => {
             <div className="footer__title">Contact Us</div>
             <ul className="footer__items clean-list">
               <li className="footer__item">
+                <a href="mailto:btp_ai_bp@sap.com?subject=[SAP BTP AI Best Practices Feedback]" target="_blank" rel="noopener noreferrer" className="footer__link-item">
+                  Provide Feedback
+                </a>
+              </li>
+              <li className="footer__item">
                 <a href="https://github.com/SAP-samples/sap-btp-ai-best-practices/issues/new" target="_blank" rel="noopener noreferrer" className="footer__link-item">
                   Report Issue
                 </a>
               </li>
               <li className="footer__item">
-                <a href="mailto:btp_ai_bp@sap.com?subject=[SAP BTP AI Best Practices]" target="_blank" rel="noopener noreferrer" className="footer__link-item">
+                <a href="mailto:btp_ai_bp@sap.com?subject=[SAP BTP AI Best Practices Questions]" target="_blank" rel="noopener noreferrer" className="footer__link-item">
                   Questions
                 </a>
               </li>
