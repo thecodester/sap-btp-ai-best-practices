@@ -1,8 +1,9 @@
 import { aleo } from "@/fonts";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles/custom.css";
 import "./styles/global.css";
+import "./styles/sap-horizon-theme.css";
+import "./styles/sap-theme-custom.css";
 
 export async function generateMetadata() {
   return {

@@ -1,0 +1,256 @@
+:root {
+  /* SAP Horizon Color Palette */
+  --sap-horizon-primary: #0070f2;
+  --sap-horizon-primary-hover: #0057d2;
+  --sap-horizon-primary-active: #0040b0;
+  --sap-horizon-secondary: #5c6b7f;
+  --sap-horizon-success: #107e3e;
+  --sap-horizon-warning: #ff9b1f;
+  --sap-horizon-danger: #bb0000;
+  --sap-horizon-info: #0070f2;
+
+  /* Neutral Colors */
+  --sap-horizon-neutral-1: #ffffff;
+  --sap-horizon-neutral-2: #f5f6f7;
+  --sap-horizon-neutral-3: #eaecee;
+  --sap-horizon-neutral-4: #d3d7d9;
+  --sap-horizon-neutral-5: #6a6d70;
+  --sap-horizon-neutral-6: #354a5f;
+  --sap-horizon-neutral-7: #223548;
+  --sap-horizon-neutral-8: #1c2c3c;
+  --sap-horizon-neutral-9: #000000;
+
+  /* Typography */
+  --sap-horizon-font-family: "72", "72full", Arial, Helvetica, sans-serif;
+  --sap-horizon-font-size-xs: 0.75rem;
+  --sap-horizon-font-size-sm: 0.875rem;
+  --sap-horizon-font-size-base: 1rem;
+  --sap-horizon-font-size-lg: 1.125rem;
+  --sap-horizon-font-size-xl: 1.25rem;
+  --sap-horizon-font-size-2xl: 1.5rem;
+  --sap-horizon-font-size-3xl: 1.875rem;
+  --sap-horizon-font-size-4xl: 2.25rem;
+
+  /* Spacing */
+  --sap-horizon-spacing-xs: 0.25rem;
+  --sap-horizon-spacing-sm: 0.5rem;
+  --sap-horizon-spacing-md: 1rem;
+  --sap-horizon-spacing-lg: 1.5rem;
+  --sap-horizon-spacing-xl: 2rem;
+  --sap-horizon-spacing-2xl: 3rem;
+
+  /* Border Radius */
+  --sap-horizon-border-radius-sm: 0.25rem;
+  --sap-horizon-border-radius-md: 0.375rem;
+  --sap-horizon-border-radius-lg: 0.5rem;
+  --sap-horizon-border-radius-xl: 0.75rem;
+
+  /* Shadows */
+  --sap-horizon-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --sap-horizon-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --sap-horizon-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Base Styles */
+body {
+  font-family: var(--sap-horizon-font-family);
+  color: var(--sap-horizon-neutral-7);
+  line-height: 1.5;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--sap-horizon-neutral-8);
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: var(--sap-horizon-spacing-md);
+}
+
+h1 {
+  font-size: var(--sap-horizon-font-size-4xl);
+}
+h2 {
+  font-size: var(--sap-horizon-font-size-3xl);
+}
+h3 {
+  font-size: var(--sap-horizon-font-size-2xl);
+}
+h4 {
+  font-size: var(--sap-horizon-font-size-xl);
+}
+h5 {
+  font-size: var(--sap-horizon-font-size-lg);
+}
+h6 {
+  font-size: var(--sap-horizon-font-size-base);
+}
+
+/* Buttons */
+.btn {
+  font-family: var(--sap-horizon-font-family);
+  font-weight: 500;
+  padding: var(--sap-horizon-spacing-sm) var(--sap-horizon-spacing-md);
+  border-radius: var(--sap-horizon-border-radius-md);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background-color: var(--sap-horizon-primary);
+  border-color: var(--sap-horizon-primary);
+  color: var(--sap-horizon-neutral-1);
+}
+
+.btn-primary:hover {
+  background-color: var(--sap-horizon-primary-hover);
+  border-color: var(--sap-horizon-primary-hover);
+}
+
+.btn-primary:active {
+  background-color: var(--sap-horizon-primary-active);
+  border-color: var(--sap-horizon-primary-active);
+}
+
+.btn-secondary {
+  background-color: var(--sap-horizon-secondary);
+  border-color: var(--sap-horizon-secondary);
+  color: var(--sap-horizon-neutral-1);
+}
+
+/* Cards */
+.card {
+  background-color: var(--sap-horizon-neutral-1);
+  border-radius: var(--sap-horizon-border-radius-lg);
+  box-shadow: var(--sap-horizon-shadow-md);
+  border: 1px solid var(--sap-horizon-neutral-3);
+}
+
+.card-header {
+  background-color: var(--sap-horizon-neutral-2);
+  border-bottom: 1px solid var(--sap-horizon-neutral-3);
+  padding: var(--sap-horizon-spacing-md);
+}
+
+/* Forms */
+.form-control {
+  border: 1px solid var(--sap-horizon-neutral-4);
+  border-radius: var(--sap-horizon-border-radius-md);
+  padding: var(--sap-horizon-spacing-sm) var(--sap-horizon-spacing-md);
+  font-family: var(--sap-horizon-font-family);
+}
+
+.form-control:focus {
+  border-color: var(--sap-horizon-primary);
+  box-shadow: 0 0 0 0.2rem rgba(10, 110, 209, 0.25);
+}
+
+/* Navigation */
+.navbar {
+  background-color: var(--sap-horizon-neutral-1);
+  box-shadow: var(--sap-horizon-shadow-sm);
+}
+
+.nav-link {
+  color: var(--sap-horizon-neutral-6);
+  font-weight: 500;
+  padding: var(--sap-horizon-spacing-sm) var(--sap-horizon-spacing-md);
+}
+
+.nav-link:hover {
+  color: var(--sap-horizon-primary);
+}
+
+/* Tables */
+.table {
+  color: var(--sap-horizon-neutral-7);
+}
+
+.table thead th {
+  background-color: var(--sap-horizon-neutral-2);
+  border-bottom: 2px solid var(--sap-horizon-neutral-3);
+  color: var(--sap-horizon-neutral-6);
+  font-weight: 600;
+}
+
+.table td {
+  border-bottom: 1px solid var(--sap-horizon-neutral-3);
+}
+
+/* Alerts */
+.alert {
+  border-radius: var(--sap-horizon-border-radius-md);
+  padding: var(--sap-horizon-spacing-md);
+}
+
+.alert-success {
+  background-color: rgba(16, 126, 62, 0.1);
+  border-color: var(--sap-horizon-success);
+  color: var(--sap-horizon-success);
+}
+
+.alert-warning {
+  background-color: rgba(255, 155, 31, 0.1);
+  border-color: var(--sap-horizon-warning);
+  color: var(--sap-horizon-warning);
+}
+
+.alert-danger {
+  background-color: rgba(187, 0, 0, 0.1);
+  border-color: var(--sap-horizon-danger);
+  color: var(--sap-horizon-danger);
+}
+
+.alert-info {
+  background-color: rgba(10, 110, 209, 0.1);
+  border-color: var(--sap-horizon-info);
+  color: var(--sap-horizon-info);
+}
+
+/* Tabs */
+.nav-tabs {
+  border-bottom: 1px solid var(--sap-horizon-neutral-3);
+  margin-bottom: var(--sap-horizon-spacing-md);
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  color: var(--sap-horizon-neutral-6);
+  font-weight: 500;
+  padding: var(--sap-horizon-spacing-sm) var(--sap-horizon-spacing-md);
+  margin-right: var(--sap-horizon-spacing-md);
+  position: relative;
+  background: transparent;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--sap-horizon-primary);
+  background: transparent;
+  border: none;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--sap-horizon-primary);
+  background: transparent;
+  border: none;
+  font-weight: 600;
+}
+
+.nav-tabs .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--sap-horizon-primary);
+  border-radius: 2px;
+}
+
+.nav-tabs .nav-link:focus {
+  outline: none;
+  box-shadow: none;
+}
