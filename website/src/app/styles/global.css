@@ -26,6 +26,7 @@
 /* Apply SAP font to the entire application */
 :root {
   --sapFontFamily: "72", Arial, Helvetica, sans-serif !important;
+  --ifm-footer-color: var(--sap-horizon-neutral-6);
 }
 
 /* Override all font-family declarations */
@@ -76,21 +77,12 @@ h6,
 /* Footer Styles */
 .footer {
   padding: 2rem 0;
-  background-color: var(--ifm-footer-background-color);
+  background-color: var(--sap-horizon-neutral-3);
   color: var(--ifm-footer-color);
-}
-
-.footer--dark {
-  --ifm-footer-background-color: #1a1a1a;
-  --ifm-footer-color: #ffffff;
 }
 
 .footer__links {
   margin-bottom: 2rem;
-}
-
-.footer__col {
-  margin-bottom: 1.5rem;
 }
 
 .footer__title {
@@ -124,7 +116,7 @@ h6,
 
 .footer__bottom {
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .footer__logo {

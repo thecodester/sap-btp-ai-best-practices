@@ -5,7 +5,7 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer footer--dark" data-landmark-index="4">
+    <footer className="footer" data-landmark-index="4">
       <div className="container container-fluid">
         <div className="row footer__links">
           <div className="col footer__col">
@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="footer__bottom text--center">
           <div className="margin-bottom--sm">
-            <Image src={getAssetPath("/images/sap-dark.svg")} alt="SAP Logo" className="footer__logo themedComponent_DHUr themedComponent--light_DIHH" width={160} height={51} />
+            <Image src={getAssetPath("/images/icon.svg")} alt="SAP Logo" className="footer__logo themedComponent_DHUr themedComponent--light_DIHH" width={100} height={50} />
           </div>
           <div className="footer__copyright">© Copyright {new Date().getFullYear()}, SAP SE and SAP BTP AI Best Practices Contributors</div>
         </div>
