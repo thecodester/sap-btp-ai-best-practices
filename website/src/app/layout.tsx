@@ -1,3 +1,4 @@
+import MainLayout from "@/components/MainLayout";
 import { aleo } from "@/fonts";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -24,7 +25,9 @@ export async function generateMetadata() {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" data-bs-theme="light">
-      <body className={aleo.className}>{children}</body>
+      <body className={aleo.className}>
+        <MainLayout>{children}</MainLayout>
+      </body>
     </html>
   );
 }
