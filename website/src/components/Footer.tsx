@@ -9,6 +9,11 @@ const Footer: React.FC = () => {
       <div className="container container-fluid">
         <div className="row footer__links">
           <div className="col footer__col">
+            <div className="margin-bottom--sm">
+              <Image src={getAssetPath("/images/icon.svg")} alt="SAP Logo" className="footer__logo themedComponent_DHUr themedComponent--light_DIHH" width={100} height={50} />
+            </div>
+          </div>
+          <div className="col footer__col">
             <div className="footer__title">Community</div>
             <ul className="footer__items clean-list">
               <li className="footer__item">
@@ -19,16 +24,16 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           <div className="col footer__col">
-            <div className="footer__title">Docs</div>
+            <div className="footer__title">Resources</div>
             <ul className="footer__items clean-list">
               <li className="footer__item">
                 <a className="footer__link-item" href="#todo">
-                  Documentation
+                  Technologies
                 </a>
               </li>
               <li className="footer__item">
                 <a className="footer__link-item" href="#todo">
-                  FAQ
+                  Glossary
                 </a>
               </li>
             </ul>
@@ -86,10 +91,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        <div className="footer__bottom text--center">
-          <div className="margin-bottom--sm">
-            <Image src={getAssetPath("/images/icon.svg")} alt="SAP Logo" className="footer__logo themedComponent_DHUr themedComponent--light_DIHH" width={100} height={50} />
-          </div>
+        <div className="footer__bottom">
           <div className="footer__copyright">© Copyright {new Date().getFullYear()}, SAP SE and SAP BTP AI Best Practices Contributors</div>
         </div>
       </div>
