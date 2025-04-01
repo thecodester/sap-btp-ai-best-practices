@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="footer__bottom">
-          <div className="footer__copyright">© Copyright {new Date().getFullYear()}, SAP SE and SAP BTP AI Best Practices Contributors</div>
+          <div className="footer__copyright">© Copyright {new Date().getFullYear()}, SAP SE</div>
         </div>
       </div>
     </footer>
