@@ -19,12 +19,12 @@ const Footer: React.FC = () => {
             <div className="footer__title">Docs</div>
             <ul className="footer__items clean-list">
               <li className="footer__item">
-                <a className="footer__link-item" href="/ui5-webcomponents/docs/getting-started/first-steps/">
+                <a className="footer__link-item" href="#todo">
                   Documentation
                 </a>
               </li>
               <li className="footer__item">
-                <a className="footer__link-item" href="/ui5-webcomponents/docs/FAQ/">
+                <a className="footer__link-item" href="#todo">
                   FAQ
                 </a>
               </li>
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
             <div className="footer__title">Legal & Privacy</div>
             <ul className="footer__items clean-list">
               <li className="footer__item">
-                <a href="https://sap.github.io/ui5-webcomponents/Privacy" target="_blank" rel="noopener noreferrer" className="footer__link-item">
+                <a href="/privacy" target="_blank" rel="noopener noreferrer" className="footer__link-item">
                   Privacy
                   <svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" className="iconExternalLink_awgD">
                     <path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path>
@@ -85,15 +85,9 @@ const Footer: React.FC = () => {
         </div>
         <div className="footer__bottom text--center">
           <div className="margin-bottom--sm">
-            <img
-              src="https://sap.github.io/ui5-webcomponents/img/footer/sap-1920-1440.svg"
-              alt="SAP Logo"
-              className="footer__logo themedComponent_DHUr themedComponent--light_DIHH"
-              width="160"
-              height="51"
-            />
+            <img src="images/sap-dark.svg" alt="SAP Logo" className="footer__logo themedComponent_DHUr themedComponent--light_DIHH" width="160" height="51" />
           </div>
-          <div className="footer__copyright">© Copyright 2025, SAP SE and UI5 Web Components Contributors</div>
+          <div className="footer__copyright">© Copyright {new Date().getFullYear()}, SAP SE and UI5 Web Components Contributors</div>
         </div>
       </div>
     </footer>

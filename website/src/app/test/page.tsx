@@ -1,6 +1,5 @@
 "use client";
 
-import Navbar from "@/components/navigation/NavBar";
 import { useState } from "react";
 
 export default function TestPage() {
@@ -10,7 +9,6 @@ export default function TestPage() {
 
   return (
     <>
-      <Navbar />
       <div className="container py-5">
         <h1 className="mb-4">SAP Horizon Theme Components</h1>
 

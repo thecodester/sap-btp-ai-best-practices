@@ -1,4 +1,3 @@
-import Navbar from "@/components/navigation/NavBar";
 import PageViewTracker from "@/components/tracking/PageViewTracker";
 
 export async function generateMetadata() {
@@ -12,7 +11,6 @@ export default async function AboutPage() {
   return (
     <>
       <PageViewTracker featureName="ABOUT" />
-      <Navbar />
       <section id="landing" className="p-0">
         <h1>About</h1>
       </section>
