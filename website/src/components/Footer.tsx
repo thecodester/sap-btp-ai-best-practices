@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Footer: React.FC = () => {
@@ -35,12 +36,12 @@ const Footer: React.FC = () => {
             <div className="footer__title">Legal & Privacy</div>
             <ul className="footer__items clean-list">
               <li className="footer__item">
-                <a href="/privacy" target="_blank" rel="noopener noreferrer" className="footer__link-item">
+                <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="footer__link-item">
                   Privacy
                   <svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" className="iconExternalLink_awgD">
                     <path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
                 <a href="https://www.sap.com/impressum" target="_blank" rel="noopener noreferrer" className="footer__link-item">
