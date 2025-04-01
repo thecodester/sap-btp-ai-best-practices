@@ -38,6 +38,11 @@ export default function Navbar() {
                 About
               </Link>
             </li>
+            <li className="nav-item">
+              <Link href="https://github.com/SAP-samples/sap-btp-ai-best-practices" className="nav-link" target="_blank">
+                GitHub
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
