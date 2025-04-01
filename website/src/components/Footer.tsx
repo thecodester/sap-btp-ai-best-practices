@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const Footer: React.FC = () => {
@@ -85,7 +86,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="footer__bottom text--center">
           <div className="margin-bottom--sm">
-            <img src="images/sap-dark.svg" alt="SAP Logo" className="footer__logo themedComponent_DHUr themedComponent--light_DIHH" width="160" height="51" />
+            <Image src="/images/sap-dark.svg" alt="SAP Logo" className="footer__logo themedComponent_DHUr themedComponent--light_DIHH" width={160} height={51} />
           </div>
           <div className="footer__copyright">© Copyright {new Date().getFullYear()}, SAP SE and UI5 Web Components Contributors</div>
         </div>

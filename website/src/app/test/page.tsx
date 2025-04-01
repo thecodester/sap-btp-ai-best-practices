@@ -680,7 +680,7 @@ export default function TestPage() {
                     </button>
                   </h2>
                   <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                    <div className="accordion-body">This is the first accordion item's content.</div>
+                    <div className="accordion-body">This is the first accordion item&apos;s content.</div>
                   </div>
                 </div>
                 <div className="accordion-item">
@@ -690,7 +690,7 @@ export default function TestPage() {
                     </button>
                   </h2>
                   <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div className="accordion-body">This is the second accordion item's content.</div>
+                    <div className="accordion-body">This is the second accordion item&apos;s content.</div>
                   </div>
                 </div>
               </div>
