@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
           <div className="margin-bottom--sm">
             <Image src="/images/sap-dark.svg" alt="SAP Logo" className="footer__logo themedComponent_DHUr themedComponent--light_DIHH" width={160} height={51} />
           </div>
-          <div className="footer__copyright">© Copyright {new Date().getFullYear()}, SAP SE and UI5 Web Components Contributors</div>
+          <div className="footer__copyright">© Copyright {new Date().getFullYear()}, SAP SE and SAP BTP AI Best Practices Contributors</div>
         </div>
       </div>
     </footer>
