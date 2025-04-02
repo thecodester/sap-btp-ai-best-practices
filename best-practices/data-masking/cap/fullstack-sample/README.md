@@ -1,4 +1,4 @@
-# Sample CAP Application with SAP Cloud SDK for AI
+# SAP BTP AI Best Practice Demo - Data Masking - CAP (full stack)
 
 This project demonstrates best practices for accessing generative AI models through a CAP (Cloud Application Programming model) application using the SAP Cloud SDK for AI. It provides examples of how to interact with language models to obtain responses based on user prompts within a CAP service context.
 
@@ -68,48 +68,34 @@ fullstack-sample/
 3. Transpile the CAP application using `npm run build`.
 4. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`
 5. Deploy the application using `npm run deploy`
-6. Open URL of the `fullstack-sample-test` in the browser to access the application.
+6. Open URL of the `ai-data-masking-cap-fullstack-demo` in the browser to access the application.
 
 ## Usage
 
 For local deployment, the backend services are available at `http://localhost:4004` and the UI5 application at `http://localhost:8080`.
 
-For remote deployment, access the application at the `route` value defined in `manifest.yml`.
+For remote deployment, access the application at the url returned during the deployment or found in the BTP cockpit.
+
+### Sample UI - Request
+![alt text](readme-image-1.png)
+
+### Sample UI - Response
+![alt text](readme-image-2.png)
 
 ### Backend Services (OData v4)
 
-#### Ask Capital of Country
+#### Ask for Email
 
 ```bash
 curl --request POST \
-  --url $SAMPLE_CAP_HOST/odata/v4/orchestration/askCapitalOfCountry \
+  --url http://$SAMPLE_CAP_HOST/odata/v4/orchestration/generateEmail \
   --header 'Content-Type: application/json' \
   --data '{
-    "country": "France"
-  }'
-```
-
-#### Chat Completions with Templating
-
-```bash
-curl --request POST \
-  --url $SAMPLE_CAP_HOST/odata/v4/orchestration/chatCompletion \
-  --header 'Content-Type: application/json' \
-  --data '{
-  "template": [
-    {
-      "role": "user",
-      "content": "What is the capital of {{?country}}"
-    }
-  ],
-  "inputParams": [
-    {
-      "name": "country",
-      "value": "France"
-    }
-  ]
+  "prompt": "Please write an email to John Doe (john.doe@sap.com), informing them about the amazing capabilities of generative AI! Be brief and concise, write at most 6 sentences.", 
+  "anonymize": true
 }'
 ```
+
 
 ## Contributing
 

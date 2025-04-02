@@ -4,7 +4,7 @@
   "description": "A demo project to showcase data masking with generative AI models using SAP AI SDK.",
   "scripts": {
     "start": "node dist/server.js",
-    "start:dev": "tsx watch src/server.ts",
+    "watch": "tsx watch src/server.ts",
     "build:tsc": "tsc",
     "build": "mbt build",
     "deploy": "cf deploy mta_archives/ai-data-masking-typescript-demo_1.0.0.mtar",

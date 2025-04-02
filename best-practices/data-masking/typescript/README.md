@@ -1,13 +1,13 @@
-# AI Model Access Demo
+# SAP BTP AI Best Practice Demo - Data Masking - Typescript
 
 This project demonstrates best practices for using data masking with generative AI models using the SAP AI SDK. It provides a simple example of how to interact with a language model to obtain responses based on user prompts.
 
 ## Project Structure
 
 ```
-data-masking
+typescript
 ├── src
-│   ├── index.ts               # Entry point of the application
+│   ├── server.ts               # Entry point of the application
 │   ├── services
 │   │   └── aiOrchestration.ts # Contains the orchestration logic for AI model access
 │   └── utils
@@ -44,17 +44,27 @@ data-masking
 
 4. **Run the application:**
    ```bash
-   npm start
+   npm run watch
    ```
 
 ## Usage Example
 
-The application will invoke the `orchestrationChatCompletionMasking` function, which triggers the masking model, then sends a prompt to the AI model and logs the response. 
+The application will serve the `/generateEmail` API, which triggers the masking model, then sends a prompt to the AI model and logs the response. 
 
-The default prompt is set to 'Please write an email to John Doe (john.doe@sap.com), informing them about the amazing capabilities of generative AI! Be brief and concise, write at most 6 sentences.'.
+For local deployment, set `$SAMPLE_HOST` as `http://localhost:4004`. For remote deployment, set `SAMPLE_CAP_HOST` as the value returned from the deployment step.
 
+#### Generate Email with masked data
 
-curl https://btp-na-practice-buildcode-dan-antonio-ai-data-masking-t34b99256.cfapps.eu10-004.hana.ondemand.com 
+```bash
+curl --request POST \
+  --url http://$SAMPLE_HOST/generateEmail \
+  --header "Content-Type: application/json" \
+  --data '{
+  "prompt": "Please write an email to John Doe (john.doe@sap.com), informing them about the amazing capabilities of generative AI! Be brief and concise, write at most 6 sentences.", 
+  "anonymize": true
+}'
+```
+
 
 ## Contributing
 
