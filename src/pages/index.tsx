@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 // import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from "@theme/Heading";
 
+import PageViewTracker from "../components/tracking/PageViewTracker";
 import styles from "./index.module.css";
 
 function HomepageHeader() {
@@ -34,6 +35,8 @@ export default function Home(): ReactNode {
       {/* <main>
         <HomepageFeatures />
       </main> */}
+
+      <PageViewTracker featureName="HOME" />
     </Layout>
   );
 }
