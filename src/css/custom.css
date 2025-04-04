@@ -1,0 +1,145 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #0070f2; /* SAP Horizon Blue */
+  --ifm-color-primary-dark: #0064d9;
+  --ifm-color-primary-darker: #005ecc;
+  --ifm-color-primary-darkest: #004da8;
+  --ifm-color-primary-light: #0e7cff;
+  --ifm-color-primary-lighter: #1a83ff;
+  --ifm-color-primary-lightest: #3d96ff;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Additional SAP Horizon colors */
+  --sap-horizon-neutral-1: #ffffff;
+  --sap-horizon-neutral-2: #f5f6f7;
+  --sap-horizon-neutral-3: #eff1f2;
+  --sap-horizon-neutral-4: #e5e7e9;
+  --sap-horizon-neutral-5: #cfd4d6;
+  --sap-horizon-neutral-6: #b3bac0;
+  --sap-horizon-neutral-7: #8396a0;
+  --sap-horizon-neutral-8: #556b7c;
+  --sap-horizon-neutral-9: #354a5f;
+  --sap-horizon-neutral-10: #1d2d3e;
+  --sap-horizon-neutral-11: #1c2228;
+
+  /* Custom */
+  --ifm-footer-title-color: var(--sap-horizon-neutral-9);
+  --ifm-footer-link-color: var(--sap-horizon-neutral-8);
+  --ifm-navbar-background-color: var(--sap-horizon-neutral-2);
+  --ifm-navbar-shadow: none;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+  --ifm-color-primary: #0070f2; /* Keep the same blue for consistency */
+  --ifm-color-primary-dark: #0064d9;
+  --ifm-color-primary-darker: #005ecc;
+  --ifm-color-primary-darkest: #004da8;
+  --ifm-color-primary-light: #0e7cff;
+  --ifm-color-primary-lighter: #1a83ff;
+  --ifm-color-primary-lightest: #3d96ff;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  /* Dark theme adjustments */
+  --ifm-background-color: var(--sap-horizon-neutral-11);
+  --ifm-background-surface-color: var(--sap-horizon-neutral-10);
+
+  /* Custom */
+  --ifm-footer-title-color: var(--sap-horizon-neutral-5);
+  --ifm-footer-link-color: var(--sap-horizon-neutral-6);
+  --ifm-navbar-background-color: var(--sap-horizon-neutral-11);
+}
+
+/* SAP 72 Font Family */
+@font-face {
+  font-family: "72";
+  src: url("https://sapui5.hana.ondemand.com/resources/sap/ui/core/themes/sap_fiori_3/fonts/72-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "72";
+  src: url("https://sapui5.hana.ondemand.com/resources/sap/ui/core/themes/sap_fiori_3/fonts/72-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "72";
+  src: url("https://sapui5.hana.ondemand.com/resources/sap/ui/core/themes/sap_fiori_3/fonts/72-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Apply SAP font to the entire application */
+:root {
+  --sapFontFamily: "72", Arial, Helvetica, sans-serif !important;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand,
+.nav-link,
+.btn,
+.form-control,
+.lead,
+.section-heading,
+.section-subheading,
+.masthead-heading,
+.masthead-subheading,
+.portfolio-caption-heading,
+.portfolio-caption-subheading,
+.timeline-heading,
+.timeline-body,
+.team-member h4,
+.footer {
+  font-family: var(--sapFontFamily) !important;
+}
+
+/* Navbar */
+
+.navbar__item.navbar__link {
+  font-size: 0.9rem;
+}
+
+/* GitHub icon in navbar */
+.navbar-icon-link {
+  display: flex;
+  align-items: center;
+}
+
+[data-theme="dark"] .navbar-icon-link img {
+  filter: invert(1);
+}
+
+/* Footer */
+.footer__links .footer__col:first-child .footer__title {
+  display: none;
+}
+
+.footer__bottom.text--center {
+  text-align: left;
+
+  padding-top: 1rem;
+}
+
+.footer__copyright {
+  font-size: 0.875rem;
+  opacity: 0.6;
+}
