@@ -1,0 +1,328 @@
+---
+sidebar_position: 1
+title: "Access to Generative AI Models"
+hide_title: true
+---
+
+<div
+  style={{
+    backgroundImage: `url(${require("./bg-title-page.jpeg").default})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    padding: "2rem",
+    marginBottom: "2rem",
+    borderRadius: "8px"
+  }}
+>
+  <h1 style={{ color: "white", textShadow: "2px 2px 4px rgba(0,0,0,0.5)" }}>Access to Generative AI Models</h1>
+</div>
+
+## Table of Contents
+
+1. [Overview](#1-overview)
+2. [Pre-requisites](#2-pre-requisites)
+3. [Key Choices and Guidelines](#3-key-choices-and-guidelines)
+4. [Implementation](#4-implementation)
+
+### Resources
+
+- [Teaser Webinar](#)
+- [Webinar (PDF Presentation)](#)
+
+## 1. Overview
+
+### Description
+
+Interacting with deployed Generative AI models involves sending requests to retrieve generated responses. In
+the request, we can define the prompt, the model, and the parameters that control the response generation.
+
+### Expected Outcome
+
+Provide secure and efficient access to Generative AI models, enabling applications to leverage the power of AI
+models and provide a wide spectrum of functionalities.
+
+### Benefits
+
+- **Model Interchangeability**: Easily switch between models with the same code and implementation to best
+  suit your task.
+- **Out-of-the-box Features**: Supercharge your development built-in capabilities like Data Masking, Prompt
+  Templating, Filtering, and more.
+- **Security & SAP Ecosystem**: It's fully integrated into the SAP Ecosystem, leveraging the best of SAP
+  technologies.
+
+## 2. Pre-requisites
+
+### Commercial
+
+- SAP AI Core with the "Extended" tier on SAP BTP
+  - You can find pricing details for AI Core "Extended" in the Discovery Center – AI Core.
+
+### Technical
+
+- SAP Business Technology Platform (SAP BTP) subaccount ([Setup Guide](#))
+- SAP AI Core ([Setup Guide](#))
+
+### High-level Reference Architecture
+
+#### SAP Business Technology Platform (SAP BTP)
+
+SAP Business Technology Platform (BTP) is an integrated suite of cloud services, databases, AI, and development
+tools that enable businesses to build, extend, and integrate SAP and non-SAP applications efficiently.
+
+#### SAP AI Core
+
+SAP AI Core is a managed AI runtime that enables scalable execution of AI models and pipelines, integrating
+seamlessly with SAP applications and data on SAP BTP that supports full lifecycle management of AI scenarios.
+
+## 3. Key Choices and Guidelines
+
+A few case-specific decisions need to be considered that will impact the performance and utility of the app
+being developed.
+
+### Model
+
+The choice of model is critical to the accuracy of the answer, operating costs, language, and context window.
+Larger models are usually better for more complex tasks involving reasoning, longer context window, and better
+inference.
+
+#### How to choose the model?
+
+Use the Model Library to inform your model choice using benchmarking data for Text Generation, Speech to
+Text, Image Recognition, Image Generation, Embedding, and more.
+
+Steps to access the Leaderboard view of the Model Library in your SAP BTP subaccount:
+
+1. Go to your BTP subaccount with AI Core
+2. Navigate to Instances and Subscriptions
+3. Select SAP AI Launchpad
+4. Select your API Connection and Resource Group
+5. Go to Generative AI Hub
+6. Access Model Library
+
+**Relevant links**
+
+- [List of available models](#)
+- [AI Core Endpoint](#)
+
+### Settings
+
+Picking correct values for frequency penalty, presence penalty, max tokens, and temperature is crucial to the
+quality of the inference. The choice depends on the needed variety, length, and control over the generated text.
+
+#### Example Applications
+
+1. **Frequency Penalty** (Reduces repetition of frequent words)
+
+   - High – Summarization: Reduces redundancy in reports or articles.
+   - Low – Poetry/Mantras: Encourages repetition for stylistic effect.
+
+2. **Presence Penalty** (Discourages reuse of any previous words)
+
+   - High – Idea Brainstorming: Promotes diverse, non-repetitive topics.
+   - Low – Themed Storytelling: Reinforces a central topic or character.
+
+3. **Max-Tokens** (Limits response length)
+
+   - Low – Chatbot Responses: Short, to-the-point answers.
+   - High – Long-Form Content: Detailed articles or stories.
+
+4. **Temperature** (Controls randomness of output)
+   - Low – Technical/Legal Writing: Precise, deterministic output.
+   - High – Creative Writing: More imaginative and random text.
+
+## 4. Implementation
+
+Below you can find the necessary information to develop a project in your favorite language using the official
+SAP Libraries and SDKs.
+
+### Programming Model Selection Guidelines
+
+When developing AI applications within the SAP ecosystem, consider the following recommendations:
+
+- **Backend-Only API**: Use Python (well-maintained) or JavaScript/TypeScript (strong async capabilities,
+  Node.js ecosystem).
+- **Fullstack Application (UI & Backend)**: Use CAP (Cloud Application Programming Model) for optimized
+  performance, scalability, and seamless SAP integration.
+
+While these are general best practices, the final choice should align with your team's expertise and project
+requirements.
+
+### Python
+
+#### Recommendation
+
+There are multiple SDKs available for Python. We recommend using the SAP Generative AI hub SDK to harness
+the power of generative AI models, and the SAP AI Core SDK along with the AI API Client SDK for managing the
+AI Core lifecycle efficiently.
+
+#### SDK
+
+With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
+Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
+through langchain or the orchestration service.
+
+- [SAP Generative AI hub SDK](#) (Recommended for building apps)
+- [SAP AI Core SDK and AI API Client SDK](#) (managing the AI Core lifecycle)
+
+#### Tutorials and Learning Journeys
+
+- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Generative AI hub SDK) from
+  Generative AI with SAP AI Core
+
+#### Reference Code
+
+**Recommended**
+
+- [SAP BTP AI Best Practices - Sample Code](#)
+- [btp-gen-ai-hub-sdk-samples](#) (SAP Generative AI hub SDK. Refer to the `btp-gen-ai-hub-sdk-
+samples/docs/notebook-samples/2-connect-genaihub-from-env.ipynb` file)
+
+**Other**
+
+- [ai-core-samples](#) (SAP AI Core SDK)
+
+#### Relevant Code
+
+Simple chat completion call using the SAP Generative AI hub SDK.
+
+### JavaScript/TypeScript
+
+#### Recommendation
+
+The SAP Cloud SDK for AI is the official SAP AI SDK for TypeScript.
+
+#### SDK
+
+With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
+Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
+through langchain or the orchestration service.
+
+- [SAP Cloud SDK for AI](#)
+
+#### Tutorials and Learning Journeys
+
+- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Cloud SDK) from Generative
+  AI with SAP AI Core
+
+#### Reference Code
+
+- [SAP BTP AI Best Practices - Sample Code](#)
+- [SAP Cloud SDK for AI - Sample Code](#) (refer to the `orchestrationChatCompletion` function located in the `ai-
+sdk-js/sample-code/src/orchestration.ts` file)
+
+#### Relevant Code
+
+Simple chat completion call using the SAP Cloud SDK for AI.
+
+### CAP App
+
+#### Recommendation
+
+There are 2 SDKs available for developing CAP applications, we recommend using the SAP Cloud SDK for AI
+because it's the official SAP AI SDK, but the CAP LLM Plugin has great code sample code to learn from.
+
+#### SDKs
+
+With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
+Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
+through langchain or the orchestration service.
+
+- [SAP Cloud SDK for AI](#) (Recommended)
+- [CAP LLM Plugin](#)
+
+#### Tutorials and Learning Journeys
+
+- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Cloud SDK) from Generative
+  AI with SAP AI Core
+
+#### Reference Code
+
+**Recommended**
+
+- [SAP BTP AI Best Practices - Sample Code](#)
+- [SAP Cloud SDK for AI - Sample CAP](#) (refer to the `OrchestrationService` class located in the `ai-sdk-js/sample-
+cap/srv/orchestration/orchestration-service.ts` file)
+
+For more details, please refer to the TypeScript section of this page because it has more examples and the SDK is
+the same.
+
+**Other**  
+These sample projects might not use the official SDK or not follow the best practices but can be good examples
+for learning.
+
+- [CAP LLM Plugin - Sample Projects](#)
+
+#### Relevant Code
+
+Simple chat completion call using the SAP Cloud SDK for AI.
+
+### Java
+
+#### Recommendation
+
+There is an official SAP Java SDK for accessing foundation models through AI Core service. It is recommended to
+use the SDK and follow the examples in the given repository.
+
+#### SDKs
+
+With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
+Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
+through the APIs or the orchestration service.
+
+- [SAP Cloud SDK for AI (for Java)](#)
+
+#### Tutorials and Learning Journeys
+
+- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Cloud SDK) from Generative
+  AI with SAP AI Core
+
+#### Reference Code
+
+- [SAP BTP AI Best Practices - Sample Code](#)
+- Sample Spring App example (Refer to service `ai-sdk-java/.../services/OpenAiService.java` and the controller
+  to interact with the service `ai-sdk-java/.../controllers/OpenAiController.java`)
+
+#### Relevant Code
+
+Simple code demonstrating AI capabilities using the SAP Cloud SDK for AI.
+
+### Related Best Practices
+
+- [Prompt Templating](#)
+- [Data Masking](#)
+- [Content Filtering](#)
+
+### Related Functional Patterns
+
+#### Information Analysis & Processing
+
+- Summarization of Text
+- Information Classification in Categories
+- Content Creation
+- Generate text based on generic knowledge
+- Describe Images
+
+#### Conversational Interaction
+
+- Translation of Text
+- Image Analysis
+- Review and refine text
+- Sentiment Analysis of Text
+- Generate Image from Text
+- Conversational interaction with applications
+- Conversational interaction with analytics
+
+### Contributors
+
+- Marques, Luis
+- CIGAINA, MARCO
+- Rzhaksynskyi, Andrii
+- Stoyanov, Velizar
+- Rodriguez, Joel
+- Chopra, Aman
+- Bartler, Felix
+- Robledo, Francisco
+- Schulz, Robert
+- Antonio, Dan
+- Humphries, Ian
+- Lange, Joerg
