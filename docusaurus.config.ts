@@ -87,7 +87,7 @@ const config: Config = {
           href: "https://github.com/SAP-samples/sap-btp-ai-best-practices",
           className: "navbar-icon-link",
           "aria-label": "GitHub repository",
-          html: `<img src="img/github.svg" alt="GitHub" width="32" height="32" />`,
+          html: `<img src="${process.env.NODE_ENV === "development" ? "/" : "/sap-btp-ai-best-practices/"}img/github.svg" alt="GitHub" width="32" height="32" />`,
           position: "right"
         }
       ]
@@ -100,8 +100,8 @@ const config: Config = {
           items: [
             {
               html: `
-                <a href="/" aria-label="SAP Logo">
-                  <img src="img/logo.svg" alt="SAP Logo" height="50" />
+                <a href="${process.env.NODE_ENV === "development" ? "/" : "/sap-btp-ai-best-practices/"}" aria-label="SAP Logo">
+                  <img src="${process.env.NODE_ENV === "development" ? "/" : "/sap-btp-ai-best-practices/"}img/logo.svg" alt="SAP Logo" height="50" />
                 </a>`
             }
           ]
