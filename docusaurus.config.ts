@@ -75,7 +75,7 @@ const config: Config = {
         src: "img/logo.svg"
       },
       items: [
-        { to: "/", label: "Functional Patterns", position: "left" },
+        { to: "/docs/Intro", label: "Functional Patterns", position: "left" },
         {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
