@@ -11,7 +11,8 @@ export const TRACKING_EVENTS = {
   PAGE_VIEW: {
     ABOUT: "pv-about",
     HOME: "pv-home",
-    INTRO: "pv-intro-docusaurus"
+    INTRO: "pv-intro-docusaurus",
+    ACCESS_TO_GENERATIVE_AI_MODELS: "pv-access-to-generative-ai-models"
     // Add other page view events here
   }
 } as const;

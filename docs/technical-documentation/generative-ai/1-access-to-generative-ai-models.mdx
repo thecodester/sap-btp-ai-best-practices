@@ -1,15 +1,20 @@
 ---
 sidebar_position: 1
 title: "Access to Generative AI Models"
+description: "Enable users to interact with AI systems capable of creating human-like text, images, or code from natural language prompts."
 hide_title: true
 ---
 
+import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
+
+<PageViewTracker featureName="ACCESS_TO_GENERATIVE_AI_MODELS" />
+
 <div
   style={{
-    backgroundImage: `url(${require("./bg-title-page.jpeg").default})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(${require("@site/static/img/generative-ai/bg-title-page.jpeg").default})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    padding: "2rem",
+    padding: "8rem 2rem 0.1rem 2rem",
     marginBottom: "2rem",
     borderRadius: "8px"
   }}
@@ -17,17 +22,34 @@ hide_title: true
   <h1 style={{ color: "white", textShadow: "2px 2px 4px rgba(0,0,0,0.5)" }}>Access to Generative AI Models</h1>
 </div>
 
-## Table of Contents
-
-1. [Overview](#1-overview)
-2. [Pre-requisites](#2-pre-requisites)
-3. [Key Choices and Guidelines](#3-key-choices-and-guidelines)
-4. [Implementation](#4-implementation)
-
-### Resources
-
-- [Teaser Webinar](#)
-- [Webinar (PDF Presentation)](#)
+<div className="row">
+  <div className="col col--8">
+    <ol>
+      <li>
+        <a href="#1-overview">Overview</a>
+      </li>
+      <li>
+        <a href="#2-pre-requisites">Pre-requisites</a>
+      </li>
+      <li>
+        <a href="#3-key-choices-and-guidelines">Key Choices and Guidelines</a>
+      </li>
+      <li>
+        <a href="#4-implementation">Implementation</a>
+      </li>
+    </ol>
+  </div>
+  <div className="col col--4">
+    <ul>
+      <li>
+        <a href="#">Teaser Webinar</a>
+      </li>
+      <li>
+        <a href="#">Webinar (PDF Presentation)</a>
+      </li>
+    </ul>
+  </div>
+</div>
 
 ## 1. Overview
 

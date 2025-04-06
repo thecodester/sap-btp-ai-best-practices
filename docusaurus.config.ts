@@ -75,10 +75,11 @@ const config: Config = {
         src: "img/logo.svg"
       },
       items: [
-        { to: "/docs/Intro", label: "Functional Patterns", position: "left" },
+        { to: "/docs/category/functional-patterns", label: "Functional Patterns", position: "left" },
         {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
+          // type: "docSidebar",
+          // sidebarId: "tutorialSidebar",
+          to: "/docs/category/technical-documentation",
           position: "left",
           label: "Technical Documentation"
         },
