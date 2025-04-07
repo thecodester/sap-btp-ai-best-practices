@@ -320,6 +320,10 @@ h2 .step-number {
   border-radius: 0.5rem;
 }
 
+[data-theme="dark"] h2 .step-number {
+  background-color: var(--sap-horizon-neutral-10);
+}
+
 /* Section */
 
 .section-with-background {
