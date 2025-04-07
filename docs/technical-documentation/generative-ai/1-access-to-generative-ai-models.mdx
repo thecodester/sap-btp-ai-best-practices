@@ -5,6 +5,9 @@ description: "Enable users to interact with AI systems capable of creating human
 hide_title: true
 ---
 
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 
 <PageViewTracker featureName="ACCESS_TO_GENERATIVE_AI_MODELS" />
@@ -169,6 +172,8 @@ When developing AI applications within the SAP ecosystem, consider the following
 While these are general best practices, the final choice should align with your team's expertise and project
 requirements.
 
+<Tabs>
+  <TabItem value="python" label="Python" default>
 ### Python
 
 #### Recommendation
@@ -207,6 +212,23 @@ samples/docs/notebook-samples/2-connect-genaihub-from-env.ipynb` file)
 
 Simple chat completion call using the SAP Generative AI hub SDK.
 
+```python
+from gen_ai_hub.proxy.langchain.init_models import init_llm
+from gen_ai_hub.proxy.core.proxy_clients import get_proxy_client
+from gen_ai_hub.proxy.langchain.openai import ChatOpenAI
+
+
+# note: proxy_client is optional
+proxy_client = get_proxy_client('gen-ai-hub')
+
+chat = ChatOpenAI(proxy_model_name="gpt-35-turbo", proxy_client=proxy_client, temperature=0)
+
+prompt = """Translate to danish: Guten Morgen"""
+chat.invoke(prompt).content
+```
+
+  </TabItem>
+  <TabItem value="javascript-typescript" label="JavaScript/TypeScript">
 ### JavaScript/TypeScript
 
 #### Recommendation
@@ -236,6 +258,31 @@ sdk-js/sample-code/src/orchestration.ts` file)
 
 Simple chat completion call using the SAP Cloud SDK for AI.
 
+```typescript
+const orchestrationClient = new OrchestrationClient({
+  // Define the language model to be used
+  llm: {
+    model_name: "gpt-4o",
+    model_params: {
+      max_tokens: 1000, // Maximum number of tokens to generate in the response. This limits the length of the generated text.
+      temperature: 0.6, // Lower values make the output more deterministic, while higher values make it more random.
+      n: 1 // Number of responses to generate.
+    }
+  },
+  // Define the prompt
+  templating: {
+    template: [{ role: "user", content: "What is the capital of France?" }]
+  }
+});
+
+// Execute the request
+const result = await orchestrationClient.chatCompletion();
+
+console.log(result.getContent());
+```
+
+  </TabItem>
+  <TabItem value="cap-app" label="CAP App">
 ### CAP App
 
 #### Recommendation
@@ -278,6 +325,31 @@ for learning.
 
 Simple chat completion call using the SAP Cloud SDK for AI.
 
+```typescript
+const orchestrationClient = new OrchestrationClient({
+  // Define the language model to be used
+  llm: {
+    model_name: "gpt-4o",
+    model_params: {
+      max_tokens: 1000, // Maximum number of tokens to generate in the response. This limits the length of the generated text.
+      temperature: 0.6, // Lower values make the output more deterministic, while higher values make it more random.
+      n: 1 // Number of responses to generate.
+    }
+  },
+  // Define the prompt
+  templating: {
+    template: [{ role: "user", content: "What is the capital of France?" }]
+  }
+});
+
+// Execute the request
+const result = await orchestrationClient.chatCompletion();
+
+console.log(result.getContent());
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
 ### Java
 
 #### Recommendation
@@ -307,6 +379,37 @@ through the APIs or the orchestration service.
 #### Relevant Code
 
 Simple code demonstrating AI capabilities using the SAP Cloud SDK for AI.
+
+```java
+@SuppressWarnings("unused") // The end-to-end test doesn't use this method
+  @GetMapping("/streamChatCompletionDeltas")
+  @Nonnull
+  ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
+    final var message = "Can you give me the first 100 numbers of the Fibonacci sequence?";
+    final var stream = service.streamChatCompletionDeltas(message);
+    final var emitter = new ResponseBodyEmitter();
+    final Runnable consumeStream =
+        () -> {
+          final var totalOutput = new OpenAiChatCompletionOutput();
+          // try-with-resources ensures the stream is closed
+          try (stream) {
+            stream
+                .peek(totalOutput::addDelta)
+                .forEach(delta -> send(emitter, delta.getDeltaContent()));
+          } finally {
+            send(emitter, "\n\n-----Total Output-----\n\n" + objectToJson(totalOutput));
+            emitter.complete();
+          }
+        };
+    ThreadContextExecutors.getExecutor().execute(consumeStream);
+
+    // TEXT_EVENT_STREAM allows the browser to display the content as it is streamed
+    return ResponseEntity.ok().contentType(MediaType.TEXT_EVENT_STREAM).body(emitter);
+  }
+```
+
+  </TabItem>
+</Tabs>
 
 ### Related Best Practices
 
