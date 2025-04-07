@@ -3,6 +3,7 @@ sidebar_position: 1
 title: "Access to Generative AI Models"
 description: "Enable users to interact with AI systems capable of creating human-like text, images, or code from natural language prompts."
 hide_title: true
+hide_table_of_contents: true
 ---
 
 import TabItem from "@theme/TabItem";
@@ -13,48 +14,47 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 <PageViewTracker featureName="ACCESS_TO_GENERATIVE_AI_MODELS" />
 
 <div
+  className="hero-header"
   style={{
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(${require("@site/static/img/generative-ai/bg-title-page.jpeg").default})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    padding: "8rem 2rem 0.1rem 2rem",
-    marginBottom: "2rem",
-    borderRadius: "8px"
+    backgroundImage: `url(${require("@site/static/img/generative-ai/bg-title-page.jpeg").default})`
   }}
 >
-  <h1 style={{ color: "white", textShadow: "2px 2px 4px rgba(0,0,0,0.5)" }}>Access to Generative AI Models</h1>
+  <h1>Access to Generative AI Models</h1>
 </div>
 
-<div className="row">
-  <div className="col col--8">
-    <ol>
-      <li>
-        <a href="#1-overview">Overview</a>
-      </li>
-      <li>
-        <a href="#2-pre-requisites">Pre-requisites</a>
-      </li>
-      <li>
-        <a href="#3-key-choices-and-guidelines">Key Choices and Guidelines</a>
-      </li>
-      <li>
-        <a href="#4-implementation">Implementation</a>
-      </li>
-    </ol>
-  </div>
-  <div className="col col--4">
-    <ul>
-      <li>
-        <a href="#">Teaser Webinar</a>
-      </li>
-      <li>
-        <a href="#">Webinar (PDF Presentation)</a>
-      </li>
-    </ul>
+<div className="section-with-background">
+  <div className="row">
+    <div className="col col--8">
+      <h2>Steps</h2>
+      <ol>
+        <li>
+          <a href="#1-overview">Overview</a>
+        </li>
+        <li>
+          <a href="#2-pre-requisites">Pre-requisites</a>
+        </li>
+        <li>
+          <a href="#3-key-choices-and-guidelines">Key Choices and Guidelines</a>
+        </li>
+        <li>
+          <a href="#4-implementation">Implementation</a>
+        </li>
+      </ol>
+    </div>
+    <div className="col col--4">
+      <ul>
+        <li>
+          <a href="#">Teaser Webinar</a>
+        </li>
+        <li>
+          <a href="#">Webinar (PDF Presentation)</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
-## 1. Overview
+## <span className="step-number">1</span> Overview
 
 ### Description
 
@@ -75,7 +75,7 @@ models and provide a wide spectrum of functionalities.
 - **Security & SAP Ecosystem**: It's fully integrated into the SAP Ecosystem, leveraging the best of SAP
   technologies.
 
-## 2. Pre-requisites
+## <span className="step-number">2</span> Pre-requisites
 
 ### Commercial
 
@@ -99,7 +99,7 @@ tools that enable businesses to build, extend, and integrate SAP and non-SAP app
 SAP AI Core is a managed AI runtime that enables scalable execution of AI models and pipelines, integrating
 seamlessly with SAP applications and data on SAP BTP that supports full lifecycle management of AI scenarios.
 
-## 3. Key Choices and Guidelines
+## <span className="step-number">3</span> Key Choices and Guidelines
 
 A few case-specific decisions need to be considered that will impact the performance and utility of the app
 being developed.
@@ -155,7 +155,7 @@ quality of the inference. The choice depends on the needed variety, length, and 
    - Low – Technical/Legal Writing: Precise, deterministic output.
    - High – Creative Writing: More imaginative and random text.
 
-## 4. Implementation
+## <span className="step-number">4</span> Implementation
 
 Below you can find the necessary information to develop a project in your favorite language using the official
 SAP Libraries and SDKs.
@@ -172,17 +172,17 @@ When developing AI applications within the SAP ecosystem, consider the following
 While these are general best practices, the final choice should align with your team's expertise and project
 requirements.
 
-<Tabs>
+<div className="tabs-with-background">
+<Tabs groupId="language">
   <TabItem value="python" label="Python" default>
-### Python
 
-#### Recommendation
+### Recommendation
 
 There are multiple SDKs available for Python. We recommend using the SAP Generative AI hub SDK to harness
 the power of generative AI models, and the SAP AI Core SDK along with the AI API Client SDK for managing the
 AI Core lifecycle efficiently.
 
-#### SDK
+### SDK
 
 With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
 Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
@@ -191,20 +191,20 @@ through langchain or the orchestration service.
 - [SAP Generative AI hub SDK](#) (Recommended for building apps)
 - [SAP AI Core SDK and AI API Client SDK](#) (managing the AI Core lifecycle)
 
-#### Tutorials and Learning Journeys
+### Tutorials and Learning Journeys
 
 - [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Generative AI hub SDK) from
   Generative AI with SAP AI Core
 
-#### Reference Code
+### Reference Code
 
-**Recommended**
+#### Recommended
 
 - [SAP BTP AI Best Practices - Sample Code](#)
 - [btp-gen-ai-hub-sdk-samples](#) (SAP Generative AI hub SDK. Refer to the `btp-gen-ai-hub-sdk-
 samples/docs/notebook-samples/2-connect-genaihub-from-env.ipynb` file)
 
-**Other**
+#### Other
 
 - [ai-core-samples](#) (SAP AI Core SDK)
 
@@ -229,13 +229,12 @@ chat.invoke(prompt).content
 
   </TabItem>
   <TabItem value="javascript-typescript" label="JavaScript/TypeScript">
-### JavaScript/TypeScript
 
-#### Recommendation
+### Recommendation
 
 The SAP Cloud SDK for AI is the official SAP AI SDK for TypeScript.
 
-#### SDK
+### SDK
 
 With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
 Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
@@ -243,18 +242,18 @@ through langchain or the orchestration service.
 
 - [SAP Cloud SDK for AI](#)
 
-#### Tutorials and Learning Journeys
+### Tutorials and Learning Journeys
 
 - [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Cloud SDK) from Generative
   AI with SAP AI Core
 
-#### Reference Code
+### Reference Code
 
 - [SAP BTP AI Best Practices - Sample Code](#)
 - [SAP Cloud SDK for AI - Sample Code](#) (refer to the `orchestrationChatCompletion` function located in the `ai-
 sdk-js/sample-code/src/orchestration.ts` file)
 
-#### Relevant Code
+### Relevant Code
 
 Simple chat completion call using the SAP Cloud SDK for AI.
 
@@ -283,14 +282,13 @@ console.log(result.getContent());
 
   </TabItem>
   <TabItem value="cap-app" label="CAP App">
-### CAP App
 
-#### Recommendation
+### Recommendation
 
 There are 2 SDKs available for developing CAP applications, we recommend using the SAP Cloud SDK for AI
 because it's the official SAP AI SDK, but the CAP LLM Plugin has great code sample code to learn from.
 
-#### SDKs
+### SDKs
 
 With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
 Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
@@ -299,14 +297,14 @@ through langchain or the orchestration service.
 - [SAP Cloud SDK for AI](#) (Recommended)
 - [CAP LLM Plugin](#)
 
-#### Tutorials and Learning Journeys
+### Tutorials and Learning Journeys
 
 - [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Cloud SDK) from Generative
   AI with SAP AI Core
 
-#### Reference Code
+### Reference Code
 
-**Recommended**
+#### Recommended
 
 - [SAP BTP AI Best Practices - Sample Code](#)
 - [SAP Cloud SDK for AI - Sample CAP](#) (refer to the `OrchestrationService` class located in the `ai-sdk-js/sample-
@@ -315,13 +313,14 @@ cap/srv/orchestration/orchestration-service.ts` file)
 For more details, please refer to the TypeScript section of this page because it has more examples and the SDK is
 the same.
 
-**Other**  
+#### Other
+
 These sample projects might not use the official SDK or not follow the best practices but can be good examples
 for learning.
 
 - [CAP LLM Plugin - Sample Projects](#)
 
-#### Relevant Code
+### Relevant Code
 
 Simple chat completion call using the SAP Cloud SDK for AI.
 
@@ -350,14 +349,13 @@ console.log(result.getContent());
 
   </TabItem>
   <TabItem value="java" label="Java">
-### Java
 
-#### Recommendation
+### Recommendation
 
 There is an official SAP Java SDK for accessing foundation models through AI Core service. It is recommended to
 use the SDK and follow the examples in the given repository.
 
-#### SDKs
+### SDKs
 
 With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
 Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
@@ -365,61 +363,73 @@ through the APIs or the orchestration service.
 
 - [SAP Cloud SDK for AI (for Java)](#)
 
-#### Tutorials and Learning Journeys
+### Tutorials and Learning Journeys
 
 - [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Cloud SDK) from Generative
   AI with SAP AI Core
 
-#### Reference Code
+### Reference Code
 
 - [SAP BTP AI Best Practices - Sample Code](#)
 - Sample Spring App example (Refer to service `ai-sdk-java/.../services/OpenAiService.java` and the controller
   to interact with the service `ai-sdk-java/.../controllers/OpenAiController.java`)
 
-#### Relevant Code
+### Relevant Code
 
 Simple code demonstrating AI capabilities using the SAP Cloud SDK for AI.
 
 ```java
 @SuppressWarnings("unused") // The end-to-end test doesn't use this method
-  @GetMapping("/streamChatCompletionDeltas")
-  @Nonnull
-  ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
-    final var message = "Can you give me the first 100 numbers of the Fibonacci sequence?";
-    final var stream = service.streamChatCompletionDeltas(message);
-    final var emitter = new ResponseBodyEmitter();
-    final Runnable consumeStream =
-        () -> {
-          final var totalOutput = new OpenAiChatCompletionOutput();
-          // try-with-resources ensures the stream is closed
-          try (stream) {
-            stream
-                .peek(totalOutput::addDelta)
-                .forEach(delta -> send(emitter, delta.getDeltaContent()));
-          } finally {
-            send(emitter, "\n\n-----Total Output-----\n\n" + objectToJson(totalOutput));
-            emitter.complete();
-          }
-        };
-    ThreadContextExecutors.getExecutor().execute(consumeStream);
+@GetMapping("/streamChatCompletionDeltas")
+@Nonnull
+ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
+  final var message = "Can you give me the first 100 numbers of the Fibonacci sequence?";
+  final var stream = service.streamChatCompletionDeltas(message);
+  final var emitter = new ResponseBodyEmitter();
+  final Runnable consumeStream =
+      () -> {
+        final var totalOutput = new OpenAiChatCompletionOutput();
+        // try-with-resources ensures the stream is closed
+        try (stream) {
+          stream
+              .peek(totalOutput::addDelta)
+              .forEach(delta -> send(emitter, delta.getDeltaContent()));
+        } finally {
+          send(emitter, "\n\n-----Total Output-----\n\n" + objectToJson(totalOutput));
+          emitter.complete();
+        }
+      };
+  ThreadContextExecutors.getExecutor().execute(consumeStream);
 
-    // TEXT_EVENT_STREAM allows the browser to display the content as it is streamed
-    return ResponseEntity.ok().contentType(MediaType.TEXT_EVENT_STREAM).body(emitter);
-  }
+  // TEXT_EVENT_STREAM allows the browser to display the content as it is streamed
+  return ResponseEntity.ok().contentType(MediaType.TEXT_EVENT_STREAM).body(emitter);
+}
 ```
 
-  </TabItem>
-</Tabs>
+    </TabItem>
 
-### Related Best Practices
+  </Tabs>
+</div>
+
+<br />
+
+<div className="section-with-background gradient-blue">
+
+## Related Best Practices
 
 - [Prompt Templating](#)
 - [Data Masking](#)
 - [Content Filtering](#)
 
-### Related Functional Patterns
+</div>
 
-#### Information Analysis & Processing
+<br />
+
+<div className="section-with-background gradient-blue">
+
+## Related Functional Patterns
+
+### Information Analysis & Processing
 
 - Summarization of Text
 - Information Classification in Categories
@@ -427,7 +437,7 @@ Simple code demonstrating AI capabilities using the SAP Cloud SDK for AI.
 - Generate text based on generic knowledge
 - Describe Images
 
-#### Conversational Interaction
+### Conversational Interaction
 
 - Translation of Text
 - Image Analysis
@@ -437,7 +447,13 @@ Simple code demonstrating AI capabilities using the SAP Cloud SDK for AI.
 - Conversational interaction with applications
 - Conversational interaction with analytics
 
-### Contributors
+</div>
+
+<br />
+
+<div className="section-with-background gradient-violet-blue">
+
+## Contributors
 
 - Marques, Luis
 - CIGAINA, MARCO
@@ -451,3 +467,5 @@ Simple code demonstrating AI capabilities using the SAP Cloud SDK for AI.
 - Antonio, Dan
 - Humphries, Ian
 - Lange, Joerg
+
+</div>
