@@ -136,6 +136,105 @@ h6,
   font-family: var(--sapFontFamily) !important;
 }
 
+/* SAP Icons */
+@font-face {
+  font-family: "SAP-icons";
+  src: url("https://ui5.sap.com/resources/sap/ui/core/themes/base/fonts/SAP-icons.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+/* Base icon class */
+.sap-icon {
+  font-family: "SAP-icons";
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-align: center;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Common SAP icon codes */
+.sap-icon--preview::before {
+  content: "\e006";
+}
+.sap-icon--video::before {
+  content: "\e006";
+}
+.sap-icon--document::before {
+  content: "\e01a";
+}
+.sap-icon--folder::before {
+  content: "\e0b5";
+}
+.sap-icon--settings::before {
+  content: "\e0ca";
+}
+.sap-icon--edit::before {
+  content: "\e0dc";
+}
+.sap-icon--add::before {
+  content: "\e0ad";
+}
+.sap-icon--delete::before {
+  content: "\e03e";
+}
+.sap-icon--search::before {
+  content: "\e00d";
+}
+.sap-icon--download::before {
+  content: "\e013";
+}
+.sap-icon--upload::before {
+  content: "\e014";
+}
+.sap-icon--check::before {
+  content: "\e05b";
+}
+.sap-icon--alert::before {
+  content: "\e053";
+}
+.sap-icon--information::before {
+  content: "\e054";
+}
+.sap-icon--error::before {
+  content: "\e055";
+}
+
+/* Icon sizes */
+.sap-icon--s {
+  font-size: 1rem;
+}
+.sap-icon--m {
+  font-size: 1.25rem;
+}
+.sap-icon--l {
+  font-size: 1.5rem;
+}
+.sap-icon--xl {
+  font-size: 2rem;
+}
+
+/* Icon colors */
+.sap-icon--primary {
+  color: var(--ifm-color-primary);
+}
+.sap-icon--neutral {
+  color: var(--sap-horizon-neutral-9);
+}
+.sap-icon--light {
+  color: var(--sap-horizon-neutral-1);
+}
+
+[data-theme="dark"] .sap-icon--neutral {
+  color: var(--sap-horizon-neutral-4);
+}
+
 /* Navbar */
 
 .navbar__item.navbar__link {
@@ -368,6 +467,9 @@ h2 .step-number {
   border-radius: 8px;
 }
 
+.section-with-background.blue {
+  background: #ebf8ff;
+}
 .section-with-background.gradient-blue {
   background: #ebf8ff;
   background: linear-gradient(180deg, #ebf8ff 0%, #d1efff 100%);
@@ -444,4 +546,50 @@ ol.steps-list li::before {
   font-size: 2.8rem;
   position: relative;
   z-index: 1;
+}
+
+/* Resource Links - Updated to use new icon system */
+.resource-links {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  /* Take full height of parent and center vertically */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.resource-links li {
+  position: relative;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.resource-links li a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.resource-links li a:hover span {
+  text-decoration: underline;
+}
+
+.resource-links li a i {
+  font-size: 1.5rem;
+  color: var(--sap-horizon-neutral-9);
+  background-color: var(--sap-horizon-neutral-4);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+[data-theme="dark"] .resource-links li a i {
+  color: var(--ifm-color-primary-lighter);
+  background-color: var(--sap-horizon-neutral-10);
 }

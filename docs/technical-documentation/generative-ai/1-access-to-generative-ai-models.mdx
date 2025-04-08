@@ -42,12 +42,24 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
       </ol>
     </div>
     <div className="col col--4">
-      <ul>
+      <ul className="resource-links">
         <li>
-          <a href="#">Teaser Webinar</a>
+          <a href="#">
+            <i className="sap-icon sap-icon--preview sap-icon--neutral"></i>
+            <span>Teaser</span>
+          </a>
         </li>
         <li>
-          <a href="#">Webinar (PDF Presentation)</a>
+          <a href="#">
+            <i className="sap-icon sap-icon--video sap-icon--neutral"></i>
+            <span>Webinar</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i className="sap-icon sap-icon--document sap-icon--neutral"></i>
+            <span>Webinar (PDF Presentation)</span>
+          </a>
         </li>
       </ul>
     </div>
@@ -413,7 +425,7 @@ ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
 
 <br />
 
-<div className="section-with-background gradient-blue">
+<div className="section-with-background blue">
 
 ## <span className="post-article-first-title">Related Best Practices</span>
 
