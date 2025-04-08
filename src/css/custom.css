@@ -41,10 +41,13 @@
   --ifm-menu-color-active: var(--ifm-color-primary);
   --ifm-menu-color-background-active: var(--sap-horizon-neutral-4);
   --ifm-menu-color-background-hover: var(--sap-horizon-neutral-4);
+
+  /* Table of contents */
+  --ifm-toc-border-color: var(--sap-horizon-neutral-5);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme="dark"] {
+html[data-theme="dark"] {
   --ifm-color-primary: #0070f2; /* Keep the same blue for consistency */
   --ifm-color-primary-dark: #0064d9;
   --ifm-color-primary-darker: #005ecc;
@@ -55,7 +58,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   /* Dark theme adjustments */
-  --ifm-background-color: var(--sap-horizon-neutral-11);
+  /* --ifm-background-color: var(--sap-horizon-neutral-11); */
   --ifm-background-surface-color: var(--sap-horizon-neutral-10);
 
   /* Custom */
@@ -68,6 +71,9 @@
   --ifm-menu-color: var(--sap-horizon-neutral-4);
   --ifm-menu-color-background-active: rgba(0, 112, 242, 0.1);
   --ifm-menu-color-background-hover: rgba(0, 112, 242, 0.05);
+
+  /* Table of contents */
+  --ifm-toc-border-color: var(--sap-horizon-neutral-10);
 }
 
 [data-theme="dark"] .theme-doc-sidebar-container {
@@ -311,7 +317,7 @@ h6,
   background-color: var(--sap-horizon-neutral-10) !important;
 }
 
-/* Step number */
+/* Table of contents + Step number */
 
 h2 .step-number {
   background-color: var(--ifm-color-primary);
@@ -345,6 +351,13 @@ h2 .step-number {
 
 [data-theme="dark"] .table-of-contents__link--active .step-number {
   color: var(--ifm-color-primary);
+}
+
+.table-of-contents__link .post-article-first-title {
+  display: block;
+  margin-top: 1rem;
+  border-top: 1px solid var(--ifm-toc-border-color);
+  padding-top: 1rem;
 }
 
 /* Section */
