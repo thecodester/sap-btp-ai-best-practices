@@ -34,7 +34,7 @@
   --ifm-footer-link-color: var(--sap-horizon-neutral-8);
   --ifm-navbar-background-color: var(--sap-horizon-neutral-2);
   --ifm-navbar-shadow: 0 0 0 1px var(--sap-horizon-neutral-5);
-  --ifm-font-size-base: 1rem; /* Increase base font size */
+  --ifm-font-size-base: 1.1rem; /* Increase base font size */
 
   /* Sidebar customization */
   --ifm-menu-color: var(--sap-horizon-neutral-9);
@@ -320,8 +320,31 @@ h2 .step-number {
   border-radius: 0.5rem;
 }
 
-[data-theme="dark"] h2 .step-number {
+.table-of-contents__link .step-number {
+  background-color: var(--sap-horizon-neutral-3);
+  color: var(--ifm-color-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+[data-theme="dark"] h2 .step-number,
+[data-theme="dark"] .table-of-contents__link .step-number {
   background-color: var(--sap-horizon-neutral-10);
+  color: var(--sap-horizon-neutral-1);
+}
+
+.table-of-contents__link--active {
+  font-weight: 600;
+}
+
+.table-of-contents__link--active .step-number {
+  background-color: var(--ifm-color-primary);
+  color: var(--sap-horizon-neutral-1);
+}
+
+[data-theme="dark"] .table-of-contents__link--active .step-number {
+  color: var(--ifm-color-primary);
 }
 
 /* Section */

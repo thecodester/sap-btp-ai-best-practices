@@ -3,7 +3,7 @@ sidebar_position: 1
 title: "Access to Generative AI Models"
 description: "Enable users to interact with AI systems capable of creating human-like text, images, or code from natural language prompts."
 hide_title: true
-hide_table_of_contents: true
+# hide_table_of_contents: true
 ---
 
 import TabItem from "@theme/TabItem";
@@ -176,13 +176,13 @@ requirements.
 <Tabs groupId="language">
   <TabItem value="python" label="Python" default>
 
-### Recommendation
+<h3>Recommendation</h3>
 
 There are multiple SDKs available for Python. We recommend using the SAP Generative AI hub SDK to harness
 the power of generative AI models, and the SAP AI Core SDK along with the AI API Client SDK for managing the
 AI Core lifecycle efficiently.
 
-### SDK
+<h3>SDK</h3>
 
 With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
 Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
@@ -191,24 +191,24 @@ through langchain or the orchestration service.
 - [SAP Generative AI hub SDK](#) (Recommended for building apps)
 - [SAP AI Core SDK and AI API Client SDK](#) (managing the AI Core lifecycle)
 
-### Tutorials and Learning Journeys
+<h3>Tutorials and Learning Journeys</h3>
 
 - [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Generative AI hub SDK) from
   Generative AI with SAP AI Core
 
-### Reference Code
+<h3>Reference Code</h3>
 
-#### Recommended
+<h4>Recommended</h4>
 
 - [SAP BTP AI Best Practices - Sample Code](#)
 - [btp-gen-ai-hub-sdk-samples](#) (SAP Generative AI hub SDK. Refer to the `btp-gen-ai-hub-sdk-
 samples/docs/notebook-samples/2-connect-genaihub-from-env.ipynb` file)
 
-#### Other
+<h4>Other</h4>
 
 - [ai-core-samples](#) (SAP AI Core SDK)
 
-#### Relevant Code
+<h4>Relevant Code</h4>
 
 Simple chat completion call using the SAP Generative AI hub SDK.
 
@@ -230,11 +230,11 @@ chat.invoke(prompt).content
   </TabItem>
   <TabItem value="javascript-typescript" label="JavaScript/TypeScript">
 
-### Recommendation
+<h3>Recommendation</h3>
 
 The SAP Cloud SDK for AI is the official SAP AI SDK for TypeScript.
 
-### SDK
+<h3>SDK</h3>
 
 With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
 Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
@@ -242,18 +242,18 @@ through langchain or the orchestration service.
 
 - [SAP Cloud SDK for AI](#)
 
-### Tutorials and Learning Journeys
+<h3>Tutorials and Learning Journeys</h3>
 
 - [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Cloud SDK) from Generative
   AI with SAP AI Core
 
-### Reference Code
+<h3>Reference Code</h3>
 
 - [SAP BTP AI Best Practices - Sample Code](#)
 - [SAP Cloud SDK for AI - Sample Code](#) (refer to the `orchestrationChatCompletion` function located in the `ai-
 sdk-js/sample-code/src/orchestration.ts` file)
 
-### Relevant Code
+<h3>Relevant Code</h3>
 
 Simple chat completion call using the SAP Cloud SDK for AI.
 
@@ -283,12 +283,12 @@ console.log(result.getContent());
   </TabItem>
   <TabItem value="cap-app" label="CAP App">
 
-### Recommendation
+<h3>Recommendation</h3>
 
 There are 2 SDKs available for developing CAP applications, we recommend using the SAP Cloud SDK for AI
 because it's the official SAP AI SDK, but the CAP LLM Plugin has great code sample code to learn from.
 
-### SDKs
+<h3>SDKs</h3>
 
 With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
 Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
@@ -297,14 +297,14 @@ through langchain or the orchestration service.
 - [SAP Cloud SDK for AI](#) (Recommended)
 - [CAP LLM Plugin](#)
 
-### Tutorials and Learning Journeys
+<h3>Tutorials and Learning Journeys</h3>
 
 - [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Cloud SDK) from Generative
   AI with SAP AI Core
 
-### Reference Code
+<h3>Reference Code</h3>
 
-#### Recommended
+<h4>Recommended</h4>
 
 - [SAP BTP AI Best Practices - Sample Code](#)
 - [SAP Cloud SDK for AI - Sample CAP](#) (refer to the `OrchestrationService` class located in the `ai-sdk-js/sample-
@@ -313,14 +313,14 @@ cap/srv/orchestration/orchestration-service.ts` file)
 For more details, please refer to the TypeScript section of this page because it has more examples and the SDK is
 the same.
 
-#### Other
+<h4>Other</h4>
 
 These sample projects might not use the official SDK or not follow the best practices but can be good examples
 for learning.
 
 - [CAP LLM Plugin - Sample Projects](#)
 
-### Relevant Code
+<h3>Relevant Code</h3>
 
 Simple chat completion call using the SAP Cloud SDK for AI.
 
@@ -350,12 +350,12 @@ console.log(result.getContent());
   </TabItem>
   <TabItem value="java" label="Java">
 
-### Recommendation
+<h3>Recommendation</h3>
 
 There is an official SAP Java SDK for accessing foundation models through AI Core service. It is recommended to
 use the SDK and follow the examples in the given repository.
 
-### SDKs
+<h3>SDKs</h3>
 
 With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
 Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
@@ -363,18 +363,18 @@ through the APIs or the orchestration service.
 
 - [SAP Cloud SDK for AI (for Java)](#)
 
-### Tutorials and Learning Journeys
+<h3>Tutorials and Learning Journeys</h3>
 
 - [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Cloud SDK) from Generative
   AI with SAP AI Core
 
-### Reference Code
+<h3>Reference Code</h3>
 
 - [SAP BTP AI Best Practices - Sample Code](#)
 - Sample Spring App example (Refer to service `ai-sdk-java/.../services/OpenAiService.java` and the controller
   to interact with the service `ai-sdk-java/.../controllers/OpenAiController.java`)
 
-### Relevant Code
+<h3>Relevant Code</h3>
 
 Simple code demonstrating AI capabilities using the SAP Cloud SDK for AI.
 
