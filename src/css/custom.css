@@ -367,6 +367,7 @@ h2 .step-number {
   padding: 1rem;
   border-radius: 8px;
 }
+
 .section-with-background.gradient-blue {
   background: #ebf8ff;
   background: linear-gradient(180deg, #ebf8ff 0%, #d1efff 100%);
@@ -380,6 +381,40 @@ h2 .step-number {
 
 [data-theme="dark"] .section-with-background {
   background: var(--sap-horizon-neutral-11);
+}
+
+/* Steps list styling */
+ol.steps-list {
+  list-style: none;
+  counter-reset: steps-counter;
+  padding-left: 0;
+}
+
+ol.steps-list li {
+  counter-increment: steps-counter;
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+ol.steps-list li::before {
+  content: counter(steps-counter);
+  position: absolute;
+  left: 0;
+  background-color: var(--ifm-color-primary);
+  color: var(--sap-horizon-neutral-1);
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+[data-theme="dark"] ol.steps-list li::before {
+  background-color: var(--sap-horizon-neutral-10);
+  color: var(--sap-horizon-neutral-1);
 }
 
 /* Hero Header Section */
