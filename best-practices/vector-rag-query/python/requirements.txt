@@ -1,14 +1,11 @@
 python-dotenv
 notebook
 jupyterlab
-PyMuPDF
-pypdf
 boto3
 generative-ai-hub-sdk[langchain]
 langchain_openai
 langchain-google-genai
 langchain-aws
-hdbcli
 hana_ml
-pandas
-aioboto3
+hdbcli==2.24.24
+aioboto3==14.1.0
