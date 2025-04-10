@@ -84,13 +84,13 @@ const config: Config = {
         src: "img/logo.svg"
       },
       items: [
-        { to: "/docs/category/functional-patterns", label: "Functional Patterns", position: "left" },
+        { to: "/docs/category/functional-view", label: "Functional View", position: "left" },
         {
           // type: "docSidebar",
           // sidebarId: "tutorialSidebar",
-          to: "/docs/category/technical-documentation",
+          to: "/docs/category/technical-view",
           position: "left",
-          label: "Technical Documentation"
+          label: "Technical View"
         },
         // { to: "/blog", label: "Blog", position: "left" },
         {
