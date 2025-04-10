@@ -1,0 +1,69 @@
+---
+sidebar_position: 2
+title: "SAP AI Core"
+description: ""
+hide_title: true
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+
+import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
+
+<PageViewTracker featureName="" />
+
+<div className="hero-header">
+  <h1>SAP AI Core</h1>
+</div>
+
+## What Is SAP AI Core?
+
+SAP AI Core is a service in the SAP Business Technology Platform designed to handle the execution and operations of your AI assets in a standardized, scalable, and hyperscaler-agnostic way. It provides seamless integration with your SAP solutions. Any AI function can be easily realized using open-source frameworks. SAP AI Core supports full lifecycle management of AI scenarios. Access generative AI capabilities and prompt lifecycle management via the generative AI hub.
+
+SAP AI Core allows you to make data-driven decisions confidently and efficiently and is tailored to business problems. It handles large volumes of data and provides scalable machine learning capabilities to automate tasks such as triage services for customer feedback or tickets and classification tasks. SAP AI Core comes with preconfigured SAP solutions, can be configured for open-source machine learning frameworks, can be used with Argo Workflow and KServe, and can be embedded into other applications.
+
+## Documentation
+
+- [SAP AI Core](https://help.sap.com/docs/sap-ai-core?locale=en-US) (SAP Help)
+
+## Setup
+
+You provision SAP AI Core from the SAP BTP cockpit in SAP Business Technology Platform. After provisioning, you will have your service key, which provides URLs and credentials for accessing the SAP AI Core instance.
+
+### Prerequisites
+
+- Your SAP BTP administrator has access to a global account on SAP Business Technology Platform. For more information, see [Getting a Global Account](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/d61c2819034b48e68145c45c36acba6e.html).
+- Your SAP BTP administrator has set the entitlement to a subaccount.
+
+### Setup Guide
+
+Configure SAP AI Core and get the necessary credentials do build projects.
+
+#### Recommended
+
+- [Prompt LLMs in the generative AI hub in SAP AI Core & Launchpad](https://developers.sap.com/tutorials/ai-core-generative-ai.html) (From Section: "Provisioning SAP AI Core" to section "Querying the LLMs")
+
+#### Other
+
+- [Learning: Use Boosters for Free Tier Use of SAP AI Core and SAP AI Launchpad](https://developers.sap.com/tutorials/ai-core-launchpad-provisioning.html) (Use "Extended" tier)
+- [AI CORE Initial Setup guide](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/initial-setup)
+
+## AI Core Endpoint
+
+Create and manage AI scenarios, deployments, and artifacts in SAP AI Core. You can find detailed API details in the [SAP AI Core package endpoint](https://api.sap.com/package/SAPAICore/rest) (endpoint and body details).
+
+### API Management for AI Asset Lifecycle in SAP BTP
+
+The [OAS3](https://swagger.io/specification/)-compliant [AI API](https://help.sap.com/doc/2cefe221fddf410aab23dce890b5c603/CLOUD/en-US/index.html) provides the necessary abstraction layer to manage the lifecycle of AI assets regardless of the underlying runtime environment. It offers a comprehensive set of RESTful endpoints grouped into several functional categories, each serving different aspects of AI operations in the SAP BTP environment.
+
+### Features
+
+- **Execute pipelines** - Execute pipelines as a batch job, for example, to preprocess or train your models, or perform batch inference.
+- **Serve inference requests** - Deploy а trained machine learning model as a Web service to serve inference requests of trained models with high performance.
+- **Manage the AI scenario lifecycle** - Manage your ML artifacts and workflows, such as model training, metrics tracking, data, models, and model deployments via a uniform API lifecycle.
+- **Benefit from multitenancy support** - Use this service in tenant-aware applications. Implement multi-tenant services to segregate your AI assets and executions to isolate your tenants within SAP AI Core.
+- **Integrate your cloud infrastructure** - Register your Docker registry, synchronize your AI content from your git repository, and register your object store for training data and trained models. Productize your AI content and expose it as a service to consumers in the SAP BTP marketplace.
+- **Generative AI hub** - Choose from a selection of generative AI models for prompt experimentation, and prompt lifecycle management.
+
+![Process Flow Between SAP AI Core and SAP AI Launchpad](@site/static/technology/sap-ai-core/images/Process%20Flow%20Between%20SAP%20AI%20Core%20and%20SAP%20AI%20Launchpad.png)
