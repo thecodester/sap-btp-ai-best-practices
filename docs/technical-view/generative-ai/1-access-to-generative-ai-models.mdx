@@ -6,6 +6,7 @@ hide_title: true
 # hide_table_of_contents: true
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 
@@ -41,20 +42,26 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
         <li>
           <a
             target="_blank"
-            href="/generative-ai/access-to-generative-ai-models/videos/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models%20(intro).mp4"
+            href={useBaseUrl("generative-ai/access-to-generative-ai-models/videos/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models%20(intro).mp4")}
           >
             <i className="sap-icon sap-icon--preview sap-icon--neutral"></i>
             <span>Teaser</span>
           </a>
         </li>
         <li>
-          <a target="_blank" href="/generative-ai/access-to-generative-ai-models/videos/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.mp4">
+          <a
+            target="_blank"
+            href={useBaseUrl("generative-ai/access-to-generative-ai-models/videos/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.mp4")}
+          >
             <i className="sap-icon sap-icon--video sap-icon--neutral"></i>
             <span>Webinar</span>
           </a>
         </li>
         <li>
-          <a target="_blank" href="/generative-ai/access-to-generative-ai-models/pdfs/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.pdf">
+          <a
+            target="_blank"
+            href={useBaseUrl("generative-ai/access-to-generative-ai-models/pdfs/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.pdf")}
+          >
             <i className="sap-icon sap-icon--document sap-icon--neutral"></i>
             <span>Webinar (PDF Presentation)</span>
           </a>
