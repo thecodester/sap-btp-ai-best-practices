@@ -13,12 +13,7 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 
 <PageViewTracker featureName="ACCESS_TO_GENERATIVE_AI_MODELS" />
 
-<div
-  className="hero-header"
-  style={{
-    backgroundImage: `url(${require("@site/static/img/generative-ai/bg-title-page.jpeg").default})`
-  }}
->
+<div className="hero-header">
   <h1>Access to Generative AI Models</h1>
 </div>
 
@@ -92,23 +87,26 @@ models and provide a wide spectrum of functionalities.
 ### Commercial
 
 - SAP AI Core with the "Extended" tier on SAP BTP
-  - You can find pricing details for AI Core "Extended" in the Discovery Center – AI Core.
+
+You can find pricing details for AI Core "Extended" in the [Discovery Center – AI Core](https://discovery-center.cloud.sap/serviceCatalog/sap-ai-core?tab=service_plan&region=all&service_plan=extended&commercialModel=btpea).
 
 ### Technical
 
-- SAP Business Technology Platform (SAP BTP) subaccount ([Setup Guide](#))
-- SAP AI Core ([Setup Guide](#))
+- SAP Business Technology Platform (SAP BTP) subaccount ([Setup Guide](#)) **TODO: Create BTP Page**
+- SAP AI Core ([Setup Guide](#)) **TODO: Create AI Core Page**
 
 ### High-level Reference Architecture
 
+![High-level Reference Architecture](@site/static/img/generative-ai/access-to-generative-ai-models/Access%20to%20Generative%20AI%20Models%20v2.png)
+
 #### SAP Business Technology Platform (SAP BTP)
 
-SAP Business Technology Platform (BTP) is an integrated suite of cloud services, databases, AI, and development
+[SAP Business Technology Platform (BTP)](#) **TODO: Create BTP Page** is an integrated suite of cloud services, databases, AI, and development
 tools that enable businesses to build, extend, and integrate SAP and non-SAP applications efficiently.
 
 #### SAP AI Core
 
-SAP AI Core is a managed AI runtime that enables scalable execution of AI models and pipelines, integrating
+[SAP AI Core](#) **TODO: Create AI Core Page** is a managed AI runtime that enables scalable execution of AI models and pipelines, integrating
 seamlessly with SAP applications and data on SAP BTP that supports full lifecycle management of AI scenarios.
 
 ## <span className="step-number">3</span> <span className="step-title">Key Choices and Guidelines</span>
@@ -124,10 +122,10 @@ inference.
 
 #### How to choose the model?
 
-Use the Model Library to inform your model choice using benchmarking data for Text Generation, Speech to
+Use the [Model Library](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/model-library) to inform your model choice using benchmarking data for Text Generation, Speech to
 Text, Image Recognition, Image Generation, Embedding, and more.
 
-Steps to access the Leaderboard view of the Model Library in your SAP BTP subaccount:
+Steps to access the [Leaderboard view of the Model Library](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/model-library#leaderboard) in your SAP BTP subaccount:
 
 1. Go to your BTP subaccount with AI Core
 2. Navigate to Instances and Subscriptions
@@ -138,39 +136,42 @@ Steps to access the Leaderboard view of the Model Library in your SAP BTP subacc
 
 **Relevant links**
 
-- [List of available models](#)
-- [AI Core Endpoint](#)
+- [List of available models](https://me.sap.com/notes/3437766)
+- [AI Core Endpoint](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20AI%20Core.aspx#ai-core-endpoint)
 
 ### Settings
 
-Picking correct values for frequency penalty, presence penalty, max tokens, and temperature is crucial to the
+**TODO: Create Glossary Page**
+
+Picking correct values for [frequency penalty](#), [presence penalty](#), [max tokens](#), and [temperature](#) is crucial to the
 quality of the inference. The choice depends on the needed variety, length, and control over the generated text.
 
 #### Example Applications
 
-1. **Frequency Penalty** (Reduces repetition of frequent words)
+1. [**Frequency Penalty**](#) (Reduces repetition of frequent words)
 
-   - High – Summarization: Reduces redundancy in reports or articles.
-   - Low – Poetry/Mantras: Encourages repetition for stylistic effect.
+   - **High – Summarization:** Reduces redundancy in reports or articles.
+   - **Low – Poetry/Mantras:** Encourages repetition for stylistic effect.
 
-2. **Presence Penalty** (Discourages reuse of any previous words)
+2. [**Presence Penalty**](#) (Discourages reuse of any previous words)
 
-   - High – Idea Brainstorming: Promotes diverse, non-repetitive topics.
-   - Low – Themed Storytelling: Reinforces a central topic or character.
+   - **High – Idea Brainstorming:** Promotes diverse, non-repetitive topics.
+   - **Low – Themed Storytelling:** Reinforces a central topic or character.
 
-3. **Max-Tokens** (Limits response length)
+3. [**Max-Tokens**](#) (Limits response length)
 
-   - Low – Chatbot Responses: Short, to-the-point answers.
-   - High – Long-Form Content: Detailed articles or stories.
+   - **Low – Chatbot Responses:** Short, to-the-point answers.
+   - **High – Long-Form Content:** Detailed articles or stories.
 
-4. **Temperature** (Controls randomness of output)
-   - Low – Technical/Legal Writing: Precise, deterministic output.
-   - High – Creative Writing: More imaginative and random text.
+4. [**Temperature**](#) (Controls randomness of output)
+
+   - **Low – Technical/Legal Writing:** Precise, deterministic output.
+   - **High – Creative Writing:** More imaginative and random text.
 
 ## <span className="step-number">4</span> <span className="step-title">Implementation</span>
 
-Below you can find the necessary information to develop a project in your favorite language using the official
-SAP Libraries and SDKs.
+Below you can find the necessary information to develop a project in your favorite language using the [official
+SAP Libraries and SDKs](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/libraries-and-sdks).
 
 ### Programming Model Selection Guidelines
 
@@ -190,8 +191,8 @@ requirements.
 
 <h3>Recommendation</h3>
 
-There are multiple SDKs available for Python. We recommend using the SAP Generative AI hub SDK to harness
-the power of generative AI models, and the SAP AI Core SDK along with the AI API Client SDK for managing the
+There are multiple SDKs available for Python. We recommend using the [SAP Generative AI hub SDK](https://pypi.org/project/generative-ai-hub-sdk/) to harness
+the power of generative AI models, and the [SAP AI Core SDK](https://pypi.org/project/ai-core-sdk/) along with the [AI API Client SDK](https://pypi.org/project/ai-api-client-sdk/) for managing the
 AI Core lifecycle efficiently.
 
 <h3>SDK</h3>
@@ -200,29 +201,28 @@ With this SDK you can leverage the power of generative models available in the g
 Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
 through langchain or the orchestration service.
 
-- [SAP Generative AI hub SDK](#) (Recommended for building apps)
-- [SAP AI Core SDK and AI API Client SDK](#) (managing the AI Core lifecycle)
+- **[SAP Generative AI hub SDK](#) (Recommended for building apps)**
+- [SAP AI Core SDK](https://pypi.org/project/ai-core-sdk/) and [AI API Client SDK](#https://pypi.org/project/ai-api-client-sdk/) (managing the AI Core lifecycle)
 
 <h3>Tutorials and Learning Journeys</h3>
 
-- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Generative AI hub SDK) from
-  Generative AI with SAP AI Core
+- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](https://developers.sap.com/tutorials/ai-core-orchestration-consumption.html) (SAP Generative AI hub SDK) from
+  [Generative AI with SAP AI Core](https://developers.sap.com/group.sap-ai-core-generative.html)
 
 <h3>Reference Code</h3>
 
 <h4>Recommended</h4>
 
-- [SAP BTP AI Best Practices - Sample Code](#)
-- [btp-gen-ai-hub-sdk-samples](#) (SAP Generative AI hub SDK. Refer to the `btp-gen-ai-hub-sdk-
-samples/docs/notebook-samples/2-connect-genaihub-from-env.ipynb` file)
+- **[SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/python)**
+- [btp-gen-ai-hub-sdk-samples](https://github.com/SAP-samples/btp-gen-ai-hub-sdk-samples) - SAP Generative AI hub SDK samples repository. See the specific file [`2-connect-genaihub-from-env.ipynb`](https://github.com/SAP-samples/btp-gen-ai-hub-sdk-samples/blob/main/docs/notebook-samples/2-connect-genaihub-from-env.ipynb) for connecting to GenAI Hub from environment.
 
 <h4>Other</h4>
 
-- [ai-core-samples](#) (SAP AI Core SDK)
+- [ai-core-samples](https://github.com/SAP-samples/ai-core-samples/) (SAP AI Core SDK)
 
 <h4>Relevant Code</h4>
 
-Simple chat completion call using the SAP Generative AI hub SDK.
+Simple chat completion call using the [SAP Generative AI hub SDK](https://pypi.org/project/generative-ai-hub-sdk/).
 
 ```python
 from gen_ai_hub.proxy.langchain.init_models import init_llm
@@ -244,7 +244,7 @@ chat.invoke(prompt).content
 
 <h3>Recommendation</h3>
 
-The SAP Cloud SDK for AI is the official SAP AI SDK for TypeScript.
+The [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js) is the official SAP AI SDK for TypeScript.
 
 <h3>SDK</h3>
 
@@ -252,22 +252,22 @@ With this SDK you can leverage the power of generative models available in the g
 Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
 through langchain or the orchestration service.
 
-- [SAP Cloud SDK for AI](#)
+- [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js)
 
 <h3>Tutorials and Learning Journeys</h3>
 
-- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Cloud SDK) from Generative
-  AI with SAP AI Core
+- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](https://developers.sap.com/tutorials/ai-core-orchestration-consumption.html) (SAP Cloud SDK) from [Generative AI with SAP AI Core](https://developers.sap.com/group.sap-ai-core-generative.html)
 
 <h3>Reference Code</h3>
 
-- [SAP BTP AI Best Practices - Sample Code](#)
-- [SAP Cloud SDK for AI - Sample Code](#) (refer to the `orchestrationChatCompletion` function located in the `ai-
-sdk-js/sample-code/src/orchestration.ts` file)
+<h4>Recommended</h4>
+
+- **[SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/typescript)**
+- [SAP Cloud SDK for AI - Sample Code](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) - See the specific file [`orchestration.ts`](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts) for the `orchestrationChatCompletion` function implementation.
 
 <h3>Relevant Code</h3>
 
-Simple chat completion call using the SAP Cloud SDK for AI.
+Simple chat completion call using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js).
 
 ```typescript
 const orchestrationClient = new OrchestrationClient({
@@ -297,8 +297,8 @@ console.log(result.getContent());
 
 <h3>Recommendation</h3>
 
-There are 2 SDKs available for developing CAP applications, we recommend using the SAP Cloud SDK for AI
-because it's the official SAP AI SDK, but the CAP LLM Plugin has great code sample code to learn from.
+There are 2 SDKs available for developing CAP applications, we recommend using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js)
+because it's the official SAP AI SDK, but the [CAP LLM Plugin](https://www.npmjs.com/package/cap-llm-plugin) has great code sample code to learn from.
 
 <h3>SDKs</h3>
 
@@ -306,21 +306,19 @@ With this SDK you can leverage the power of generative models available in the g
 Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
 through langchain or the orchestration service.
 
-- [SAP Cloud SDK for AI](#) (Recommended)
-- [CAP LLM Plugin](#)
+- **[SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js) (Recommended)**
+- [CAP LLM Plugin](https://www.npmjs.com/package/cap-llm-plugin)
 
 <h3>Tutorials and Learning Journeys</h3>
 
-- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Cloud SDK) from Generative
-  AI with SAP AI Core
+- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](https://developers.sap.com/tutorials/ai-core-orchestration-consumption.html) (SAP Cloud SDK) from [Generative AI with SAP AI Core](https://developers.sap.com/group.sap-ai-core-generative.html)
 
 <h3>Reference Code</h3>
 
 <h4>Recommended</h4>
 
-- [SAP BTP AI Best Practices - Sample Code](#)
-- [SAP Cloud SDK for AI - Sample CAP](#) (refer to the `OrchestrationService` class located in the `ai-sdk-js/sample-
-cap/srv/orchestration/orchestration-service.ts` file)
+- **[SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/cap)**
+- [SAP Cloud SDK for AI - Sample CAP](https://github.com/SAP/ai-sdk-js/tree/main/sample-cap) - See the specific file [`orchestration-service.ts`](https://github.com/SAP/ai-sdk-js/blob/main/sample-cap/srv/orchestration/orchestration-service.ts) for the `OrchestrationService` class implementation.
 
 For more details, please refer to the TypeScript section of this page because it has more examples and the SDK is
 the same.
@@ -330,11 +328,11 @@ the same.
 These sample projects might not use the official SDK or not follow the best practices but can be good examples
 for learning.
 
-- [CAP LLM Plugin - Sample Projects](#)
+- [CAP LLM Plugin - Sample Projects](https://github.com/SAP-samples/cap-llm-plugin-samples/)
 
 <h3>Relevant Code</h3>
 
-Simple chat completion call using the SAP Cloud SDK for AI.
+Simple chat completion call using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js).
 
 ```typescript
 const orchestrationClient = new OrchestrationClient({
@@ -364,7 +362,7 @@ console.log(result.getContent());
 
 <h3>Recommendation</h3>
 
-There is an official SAP Java SDK for accessing foundation models through AI Core service. It is recommended to
+There is an official [SAP Java SDK](https://github.com/SAP/ai-sdk-java) for accessing foundation models through AI Core service. It is recommended to
 use the SDK and follow the examples in the given repository.
 
 <h3>SDKs</h3>
@@ -373,22 +371,20 @@ With this SDK you can leverage the power of generative models available in the g
 Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
 through the APIs or the orchestration service.
 
-- [SAP Cloud SDK for AI (for Java)](#)
+- [SAP Cloud SDK for AI (for Java)](https://github.com/SAP/ai-sdk-java)
 
 <h3>Tutorials and Learning Journeys</h3>
 
-- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](#) (SAP Cloud SDK) from Generative
-  AI with SAP AI Core
+- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](https://developers.sap.com/tutorials/ai-core-orchestration-consumption.html) (SAP Cloud SDK) from [Generative AI with SAP AI Core](https://developers.sap.com/group.sap-ai-core-generative.html)
 
 <h3>Reference Code</h3>
 
-- [SAP BTP AI Best Practices - Sample Code](#)
-- Sample Spring App example (Refer to service `ai-sdk-java/.../services/OpenAiService.java` and the controller
-  to interact with the service `ai-sdk-java/.../controllers/OpenAiController.java`)
+- **[SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/java)**
+- [Sample Spring App example](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app) - See the specific files [`OpenAiService.java`](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers/OpenAiController.java) and [`OpenAiController.java`](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers/OpenAiController.java) to interact with the service.
 
 <h3>Relevant Code</h3>
 
-Simple code demonstrating AI capabilities using the SAP Cloud SDK for AI.
+Simple code demonstrating AI capabilities using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app).
 
 ```java
 @SuppressWarnings("unused") // The end-to-end test doesn't use this method

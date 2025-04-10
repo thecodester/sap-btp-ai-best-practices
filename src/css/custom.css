@@ -521,6 +521,7 @@ ol.steps-list li::before {
 
 /* Hero Header Section */
 .hero-header {
+  background-image: url("/img/bg-title-page.jpeg");
   background-size: cover;
   background-position: center;
   padding: 8rem 2rem 0.1rem 2rem;
