@@ -1,3 +1,4 @@
+import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Heading from "@theme/Heading";
 import Layout from "@theme/Layout";
@@ -11,6 +12,8 @@ import styles from "./index.module.css";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
+  const baseUrl = process.env.NODE_ENV === "development" ? "/" : "/sap-btp-ai-best-practices/";
+
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className={styles.videoOverlay} />
@@ -27,18 +30,18 @@ function HomepageHeader() {
         <div className={styles.navigation}>
           <p className={styles.navTitle}>Choose your path:</p>
           <div className={styles.navLinks}>
-            <a href="/docs/category/functional-view" className={styles.navLink}>
+            <Link to="/docs/category/functional-view" className={styles.navLink}>
               <span>Functional View</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </a>
-            <a href="/docs/category/technical-view" className={styles.navLink}>
+            </Link>
+            <Link to="/docs/category/technical-view" className={styles.navLink}>
               <span>Technical View</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -49,7 +52,7 @@ function HomepageHeader() {
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout title={`Hello from ${siteConfig.title}`} description="Description will go into a meta tag in <head />">
+    <Layout title={siteConfig.title} description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
         {/* <ValueProposition /> */}
