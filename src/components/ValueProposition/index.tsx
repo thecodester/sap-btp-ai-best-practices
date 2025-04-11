@@ -7,7 +7,6 @@ type ValueItem = {
   title: string;
   description: ReactNode;
   icon: ReactNode;
-  offset?: number;
 };
 
 const ValueList: ValueItem[] = [
@@ -22,8 +21,7 @@ const ValueList: ValueItem[] = [
         <path d="M4 14L44 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M4 34L44 34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-    ),
-    offset: -50
+    )
   },
   {
     title: "Proven Patterns",
@@ -36,8 +34,7 @@ const ValueList: ValueItem[] = [
         <path d="M24 8V40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M8 24H40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-    ),
-    offset: 50
+    )
   },
   {
     title: "Accelerated Development",
@@ -50,8 +47,7 @@ const ValueList: ValueItem[] = [
         <path d="M4 14L44 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M4 34L44 34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-    ),
-    offset: 150
+    )
   },
   {
     title: "Comprehensive Guidance",
@@ -64,8 +60,7 @@ const ValueList: ValueItem[] = [
         <path d="M4 14L44 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M4 34L44 34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-    ),
-    offset: -50
+    )
   },
   {
     title: "Proven Patterns",
@@ -78,8 +73,7 @@ const ValueList: ValueItem[] = [
         <path d="M24 8V40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M8 24H40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-    ),
-    offset: 50
+    )
   },
   {
     title: "Accelerated Development",
@@ -92,19 +86,13 @@ const ValueList: ValueItem[] = [
         <path d="M4 14L44 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M4 34L44 34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-    ),
-    offset: 150
+    )
   }
 ];
 
-function ValueItem({ title, description, icon, offset = 0 }: ValueItem) {
+function ValueItem({ title, description, icon }: ValueItem) {
   return (
-    <div
-      className={clsx(styles.valueItem)}
-      style={{
-        transform: `translateY(${offset}px)`
-      }}
-    >
+    <div className={clsx(styles.valueItem)}>
       <div className={styles.icon}>{icon}</div>
       <Heading as="h3" className={styles.title}>
         {title}
