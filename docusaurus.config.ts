@@ -5,7 +5,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "BTP AI Best Practices",
+  title: "SAP BTP AI Best Practices",
   tagline: "Your Ultimate Guide for Building AI Solutions on BTP",
   favicon: "img/favicon.ico",
 
