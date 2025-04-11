@@ -1,10 +1,11 @@
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Heading from "@theme/Heading";
 import Layout from "@theme/Layout";
 import clsx from "clsx";
 import { type ReactNode } from "react";
 
+import HomepageSections from "../components/HomepageSections";
+// import ValueProposition from "../components/ValueProposition";
 import PageViewTracker from "../components/tracking/PageViewTracker";
 import styles from "./index.module.css";
 
@@ -51,7 +52,8 @@ export default function Home(): ReactNode {
     <Layout title={`Hello from ${siteConfig.title}`} description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        {/* <ValueProposition /> */}
+        <HomepageSections />
       </main>
 
       <PageViewTracker featureName="HOME" />
