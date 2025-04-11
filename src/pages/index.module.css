@@ -3,6 +3,14 @@
  * and scoped locally.
  */
 
+.main {
+  background-color: var(--sap-horizon-neutral-2);
+}
+
+[data-theme="dark"] .main {
+  background-color: var(--sap-horizon-neutral-10);
+}
+
 .heroBanner {
   padding: 4rem 0;
   position: relative;

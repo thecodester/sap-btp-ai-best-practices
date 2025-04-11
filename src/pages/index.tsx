@@ -54,7 +54,7 @@ export default function Home(): ReactNode {
   return (
     <Layout title={siteConfig.title} description="Description will go into a meta tag in <head />">
       <HomepageHeader />
-      <main style={{ backgroundColor: "var(--sap-horizon-neutral-2)" }}>
+      <main className={styles.main}>
         <HomepageSections />
         <ValueProposition />
       </main>

@@ -10,12 +10,14 @@
 
   padding: 0 0 14rem 0;
   margin-top: -2rem;
+
+  background: transparent;
   background: radial-gradient(circle at 50% 50%, rgba(106, 80, 255, 0.15) 0%, transparent 40%);
-  /* background: linear-gradient(to bottom, #6a50ff, var(--sap-horizon-neutral-2)); */
 }
 
 [data-theme="dark"] .valueProposition {
-  background: linear-gradient(135deg, var(--sap-horizon-neutral-11) 0%, var(--sap-horizon-neutral-10) 100%);
+  background: transparent;
+  background: radial-gradient(circle at 50% 50%, rgba(106, 80, 255, 0.15) 0%, transparent 40%);
 }
 
 .sectionTitle {
