@@ -7,6 +7,11 @@
   background-color: #6a50ff;
   background: linear-gradient(to bottom, #6a50ff, var(--sap-horizon-neutral-2));
   background: radial-gradient(circle at 50% 50%, rgba(106, 80, 255, 0.15) 0%, transparent 70%);
+
+  padding: 0 0 14rem 0;
+  margin-top: -2rem;
+  background: radial-gradient(circle at 50% 50%, rgba(106, 80, 255, 0.15) 0%, transparent 40%);
+  /* background: linear-gradient(to bottom, #6a50ff, var(--sap-horizon-neutral-2)); */
 }
 
 [data-theme="dark"] .valueProposition {
@@ -16,26 +21,46 @@
 .sectionTitle {
   text-align: center;
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 3rem;
   color: var(--sap-horizon-neutral-9);
   font-family: var(--sapFontFamily);
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
   position: relative;
   z-index: 1;
 }
 
-.sectionTitle::after {
+/* .sectionTitle::after {
   content: "";
   position: absolute;
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%) skew(-15deg);
-  width: 100px;
+  width: 140px;
   height: 6px;
-  background: linear-gradient(90deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+  background: linear-gradient(90deg, var(--ifm-color-primary-light) 0%, #6a50ff 100%);
   border-radius: 3px;
+} */
+
+.sectionTitle .highlight {
+  background: linear-gradient(90deg, #6a50ff, var(--ifm-color-primary-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 3s infinite;
+  display: inline-block;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 [data-theme="dark"] .sectionTitle {
@@ -87,7 +112,7 @@
   font-family: var(--sapFontFamily);
   letter-spacing: -0.01em;
   position: relative;
-  display: inline-block;
+  display: block;
 }
 
 .title::after {
