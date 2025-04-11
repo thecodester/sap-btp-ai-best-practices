@@ -75,7 +75,7 @@ function Section({ title, description, link, icon, color }: SectionItem) {
 export default function HomepageSections(): ReactNode {
   return (
     <section className={styles.sections}>
-      <div className="container">
+      <div className="container" style={{ marginTop: "-50px", marginBottom: "150px" }}>
         <div className="row">
           {SectionList.map((props, idx) => (
             <Section key={idx} {...props} />
