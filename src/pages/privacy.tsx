@@ -1,5 +1,6 @@
 import Heading from "@theme/Heading";
 import Layout from "@theme/Layout";
+import React from "react";
 
 export default function Privacy() {
   return (

@@ -1,7 +1,7 @@
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import clsx from "clsx";
-import type { ReactNode } from "react";
+import { type ReactNode } from "react";
 // import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from "@theme/Heading";
 
