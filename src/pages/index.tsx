@@ -1,4 +1,5 @@
 import Link from "@docusaurus/Link";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Heading from "@theme/Heading";
 import Layout from "@theme/Layout";
@@ -18,7 +19,7 @@ function HomepageHeader() {
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className={styles.videoOverlay} />
       <video className={styles.videoBackground} autoPlay loop muted playsInline>
-        <source src="https://videos.cdn.sap.com/vod/hero/business-ai-video-hero.mp4" type="video/mp4" />
+        <source src={useBaseUrl("/videos/business-ai-video-hero.mp4")} type="video/mp4" />
       </video>
       <div className={clsx("container", styles.heroContent)}>
         <div className={styles.heroText}>
