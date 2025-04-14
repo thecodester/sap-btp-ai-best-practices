@@ -90,10 +90,17 @@ export default function HomepageSections(): ReactNode {
             </Heading>
           </div>
         </div>
-        <div className="row">
-          {SectionList.map((props, idx) => (
+        <div className="row" style={{ position: "relative" }}>
+          {/* {SectionList.map((props, idx) => (
             <Section key={idx} {...props} />
-          ))}
+          ))} */}
+          <div className={styles.iconDivider}>
+            <i className="sap-icon sap-icon--megamenu"></i>
+            <i className="sap-icon sap-icon--megamenu"></i>
+          </div>
+
+          <Section {...SectionList[0]} />
+          <Section {...SectionList[1]} />
         </div>
       </div>
     </section>

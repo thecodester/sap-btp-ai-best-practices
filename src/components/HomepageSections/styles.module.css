@@ -62,7 +62,9 @@
   left: 0;
   right: 0;
   height: 0.25rem;
-  background-color: var(--ifm-color-primary);
+  background-color: #6a50ff;
+  background: linear-gradient(to right, #6a50ff, #d1efff);
+
   opacity: 0;
   transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -205,4 +207,38 @@
 
 [data-theme="dark"] .icon {
   color: var(--ifm-color-primary-lighter);
+}
+
+/* Icon divider styles */
+.iconDivider {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.iconDivider i {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 2rem;
+}
+
+.iconDivider i:nth-child(1) {
+  font-size: 5rem;
+  /* margin-left: -20px; */
+  rotate: -90deg;
+}
+.iconDivider i:nth-child(2) {
+  font-size: 5rem;
+  /* margin-left: 20px; */
+  rotate: 90deg;
+}
+
+[data-theme="dark"] .iconDivider i {
+  background-color: var(--sap-horizon-neutral-11);
 }

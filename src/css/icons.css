@@ -27,6 +27,28 @@
 }
 
 /* Common SAP icon codes */
+.sap-icon--synchronize::before {
+  content: "\e00a";
+}
+.sap-icon--direction-arrows::before {
+  content: "\e29c";
+}
+.sap-icon--open-command-field::before {
+  content: "\e1c0";
+}
+.sap-icon--close-command-field::before {
+  content: "\e1bf";
+}
+.sap-icon--navigation-left-arrow::before {
+  content: "\e067";
+}
+.sap-icon--navigation-right-arrow::before {
+  content: "\e066";
+}
+.sap-icon--megamenu::before {
+  content: "\e287";
+}
+
 .sap-icon--preview::before {
   content: "\e006";
 }
