@@ -79,14 +79,14 @@ export default function HomepageSections(): ReactNode {
     <section className={styles.sections}>
       <div className="container" style={{ marginBottom: "150px" }}>
         <div className="row">
-          <div className="col col--12">
+          {/* <div className="col col--12">
             <div className={styles.taglineWrapper}>
               <p className={styles.tagline}>From intelligent capabilities to implementation-ready guidance, discover a seamless connection between concept and execution.</p>
             </div>
-          </div>
+          </div> */}
           <div className="col col--12">
             <Heading as="h2" className={styles.sectionTitle}>
-              Choose your path:
+              Choose your entry point:
             </Heading>
           </div>
         </div>

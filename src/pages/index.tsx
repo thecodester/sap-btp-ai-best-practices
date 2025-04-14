@@ -7,7 +7,7 @@ import clsx from "clsx";
 import { type ReactNode } from "react";
 
 import HomepageSections from "../components/HomepageSections";
-import ValueProposition from "../components/ValueProposition";
+// import ValueProposition from "../components/ValueProposition";
 import PageViewTracker from "../components/tracking/PageViewTracker";
 import styles from "./index.module.css";
 
@@ -28,10 +28,8 @@ function HomepageHeader() {
           <p className={styles.subtitle}>{siteConfig.tagline}</p>
         </div>
         <p className={styles.description}>
-          SAP BTP AI Best Practices is a curated collection of guides and patterns for implementing AI solutions on SAP Business Technology Platform.
-          <br />
-          <br />
-          Explore a <b>functional view</b> that showcases what AI can do, and a <b>technical view</b> that shows how to make it real.
+          SAP BTP AI Best Practices is a curated collection of guides and patterns for implementing AI solutions on SAP Business Technology Platform. Explore a{" "}
+          <b>functional view</b> that showcases what AI can do, and a <b>technical view</b> that shows how to make it real.
         </p>
         <div className={styles.navigation}>
           {/* <p className={styles.navTitle}>Choose your path:</p> */}
@@ -62,7 +60,7 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main className={styles.main}>
         <HomepageSections />
-        <ValueProposition />
+        {/* <ValueProposition /> */}
       </main>
 
       <PageViewTracker featureName="HOME" />

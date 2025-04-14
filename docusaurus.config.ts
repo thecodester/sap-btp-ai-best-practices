@@ -6,7 +6,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
   title: "SAP BTP AI Best Practices",
-  tagline: "Your Ultimate Guide for Building AI Solutions on BTP",
+  tagline: "Your Ultimate Guide for Building AI Solutions on SAP BTP",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
