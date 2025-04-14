@@ -225,20 +225,16 @@
 
 .iconDivider i {
   color: rgba(255, 255, 255, 0.3);
-  font-size: 2rem;
-}
-
-.iconDivider i:nth-child(1) {
   font-size: 5rem;
-  /* margin-left: -20px; */
-  rotate: -90deg;
-}
-.iconDivider i:nth-child(2) {
-  font-size: 5rem;
-  /* margin-left: 20px; */
-  rotate: 90deg;
 }
 
 [data-theme="dark"] .iconDivider i {
-  background-color: var(--sap-horizon-neutral-11);
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.iconDivider i:nth-child(1) {
+  rotate: -90deg;
+}
+.iconDivider i:nth-child(2) {
+  rotate: 90deg;
 }
