@@ -28,8 +28,10 @@ function HomepageHeader() {
           <p className={styles.subtitle}>{siteConfig.tagline}</p>
         </div>
         <p className={styles.description}>
-          SAP BTP AI Best Practices is a collection of guides and patterns for implementing AI solutions on SAP Business Technology Platform. Our community-driven approach helps
-          you navigate the AI landscape on SAP BTP.
+          SAP BTP AI Best Practices is a curated collection of guides and patterns for implementing AI solutions on SAP Business Technology Platform.
+          <br />
+          <br />
+          Explore a <b>functional view</b> that showcases what AI can do, and a <b>technical view</b> that shows how to make it real.
         </p>
         <div className={styles.navigation}>
           {/* <p className={styles.navTitle}>Choose your path:</p> */}
@@ -56,7 +58,7 @@ function HomepageHeader() {
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout title={siteConfig.title} description="Description will go into a meta tag in <head />">
+    <Layout description={siteConfig.tagline}>
       <HomepageHeader />
       <main className={styles.main}>
         <HomepageSections />

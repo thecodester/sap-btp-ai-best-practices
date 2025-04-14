@@ -63,7 +63,7 @@
   line-height: 1.2;
 }
 
-.title .highlight {
+.highlight {
   background: linear-gradient(90deg, #d1efff, #b8a6ff);
   -webkit-background-clip: text;
   background-clip: text;
@@ -94,7 +94,7 @@
 .description {
   font-size: 1.1rem;
   line-height: 1.6;
-  max-width: 700px;
+  max-width: 720px;
   margin-bottom: 2rem;
   opacity: 0.9;
   animation: fadeInUp 1s ease-out 0.3s both;
