@@ -1,0 +1,103 @@
+/**
+ * SAP Icons CSS
+ * This file contains the SAP icon font definitions and icon classes
+ */
+
+/* SAP Icons Font */
+@font-face {
+  font-family: "SAP-icons";
+  src: url("https://ui5.sap.com/resources/sap/ui/core/themes/base/fonts/SAP-icons.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+/* Base icon class */
+.sap-icon {
+  font-family: "SAP-icons";
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-align: center;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Common SAP icon codes */
+.sap-icon--preview::before {
+  content: "\e006";
+}
+.sap-icon--video::before {
+  content: "\e006";
+}
+.sap-icon--document::before {
+  content: "\e01a";
+}
+.sap-icon--folder::before {
+  content: "\e0b5";
+}
+.sap-icon--settings::before {
+  content: "\e0ca";
+}
+.sap-icon--edit::before {
+  content: "\e0dc";
+}
+.sap-icon--add::before {
+  content: "\e0ad";
+}
+.sap-icon--delete::before {
+  content: "\e03e";
+}
+.sap-icon--search::before {
+  content: "\e00d";
+}
+.sap-icon--download::before {
+  content: "\e013";
+}
+.sap-icon--upload::before {
+  content: "\e014";
+}
+.sap-icon--check::before {
+  content: "\e05b";
+}
+.sap-icon--alert::before {
+  content: "\e053";
+}
+.sap-icon--information::before {
+  content: "\e054";
+}
+.sap-icon--error::before {
+  content: "\e055";
+}
+
+/* Icon sizes */
+.sap-icon--s {
+  font-size: 1rem;
+}
+.sap-icon--m {
+  font-size: 1.25rem;
+}
+.sap-icon--l {
+  font-size: 1.5rem;
+}
+.sap-icon--xl {
+  font-size: 2rem;
+}
+
+/* Icon colors */
+.sap-icon--primary {
+  color: var(--ifm-color-primary);
+}
+.sap-icon--neutral {
+  color: var(--sap-horizon-neutral-9);
+}
+.sap-icon--light {
+  color: var(--sap-horizon-neutral-1);
+}
+
+[data-theme="dark"] .sap-icon--neutral {
+  color: var(--sap-horizon-neutral-4);
+}

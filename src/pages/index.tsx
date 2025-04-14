@@ -23,7 +23,7 @@ function HomepageHeader() {
       <div className={clsx("container", styles.heroContent)}>
         <div className={styles.heroText}>
           <Heading as="h1" className={styles.title}>
-            SAP BTP AI <span className={styles.highlight}>Best Practices</span>
+            SAP BTP <span className={styles.highlight}>AI Best Practices</span>
           </Heading>
           <p className={styles.subtitle}>{siteConfig.tagline}</p>
         </div>
