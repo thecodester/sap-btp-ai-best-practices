@@ -91,6 +91,15 @@
   animation: fadeInUp 1s ease-out 0.2s both;
 }
 
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
 .heroContent a {
   color: white;
   text-decoration: none;
@@ -144,6 +153,18 @@
   background: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .navLink {
+  background: var(--sap-horizon-neutral-10);
+  border-color: var(--sap-horizon-neutral-10);
+  color: var(--ifm-color-white);
+}
+
+[data-theme="dark"] .navLink:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: var(--sap-horizon-neutral-10);
+  color: var(--ifm-color-white);
 }
 
 .navLink svg {

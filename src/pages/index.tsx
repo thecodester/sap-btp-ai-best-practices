@@ -27,8 +27,12 @@ function HomepageHeader() {
           </Heading>
           <p className={styles.subtitle}>{siteConfig.tagline}</p>
         </div>
+        <p className={styles.description}>
+          SAP BTP AI Best Practices is a collection of guides and patterns for implementing AI solutions on SAP Business Technology Platform. Our community-driven approach helps
+          you navigate the AI landscape on SAP BTP.
+        </p>
         <div className={styles.navigation}>
-          <p className={styles.navTitle}>Choose your path:</p>
+          {/* <p className={styles.navTitle}>Choose your path:</p> */}
           <div className={styles.navLinks}>
             <Link to="/docs/category/functional-view" className={styles.navLink}>
               <span>Functional View</span>

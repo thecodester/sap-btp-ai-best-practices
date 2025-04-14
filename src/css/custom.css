@@ -596,3 +596,55 @@ ol.steps-list li::before {
   color: var(--ifm-color-primary-lighter);
   background-color: var(--sap-horizon-neutral-10);
 }
+
+/* Section Title */
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--sap-horizon-neutral-9);
+  font-family: var(--sapFontFamily);
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title .highlight {
+  background: linear-gradient(90deg, #6a50ff, var(--ifm-color-primary-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 3s infinite;
+  display: inline-block;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+[data-theme="dark"] .section-title {
+  color: var(--sap-horizon-neutral-4);
+}
+
+@media screen and (max-width: 996px) {
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}

@@ -10,6 +10,10 @@
   background: linear-gradient(to bottom, #6a50ff, var(--sap-horizon-neutral-10));
 }
 
+.sectionTitle {
+  color: white;
+}
+
 .section {
   padding: 1.5rem;
 }
@@ -109,6 +113,41 @@
 }
 
 .link:hover .arrow {
+  transform: translateX(4px);
+}
+
+.sectionLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.sectionLink:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--sapFontFamily);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 0;
+}
+
+.sectionLink:hover .ctaLink {
+  color: var(--ifm-color-primary-dark);
+  transform: translateX(4px);
+}
+
+.sectionLink:hover .arrow {
   transform: translateX(4px);
 }
 

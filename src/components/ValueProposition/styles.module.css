@@ -20,55 +20,6 @@
   background: radial-gradient(circle at 50% 50%, rgba(106, 80, 255, 0.15) 0%, transparent 40%);
 }
 
-.sectionTitle {
-  text-align: center;
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
-  color: var(--sap-horizon-neutral-9);
-  font-family: var(--sapFontFamily);
-  letter-spacing: -0.01em;
-  position: relative;
-  z-index: 1;
-}
-
-/* .sectionTitle::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%) skew(-15deg);
-  width: 140px;
-  height: 6px;
-  background: linear-gradient(90deg, var(--ifm-color-primary-light) 0%, #6a50ff 100%);
-  border-radius: 3px;
-} */
-
-.sectionTitle .highlight {
-  background: linear-gradient(90deg, #6a50ff, var(--ifm-color-primary-light));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shine 3s infinite;
-  display: inline-block;
-}
-
-@keyframes shine {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-[data-theme="dark"] .sectionTitle {
-  color: var(--sap-horizon-neutral-4);
-}
-
 .valueItem {
   padding: 2rem;
   position: relative;
@@ -175,11 +126,6 @@
     padding: 3rem 0;
   }
 
-  .sectionTitle {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-  }
-
   .valueItem {
     padding: 1.5rem;
     margin: 0.75rem;
@@ -190,11 +136,6 @@
 @media screen and (max-width: 576px) {
   .valueProposition {
     padding: 2rem 0;
-  }
-
-  .sectionTitle {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
   }
 
   .valueItem {

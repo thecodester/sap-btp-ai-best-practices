@@ -53,21 +53,23 @@ const SectionList: SectionItem[] = [
 function Section({ title, description, link, icon, color }: SectionItem) {
   return (
     <div className={clsx("col col--6", styles.section)}>
-      <div className={styles.sectionContent} style={{ "--sap-color": color } as React.CSSProperties}>
-        <div className={styles.icon}>{icon}</div>
-        <div className={styles.textContent}>
-          <Heading as="h2" className={styles.title}>
-            {title}
-          </Heading>
-          <p className={styles.description}>{description}</p>
-          <Link to={link} className={styles.link}>
-            Explore {title}
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.arrow}>
-              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
+      <Link to={link} className={styles.sectionLink}>
+        <div className={styles.sectionContent} style={{ "--sap-color": color } as React.CSSProperties}>
+          <div className={styles.icon}>{icon}</div>
+          <div className={styles.textContent}>
+            <Heading as="h2" className={styles.title}>
+              {title}
+            </Heading>
+            <p className={styles.description}>{description}</p>
+            <div className={styles.ctaLink}>
+              Explore {title}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.arrow}>
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }
@@ -75,7 +77,14 @@ function Section({ title, description, link, icon, color }: SectionItem) {
 export default function HomepageSections(): ReactNode {
   return (
     <section className={styles.sections}>
-      <div className="container" style={{ marginTop: "-50px", marginBottom: "150px" }}>
+      <div className="container" style={{ marginBottom: "150px" }}>
+        <div className="row">
+          <div className="col col--12">
+            <Heading as="h2" className={styles.sectionTitle}>
+              Choose your path:
+            </Heading>
+          </div>
+        </div>
         <div className="row">
           {SectionList.map((props, idx) => (
             <Section key={idx} {...props} />

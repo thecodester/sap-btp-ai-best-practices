@@ -108,8 +108,8 @@ export default function ValueProposition(): ReactNode {
       <div className="container">
         <div className="row">
           <div className="col col--12">
-            <Heading as="h2" className={styles.sectionTitle}>
-              Why Use SAP BTP <span className={styles.highlight}>AI Best Practices</span>?
+            <Heading as="h2" className="section-title">
+              Why Use SAP BTP <span className="highlight">AI Best Practices</span>?
             </Heading>
           </div>
         </div>
