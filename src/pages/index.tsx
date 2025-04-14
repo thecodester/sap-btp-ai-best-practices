@@ -13,7 +13,6 @@ import styles from "./index.module.css";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-  const baseUrl = process.env.NODE_ENV === "development" ? "/" : "/sap-btp-ai-best-practices/";
 
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
