@@ -186,6 +186,11 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .title {
+    font-size: 2.9rem;
+  }
+}
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
@@ -195,10 +200,6 @@
   .heroContent {
     margin-left: 1rem;
     max-width: 100%;
-  }
-
-  .title {
-    font-size: 2.5rem;
   }
 
   .subtitle {
