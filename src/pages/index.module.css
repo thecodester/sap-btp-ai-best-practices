@@ -46,7 +46,7 @@
 .heroContent {
   position: relative;
   z-index: 3;
-  max-width: 800px;
+  max-width: 900px;
   margin-left: 4rem;
   color: white;
 }
