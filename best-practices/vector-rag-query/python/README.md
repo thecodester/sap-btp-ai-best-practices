@@ -1,5 +1,5 @@
 ## Project Structure
-This project demonstrates best practices for performing Retrieval Augmented Generation (RAG) using LLMs available on SAP GenAI Hub and SAP HANA Vector Store. It provides examples of different ways to implemente RAG using Python.
+This project demonstrates best practices for performing Retrieval Augmented Generation (RAG) using LLMs available on SAP GenAI Hub and SAP HANA Vector Store. It provides examples of different ways to implement RAG using Python.
 
 ```
 ├── python
