@@ -4,6 +4,8 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const baseUrl = process.env.NODE_ENV === "development" ? "/" : "/sap-btp-ai-best-practices/";
+
 const config: Config = {
   title: "SAP BTP AI Best Practices",
   tagline: "Your Ultimate Guide for Building AI Solutions on SAP BTP",
@@ -97,7 +99,7 @@ const config: Config = {
           href: "https://github.com/SAP-samples/sap-btp-ai-best-practices",
           className: "navbar-icon-link",
           "aria-label": "GitHub repository",
-          html: `<img src="${process.env.NODE_ENV === "development" ? "/" : "/sap-btp-ai-best-practices/"}img/github.svg" alt="GitHub" width="32" height="32" />`,
+          html: `<img src="${baseUrl}img/github.svg" alt="GitHub" width="32" height="32" />`,
           position: "right"
         }
       ]
@@ -115,8 +117,8 @@ const config: Config = {
           items: [
             {
               html: `
-                <a href="${process.env.NODE_ENV === "development" ? "/" : "/sap-btp-ai-best-practices/"}" aria-label="SAP Logo">
-                  <img src="${process.env.NODE_ENV === "development" ? "/" : "/sap-btp-ai-best-practices/"}img/logo.svg" alt="SAP Logo" height="50" />
+                <a href="${baseUrl}" aria-label="SAP Logo">
+                  <img src="${baseUrl}img/logo.svg" alt="SAP Logo" height="50" />
                 </a>`
             }
           ]
@@ -135,11 +137,11 @@ const config: Config = {
           items: [
             {
               label: "Technologies",
-              to: "/"
+              to: `${baseUrl}docs/category/technologies`
             },
             {
               label: "Glossary",
-              href: "/"
+              href: `${baseUrl}docs/glossary`
             }
           ]
         },
