@@ -12,10 +12,10 @@ interface TrackingParams {
 export const useTracking = ({ toolName, featureName }: TrackingParams) => {
   useEffect(() => {
     const initializeTracking = async () => {
-      // // Skip tracking in development mode
+      // Skip tracking in development mode
       // if (environment.isDevelopment) {
-      //   console.log("Tracking disabled in development mode");
-      //   return;
+      console.log("Tracking disabled in development mode");
+      return;
       // }
 
       try {
