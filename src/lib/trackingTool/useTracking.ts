@@ -13,10 +13,10 @@ export const useTracking = ({ toolName, featureName }: TrackingParams) => {
   useEffect(() => {
     const initializeTracking = async () => {
       // Skip tracking in development mode
-      // if (environment.isDevelopment) {
-      console.log("Tracking disabled in development mode");
-      return;
-      // }
+      if (environment.isDevelopment) {
+        console.log("Tracking disabled in development mode");
+        return;
+      }
 
       try {
         const trackingTool = new SAPTrackingTool({
