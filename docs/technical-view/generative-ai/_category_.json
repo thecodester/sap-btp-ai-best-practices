@@ -2,7 +2,7 @@
   "label": "Generative AI",
   "position": 1,
   "link": {
-    "type": "generated-index",
-    "description": "Generative AI refers to artificial intelligence models that create new content, such as text, images, or audio, by learning patterns from existing data."
+    "type": "doc",
+    "id": "technical-view/generative-ai/index"
   }
 }

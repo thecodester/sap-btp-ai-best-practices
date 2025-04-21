@@ -322,6 +322,10 @@ h6,
   color: var(--ifm-color-primary);
 }
 
+.theme-doc-sidebar-item-link.hidden {
+  display: none;
+}
+
 /* Breadcrumbs */
 
 .breadcrumbs__link {
@@ -465,16 +469,16 @@ h2 .step-number {
 
 .section-with-background {
   background: var(--sap-horizon-neutral-2);
-  padding: 1rem;
+  padding: 1rem 1rem 0.4rem 1rem;
   border-radius: 8px;
 }
 
 .section-with-background.blue {
-  background: #ebf8ff;
+  background: #f4f9fd;
 }
 .section-with-background.gradient-blue {
-  background: #ebf8ff;
-  background: linear-gradient(180deg, #ebf8ff 0%, #d1efff 100%);
+  background: #f4f9fd;
+  background: linear-gradient(180deg, #f4f9fd 0%, #d1efff 100%);
 }
 
 .section-with-background.gradient-violet-blue {
@@ -671,12 +675,16 @@ ol.steps-list li::before {
 }
 
 /* Adjust icon color on hover if needed, assuming icon is a child */
+.list-button-item a:hover ui5-icon,
 .list-button-item a:hover .sap-icon {
   color: var(--ifm-color-primary); /* Example: make icon primary on hover */
 }
 
 /* Icon styling within the button (adjust as needed) */
+.list-button-item a ui5-icon,
+.list-button-item a ui5-icon::part(root),
 .list-button-item a .sap-icon {
+  width: 1rem;
   font-size: 1rem;
   color: var(--ifm-color-primary);
   /* Remove fixed background/padding if icon is directly inside */
@@ -695,13 +703,41 @@ ol.steps-list li::before {
   color: var(--ifm-color-primary);
 }
 
-[data-theme="dark"] .list-button-item a:hover .sap-icon {
-  color: var(--ifm-color-primary);
+/* Style for disabled list button links */
+.list-button-item a.disabled {
+  color: var(--sap-horizon-neutral-7);
+  border-color: var(--sap-horizon-neutral-4);
+  background-color: var(--sap-horizon-neutral-3);
+  cursor: not-allowed;
+  pointer-events: none; /* Disable click events */
 }
 
-[data-theme="dark"] .list-button-item a .sap-icon {
-  /* Adjust dark mode icon color if needed */
-  color: var(--ifm-color-primary);
+.list-button-item a.disabled:hover {
+  color: var(--sap-horizon-neutral-7);
+  border-color: var(--sap-horizon-neutral-4);
+  background-color: var(--sap-horizon-neutral-3);
+}
+
+.list-button-item a.disabled ui5-icon::part(root),
+.list-button-item a.disabled .sap-icon {
+  color: var(--sap-horizon-neutral-7); /* Make icon gray as well */
+}
+
+[data-theme="dark"] .list-button-item a.disabled {
+  color: var(--sap-horizon-neutral-8);
+  border-color: var(--sap-horizon-neutral-10);
+  background-color: var(--sap-horizon-neutral-11);
+}
+
+[data-theme="dark"] .list-button-item a.disabled:hover {
+  color: var(--sap-horizon-neutral-8);
+  border-color: var(--sap-horizon-neutral-10);
+  background-color: var(--sap-horizon-neutral-11);
+}
+
+[data-theme="dark"] .list-button-item a.disabled ui5-icon::part(root),
+[data-theme="dark"] .list-button-item a.disabled .sap-icon {
+  color: var(--sap-horizon-neutral-8);
 }
 
 /* End General List Button Styling */

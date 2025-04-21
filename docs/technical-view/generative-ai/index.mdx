@@ -1,0 +1,99 @@
+---
+title: Generative AI
+hide_table_of_contents: true
+hide_title: true
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import { Icon } from "@ui5/webcomponents-react";
+import "@ui5/webcomponents-icons/dist/connected.js";
+import "@ui5/webcomponents-icons/dist/documents.js";
+import "@ui5/webcomponents-icons/dist/hide.js";
+import "@ui5/webcomponents-icons/dist/filter.js";
+import "@ui5/webcomponents-icons/dist/compare.js";
+import "@ui5/webcomponents-icons/dist/lateness.js";
+
+<div className="hero-header">
+  <h1>Generative AI</h1>
+</div>
+
+<div className="section-with-background blue">
+  <h2>What is Generative AI?</h2>
+  <p>Generative AI refers to artificial intelligence models that create new content, such as text, images, or audio, by learning patterns from existing data.</p>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="col col--4">
+    <h3>
+      <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/")}>Plain <small>(Foundational Model Access)</small></a>
+    </h3>
+    <h4>Direct</h4>
+    <ul className="button-list">
+      <li className="list-button-item">
+        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/access-to-generative-ai-models")}>
+          <Icon name="connected"></Icon>
+          <span>Access to Generative AI Models</span>
+        </a>
+      </li>
+    </ul>
+    <h4>Orchestrated</h4>
+    <ul className="button-list">
+      <li className="list-button-item">
+        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/prompt-templating")} className="disabled">
+          <Icon name="documents"></Icon>
+          <span>Prompt Templating</span>
+        </a>
+      </li>
+      <li className="list-button-item">
+        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/data-masking")} className="disabled">
+          <Icon name="hide"></Icon>
+          <span>Data Masking</span>
+        </a>
+      </li>
+      <li className="list-button-item">
+        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/content-filtering")} className="disabled">
+          <Icon name="filter"></Icon>
+          <span>Content Filtering</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="col col--4">
+    <h3>
+      RAG <small>(Retrieval Augmented Generation)</small>
+    </h3>
+    <h4>General</h4>
+    <ul className="button-list">
+      <li className="list-button-item">
+        <a className="disabled">
+          <Icon name="compare"></Icon>
+          <span>Vector RAG vs Graph RAG</span>
+        </a>
+      </li>
+    </ul>
+    <h4>Vector Database</h4>
+    <ul className="button-list">
+      <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Overall and Embedding Creation</span></a></li>
+      <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Query Pipeline</span></a></li>
+    </ul>
+    <h4>Knowledge Graph</h4>
+    <ul className="button-list">
+      <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Overall and Knowledge Graph Creation</span></a></li>
+      <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Query Pipeline</span></a></li>
+    </ul>
+  </div>
+  <div class="col col--4">
+    <h3>Agentic</h3>
+    <h4>Single Agent</h4>
+    <ul className="button-list">
+      <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Under construction</span></a></li>
+    </ul>
+    <h4>Multi-Agent</h4>
+    <ul className="button-list">
+      <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Under construction</span></a></li>
+    </ul>
+  </div>
+
+</div>

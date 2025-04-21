@@ -1,40 +1,33 @@
 ---
 title: Technical View
+hide_table_of_contents: true
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
-
-# Technical View
+import { Icon } from "@ui5/webcomponents-react";
+import "@ui5/webcomponents-icons/dist/connected.js";
+import "@ui5/webcomponents-icons/dist/documents.js";
+import "@ui5/webcomponents-icons/dist/hide.js";
+import "@ui5/webcomponents-icons/dist/filter.js";
+import "@ui5/webcomponents-icons/dist/compare.js";
+import "@ui5/webcomponents-icons/dist/lateness.js";
 
 Navigate the best practices in a concept tree view, separating and organizing all the information.
 
 <h2>
-  <a href={useBaseUrl("/docs/category/generative-ai/")}>Generative AI</a>
+  <a href={useBaseUrl("/docs/technical-view/generative-ai/")}>Generative AI</a>
 </h2>
 
-<div class="container">
   <div class="row">
     <div class="col col--4">
       <h3>
-        Plain <small>(Foundational Model Access)</small>
+        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/")}>Plain <small>(Foundational Model Access)</small></a>
       </h3>
-    </div>
-    <div class="col col--4">
-      <h3>
-        RAG <small>(Retrieval Augmented Generation)</small>
-      </h3>
-    </div>
-    <div class="col col--4">
-      <h3>Agentic</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col col--4">
       <h4>Direct</h4>
       <ul className="button-list">
         <li className="list-button-item">
-          <a href={useBaseUrl("/docs/technical-view/generative-ai/access-to-generative-ai-models")}>
-            <i className="sap-icon sap-icon--document"></i>
+          <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/access-to-generative-ai-models")}>
+            <Icon name="connected"></Icon>
             <span>Access to Generative AI Models</span>
           </a>
         </li>
@@ -42,89 +35,124 @@ Navigate the best practices in a concept tree view, separating and organizing al
       <h4>Orchestrated</h4>
       <ul className="button-list">
         <li className="list-button-item">
-          <a href={useBaseUrl("/docs/technical-view/generative-ai/prompt-templating")}>
-            <i className="sap-icon sap-icon--document"></i>
+          <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/prompt-templating")} className="disabled">
+            <Icon name="documents"></Icon>
             <span>Prompt Templating</span>
           </a>
         </li>
         <li className="list-button-item">
-          <a href={useBaseUrl("/docs/technical-view/generative-ai/data-masking")}>
-            <i className="sap-icon sap-icon--document"></i>
+          <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/data-masking")} className="disabled">
+            <Icon name="hide"></Icon>
             <span>Data Masking</span>
           </a>
         </li>
         <li className="list-button-item">
-          <a href={useBaseUrl("/docs/technical-view/generative-ai/content-filtering")}>
-            <i className="sap-icon sap-icon--document"></i>
+          <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/content-filtering")} className="disabled">
+            <Icon name="filter"></Icon>
             <span>Content Filtering</span>
           </a>
         </li>
       </ul>
     </div>
     <div class="col col--4">
+      <h3>
+        RAG <small>(Retrieval Augmented Generation)</small>
+      </h3>
       <h4>General</h4>
       <ul className="button-list">
-        <li className="list-button-item">Vector RAG vs Graph RAG</li>
+        <li className="list-button-item">
+          <a className="disabled">
+            <Icon name="compare"></Icon>
+            <span>Vector RAG vs Graph RAG</span>
+          </a>
+        </li>
       </ul>
       <h4>Vector Database</h4>
       <ul className="button-list">
-        <li className="list-button-item">Overall and Embedding Creation</li>
-        <li className="list-button-item">Query Pipeline</li>
+        <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Overall and Embedding Creation</span></a></li>
+        <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Query Pipeline</span></a></li>
       </ul>
       <h4>Knowledge Graph</h4>
       <ul className="button-list">
-        <li className="list-button-item">Overall and Knowledge Graph Creation</li>
-        <li className="list-button-item">Query Pipeline</li>
+        <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Overall and Knowledge Graph Creation</span></a></li>
+        <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Query Pipeline</span></a></li>
       </ul>
     </div>
     <div class="col col--4">
+      <h3>Agentic</h3>
       <h4>Single Agent</h4>
       <ul className="button-list">
-        <li className="list-button-item">Under construction</li>
+        <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Under construction</span></a></li>
       </ul>
       <h4>Multi-Agent</h4>
       <ul className="button-list">
-        <li className="list-button-item">Under construction</li>
+        <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Under construction</span></a></li>
       </ul>
     </div>
 
   </div>
-</div>
 
 <h2>Narrow AI</h2>
 
-<div class="container">
-  <div class="row">
-    <div class="col col--12">
-      <h3>Key Predictive Functions</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col col--12">
-      <ul className="button-list">
-        <li className="list-button-item">Linear Regression</li>
-        <li className="list-button-item">Time Series Forecasting</li>
-        <li className="list-button-item">Classification</li>
-        <li className="list-button-item">Recommendation</li>
-        <li className="list-button-item">Clustering</li>
-        <li className="list-button-item">Anomaly Detection</li>
-      </ul>
-    </div>
-  </div>
-</div>
+{" "}
 
-<div class="container">
-  <div class="row">
-    <div class="col col--12">
-      <h3>More</h3>
-    </div>
+<div class="row">
+  <div class="col col--6">
+    <h3>Key Predictive Functions</h3>
+    <ul className="button-list">
+      <li className="list-button-item">
+        <a className="disabled">
+          <Icon name="lateness"></Icon>
+          <span>Linear Regression</span>
+        </a>
+      </li>
+      <li className="list-button-item">
+        <a className="disabled">
+          <Icon name="lateness"></Icon>
+          <span>Time Series Forecasting</span>
+        </a>
+      </li>
+      <li className="list-button-item">
+        <a className="disabled">
+          <Icon name="lateness"></Icon>
+          <span>Classification</span>
+        </a>
+      </li>
+      <li className="list-button-item">
+        <a className="disabled">
+          <Icon name="lateness"></Icon>
+          <span>Recommendation</span>
+        </a>
+      </li>
+      <li className="list-button-item">
+        <a className="disabled">
+          <Icon name="lateness"></Icon>
+          <span>Clustering</span>
+        </a>
+      </li>
+      <li className="list-button-item">
+        <a className="disabled">
+          <Icon name="lateness"></Icon>
+          <span>Anomaly Detection</span>
+        </a>
+      </li>
+    </ul>
   </div>
-  <div class="row">
-    <div class="col col--12">
-      <ul className="button-list">
-        <li className="list-button-item">Predictive AI/Narrow ML with BDC and BTP</li>
-        <li className="list-button-item">Deployment of Custom Predictive Models </li>
-      </ul>
-    </div>
+  <div class="col col--6">
+    <h3>More</h3>
+    <ul className="button-list">
+      <li className="list-button-item">
+        <a className="disabled">
+          <Icon name="lateness"></Icon>
+          <span>Predictive AI/Narrow ML with BDC and BTP</span>
+        </a>
+      </li>
+      <li className="list-button-item">
+        <a className="disabled">
+          <Icon name="lateness"></Icon>
+          <span>Deployment of Custom Predictive Models</span>
+        </a>
+      </li>
+    </ul>
   </div>
 </div>
