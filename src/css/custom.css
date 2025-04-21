@@ -742,6 +742,100 @@ ol.steps-list li::before {
 
 /* End General List Button Styling */
 
+/* Feature Button Styling */
+.feature-button {
+  /* Inherit base styles */
+  display: flex;
+  flex-direction: column; /* Stack icon and text */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  gap: 1rem; /* Space between icon and text */
+  padding: 2rem 1rem; /* Larger padding */
+  border: 1px solid var(--sap-horizon-neutral-5);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--ifm-menu-color);
+  transition: all 0.2s ease;
+  background-color: var(--sap-horizon-neutral-1);
+  font-weight: 600; /* Bolder text */
+  font-size: 1.2rem; /* Larger text */
+  width: 100%;
+  text-align: center;
+  min-height: 150px; /* Give it some height */
+}
+
+.feature-button:hover {
+  background-color: var(--sap-horizon-neutral-3);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+/* Adjust icon size */
+.feature-button ui5-icon,
+.feature-button ui5-icon::part(root) {
+  width: 2rem; /* Larger icon */
+  height: 2rem;
+  font-size: 2rem;
+  color: var(--ifm-color-primary);
+}
+
+.feature-button:hover ui5-icon,
+.feature-button:hover ui5-icon::part(root) {
+  color: var(--ifm-color-primary);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .feature-button {
+  background-color: var(--sap-horizon-neutral-11);
+  border-color: var(--sap-horizon-neutral-10);
+  color: var(--ifm-menu-color);
+}
+
+[data-theme="dark"] .feature-button:hover {
+  background-color: var(--sap-horizon-neutral-10);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+/* Disabled State */
+.feature-button.disabled {
+  color: var(--sap-horizon-neutral-7);
+  border-color: var(--sap-horizon-neutral-4);
+  background-color: var(--sap-horizon-neutral-3);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.feature-button.disabled:hover {
+  color: var(--sap-horizon-neutral-7);
+  border-color: var(--sap-horizon-neutral-4);
+  background-color: var(--sap-horizon-neutral-3);
+}
+
+.feature-button.disabled ui5-icon,
+.feature-button.disabled ui5-icon::part(root) {
+  color: var(--sap-horizon-neutral-7);
+}
+
+[data-theme="dark"] .feature-button.disabled {
+  color: var(--sap-horizon-neutral-8);
+  border-color: var(--sap-horizon-neutral-10);
+  background-color: var(--sap-horizon-neutral-11);
+}
+
+[data-theme="dark"] .feature-button.disabled:hover {
+  color: var(--sap-horizon-neutral-8);
+  border-color: var(--sap-horizon-neutral-10);
+  background-color: var(--sap-horizon-neutral-11);
+}
+
+[data-theme="dark"] .feature-button.disabled ui5-icon,
+[data-theme="dark"] .feature-button.disabled ui5-icon::part(root) {
+  color: var(--sap-horizon-neutral-8);
+}
+/* End Feature Button Styling */
+
 @media screen and (max-width: 996px) {
   .section-title {
     font-size: 2.5rem;

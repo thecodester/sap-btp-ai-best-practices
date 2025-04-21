@@ -1,6 +1,7 @@
 ---
 title: Technical View
 hide_table_of_contents: true
+hide_title: true
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -12,8 +13,32 @@ import "@ui5/webcomponents-icons/dist/filter.js";
 import "@ui5/webcomponents-icons/dist/compare.js";
 import "@ui5/webcomponents-icons/dist/lateness.js";
 
-Navigate the best practices in a concept tree view, separating and organizing all the information.
+<div className="hero-header">
+  <h1>Technical View</h1>
+</div>
 
+<div className="section-with-background blue">
+  <h2>Explore by AI Concept</h2>
+  <p>Find best practices structured around key AI technologies and approaches, such as Generative AI and Narrow AI, used within SAP BTP.</p>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="col col--6">
+    <a href={useBaseUrl("/docs/technical-view/generative-ai/")} className="feature-button">
+      <Icon name="connected"></Icon>
+      <span>Generative AI</span>
+    </a>
+  </div>
+  <div class="col col--6">
+    <a href={useBaseUrl("/docs/technical-view/narrow-ai/")} className="feature-button disabled">
+      <Icon name="connected"></Icon>
+      <span>Narrow AI</span>
+    </a>
+  </div>
+</div>
+{/* 
 <h2>
   <a href={useBaseUrl("/docs/technical-view/generative-ai/")}>Generative AI</a>
 </h2>
@@ -155,4 +180,4 @@ Navigate the best practices in a concept tree view, separating and organizing al
       </li>
     </ul>
   </div>
-</div>
+</div> */}
