@@ -6,12 +6,8 @@ hide_title: true
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { Icon } from "@ui5/webcomponents-react";
-import "@ui5/webcomponents-icons/dist/connected.js";
-import "@ui5/webcomponents-icons/dist/documents.js";
-import "@ui5/webcomponents-icons/dist/hide.js";
-import "@ui5/webcomponents-icons/dist/filter.js";
-import "@ui5/webcomponents-icons/dist/compare.js";
-import "@ui5/webcomponents-icons/dist/lateness.js";
+import "@ui5/webcomponents-icons/dist/discussion.js";
+import "@ui5/webcomponents-icons/dist/goalseek.js";
 
 <div className="hero-header">
   <h1>Technical View</h1>
@@ -19,7 +15,10 @@ import "@ui5/webcomponents-icons/dist/lateness.js";
 
 <div className="section-with-background blue">
   <h2>Explore by AI Concept</h2>
-  <p>Find best practices structured around key AI technologies and approaches, such as Generative AI and Narrow AI, used within SAP BTP.</p>
+  <p>
+    Find best practices structured around key AI technologies and approaches, such as <a href={useBaseUrl("/docs/technical-view/generative-ai/")}>Generative AI</a> and{" "}
+    <a href={useBaseUrl("/docs/technical-view/narrow-ai/")}>Narrow AI</a>.
+  </p>
 </div>
 
 <br />
@@ -27,157 +26,14 @@ import "@ui5/webcomponents-icons/dist/lateness.js";
 <div class="row">
   <div class="col col--6">
     <a href={useBaseUrl("/docs/technical-view/generative-ai/")} className="feature-button">
-      <Icon name="connected"></Icon>
+      <Icon name="discussion"></Icon>
       <span>Generative AI</span>
     </a>
   </div>
   <div class="col col--6">
-    <a href={useBaseUrl("/docs/technical-view/narrow-ai/")} className="feature-button disabled">
-      <Icon name="connected"></Icon>
+    <a href={useBaseUrl("/docs/technical-view/narrow-ai/")} className="feature-button">
+      <Icon name="goalseek"></Icon>
       <span>Narrow AI</span>
     </a>
   </div>
 </div>
-{/* 
-<h2>
-  <a href={useBaseUrl("/docs/technical-view/generative-ai/")}>Generative AI</a>
-</h2>
-
-  <div class="row">
-    <div class="col col--4">
-      <h3>
-        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/")}>Plain <small>(Foundational Model Access)</small></a>
-      </h3>
-      <h4>Direct</h4>
-      <ul className="button-list">
-        <li className="list-button-item">
-          <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/access-to-generative-ai-models")}>
-            <Icon name="connected"></Icon>
-            <span>Access to Generative AI Models</span>
-          </a>
-        </li>
-      </ul>
-      <h4>Orchestrated</h4>
-      <ul className="button-list">
-        <li className="list-button-item">
-          <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/prompt-templating")} className="disabled">
-            <Icon name="documents"></Icon>
-            <span>Prompt Templating</span>
-          </a>
-        </li>
-        <li className="list-button-item">
-          <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/data-masking")} className="disabled">
-            <Icon name="hide"></Icon>
-            <span>Data Masking</span>
-          </a>
-        </li>
-        <li className="list-button-item">
-          <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/content-filtering")} className="disabled">
-            <Icon name="filter"></Icon>
-            <span>Content Filtering</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="col col--4">
-      <h3>
-        RAG <small>(Retrieval Augmented Generation)</small>
-      </h3>
-      <h4>General</h4>
-      <ul className="button-list">
-        <li className="list-button-item">
-          <a className="disabled">
-            <Icon name="compare"></Icon>
-            <span>Vector RAG vs Graph RAG</span>
-          </a>
-        </li>
-      </ul>
-      <h4>Vector Database</h4>
-      <ul className="button-list">
-        <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Overall and Embedding Creation</span></a></li>
-        <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Query Pipeline</span></a></li>
-      </ul>
-      <h4>Knowledge Graph</h4>
-      <ul className="button-list">
-        <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Overall and Knowledge Graph Creation</span></a></li>
-        <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Query Pipeline</span></a></li>
-      </ul>
-    </div>
-    <div class="col col--4">
-      <h3>Agentic</h3>
-      <h4>Single Agent</h4>
-      <ul className="button-list">
-        <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Under construction</span></a></li>
-      </ul>
-      <h4>Multi-Agent</h4>
-      <ul className="button-list">
-        <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Under construction</span></a></li>
-      </ul>
-    </div>
-
-  </div>
-
-<h2>Narrow AI</h2>
-
-{" "}
-
-<div class="row">
-  <div class="col col--6">
-    <h3>Key Predictive Functions</h3>
-    <ul className="button-list">
-      <li className="list-button-item">
-        <a className="disabled">
-          <Icon name="lateness"></Icon>
-          <span>Linear Regression</span>
-        </a>
-      </li>
-      <li className="list-button-item">
-        <a className="disabled">
-          <Icon name="lateness"></Icon>
-          <span>Time Series Forecasting</span>
-        </a>
-      </li>
-      <li className="list-button-item">
-        <a className="disabled">
-          <Icon name="lateness"></Icon>
-          <span>Classification</span>
-        </a>
-      </li>
-      <li className="list-button-item">
-        <a className="disabled">
-          <Icon name="lateness"></Icon>
-          <span>Recommendation</span>
-        </a>
-      </li>
-      <li className="list-button-item">
-        <a className="disabled">
-          <Icon name="lateness"></Icon>
-          <span>Clustering</span>
-        </a>
-      </li>
-      <li className="list-button-item">
-        <a className="disabled">
-          <Icon name="lateness"></Icon>
-          <span>Anomaly Detection</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="col col--6">
-    <h3>More</h3>
-    <ul className="button-list">
-      <li className="list-button-item">
-        <a className="disabled">
-          <Icon name="lateness"></Icon>
-          <span>Predictive AI/Narrow ML with BDC and BTP</span>
-        </a>
-      </li>
-      <li className="list-button-item">
-        <a className="disabled">
-          <Icon name="lateness"></Icon>
-          <span>Deployment of Custom Predictive Models</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-</div> */}

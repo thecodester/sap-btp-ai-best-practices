@@ -836,6 +836,77 @@ ol.steps-list li::before {
 }
 /* End Feature Button Styling */
 
+.pagination-nav__link {
+  border: 1px solid var(--sap-horizon-neutral-5);
+  border-radius: 0.5rem;
+  color: var(--ifm-menu-color);
+  transition: all 0.2s ease;
+  background-color: var(--sap-horizon-neutral-1);
+}
+
+.pagination-nav__link:hover {
+  background-color: var(--sap-horizon-neutral-3);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+/* Style for the 'Previous'/'Next' label */
+.pagination-nav__sublabel {
+  font-size: 0.75rem;
+  color: var(--sap-horizon-neutral-7);
+  margin-bottom: 0.25rem;
+  font-weight: normal;
+}
+
+/* Style for the page title */
+.pagination-nav__label {
+  color: var(--ifm-menu-color); /* Inherit color from link */
+}
+
+.pagination-nav__link:hover .pagination-nav__sublabel {
+  color: var(--ifm-color-primary);
+}
+
+.pagination-nav__link:hover .pagination-nav__label {
+  color: var(--ifm-color-primary);
+}
+
+/* Adjust alignment for the 'Next' link */
+.pagination-nav__item--next .pagination-nav__link {
+  align-items: flex-end; /* Align text to the end */
+}
+
+/* Dark Mode Adjustments for Pagination */
+[data-theme="dark"] .pagination-nav {
+  border-top-color: var(--sap-horizon-neutral-10);
+}
+
+[data-theme="dark"] .pagination-nav__link {
+  background-color: var(--sap-horizon-neutral-11);
+  border-color: var(--sap-horizon-neutral-10);
+  color: var(--ifm-menu-color);
+}
+
+[data-theme="dark"] .pagination-nav__link:hover {
+  background-color: var(--sap-horizon-neutral-10);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+[data-theme="dark"] .pagination-nav__sublabel {
+  color: var(--sap-horizon-neutral-8);
+}
+
+[data-theme="dark"] .pagination-nav__label {
+  color: var(--ifm-menu-color);
+}
+
+[data-theme="dark"] .pagination-nav__link:hover .pagination-nav__sublabel,
+[data-theme="dark"] .pagination-nav__link:hover .pagination-nav__label {
+  color: var(--ifm-color-primary);
+}
+/* End Pagination Navigation Styling */
+
 @media screen and (max-width: 996px) {
   .section-title {
     font-size: 2.5rem;
