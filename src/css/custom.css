@@ -836,6 +836,84 @@ ol.steps-list li::before {
 }
 /* End Feature Button Styling */
 
+/* Feature Card Styling (Adapts Feature Button) */
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  /* justify-content: center; /* Let content flow naturally */
+  gap: 0.75rem; /* Slightly smaller gap */
+  padding: 1.5rem; /* Adjust padding */
+  border: 1px solid var(--sap-horizon-neutral-5);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--ifm-menu-color);
+  transition: all 0.2s ease;
+  background-color: var(--sap-horizon-neutral-1);
+  width: 100%;
+  text-align: center;
+  min-height: 220px; /* Increased min-height for description */
+  height: 100%; /* Make cards in the same row equal height */
+}
+
+.feature-card:hover {
+  background-color: var(--sap-horizon-neutral-3);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+/* Icon Style within Card */
+.feature-card ui5-icon,
+.feature-card ui5-icon::part(root) {
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem; /* Add some space below icon */
+}
+
+.feature-card:hover ui5-icon,
+.feature-card:hover ui5-icon::part(root) {
+  color: var(--ifm-color-primary);
+}
+
+/* Title Style within Card */
+.feature-card span {
+  font-weight: 600;
+  font-size: 1.2rem;
+  display: block; /* Ensure it takes block space */
+  /* color: inherit; /* Inherit color from parent <a> */
+}
+
+/* Description Style within Card */
+.feature-card p {
+  font-size: 0.875rem; /* Smaller font size for description */
+  font-weight: normal;
+  color: var(--sap-horizon-neutral-9); /* Description text color */
+  margin: 0; /* Remove default margin */
+  line-height: 1.4;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .feature-card {
+  background-color: var(--sap-horizon-neutral-11);
+  border-color: var(--sap-horizon-neutral-10);
+  color: var(--ifm-menu-color);
+}
+
+[data-theme="dark"] .feature-card:hover {
+  background-color: var(--sap-horizon-neutral-10);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+[data-theme="dark"] .feature-card p {
+  color: var(--sap-horizon-neutral-6); /* Dark mode description color */
+}
+
+/* Disabled State (Copy from feature-button if needed, but not applying for now) */
+
 .pagination-nav__link {
   border: 1px solid var(--sap-horizon-neutral-5);
   border-radius: 0.5rem;
