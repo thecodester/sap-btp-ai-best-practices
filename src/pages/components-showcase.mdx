@@ -1,0 +1,278 @@
+---
+title: Components Showcase
+description: A showcase of custom UI components and styles available in this Docusaurus project.
+hide_table_of_contents: false
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import { Icon } from "@ui5/webcomponents-react";
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+
+import "@ui5/webcomponents-icons/dist/connected.js";
+import "@ui5/webcomponents-icons/dist/documents.js";
+import "@ui5/webcomponents-icons/dist/hide.js";
+import "@ui5/webcomponents-icons/dist/filter.js";
+import "@ui5/webcomponents-icons/dist/compare.js";
+import "@ui5/webcomponents-icons/dist/lateness.js";
+import "@ui5/webcomponents-icons/dist/discussion.js";
+import "@ui5/webcomponents-icons/dist/sap-logo-shape.js";
+import "@ui5/webcomponents-icons/dist/video.js";
+import "@ui5/webcomponents-icons/dist/action-settings.js";
+import "@ui5/webcomponents-icons/dist/edit.js";
+import "@ui5/webcomponents-icons/dist/add.js";
+import "@ui5/webcomponents-icons/dist/delete.js";
+import "@ui5/webcomponents-icons/dist/search.js";
+import "@ui5/webcomponents-icons/dist/download.js";
+import "@ui5/webcomponents-icons/dist/upload.js";
+import "@ui5/webcomponents-icons/dist/accept.js";
+import "@ui5/webcomponents-icons/dist/alert.js";
+import "@ui5/webcomponents-icons/dist/information.js";
+import "@ui5/webcomponents-icons/dist/error.js";
+
+# Component Showcase
+
+This page demonstrates the various custom components and styles defined in `src/css/custom.css`.
+
+## Typography & Fonts
+
+The primary font used is **SAP 72**.
+
+<h1>H1 Heading using SAP 72</h1>
+<h2>H2 Heading using SAP 72</h2>
+<h3>H3 Heading using SAP 72</h3>
+<h4>H4 Heading using SAP 72</h4>
+<h5>H5 Heading using SAP 72</h5>
+<h6>H6 Heading using SAP 72</h6>
+<p>This is a standard paragraph using the base font size and SAP 72.</p>
+<p>
+  <code>This is inline code style.</code>
+</p>
+
+## SAP Icons (Legacy `.sap-icon` class)
+
+These icons use the older `@font-face` method. Prefer using `ui5-icon` components where possible.
+
+<p>
+  <i className="sap-icon sap-icon--preview sap-icon--xl sap-icon--primary"></i> Preview (xl, primary) &nbsp;
+  <i className="sap-icon sap-icon--video sap-icon--l sap-icon--neutral"></i> Video (l, neutral) &nbsp;
+  <i className="sap-icon sap-icon--document sap-icon--m"></i> Document (m) &nbsp;
+  <i className="sap-icon sap-icon--folder sap-icon--s"></i> Folder (s) &nbsp;
+  <i className="sap-icon sap-icon--settings"></i> Settings &nbsp;
+  <i className="sap-icon sap-icon--edit"></i> Edit &nbsp;
+  <i className="sap-icon sap-icon--add"></i> Add &nbsp;
+  <i className="sap-icon sap-icon--delete"></i> Delete &nbsp;
+  <i className="sap-icon sap-icon--search"></i> Search &nbsp;
+  <i className="sap-icon sap-icon--download"></i> Download &nbsp;
+  <i className="sap-icon sap-icon--upload"></i> Upload &nbsp;
+  <i className="sap-icon sap-icon--check"></i> Check &nbsp;
+  <i className="sap-icon sap-icon--alert"></i> Alert &nbsp;
+  <i className="sap-icon sap-icon--information"></i> Information &nbsp;
+  <i className="sap-icon sap-icon--error"></i> Error &nbsp;
+</p>
+
+## UI5 Web Components Icons
+
+These are the recommended way to use icons.
+
+<p>
+  <Icon name="connected" style={{ color: "var(--ifm-color-primary)", fontSize: "2rem" }} /> Connected &nbsp;
+  <Icon name="documents" style={{ color: "var(--sap-horizon-neutral-9)", fontSize: "1.5rem" }} /> Documents &nbsp;
+  <Icon name="hide" style={{ color: "var(--sap-horizon-neutral-8)", fontSize: "1.25rem" }} /> Hide &nbsp;
+  <Icon name="filter" style={{ fontSize: "1rem" }} /> Filter &nbsp;
+</p>
+
+## Layout Components
+
+### Hero Header
+
+<div className="hero-header">
+  <h1>Showcase Hero Title</h1>
+</div>
+
+### Section Title
+
+<h2 className="section-title">
+  A Catchy <span className="highlight">Section Title</span>
+</h2>
+
+### Section with Background
+
+<div className="section-with-background">
+  <h4>Default Background Section</h4>
+  <p>This section has a light gray background in light mode and dark background in dark mode.</p>
+</div>
+<br />
+<div className="section-with-background blue">
+  <h4>Blue Background Section</h4>
+  <p>This section uses the blue background variant.</p>
+</div>
+<br />
+<div className="section-with-background gradient-blue">
+  <h4>Gradient Blue Background Section</h4>
+  <p>This section uses the gradient blue background variant.</p>
+</div>
+<br />
+<div className="section-with-background gradient-violet-blue">
+  <h4>Gradient Violet-Blue Background Section</h4>
+  <p>This section uses the gradient violet-blue background and has light text.</p>
+</div>
+
+## Navigation & Lists
+
+### Breadcrumbs
+
+<nav aria-label="breadcrumbs">
+  <ul className="breadcrumbs">
+    <li className="breadcrumbs__item">
+      <a className="breadcrumbs__link" href="#">
+        Home
+      </a>
+    </li>
+    <li className="breadcrumbs__item">
+      <a className="breadcrumbs__link" href="#">
+        Category
+      </a>
+    </li>
+    <li className="breadcrumbs__item breadcrumbs__item--active">
+      <span className="breadcrumbs__link" aria-current="page">
+        Current Page
+      </span>
+    </li>
+  </ul>
+</nav>
+
+### Steps List
+
+<ol className="steps-list">
+  <li>First step in the process.</li>
+  <li>Second step, which might be longer and wrap to the next line.</li>
+  <li>Final step.</li>
+</ol>
+
+### Resource Links
+
+<div style={{ height: "200px", border: "1px dashed grey", padding: "1rem", position: "relative" }}>
+  <ul className="resource-links">
+    <li>
+      <a target="_blank" href="#">
+        <i className="sap-icon sap-icon--video sap-icon--neutral"></i>
+        <span>Link to a Video Resource</span>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="#">
+        <i className="sap-icon sap-icon--document sap-icon--neutral"></i>
+        <span>Link to a Document</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+### General List Buttons
+
+<ul className="button-list">
+  <li className="list-button-item">
+    <a href="#">
+      <Icon name="documents"></Icon>
+      <span>Normal Button Link</span>
+    </a>
+  </li>
+  <li className="list-button-item">
+    <a href="#" className="disabled">
+      <Icon name="lateness"></Icon>
+      <span>Disabled Button Link</span>
+    </a>
+  </li>
+</ul>
+
+### Feature Buttons
+
+<div class="row">
+  <div class="col col--6">
+    <a href="#" className="feature-button">
+      <Icon name="discussion"></Icon>
+      <span>Normal Feature</span>
+    </a>
+  </div>
+  <div class="col col--6">
+    <a href="#" className="feature-button disabled">
+      <Icon name="connected"></Icon>
+      <span>Disabled Feature</span>
+    </a>
+  </div>
+</div>
+
+## Tabs
+
+### Standard Tabs
+
+<Tabs groupId="showcase-tabs-1">
+  <TabItem value="apple" label="Apple" default>
+    Content for Apple.
+  </TabItem>
+  <TabItem value="orange" label="Orange">
+    Content for Orange.
+  </TabItem>
+  <TabItem value="banana" label="Banana">
+    Content for Banana.
+  </TabItem>
+</Tabs>
+
+### Tabs with Background
+
+<div className="tabs-with-background">
+  <Tabs groupId="showcase-tabs-2">
+    <TabItem value="code-py" label="Python" default>
+      <p>Python code example goes here.</p>
+      ```python
+      def hello(name):
+          print(f"Hello, {name}!")
+      ```
+    </TabItem>
+    <TabItem value="code-js" label="JavaScript">
+      <p>JavaScript code example goes here.</p>
+      ```javascript
+      function hello(name) {
+        console.log(`Hello, ${name}!`);
+      }
+      ```
+    </TabItem>
+  </Tabs>
+</div>
+
+## Content Specific Styles
+
+### Headings with Step Numbers
+
+(Used in conjunction with Table of Contents)
+
+<h2>
+  <span className="step-number">1</span> <span className="step-title">First Major Section</span>
+</h2>
+<p>Content for the first section...</p>
+
+<h2>
+  <span className="step-number">2</span> <span className="step-title">Second Major Section</span>
+</h2>
+<p>Content for the second section...</p>
+
+### Table of Contents Link Styling
+
+(Simulated structure, actual TOC is generated)
+
+<div>
+  <a className="table-of-contents__link" href="#1-first-major-section">
+    <span className="step-number">1</span> First Major Section
+  </a>
+</div>
+<div>
+  <a className="table-of-contents__link table-of-contents__link--active" href="#2-second-major-section">
+    <span className="step-number">2</span> Second Major Section (Active)
+  </a>
+</div>
+<div>
+  <a className="table-of-contents__link post-article-first-title" href="#">
+    Related Section Link (with top border)
+  </a>
+</div>{" "}
