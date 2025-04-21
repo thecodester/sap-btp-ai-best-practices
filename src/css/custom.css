@@ -635,6 +635,77 @@ ol.steps-list li::before {
   color: var(--sap-horizon-neutral-4);
 }
 
+/* General List Button Styling */
+.list-button-item {
+  list-style-type: none;
+}
+
+/* Use this class on the UL element containing list-button-items */
+.button-list {
+  padding-left: 0;
+  margin-bottom: 1rem; /* Add some space below the list */
+}
+
+.list-button-item a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Space between icon and text */
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--sap-horizon-neutral-5);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--ifm-menu-color); /* Use sidebar link color */
+  transition: all 0.2s ease;
+  margin-bottom: 0.5rem; /* Space between buttons */
+  background-color: var(--sap-horizon-neutral-1);
+  font-weight: normal; /* Override potential inherited bold */
+  font-size: 0.875rem;
+  width: 100%; /* Make button take full width of its container */
+}
+
+.list-button-item a:hover {
+  background-color: var(--sap-horizon-neutral-3);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* Adjust icon color on hover if needed, assuming icon is a child */
+.list-button-item a:hover .sap-icon {
+  color: var(--ifm-color-primary); /* Example: make icon primary on hover */
+}
+
+/* Icon styling within the button (adjust as needed) */
+.list-button-item a .sap-icon {
+  font-size: 1rem;
+  color: var(--ifm-color-primary);
+  /* Remove fixed background/padding if icon is directly inside */
+}
+
+/* Dark Mode Adjustments for General List Buttons */
+[data-theme="dark"] .list-button-item a {
+  background-color: var(--sap-horizon-neutral-11);
+  border-color: var(--sap-horizon-neutral-10);
+  color: var(--ifm-menu-color); /* Use dark sidebar link color */
+}
+
+[data-theme="dark"] .list-button-item a:hover {
+  background-color: var(--sap-horizon-neutral-10);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+[data-theme="dark"] .list-button-item a:hover .sap-icon {
+  color: var(--ifm-color-primary);
+}
+
+[data-theme="dark"] .list-button-item a .sap-icon {
+  /* Adjust dark mode icon color if needed */
+  color: var(--ifm-color-primary);
+}
+
+/* End General List Button Styling */
+
 @media screen and (max-width: 996px) {
   .section-title {
     font-size: 2.5rem;
