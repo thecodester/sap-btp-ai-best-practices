@@ -1,8 +1,8 @@
 {
   "label": "Technical View",
-  "position": 2,
+  "position": 0,
   "link": {
-    "type": "generated-index",
-    "description": "Navigate the best practices in a concept tree view, separating and organizing all the information."
+    "type": "doc",
+    "id": "technical-view/index"
   }
 }

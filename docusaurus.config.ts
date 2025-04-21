@@ -1,6 +1,7 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
+import { environment } from "./src/config/environment"; // Import environment config
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -40,6 +41,15 @@ const config: Config = {
       href: "https://ui5.sap.com/resources/sap/ui/core/themes/base/fonts/SAP-icons.woff2",
       type: "font/woff2",
       crossorigin: "anonymous"
+    }
+  ],
+
+  // Add external scripts
+  scripts: [
+    {
+      // Use the API key from environment config
+      src: `https://cdns.gigya.com/js/gigya.js?apikey=${environment.tracking.apiKey}`,
+      async: true
     }
   ],
 
@@ -90,7 +100,7 @@ const config: Config = {
         {
           // type: "docSidebar",
           // sidebarId: "tutorialSidebar",
-          to: "/docs/category/technical-view",
+          to: "/docs/technical-view",
           position: "left",
           label: "Technical View"
         },
