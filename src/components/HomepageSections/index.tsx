@@ -36,7 +36,7 @@ const SectionList: SectionItem[] = [
   {
     title: "Technical View",
     description: <>Navigate the implementation Best Practices based on a structured and consistent view of technical requirements and solutions.</>,
-    link: "/docs/category/technical-view",
+    link: "/docs/technical-view",
     icon: (
       <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 8H40V40H8V8Z" fill="currentColor" fillOpacity="0.1" />
