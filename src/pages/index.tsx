@@ -40,7 +40,7 @@ function HomepageHeader() {
         <div className={styles.navigation}>
           {/* <p className={styles.navTitle}>Choose your path:</p> */}
           <div className={styles.navLinks}>
-            <Link to="/docs/category/functional-view" className={styles.navLink}>
+            <Link to="/docs/functional-view" className={styles.navLink}>
               <span>Functional View</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

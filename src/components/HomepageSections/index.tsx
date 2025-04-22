@@ -21,7 +21,7 @@ const SectionList: SectionItem[] = [
         implementing them.
       </>
     ),
-    link: "/docs/category/functional-view",
+    link: "/docs/functional-view",
     icon: (
       <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M24 4L4 14V34L24 44L44 34V14L24 4Z" fill="currentColor" fillOpacity="0.1" />

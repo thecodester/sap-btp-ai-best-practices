@@ -96,7 +96,7 @@ const config: Config = {
         src: "img/logo.svg"
       },
       items: [
-        { to: "/docs/category/functional-view", label: "Functional View", position: "left" },
+        { to: "/docs/functional-view", label: "Functional View", position: "left" },
         {
           // type: "docSidebar",
           // sidebarId: "tutorialSidebar",

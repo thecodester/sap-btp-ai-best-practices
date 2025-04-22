@@ -742,6 +742,33 @@ ol.steps-list li::before {
 
 /* End General List Button Styling */
 
+/* Button Grid Styling */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 290px)); /* Responsive columns with max width */
+  gap: 1rem; /* Spacing between grid items */
+  padding-left: 0; /* Remove default ul padding */
+  list-style-type: none; /* Remove list bullets */
+  margin-bottom: 1rem; /* Space below the grid */
+  align-items: stretch; /* Ensure items fill the cell height */
+  justify-content: start; /* Align grid items to the start (left) */
+}
+
+/* Inherit button item styling for grid items */
+.button-grid .list-button-item {
+  margin: 0; /* Reset margin completely */
+  padding: 0; /* Reset padding completely */
+  height: 100%; /* Make list item fill the grid cell height */
+}
+
+/* Ensure anchors within grid items take full width/height */
+.button-grid .list-button-item a {
+  height: 100%; /* Make anchor fill the grid item height */
+  width: 100%; /* Allow shrinking but not exceeding max-width */
+  /* Keep other existing styles from .list-button-item a */
+}
+/* End Button Grid Styling */
+
 /* Feature Button Styling */
 .feature-button {
   /* Inherit base styles */

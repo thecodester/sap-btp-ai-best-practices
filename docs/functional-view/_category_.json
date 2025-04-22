@@ -2,7 +2,7 @@
   "label": "Functional View",
   "position": 1,
   "link": {
-    "type": "generated-index",
-    "description": "Navigate all the available AI capabilities to find the Best Practices for implementing them."
+    "type": "doc",
+    "id": "functional-view/index"
   }
 }

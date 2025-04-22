@@ -5,13 +5,7 @@ hide_title: true
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import { Icon } from "@ui5/webcomponents-react";
-import "@ui5/webcomponents-icons/dist/connected.js";
-import "@ui5/webcomponents-icons/dist/documents.js";
-import "@ui5/webcomponents-icons/dist/hide.js";
-import "@ui5/webcomponents-icons/dist/filter.js";
-import "@ui5/webcomponents-icons/dist/compare.js";
-import "@ui5/webcomponents-icons/dist/lateness.js";
+import IconLinkButton from "@site/src/components/IconLinkButton";
 
 <div className="hero-header">
   <h1>Plain (Foundational Model Access)</h1>
@@ -28,35 +22,15 @@ import "@ui5/webcomponents-icons/dist/lateness.js";
   <div class="col col--6">
     <h3>Direct</h3>
     <ul className="button-list">
-      <li className="list-button-item">
-        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/access-to-generative-ai-models")}>
-          <Icon name="connected"></Icon>
-          <span>Access to Generative AI Models</span>
-        </a>
-      </li>
+      <IconLinkButton href="/docs/technical-view/generative-ai/plain/access-to-generative-ai-models" text="Access to Generative AI Models" />
     </ul>
   </div>
   <div class="col col--6">
     <h3>Orchestrated</h3>
     <ul className="button-list">
-      <li className="list-button-item">
-        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/prompt-templating")} className="disabled">
-          <Icon name="documents"></Icon>
-          <span>Prompt Templating</span>
-        </a>
-      </li>
-      <li className="list-button-item">
-        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/data-masking")} className="disabled">
-          <Icon name="hide"></Icon>
-          <span>Data Masking</span>
-        </a>
-      </li>
-      <li className="list-button-item">
-        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/content-filtering")} className="disabled">
-          <Icon name="filter"></Icon>
-          <span>Content Filtering</span>
-        </a>
-      </li>
+      <IconLinkButton href="/docs/technical-view/generative-ai/plain/prompt-templating" text="Prompt Templating" disabled={true} />
+      <IconLinkButton href="/docs/technical-view/generative-ai/plain/data-masking" text="Data Masking" disabled={true} />
+      <IconLinkButton href="/docs/technical-view/generative-ai/plain/content-filtering" text="Content Filtering" disabled={true} />
     </ul>
   </div>
 </div>

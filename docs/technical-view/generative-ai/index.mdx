@@ -5,13 +5,7 @@ hide_title: true
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import { Icon } from "@ui5/webcomponents-react";
-import "@ui5/webcomponents-icons/dist/connected.js";
-import "@ui5/webcomponents-icons/dist/documents.js";
-import "@ui5/webcomponents-icons/dist/hide.js";
-import "@ui5/webcomponents-icons/dist/filter.js";
-import "@ui5/webcomponents-icons/dist/compare.js";
-import "@ui5/webcomponents-icons/dist/lateness.js";
+import IconLinkButton from "@site/src/components/IconLinkButton";
 
 <div className="hero-header">
   <h1>Generative AI</h1>
@@ -31,33 +25,28 @@ import "@ui5/webcomponents-icons/dist/lateness.js";
     </h3>
     <h4>Direct</h4>
     <ul className="button-list">
-      <li className="list-button-item">
-        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/access-to-generative-ai-models")}>
-          <Icon name="connected"></Icon>
-          <span>Access to Generative AI Models</span>
-        </a>
-      </li>
+      <IconLinkButton
+        href="/docs/technical-view/generative-ai/plain/access-to-generative-ai-models"
+        text="Access to Generative AI Models"
+      />
     </ul>
     <h4>Orchestrated</h4>
     <ul className="button-list">
-      <li className="list-button-item">
-        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/prompt-templating")} className="disabled">
-          <Icon name="documents"></Icon>
-          <span>Prompt Templating</span>
-        </a>
-      </li>
-      <li className="list-button-item">
-        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/data-masking")} className="disabled">
-          <Icon name="hide"></Icon>
-          <span>Data Masking</span>
-        </a>
-      </li>
-      <li className="list-button-item">
-        <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/content-filtering")} className="disabled">
-          <Icon name="filter"></Icon>
-          <span>Content Filtering</span>
-        </a>
-      </li>
+      <IconLinkButton
+        href="/docs/technical-view/generative-ai/plain/prompt-templating"
+        text="Prompt Templating"
+        disabled={true}
+      />
+      <IconLinkButton
+        href="/docs/technical-view/generative-ai/plain/data-masking"
+        text="Data Masking"
+        disabled={true}
+      />
+      <IconLinkButton
+        href="/docs/technical-view/generative-ai/plain/content-filtering"
+        text="Content Filtering"
+        disabled={true}
+      />
     </ul>
   </div>
   <div class="col col--4">
@@ -66,33 +55,56 @@ import "@ui5/webcomponents-icons/dist/lateness.js";
     </h3>
     <h4>General</h4>
     <ul className="button-list">
-      <li className="list-button-item">
-        <a className="disabled">
-          <Icon name="compare"></Icon>
-          <span>Vector RAG vs Graph RAG</span>
-        </a>
-      </li>
+      <IconLinkButton
+        href="/docs/technical-view/generative-ai/rag/vector-vs-graph"
+        text="Vector RAG vs Graph RAG"
+        disabled={true}
+      />
     </ul>
     <h4>Vector Database</h4>
     <ul className="button-list">
-      <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Overall and Embedding Creation</span></a></li>
-      <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Query Pipeline</span></a></li>
+      <IconLinkButton
+        href="/docs/technical-view/generative-ai/rag/vector-overall"
+        text="Overall and Embedding Creation"
+        disabled={true}
+      />
+      <IconLinkButton
+        href="/docs/technical-view/generative-ai/rag/vector-query"
+        text="Query Pipeline"
+        disabled={true}
+      />
     </ul>
     <h4>Knowledge Graph</h4>
     <ul className="button-list">
-      <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Overall and Knowledge Graph Creation</span></a></li>
-      <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Query Pipeline</span></a></li>
+      <IconLinkButton
+        href="/docs/technical-view/generative-ai/rag/graph-overall"
+        text="Overall and Knowledge Graph Creation"
+        disabled={true}
+      />
+       <IconLinkButton
+        href="/docs/technical-view/generative-ai/rag/graph-query"
+        text="Query Pipeline"
+        disabled={true}
+      />
     </ul>
   </div>
   <div class="col col--4">
     <h3>Agentic</h3>
     <h4>Single Agent</h4>
     <ul className="button-list">
-      <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Under construction</span></a></li>
+       <IconLinkButton
+        href="/docs/technical-view/generative-ai/agentic/single-agent"
+        text="Under construction"
+        disabled={true}
+      />
     </ul>
     <h4>Multi-Agent</h4>
     <ul className="button-list">
-      <li className="list-button-item"><a className="disabled"><Icon name="lateness"></Icon><span>Under construction</span></a></li>
+       <IconLinkButton
+        href="/docs/technical-view/generative-ai/agentic/multi-agent"
+        text="Under construction"
+        disabled={true}
+      />
     </ul>
   </div>
 
