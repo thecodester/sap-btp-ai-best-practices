@@ -30,7 +30,7 @@ export default class OrchestrationService {
     });
 
     const result = await orchestrationClient.chatCompletion();
-    LOG.info(result.rawResponse);
+    LOG.info(result.getContent());
     return result.getContent();
   }
 }
