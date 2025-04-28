@@ -13,7 +13,7 @@ export const TRACKING_EVENTS = {
     GLOSSARY: "pv-glossary",
 
     // Technical View
-    TECHNICAL_VIEW_INDEX: "pv-technical-view",
+    TECHNICAL_VIEW: "pv-technical-view",
     TECHNICAL_VIEW_NARROW_AI: "pv-technical-view-narrow-ai",
     TECHNICAL_VIEW_GENERATIVE_AI: "pv-technical-view-generative-ai",
     TECHNICAL_VIEW_GENERATIVE_AI_PLAIN: "pv-technical-view-generative-ai-plain",
@@ -23,7 +23,7 @@ export const TRACKING_EVENTS = {
     BP_CONTENT_FILTERING: "pv-bp-content-filtering",
 
     // Functional View
-    FUNCTIONAL_VIEW_INDEX: "pv-functional-view",
+    FUNCTIONAL_VIEW: "pv-functional-view",
 
     FUNCTIONAL_VIEW_INFORMATION_ANALYSIS_AND_PROCESSING: "pv-functional-view-information-analysis-and-processing",
     AI_CAPABILITY_SUMMARIZATION_OF_TEXT: "pv-ai-capability-summarization-of-text",
@@ -64,7 +64,7 @@ export const TRACKING_EVENTS = {
     AI_CAPABILITY_AGENTIC_WORKFLOWS: "pv-ai-capability-agentic-workflows",
 
     // Technology Pages
-    TECHNOLOGY_INDEX: "pv-technologies", // TODO: Implement page, because currently it's a "generated-index"
+    TECHNOLOGIES: "pv-technologies", // TODO: Implement page, because currently it's a "generated-index"
     TECHNOLOGY_SAP_BTP: "pv-technology-sap-btp",
     TECHNOLOGY_SAP_AI_CORE: "pv-technology-sap-ai-core"
   }
