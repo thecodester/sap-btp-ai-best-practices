@@ -1,5 +1,4 @@
 ---
-sidebar_position: 1
 title: "Summarization of Text"
 description: "Understand how generative AI can summarize text and learn how to implement this capability using SAP BTP."
 hide_title: true
@@ -8,11 +7,10 @@ hide_table_of_contents: true
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
-// import { Icon } from "@ui5/webcomponents-react"; // Removed
-// import "@ui5/webcomponents-icons/dist/discussion.js"; // Removed
 import IconLinkButton from "@site/src/components/IconLinkButton";
+import { TRACKING_EVENTS } from "@site/src/lib/trackingTool/config";
 
-<PageViewTracker featureName="" />
+<PageViewTracker featureName={TRACKING_EVENTS.PAGE_VIEW.AI_CAPABILITY_SUMMARIZATION_OF_TEXT} />
 
 <div className="hero-header">
   <h1>Summarization of Text</h1>

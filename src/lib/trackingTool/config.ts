@@ -12,7 +12,47 @@ export const TRACKING_EVENTS = {
     ABOUT: "pv-about",
     HOME: "pv-home",
     INTRO: "pv-intro-docusaurus",
-    ACCESS_TO_GENERATIVE_AI_MODELS: "pv-access-to-generative-ai-models"
-    // Add other page view events here
+
+    // Technical View
+    ACCESS_TO_GENERATIVE_AI_MODELS: "pv-access-to-generative-ai-models",
+
+    // Functional View
+    FUNCTIONAL_VIEW_INFORMATION_ANALYSIS_AND_PROCESSING: "pv-functional-view-information-analysis-and-processing",
+    AI_CAPABILITY_SUMMARIZATION_OF_TEXT: "pv-ai-capability-summarization-of-text",
+    AI_CAPABILITY_TRANSLATION_OF_TEXT: "pv-ai-capability-translation-of-text",
+    AI_CAPABILITY_SENTIMENT_ANALYSIS_OF_TEXT: "pv-ai-capability-sentiment-analysis-of-text",
+    AI_CAPABILITY_QA_ON_ENTERPRISE_KNOWLEDGE_BASE: "pv-ai-capability-qa-on-enterprise-knowledge-base",
+    AI_CAPABILITY_INFORMATION_CLASSIFICATION_IN_CATEGORIES: "pv-ai-capability-information-classification-in-categories",
+    AI_CAPABILITY_INFORMATION_EXTRACTION_FROM_DOCUMENTS: "pv-ai-capability-information-extraction-from-documents",
+    AI_CAPABILITY_IMAGE_ANALYSIS: "pv-ai-capability-image-analysis",
+
+    FUNCTIONAL_VIEW_CONTENT_CREATION: "pv-functional-view-content-creation",
+    AI_CAPABILITY_GENERATE_TEXT_BASED_ON_GENERIC_KNOWLEDGE: "pv-ai-capability-generate-text-based-on-generic-knowledge",
+    AI_CAPABILITY_GENERATE_TEXT_BASED_ON_SPECIFIC_KNOWLEDGE: "pv-ai-capability-generate-text-based-on-specific-knowledge",
+    AI_CAPABILITY_REVIEW_AND_REFINE_TEXT: "pv-ai-capability-review-and-refine-text",
+    AI_CAPABILITY_GENERATE_IMAGE_FROM_TEXT: "pv-ai-capability-generate-image-from-text",
+    AI_CAPABILITY_DESCRIBE_IMAGES: "pv-ai-capability-describe-images",
+
+    FUNCTIONAL_VIEW_CONVERSATIONAL_INTERACTION: "pv-functional-view-conversational-interaction",
+    AI_CAPABILITY_CONVERSATIONAL_INTERACTION_WITH_APPLICATIONS: "pv-ai-capability-conversational-interaction-with-applications",
+    AI_CAPABILITY_CONVERSATIONAL_INTERACTION_WITH_ANALYTICS: "pv-ai-capability-conversational-interaction-with-analytics",
+
+    FUNCTIONAL_VIEW_DECISION_SUPPORT: "pv-functional-view-decision-support",
+    AI_CAPABILITY_RECOMMENDATIONS_HISTORICAL_DATA: "pv-ai-capability-recommendations-historical-data",
+    AI_CAPABILITY_DATA_CLUSTERING: "pv-ai-capability-data-clustering",
+    AI_CAPABILITY_FORECASTING_HISTORICAL_DATA: "pv-ai-capability-forecasting-historical-data",
+    AI_CAPABILITY_ANOMALY_DETECTION: "pv-ai-capability-anomaly-detection",
+    AI_CAPABILITY_SCENARIO_SIMULATIONS: "pv-ai-capability-scenario-simulations",
+    AI_CAPABILITY_ALTERNATIVE_RANKING: "pv-ai-capability-alternative-ranking",
+
+    FUNCTIONAL_VIEW_CODING_ASSISTANCE: "pv-functional-view-coding-assistance",
+    AI_CAPABILITY_SYNTHETIC_DATA_GENERATION: "pv-ai-capability-synthetic-data-generation",
+    AI_CAPABILITY_CODE_GENERATION: "pv-ai-capability-code-generation",
+    AI_CAPABILITY_CODE_REVIEW: "pv-ai-capability-code-review",
+    AI_CAPABILITY_CODE_DOCUMENTATION: "pv-ai-capability-code-documentation",
+    AI_CAPABILITY_TEST_GENERATION: "pv-ai-capability-test-generation",
+
+    FUNCTIONAL_VIEW_AGENTIC_WORKFLOWS: "pv-functional-view-agentic-workflows",
+    AI_CAPABILITY_AGENTIC_WORKFLOWS: "pv-ai-capability-agentic-workflows"
   }
 } as const;

@@ -1,0 +1,24 @@
+---
+title: "Content Creation"
+description: ""
+hide_title: true
+hide_table_of_contents: true
+---
+
+import IconLinkButton from "@site/src/components/IconLinkButton";
+import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
+import { TRACKING_EVENTS } from "@site/src/lib/trackingTool/config";
+
+<PageViewTracker featureName={TRACKING_EVENTS.PAGE_VIEW.FUNCTIONAL_VIEW_CONTENT_CREATION} />
+
+<div className="hero-header">
+  <h1>Content Creation</h1>
+</div>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/content-creation/generate-text-generic-knowledge" text="Generate Text based on Generic Knowledge" />
+  <IconLinkButton href="/docs/functional-view/content-creation/generate-text-specific-knowledge" text="Generate Text based on Proprietary, Specific Knowledge" />
+  <IconLinkButton href="/docs/functional-view/content-creation/review-and-refine-text" text="Review and Refine Text" />
+  <IconLinkButton href="/docs/functional-view/content-creation/generate-image-from-text" text="Generate Image from Text" />
+  <IconLinkButton href="/docs/functional-view/content-creation/describe-images" text="Describe Images" />
+</ul>

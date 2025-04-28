@@ -1,3 +1,12 @@
+import "@ui5/webcomponents-icons/dist/decrease-line-height.js";
+import "@ui5/webcomponents-icons/dist/lateness.js";
+import "@ui5/webcomponents-icons/dist/connected.js";
+import "@ui5/webcomponents-icons/dist/documents.js";
+import "@ui5/webcomponents-icons/dist/hide.js";
+import "@ui5/webcomponents-icons/dist/filter.js";
+import "@ui5/webcomponents-icons/dist/compare.js";
+import "@ui5/webcomponents-icons/dist/discussion.js";
+
 const capabilityIcons: Record<string, string> = {
   // === Functional View ===
   "/docs/functional-view/information-analysis-and-processing/summarization-of-text": "decrease-line-height",

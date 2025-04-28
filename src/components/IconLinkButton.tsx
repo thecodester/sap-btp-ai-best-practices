@@ -1,19 +1,7 @@
 import React from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { Icon } from "@ui5/webcomponents-react";
-// Use .ts extension for import
 import { getIconForCapability } from "@site/src/data/capabilityIcons";
-
-// TODO: Import necessary icons here dynamically based on usage or capabilityIcons.ts
-// Example imports (add others as needed):
-import "@ui5/webcomponents-icons/dist/decrease-line-height.js";
-import "@ui5/webcomponents-icons/dist/lateness.js";
-import "@ui5/webcomponents-icons/dist/connected.js";
-import "@ui5/webcomponents-icons/dist/documents.js";
-import "@ui5/webcomponents-icons/dist/hide.js";
-import "@ui5/webcomponents-icons/dist/filter.js";
-import "@ui5/webcomponents-icons/dist/compare.js";
-import "@ui5/webcomponents-icons/dist/discussion.js";
 
 interface Props {
   /** The target URL for the link. Required. */

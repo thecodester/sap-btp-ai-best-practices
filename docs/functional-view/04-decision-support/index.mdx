@@ -1,0 +1,25 @@
+---
+title: "Decision Support"
+description: ""
+hide_title: true
+hide_table_of_contents: true
+---
+
+import IconLinkButton from "@site/src/components/IconLinkButton";
+import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
+import { TRACKING_EVENTS } from "@site/src/lib/trackingTool/config";
+
+<PageViewTracker featureName={TRACKING_EVENTS.PAGE_VIEW.FUNCTIONAL_VIEW_DECISION_SUPPORT} />
+
+<div className="hero-header">
+  <h1>Decision Support</h1>
+</div>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/decision-support/recommendations-historical-data" text="Recommendations based on Historical Data" />
+  <IconLinkButton href="/docs/functional-view/decision-support/data-clustering" text="Data Clustering" />
+  <IconLinkButton href="/docs/functional-view/decision-support/forecasting-historical-data" text="Forecasting based on Historical Data" />
+  <IconLinkButton href="/docs/functional-view/decision-support/anomaly-detection" text="Anomaly Detection" />
+  <IconLinkButton href="/docs/functional-view/decision-support/scenario-simulations" text="Scenario Simulations" />
+  <IconLinkButton href="/docs/functional-view/decision-support/alternative-ranking" text="Alternative Ranking" />
+</ul>

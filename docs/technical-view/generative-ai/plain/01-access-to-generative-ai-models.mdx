@@ -8,7 +8,7 @@ hide_title: true
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
-
+import IconLinkButton from "@site/src/components/IconLinkButton";
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 
 <PageViewTracker featureName="ACCESS_TO_GENERATIVE_AI_MODELS" />
@@ -432,35 +432,63 @@ ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
 
 ## <span className="post-article-first-title">Related Best Practices</span>
 
-- [Prompt Templating](/docs/technical-view/generative-ai/plain/prompt-templating)
-- [Data Masking](/docs/technical-view/generative-ai/plain/data-masking)
-- [Content Filtering](/docs/technical-view/generative-ai/plain/content-filtering)
+<ul className="button-grid">
+  <IconLinkButton href="/docs/technical-view/generative-ai/plain/prompt-templating" text="Prompt Templating" />
+  <IconLinkButton href="/docs/technical-view/generative-ai/plain/data-masking" text="Data Masking" />
+  <IconLinkButton href="/docs/technical-view/generative-ai/plain/content-filtering" text="Content Filtering" />
+</ul>
 
 </div>
 
 <br />
 
-<div className="section-with-background gradient-blue">
+<div className="section-with-background blue">
 
 ## Related Functional Patterns
 
-### Information Analysis & Processing
+<h3>
+  <a href={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</a>
+</h3>
 
-- Summarization of Text
-- Information Classification in Categories
-- Content Creation
-- Generate text based on generic knowledge
-- Describe Images
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/summarization-of-text" text="Summarization of Text" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/translation-of-text" text="Translation of Text" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/sentiment-analysis-of-text" text="Sentiment Analysis of Text" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/information-classification-in-categories" text="Information Classification in Categories" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/image-analysis" text="Image Analysis" />
+</ul>
 
-### Conversational Interaction
+<h3>
+  <a href={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</a>
+</h3>
 
-- Translation of Text
-- Image Analysis
-- Review and refine text
-- Sentiment Analysis of Text
-- Generate Image from Text
-- Conversational interaction with applications
-- Conversational interaction with analytics
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/content-creation/generate-text-generic-knowledge" text="Generate Text based on Generic Knowledge" />
+  <IconLinkButton href="/docs/functional-view/content-creation/review-and-refine-text" text="Review and Refine Text" />
+  <IconLinkButton href="/docs/functional-view/content-creation/generate-image-from-text" text="Generate Image from Text" />
+  <IconLinkButton href="/docs/functional-view/content-creation/describe-images" text="Describe Images" />
+</ul>
+
+<h3>
+  <a href={useBaseUrl("/docs/functional-view/conversational-interaction")}>Conversational Interaction</a>
+</h3>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/conversational-interaction/conversational-interaction-with-applications" text="Conversational Interaction with Applications" />
+  <IconLinkButton href="/docs/functional-view/conversational-interaction/conversational-interaction-with-analytics" text="Conversational Interaction with Analytics" />
+</ul>
+
+<h3>
+  <a href={useBaseUrl("/docs/functional-view/coding-assistance")}>Coding Assistance</a>
+</h3>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/coding-assistance/synthetic-data-generation" text="Synthetic Data Generation" />
+  <IconLinkButton href="/docs/functional-view/coding-assistance/code-generation" text="Code Generation" />
+  <IconLinkButton href="/docs/functional-view/coding-assistance/code-review" text="Code Review" />
+  <IconLinkButton href="/docs/functional-view/coding-assistance/code-documentation" text="Code Documentation" />
+  <IconLinkButton href="/docs/functional-view/coding-assistance/test-generation" text="Test-script and Test-case Generation" />
+</ul>
 
 </div>
 

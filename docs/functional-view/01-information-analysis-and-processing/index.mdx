@@ -1,0 +1,26 @@
+---
+title: "Information Analysis & Processing"
+description: ""
+hide_title: true
+hide_table_of_contents: true
+---
+
+import IconLinkButton from "@site/src/components/IconLinkButton";
+import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
+import { TRACKING_EVENTS } from "@site/src/lib/trackingTool/config";
+
+<PageViewTracker featureName={TRACKING_EVENTS.PAGE_VIEW.FUNCTIONAL_VIEW_INFORMATION_ANALYSIS_AND_PROCESSING} />
+
+<div className="hero-header">
+  <h1>Information Analysis & Processing</h1>
+</div>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/summarization-of-text" text="Summarization of Text" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/translation-of-text" text="Translation of Text" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/sentiment-analysis-of-text" text="Sentiment Analysis of Text" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/qa-on-enterprise-knowledge-base" text="Question & Answers on Enterprise Knowledge Base" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/information-classification-in-categories" text="Information Classification in Categories" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/information-extraction-from-documents" text="Information Extraction from Documents" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/image-analysis" text="Image Analysis" />
+</ul>

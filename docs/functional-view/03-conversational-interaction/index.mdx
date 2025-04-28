@@ -1,0 +1,21 @@
+---
+title: "Conversational Interaction"
+description: ""
+hide_title: true
+hide_table_of_contents: true
+---
+
+import IconLinkButton from "@site/src/components/IconLinkButton";
+import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
+import { TRACKING_EVENTS } from "@site/src/lib/trackingTool/config";
+
+<PageViewTracker featureName={TRACKING_EVENTS.PAGE_VIEW.FUNCTIONAL_VIEW_CONVERSATIONAL_INTERACTION} />
+
+<div className="hero-header">
+  <h1>Conversational Interaction</h1>
+</div>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/conversational-interaction/conversational-interaction-with-applications" text="Conversational Interaction with Applications" />
+  <IconLinkButton href="/docs/functional-view/conversational-interaction/conversational-interaction-with-analytics" text="Conversational Interaction with Analytics" />
+</ul>
