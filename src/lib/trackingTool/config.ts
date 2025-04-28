@@ -9,14 +9,22 @@ export const TRACKING_CONFIG = {
 
 export const TRACKING_EVENTS = {
   PAGE_VIEW: {
-    ABOUT: "pv-about",
     HOME: "pv-home",
-    INTRO: "pv-intro-docusaurus",
+    GLOSSARY: "pv-glossary",
 
     // Technical View
-    ACCESS_TO_GENERATIVE_AI_MODELS: "pv-access-to-generative-ai-models",
+    TECHNICAL_VIEW_INDEX: "pv-technical-view",
+    TECHNICAL_VIEW_NARROW_AI: "pv-technical-view-narrow-ai",
+    TECHNICAL_VIEW_GENERATIVE_AI: "pv-technical-view-generative-ai",
+    TECHNICAL_VIEW_GENERATIVE_AI_PLAIN: "pv-technical-view-generative-ai-plain",
+    BP_ACCESS_TO_GENERATIVE_AI_MODELS: "pv-bp-access-to-generative-ai-models",
+    BP_PROMPT_TEMPLATING: "pv-bp-prompt-templating",
+    BP_DATA_MASKING: "pv-bp-data-masking",
+    BP_CONTENT_FILTERING: "pv-bp-content-filtering",
 
     // Functional View
+    FUNCTIONAL_VIEW_INDEX: "pv-functional-view",
+
     FUNCTIONAL_VIEW_INFORMATION_ANALYSIS_AND_PROCESSING: "pv-functional-view-information-analysis-and-processing",
     AI_CAPABILITY_SUMMARIZATION_OF_TEXT: "pv-ai-capability-summarization-of-text",
     AI_CAPABILITY_TRANSLATION_OF_TEXT: "pv-ai-capability-translation-of-text",
@@ -53,6 +61,11 @@ export const TRACKING_EVENTS = {
     AI_CAPABILITY_TEST_GENERATION: "pv-ai-capability-test-generation",
 
     FUNCTIONAL_VIEW_AGENTIC_WORKFLOWS: "pv-functional-view-agentic-workflows",
-    AI_CAPABILITY_AGENTIC_WORKFLOWS: "pv-ai-capability-agentic-workflows"
+    AI_CAPABILITY_AGENTIC_WORKFLOWS: "pv-ai-capability-agentic-workflows",
+
+    // Technology Pages
+    TECHNOLOGY_INDEX: "pv-technologies", // TODO: Implement page, because currently it's a "generated-index"
+    TECHNOLOGY_SAP_BTP: "pv-technology-sap-btp",
+    TECHNOLOGY_SAP_AI_CORE: "pv-technology-sap-ai-core"
   }
 } as const;
