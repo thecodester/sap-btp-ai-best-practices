@@ -1,6 +1,5 @@
 {
   "label": "Generative AI",
-  "position": 1,
   "link": {
     "type": "doc",
     "id": "technical-view/generative-ai/index"

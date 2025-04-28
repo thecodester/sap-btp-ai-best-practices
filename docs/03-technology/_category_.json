@@ -1,6 +1,5 @@
 {
   "label": "Technologies",
-  "position": 3,
   "link": {
     "type": "generated-index",
     "description": "This section contains the documentation for the technologies that are used in the SAP BTP AI Best Practices."
