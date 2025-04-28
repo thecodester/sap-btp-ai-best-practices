@@ -1021,3 +1021,42 @@ ol.steps-list li::before {
     margin-bottom: 1.5rem;
   }
 }
+
+/* "generated-index" Page */
+
+.card h2.text--truncate {
+  white-space: normal; /* Remove truncation */
+  font-size: 1rem;
+}
+
+html .card.padding--lg {
+  padding: 1rem !important;
+}
+
+html .card {
+  box-shadow: none;
+  border: 1px solid var(--sap-horizon-neutral-5);
+  border-radius: 0.5rem;
+  color: var(--ifm-menu-color);
+  transition: all 0.2s ease;
+  background-color: var(--sap-horizon-neutral-1);
+}
+
+html .card:hover {
+  box-shadow: none;
+  background-color: var(--sap-horizon-neutral-3);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+[data-theme="dark"] .card {
+  background-color: var(--sap-horizon-neutral-11);
+  border-color: var(--sap-horizon-neutral-10);
+  color: var(--ifm-menu-color);
+}
+
+[data-theme="dark"] .card:hover {
+  background-color: var(--sap-horizon-neutral-10);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
