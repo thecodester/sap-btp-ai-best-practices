@@ -84,10 +84,10 @@
   position: relative;
 }
 
-.icon svg {
-  width: 3rem;
-  height: 3rem;
-  filter: drop-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.1));
+.icon ui5-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--ifm-color-primary);
 }
 
 .textContent {
@@ -223,18 +223,19 @@
   bottom: 0;
 }
 
-.iconDivider i {
+.iconDivider ui5-icon {
   color: rgba(255, 255, 255, 0.3);
-  font-size: 5rem;
+  width: 5.4rem;
+  height: 5.4rem;
 }
 
-[data-theme="dark"] .iconDivider i {
+[data-theme="dark"] .iconDivider ui5-icon {
   color: rgba(0, 0, 0, 0.3);
 }
 
-.iconDivider i:nth-child(1) {
+.iconDivider ui5-icon:nth-child(1) {
   rotate: -90deg;
 }
-.iconDivider i:nth-child(2) {
+.iconDivider ui5-icon:nth-child(2) {
   rotate: 90deg;
 }

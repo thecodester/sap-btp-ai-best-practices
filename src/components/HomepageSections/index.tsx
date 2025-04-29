@@ -2,6 +2,11 @@ import Link from "@docusaurus/Link";
 import Heading from "@theme/Heading";
 import clsx from "clsx";
 import type { ReactNode } from "react";
+import { Icon } from "@ui5/webcomponents-react";
+import "@ui5/webcomponents-icons/dist/idea-wall.js";
+import "@ui5/webcomponents-icons/dist/tools-opportunity.js";
+import "@ui5/webcomponents-icons/dist/developer-settings.js";
+import "@ui5/webcomponents-icons/dist/megamenu.js";
 import styles from "./styles.module.css";
 
 type SectionItem = {
@@ -22,30 +27,14 @@ const SectionList: SectionItem[] = [
       </>
     ),
     link: "/docs/functional-view",
-    icon: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M24 4L4 14V34L24 44L44 34V14L24 4Z" fill="currentColor" fillOpacity="0.1" />
-        <path d="M24 4L4 14V34L24 44L44 34V14L24 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M24 4V44" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M4 14L44 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M4 34L44 34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+    icon: <Icon name="idea-wall"></Icon>,
     color: "#0A6ED1"
   },
   {
     title: "Technical View",
     description: <>Navigate the implementation Best Practices based on a structured and consistent view of technical requirements and solutions.</>,
     link: "/docs/technical-view",
-    icon: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 8H40V40H8V8Z" fill="currentColor" fillOpacity="0.1" />
-        <path d="M8 8H40V40H8V8Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M16 16H32V32H16V16Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M24 8V40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M8 24H40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+    icon: <Icon name="developer-settings"></Icon>,
     color: "#0A6ED1"
   }
 ];
@@ -95,8 +84,8 @@ export default function HomepageSections(): ReactNode {
             <Section key={idx} {...props} />
           ))} */}
           <div className={styles.iconDivider}>
-            <i className="sap-icon sap-icon--megamenu"></i>
-            <i className="sap-icon sap-icon--megamenu"></i>
+            <Icon name="megamenu"></Icon>
+            <Icon name="megamenu"></Icon>
           </div>
 
           <Section {...SectionList[0]} />
