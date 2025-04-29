@@ -1,5 +1,5 @@
 applications:
-  - name: ai-prompt-templating-typescript-demo
+  - name: ai-prompt-registry-typescript-demo
     path: ./dist
     memory: 256M
     buildpacks:

@@ -1,7 +1,7 @@
 {
-  "name": "ai-prompt-templating-typescript-demo",
+  "name": "ai-prompt-registry-typescript-demo",
   "version": "1.0.0",
-  "description": "A demo project to showcase prompt templating with generative AI models using SAP AI SDK.",
+  "description": "A demo project to showcase prompt registry with generative AI models using SAP AI SDK.",
   "scripts": {
     "start": "node server.js",
     "watch": "tsx watch src/server.ts",

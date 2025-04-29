@@ -68,6 +68,7 @@ For local deployment, set `SAMPLE_HOST` as `http://localhost:3000`. For remote d
 #### Create Prompt Registry Template
 This is a one-time setup step, and could also be created manually in the AI Launchpad.
 
+*NOTE: Save the ID from this step, so you can use it in the last step to delete the prompt from the registry.
 ```bash
 curl --request POST \
   --url http://$SAMPLE_HOST$/createPromptTemplate \
@@ -97,7 +98,7 @@ curl --request POST \
   --url http://$SAMPLE_HOST$/deletePromptTemplate \
   --header "Content-Type: application/json" \
   --data '{
-   "id": "0895f156-ed45-49ad-bb4a-c741c76605a8"
+   "id": "$PROMPT_ID$"
 }'
 ```
 
