@@ -22,7 +22,7 @@ export default class OrchestrationService {
    * A simple LLM request sending input to the LLM and returning the response.
    * @returns The orchestration service response.
    */
-  async chatWithAgent(req: any) {
+  async chatWithSupport(req: any) {
     // check if input is provided
     const { input, filterInput } = req.data;
     if (!input) {
