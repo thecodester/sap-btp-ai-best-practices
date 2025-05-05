@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Content Structure
+
+The main content for the website is organized as follows:
+
+- **Documentation**: Located in the [docs/](mdc:docs) directory. The structure defined here, along with [sidebars.ts](mdc:sidebars.ts), determines the navigation.

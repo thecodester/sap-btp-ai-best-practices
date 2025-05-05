@@ -11,6 +11,7 @@ import HomepageSections from "../components/HomepageSections";
 import PageViewTracker from "../components/tracking/PageViewTracker";
 
 import styles from "./index.module.css";
+import { useAuth } from "../authProviderBTP";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -62,10 +63,32 @@ function HomepageHeader() {
 
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
+
+  // const { isLoggedIn, login, logout, user } = useAuth();
+
   return (
     <Layout description={siteConfig.tagline}>
       <HomepageHeader />
       <main className={styles.main}>
+        {/* {isLoggedIn ? (
+          <div>
+            <p>
+              Welcome, {user.firstName} {user.lastName}!
+            </p>
+            <div>UserId: {user.ID}</div>
+            <div>Type: {user.type}</div>
+            <div>Company: {user.company}</div>
+            <div>CompanyId: {user.companyId}</div>
+            <div>Email: {user.email}</div>
+            <button onClick={() => logout()} className="button button--secondary button--lg">
+              Logout
+            </button>
+          </div>
+        ) : (
+          <button onClick={() => login()} className="button button--secondary button--lg">
+            Login
+          </button>
+        )} */}
         <HomepageSections />
         {/* <ValueProposition /> */}
       </main>

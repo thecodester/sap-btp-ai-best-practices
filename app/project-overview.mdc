@@ -1,0 +1,14 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Project Overview
+
+This is a [Docusaurus](mdc:https:/docusaurus.io) project for the SAP AI Best Practices website.
+
+- **Main Configuration**: [docusaurus.config.ts](mdc:docusaurus.config.ts)
+- **Sidebars Configuration**: [sidebars.ts](mdc:sidebars.ts)
+- **Package Management**: [package.json](mdc:package.json)
+- **Source Code**: `src/` directory contains custom React components and styles. See [src/pages/index.tsx](mdc:src/pages/index.tsx) for the homepage component.
+- **Static Assets**: `static/` directory contains static assets like images.
