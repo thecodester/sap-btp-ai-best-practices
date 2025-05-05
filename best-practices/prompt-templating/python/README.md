@@ -13,9 +13,9 @@ python
 ```
 
 ## Prerequisites
-	•	Access to SAP Generative AI Hub
-	•	Required entitlements to use the Prompt Registry and Orchestration Module
-	•	Python environment with Jupyter and the necessary SAP SDKs or APIs
+- Access to SAP Generative AI Hub
+- Required entitlements to use the Prompt Registry and Orchestration Module
+- Python environment with Jupyter and the necessary SAP SDKs or APIs
 
 ## Setup Instructions
 1.	**Clone the repository**:
