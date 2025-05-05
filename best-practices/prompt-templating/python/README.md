@@ -20,29 +20,32 @@ python
 ## Setup Instructions
 1.	**Clone the repository**:
 
-```
-git clone https://github.com/SAP-samples/sap-btp-ai-best-practices.git
-cd sap-btp-ai-best-practices/best-practices/prompt-templating/python
-```
+    ```bash
+    git clone https://github.com/SAP-samples/sap-btp-ai-best-practices.git
+    cd sap-btp-ai-best-practices/best-practices/prompt-templating/python
+    ```
 2.	**Set up Python environment**:
 
     It’s recommended to use a virtual environment.
-```
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt  # Requirements file is provided
-```
-3.	**Configure access to SAP GenAI Hub**:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    pip install -r requirements.txt  # Requirements file is provided
+    ```
+3.	**Configure environment variables**:
 
-    Ensure your environment is authenticated and connected to SAP BTP. Fill in the `env_copy` file and change its name to `.env`
+    Copy the `.env.example` file to `.env`:
+     ```bash
+     cp env_copy .env
+     ```
 
-```
-AICORE_AUTH_URL=""
-AICORE_CLIENT_ID=""
-AICORE_CLIENT_SECRET=""
-AICORE_BASE_URL=""
-AICORE_RESOURCE_GROUP=""
-```
+    ```
+    AICORE_AUTH_URL=""
+    AICORE_CLIENT_ID=""
+    AICORE_CLIENT_SECRET=""
+    AICORE_BASE_URL=""
+    AICORE_RESOURCE_GROUP=""
+    ```
 
 ## Notebook Overview
 - **prompt_template.ipynb**
@@ -58,7 +61,7 @@ AICORE_RESOURCE_GROUP=""
 ## Usage Example
 
 Run each notebook via Jupyter:
-```
+```bash
 jupyter notebook
 ```
 
