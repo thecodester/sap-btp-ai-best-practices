@@ -4,7 +4,7 @@ This project demonstrates best practices for accessing generative AI models usin
 
 ## Project Structure
 ```
-access-to-generative-ai-models
+content-filtering
 └── python
     ├── orchestration_implementation.ipynb  # Orchestration Implementation
     ├── .env.example               # Template for environment variables
@@ -54,25 +54,8 @@ access-to-generative-ai-models
 ## Usage Examples
 
 The notebooks demonstrate various methods to call LLMs through SAP GenAI Hub:
-
-- **Native Client Integrations (`native_implementation.ipynb`):**
-  - Amazon and Anthropic Models
-  - OpenAI Models
-- **LangChain Implementations (`langchain_implementation.ipynb`):**
-  - OpenAI Models
-  - Amazon and Anthropic Models
-  - Google Vertex AI Models
 - **Orchestration Implementation (`orchestration_implementation.ipynb`):**
   - Unified method to call any model from SAP GenAI Hub
-
-Each section in the notebook provides a detailed example of how to set up and interact with the models.
-
-### Recommended Method
-
-The recommended method for accessing generative AI models depends on the use case:
-- **For quick calls to LLMs:** Use the `native_implementation.ipynb`.
-- **If using in conjunction with other LangChain functions or modules:** Use the `langchain_implementation.ipynb`.
-- **For integration with other GenAI Hub Modules:** Use the `orchestration_implementation.ipynb`.
 
 ## Contributing
 
