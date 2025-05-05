@@ -6,8 +6,6 @@ This project demonstrates best practices for accessing generative AI models usin
 ```
 access-to-generative-ai-models
 └── python
-    ├── langchain_implementation.ipynb  # LangChain Implementations
-    ├── native_implementation.ipynb     # Native Client Integrations
     ├── orchestration_implementation.ipynb  # Orchestration Implementation
     ├── .env.example               # Template for environment variables
     ├── requirements.txt           # Python dependencies
