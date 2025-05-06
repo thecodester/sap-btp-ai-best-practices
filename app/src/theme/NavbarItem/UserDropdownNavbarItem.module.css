@@ -165,7 +165,7 @@
   background-color: var(--ifm-color-primary); /* SAP blue */
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   cursor: pointer;
 }
 
