@@ -15,7 +15,7 @@
   padding: 20px;
   pointer-events: none; /* Allow clicks to pass through the overlay itself */
   background: linear-gradient(to bottom, transparent, #fff);
-  min-height: 600px;
+  min-height: 700px;
 }
 
 html[data-theme="dark"] .loginWallOverlay {
