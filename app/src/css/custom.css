@@ -4,8 +4,6 @@
  * work well for content-centric websites.
  */
 
-@import "./icons.css";
-
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #0070f2; /* SAP Horizon Blue */
@@ -137,105 +135,6 @@ h6,
 .team-member h4,
 .footer {
   font-family: var(--sapFontFamily) !important;
-}
-
-/* SAP Icons */
-@font-face {
-  font-family: "SAP-icons";
-  src: url("https://ui5.sap.com/resources/sap/ui/core/themes/base/fonts/SAP-icons.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-
-/* Base icon class */
-.sap-icon {
-  font-family: "SAP-icons";
-  font-style: normal;
-  font-weight: normal;
-  display: inline-block;
-  text-align: center;
-  text-transform: none;
-  line-height: 1;
-  vertical-align: middle;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Common SAP icon codes */
-.sap-icon--preview::before {
-  content: "\e006";
-}
-.sap-icon--video::before {
-  content: "\e006";
-}
-.sap-icon--document::before {
-  content: "\e01a";
-}
-.sap-icon--folder::before {
-  content: "\e0b5";
-}
-.sap-icon--settings::before {
-  content: "\e0ca";
-}
-.sap-icon--edit::before {
-  content: "\e0dc";
-}
-.sap-icon--add::before {
-  content: "\e0ad";
-}
-.sap-icon--delete::before {
-  content: "\e03e";
-}
-.sap-icon--search::before {
-  content: "\e00d";
-}
-.sap-icon--download::before {
-  content: "\e013";
-}
-.sap-icon--upload::before {
-  content: "\e014";
-}
-.sap-icon--check::before {
-  content: "\e05b";
-}
-.sap-icon--alert::before {
-  content: "\e053";
-}
-.sap-icon--information::before {
-  content: "\e054";
-}
-.sap-icon--error::before {
-  content: "\e055";
-}
-
-/* Icon sizes */
-.sap-icon--s {
-  font-size: 1rem;
-}
-.sap-icon--m {
-  font-size: 1.25rem;
-}
-.sap-icon--l {
-  font-size: 1.5rem;
-}
-.sap-icon--xl {
-  font-size: 2rem;
-}
-
-/* Icon colors */
-.sap-icon--primary {
-  color: var(--ifm-color-primary);
-}
-.sap-icon--neutral {
-  color: var(--sap-horizon-neutral-9);
-}
-.sap-icon--light {
-  color: var(--sap-horizon-neutral-1);
-}
-
-[data-theme="dark"] .sap-icon--neutral {
-  color: var(--sap-horizon-neutral-4);
 }
 
 /* Navbar */
@@ -555,7 +454,7 @@ ol.steps-list li::before {
 /* Resource Links - Updated to use new icon system */
 .resource-links {
   list-style: none;
-  margin: 16px 0 0 0;
+  margin: 20px 0 0 0;
   /* Take full height of parent and center vertically */
   height: 100%;
   display: flex;
@@ -584,7 +483,9 @@ ol.steps-list li::before {
   text-decoration: underline;
 }
 
-.resource-links li a i {
+.resource-links li a ui5-icon {
+  width: 42px;
+  height: 42px;
   font-size: 1.5rem;
   color: var(--sap-horizon-neutral-9);
   background-color: var(--sap-horizon-neutral-4);
@@ -592,7 +493,7 @@ ol.steps-list li::before {
   border-radius: 0.5rem;
 }
 
-[data-theme="dark"] .resource-links li a i {
+[data-theme="dark"] .resource-links li a ui5-icon {
   color: var(--ifm-color-primary-lighter);
   background-color: var(--sap-horizon-neutral-10);
 }
@@ -671,15 +572,13 @@ ol.steps-list li::before {
 }
 
 /* Adjust icon color on hover if needed, assuming icon is a child */
-.list-button-item a:hover ui5-icon,
-.list-button-item a:hover .sap-icon {
+.list-button-item a:hover ui5-icon {
   color: var(--ifm-color-primary); /* Example: make icon primary on hover */
 }
 
 /* Icon styling within the button (adjust as needed) */
 .list-button-item a ui5-icon,
-.list-button-item a ui5-icon::part(root),
-.list-button-item a .sap-icon {
+.list-button-item a ui5-icon::part(root) {
   width: 1rem;
   font-size: 1rem;
   color: var(--ifm-color-primary);
@@ -714,8 +613,7 @@ ol.steps-list li::before {
   background-color: var(--sap-horizon-neutral-3);
 }
 
-.list-button-item a.disabled ui5-icon::part(root),
-.list-button-item a.disabled .sap-icon {
+.list-button-item a.disabled ui5-icon::part(root) {
   color: var(--sap-horizon-neutral-7); /* Make icon gray as well */
 }
 
@@ -731,8 +629,7 @@ ol.steps-list li::before {
   background-color: var(--sap-horizon-neutral-11);
 }
 
-[data-theme="dark"] .list-button-item a.disabled ui5-icon::part(root),
-[data-theme="dark"] .list-button-item a.disabled .sap-icon {
+[data-theme="dark"] .list-button-item a.disabled ui5-icon::part(root) {
   color: var(--sap-horizon-neutral-8);
 }
 

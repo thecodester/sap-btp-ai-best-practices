@@ -40,15 +40,6 @@ const config: Config = {
     locales: ["en"]
   },
 
-  // Add SAP Icon Font
-  stylesheets: [
-    {
-      href: "https://ui5.sap.com/resources/sap/ui/core/themes/base/fonts/SAP-icons.woff2",
-      type: "font/woff2",
-      crossorigin: "anonymous"
-    }
-  ],
-
   // Add external scripts
   scripts: [],
 

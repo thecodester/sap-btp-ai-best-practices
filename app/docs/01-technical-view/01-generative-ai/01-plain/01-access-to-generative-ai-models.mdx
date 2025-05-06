@@ -11,6 +11,9 @@ import Tabs from "@theme/Tabs";
 import IconLinkButton from "@site/src/components/IconLinkButton";
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 import LoginWall from "@site/src/components/LoginWall";
+import { Icon } from "@ui5/webcomponents-react";
+import "@ui5/webcomponents-icons/dist/video.js";
+import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
 
 <PageViewTracker featureName="BP_ACCESS_TO_GENERATIVE_AI_MODELS" />
 
@@ -44,7 +47,7 @@ import LoginWall from "@site/src/components/LoginWall";
             target="_blank"
             href={useBaseUrl("generative-ai/access-to-generative-ai-models/videos/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models%20(intro).mp4")}
           >
-            <i className="sap-icon sap-icon--preview sap-icon--neutral"></i>
+            <Icon name="video"></Icon>
             <span>Teaser</span>
           </a>
         </li>
@@ -54,7 +57,7 @@ import LoginWall from "@site/src/components/LoginWall";
               target="_blank"
               href={useBaseUrl("generative-ai/access-to-generative-ai-models/videos/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.mp4")}
             >
-              <i className="sap-icon sap-icon--video sap-icon--neutral"></i>
+              <Icon name="video"></Icon>
               <span>Webinar</span>
             </a>
           </li>
@@ -63,7 +66,7 @@ import LoginWall from "@site/src/components/LoginWall";
               target="_blank"
               href={useBaseUrl("generative-ai/access-to-generative-ai-models/pdfs/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.pdf")}
             >
-              <i className="sap-icon sap-icon--document sap-icon--neutral"></i>
+              <Icon name="pdf-attachment"></Icon>
               <span>Webinar (PDF Presentation)</span>
             </a>
           </li>
