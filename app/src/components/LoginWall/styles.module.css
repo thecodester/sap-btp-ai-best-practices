@@ -69,10 +69,25 @@ html[data-theme="dark"] .loginWallPopup {
 
 .contentContainer {
   padding: 24px 48px 10px;
+  text-align: center;
 }
 
 .loginWallPopup button img {
   margin: 3px 16px 0 -10px;
   height: 26px;
   float: left;
+}
+
+.actionsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ifm-spacing-vertical);
+  margin-top: var(--ifm-spacing-vertical);
+  margin-bottom: var(--ifm-spacing-vertical);
+}
+
+.createAccountLink {
+  /* Add specific styles for the create account link if needed */
+  /* For example, to make it look like a secondary button or adjust its appearance */
 }

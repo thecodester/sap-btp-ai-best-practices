@@ -40,17 +40,14 @@ const LoginWall: React.FC<LoginWallProps> = ({
           <div className={styles.contentContainer}>
             <h2>{title}</h2>
             <p>{message}</p>
-            <p>
+            <div className={styles.actionsContainer}>
               <button onClick={() => login()} className="button button--primary button--lg">
                 <img src={logoUrl} alt="SAP Logo" /> Login with your SAP account
               </button>
-            </p>
-            <p>
-              <a href="https://account.sap.com/register">Create your free SAP account</a> |{" "}
-              <a href="http://sap.com/account.html" target="_blank">
-                Why have an SAP account?
+              <a href="https://account.sap.com/register" className={styles.createAccountLink}>
+                Create your free SAP account
               </a>
-            </p>
+            </div>
           </div>
         </div>
       </div>
