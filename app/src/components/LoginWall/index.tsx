@@ -12,7 +12,7 @@ interface LoginWallProps {
 
 const LoginWall: React.FC<LoginWallProps> = ({
   children,
-  message = "Log in or create a free SAP account to unlock this exclusive content, plus a wealth of other resources, tutorials, and community discussions. Get started in moments!",
+  message = "Log in or create a free SAP account to unlock this exclusive content. Get started in moments!",
   title = "Unlock Exclusive Content",
   renderOnlyWhenLoggedIn = false
 }) => {
