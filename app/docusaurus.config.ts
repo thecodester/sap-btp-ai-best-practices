@@ -18,6 +18,11 @@ const config: Config = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl,
 
+  // Add custom fields
+  customFields: {
+    apiUrl: process.env.NODE_ENV === "development" ? "http://localhost:4004" : "https://btp-ai-best-practices-qa-qa-btp-ai-best-practices-srv.cfapps.eu10-005.hana.ondemand.com"
+  },
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "sap-samples", // Usually your GitHub org/user name.

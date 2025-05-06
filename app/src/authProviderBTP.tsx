@@ -2,9 +2,7 @@ import { useLocation, useHistory } from "@docusaurus/router";
 import React, { createContext, useState, useContext, useEffect, useMemo } from "react";
 import siteConfig from "@generated/docusaurus.config";
 
-// const BTP_API = siteConfig.customFields.api_url as string;
-const BTP_API =
-  process.env.NODE_ENV === "development" ? "http://localhost:4004" : "https://btp-ai-best-practices-qa-qa-btp-ai-best-practices-srv.cfapps.eu10-005.hana.ondemand.com";
+const BTP_API = siteConfig.customFields.apiUrl as string;
 
 interface AuthContextProps {
   isLoggedIn: boolean;
@@ -94,7 +92,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         return;
       }
 
-      console.log(`Checking auth with token: ${currentToken}`);
+      // console.log(`Checking auth with token: ${currentToken}`);
 
       if (currentToken) {
         try {
@@ -104,10 +102,10 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             },
             mode: "cors"
           });
-          console.log(responseUser);
+          // console.log(responseUser);
           if (responseUser.ok) {
             const dataUser = await responseUser.json();
-            console.log(dataUser);
+            // console.log(dataUser);
             setUser(dataUser);
             setIsLoggedIn(true);
           } else {
