@@ -45,13 +45,7 @@ const config: Config = {
   ],
 
   // Add external scripts
-  scripts: [
-    {
-      // Use the API key from environment config
-      src: `https://cdns.gigya.com/js/gigya.js?apikey=${environment.tracking.apiKey}`,
-      async: true
-    }
-  ],
+  scripts: [],
 
   presets: [
     [
@@ -105,6 +99,10 @@ const config: Config = {
           label: "Technical View"
         },
         // { to: "/blog", label: "Blog", position: "left" },
+        {
+          type: "custom-user-dropdown",
+          position: "right"
+        },
         {
           href: "https://github.com/SAP-samples/sap-btp-ai-best-practices",
           className: "navbar-icon-link",

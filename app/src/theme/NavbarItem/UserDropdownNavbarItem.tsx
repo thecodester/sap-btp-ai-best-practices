@@ -1,0 +1,83 @@
+import React, { useState, useEffect, useRef } from "react";
+import { useAuth } from "../../authProviderBTP"; // Adjust path if necessary
+import Link from "@docusaurus/Link";
+import styles from "./UserDropdownNavbarItem.module.css"; // We'll create this for styling
+
+export default function UserDropdownNavbarItem() {
+  const { isLoggedIn, user, login, logout } = useAuth();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
+
+  if (!isLoggedIn) {
+    return (
+      <button onClick={() => login()} className={`button button--secondary ${styles.loginButton}`}>
+        Login
+      </button>
+    );
+  }
+
+  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
+  // Placeholder for avatar - to be replaced with actual image or icon
+  const UserAvatar = () => (
+    <div className={styles.userAvatarPlaceholder}>
+      {user?.firstName?.charAt(0)}
+      {user?.lastName?.charAt(0)}
+    </div>
+  );
+
+  return (
+    <div className={`${styles.userDropdown} ${isDropdownOpen ? styles.userDropdownOpenState : ""}`} ref={dropdownRef}>
+      <button className={styles.userDropdown__button} onClick={toggleDropdown}>
+        {/* Replace with an avatar icon/image if available */}
+        <UserAvatar />
+        <span className={styles.buttonUnderline}></span>
+      </button>
+      {isDropdownOpen && (
+        <div className={`${styles.userDropdown__content} ${styles.userDropdown__contentOpen}`}>
+          {user && (
+            <div className={styles.userDropdown__header}>
+              {/* Placeholder for actual avatar image */}
+              <div className={styles.userAvatarLargePlaceholder}>
+                {user.firstName?.charAt(0)}
+                {user.lastName?.charAt(0)}
+              </div>
+              <div className={styles.userDropdown__userDetails}>
+                <p className={styles.userName}>
+                  {user.firstName} {user.lastName}
+                </p>
+                <p className={styles.userEmail}>{user.email}</p>
+                {/* {user.ID && <p className={styles.userEmail}>UserId: {user.ID}</p>}
+                {user.type && <p className={styles.userEmail}>Type: {user.type}</p>}
+                {user.company && <p className={styles.userEmail}>Company: {user.company}</p>}
+                {user.companyId && <p className={styles.userEmail}>CompanyId: {user.companyId}</p>} */}
+              </div>
+            </div>
+          )}
+
+          <div className={styles.userDropdown__section}>
+            <button onClick={() => logout()} className={`button button--primary ${styles.logoutButtonLarge}`}>
+              Logout
+            </button>
+          </div>
+
+          {/* <hr className={styles.userDropdown__separator} /> */}
+        </div>
+      )}
+    </div>
+  );
+}

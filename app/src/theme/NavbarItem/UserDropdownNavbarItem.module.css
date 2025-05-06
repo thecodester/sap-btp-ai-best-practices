@@ -1,0 +1,168 @@
+.loginButton {
+  padding: 0.3rem 1rem; /* Keep padding if needed for specific layout */
+  cursor: pointer;
+}
+
+.userDropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Styles for the avatar in the navbar */
+.userAvatarPlaceholder {
+  width: 32px; /* Adjust size as needed */
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary); /* Placeholder background */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9em; /* Adjust as needed */
+  /* margin-right: 8px; */ /* Remove if caret is not used */
+}
+
+.userDropdown__button {
+  background-color: transparent;
+  color: var(--ifm-navbar-link-color);
+  /* padding: var(--ifm-navbar-item-padding-vertical) var(--ifm-navbar-item-padding-horizontal); */
+  /* Remove default padding to only show avatar */
+  padding: 0;
+  font-size: inherit;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative; /* Added for underline positioning */
+}
+
+.userDropdown__button:hover,
+.userDropdown__button:focus {
+  /* color: var(--ifm-navbar-link-hover-color); */
+  /* No color change for button, avatar is the focus */
+}
+
+.userDropdown__content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  right: 0;
+  top: calc(100% + 18px); /* Position below the navbar item with some spacing */
+  background-color: #ffffff; /* White background like the image */
+  min-width: 360px; /* Adjusted width based on image */
+  box-shadow: 0px 10px 30px 0px #22364940;
+  padding: 0; /* Remove padding, sections will handle it */
+  z-index: var(--ifm-z-index-dropdown);
+}
+
+/* Class to show the dropdown content when triggered by click */
+.userDropdown__contentOpen {
+  display: block;
+}
+
+/* Underline for the button when dropdown is open */
+.buttonUnderline {
+  display: none; /* Hidden by default */
+  position: absolute;
+  bottom: -18px; /* Corresponds to inset-block-end: 0px; */
+  left: 0; /* Combined with width 100% for full width */
+  width: 100%; /* Corresponds to inline-size: 100%; */
+  height: 3px; /* User provided variable, with fallback */
+  border-radius: 2px 2px 0 0;
+  background-color: var(--ifm-color-primary); /* User provided variable, with fallback */
+}
+
+.userDropdownOpenState .userDropdown__button .buttonUnderline {
+  display: block;
+  /* The place-self and grid-row-start properties are context-dependent (grid) and are handled by absolute positioning here */
+}
+
+/* Header section within the dropdown */
+.userDropdown__header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eeeeee; /* Light separator line */
+}
+
+.userAvatarLargePlaceholder {
+  width: 60px; /* Larger avatar */
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary); /* Placeholder background */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5em; /* Larger font for initials */
+  margin-right: 15px;
+}
+
+.userDropdown__userDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333333;
+  margin: 0 0 4px 0;
+}
+
+.userEmail {
+  font-size: 0.9em;
+  color: #666666;
+  margin: 0;
+}
+
+/* General section styling */
+.userDropdown__section {
+  padding: 15px 20px;
+}
+
+.userDropdown__section:last-child {
+  padding-bottom: 25px;
+}
+
+/* Separator line between sections */
+.userDropdown__separator {
+  border: 0;
+  border-top: 1px solid #eeeeee;
+  margin: 0; /* No extra margin */
+}
+
+/* Larger logout button specific to the manage account section */
+.logoutButtonLarge {
+  display: block;
+  width: 100%;
+  margin-top: 15px; /* Space above the logout button */
+  padding: 10px 0; /* Generous padding */
+  text-align: center;
+  font-weight: bold;
+  background-color: var(--ifm-color-primary); /* SAP blue */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logoutButtonLarge:hover {
+  background-color: var(--ifm-color-primary);
+}
+
+/* Old logout button style if needed elsewhere, but we are using logoutButtonLarge now */
+.logoutButton {
+  display: block;
+  width: calc(100% - 2rem);
+  margin: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* .userDropdown__caret {
+  margin-left: 8px;
+  font-size: 0.8em;
+} */
