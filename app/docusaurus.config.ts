@@ -5,7 +5,7 @@ import { environment } from "./src/config/environment"; // Import environment co
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-const baseUrl = process.env.NODE_ENV === "development" ? "/" : "/sap-btp-ai-best-practices/";
+const baseUrl = environment.isDevelopment ? "/" : "/sap-btp-ai-best-practices/";
 
 const config: Config = {
   title: "SAP BTP AI Best Practices",
@@ -20,7 +20,7 @@ const config: Config = {
 
   // Add custom fields
   customFields: {
-    apiUrl: process.env.NODE_ENV === "development" ? "http://localhost:4004" : "https://btp-ai-best-practices-qa-qa-btp-ai-best-practices-srv.cfapps.eu10-005.hana.ondemand.com"
+    apiUrl: environment.isDevelopment ? "http://localhost:4004" : "https://btp-ai-best-practices-qa-qa-btp-ai-best-practices-srv.cfapps.eu10-005.hana.ondemand.com"
   },
 
   // GitHub pages deployment config.

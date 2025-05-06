@@ -29,16 +29,11 @@ This project contains the BTP AI Best Practices website and its supporting servi
 3.  Run the service (usually for local development with in-memory DB or configured HANA):
 
     ```bash
-    npm start
+    cf login -a https://api.cf.eu10-005.hana.ondemand.com/
+    npm run watch
     ```
 
     This typically runs `cds-serve`. The service will be available at `http://localhost:4004` by default (or as configured).
-
-    For development with automatic restarts on file changes:
-
-    ```bash
-    npm run watch
-    ```
 
 ### Running the Frontend Application (`app`)
 
