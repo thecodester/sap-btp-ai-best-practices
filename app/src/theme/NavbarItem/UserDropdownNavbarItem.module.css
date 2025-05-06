@@ -55,6 +55,11 @@
   z-index: var(--ifm-z-index-dropdown);
 }
 
+[data-theme="dark"] .userDropdown__content {
+  background-color: var(--sap-horizon-neutral-11);
+  color: var(--sap-horizon-neutral-1);
+}
+
 /* Class to show the dropdown content when triggered by click */
 .userDropdown__contentOpen {
   display: block;
@@ -85,6 +90,10 @@
   border-bottom: 1px solid #eeeeee; /* Light separator line */
 }
 
+[data-theme="dark"] .userDropdown__header {
+  border-bottom-color: var(--sap-horizon-neutral-10);
+}
+
 .userAvatarLargePlaceholder {
   width: 60px; /* Larger avatar */
   height: 60px;
@@ -111,10 +120,18 @@
   margin: 0 0 4px 0;
 }
 
+[data-theme="dark"] .userName {
+  color: var(--sap-horizon-neutral-1);
+}
+
 .userEmail {
   font-size: 0.9em;
   color: #666666;
   margin: 0;
+}
+
+[data-theme="dark"] .userEmail {
+  color: var(--sap-horizon-neutral-3);
 }
 
 /* General section styling */
@@ -131,6 +148,10 @@
   border: 0;
   border-top: 1px solid #eeeeee;
   margin: 0; /* No extra margin */
+}
+
+[data-theme="dark"] .userDropdown__separator {
+  border-top-color: var(--sap-horizon-neutral-10);
 }
 
 /* Larger logout button specific to the manage account section */
@@ -150,19 +171,5 @@
 
 .logoutButtonLarge:hover {
   background-color: var(--ifm-color-primary);
+  color: var(--sap-horizon-neutral-1);
 }
-
-/* Old logout button style if needed elsewhere, but we are using logoutButtonLarge now */
-.logoutButton {
-  display: block;
-  width: calc(100% - 2rem);
-  margin: 0.5rem 1rem;
-  padding: 0.5rem 1rem;
-  text-align: left;
-  cursor: pointer;
-}
-
-/* .userDropdown__caret {
-  margin-left: 8px;
-  font-size: 0.8em;
-} */
