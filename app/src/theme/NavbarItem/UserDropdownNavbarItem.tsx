@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useAuth } from "../../authProviderBTP"; // Adjust path if necessary
-import Link from "@docusaurus/Link";
+import { Icon } from "@ui5/webcomponents-react";
+import "@ui5/webcomponents-icons/dist/person-placeholder.js";
 import styles from "./UserDropdownNavbarItem.module.css"; // We'll create this for styling
 
 export default function UserDropdownNavbarItem() {
@@ -24,8 +25,8 @@ export default function UserDropdownNavbarItem() {
 
   if (!isLoggedIn) {
     return (
-      <button onClick={() => login()} className={`button button--secondary ${styles.loginButton}`}>
-        Login
+      <button onClick={() => login()} className={`button ${styles.loginButton}`}>
+        <Icon name="person-placeholder"></Icon>
       </button>
     );
   }
