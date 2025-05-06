@@ -67,9 +67,18 @@ html[data-theme="dark"] .loginWallPopup {
   padding: 24px 0 24px 32px;
 }
 
+html[data-theme="dark"] .headerContainer {
+  border-bottom: 1px solid var(--sap-horizon-neutral-10);
+}
+
 .contentContainer {
-  padding: 24px 48px 10px;
+  padding: 24px 48px 14px;
   text-align: center;
+}
+
+.loginWallPopup button,
+.loginWallPopup button:hover {
+  color: var(--sap-horizon-neutral-1);
 }
 
 .loginWallPopup button img {
@@ -87,7 +96,36 @@ html[data-theme="dark"] .loginWallPopup {
   margin-bottom: var(--ifm-spacing-vertical);
 }
 
-.createAccountLink {
+.loginWallPopup .createAccountLink {
   /* Add specific styles for the create account link if needed */
   /* For example, to make it look like a secondary button or adjust its appearance */
+}
+
+.loginWallPopup .createAccountLink:hover {
+  color: var(--ifm-color-primary-dark);
+}
+
+.orSeparator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--sap-horizon-neutral-7);
+  width: 100%; /* Ensure it takes full width to center lines */
+}
+
+html[data-theme="dark"] .orSeparator {
+  color: var(--sap-horizon-neutral-8);
+}
+
+.orSeparator::before,
+.orSeparator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid var(--sap-horizon-neutral-5);
+  margin: 0 0.5em;
+}
+
+html[data-theme="dark"] .orSeparator::before,
+html[data-theme="dark"] .orSeparator::after {
+  border-bottom: 1px solid var(--sap-horizon-neutral-10);
 }
