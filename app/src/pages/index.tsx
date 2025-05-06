@@ -64,13 +64,13 @@ function HomepageHeader() {
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
 
-  // const { isLoggedIn, login, logout, user } = useAuth();
+  const { isLoggedIn, login, logout, user } = useAuth();
 
   return (
     <Layout description={siteConfig.tagline}>
       <HomepageHeader />
       <main className={styles.main}>
-        {/* {isLoggedIn ? (
+        {isLoggedIn ? (
           <div>
             <p>
               Welcome, {user.firstName} {user.lastName}!
@@ -88,7 +88,7 @@ export default function Home(): ReactNode {
           <button onClick={() => login()} className="button button--secondary button--lg">
             Login
           </button>
-        )} */}
+        )}
         <HomepageSections />
         {/* <ValueProposition /> */}
       </main>

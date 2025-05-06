@@ -10,6 +10,7 @@ import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 import IconLinkButton from "@site/src/components/IconLinkButton";
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
+import LoginWall from "@site/src/components/LoginWall";
 
 <PageViewTracker featureName="BP_ACCESS_TO_GENERATIVE_AI_MODELS" />
 
@@ -47,24 +48,26 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
             <span>Teaser</span>
           </a>
         </li>
-        <li>
-          <a
-            target="_blank"
-            href={useBaseUrl("generative-ai/access-to-generative-ai-models/videos/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.mp4")}
-          >
-            <i className="sap-icon sap-icon--video sap-icon--neutral"></i>
-            <span>Webinar</span>
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href={useBaseUrl("generative-ai/access-to-generative-ai-models/pdfs/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.pdf")}
-          >
-            <i className="sap-icon sap-icon--document sap-icon--neutral"></i>
-            <span>Webinar (PDF Presentation)</span>
-          </a>
-        </li>
+        <LoginWall renderOnlyWhenLoggedIn={true}>
+          <li>
+            <a
+              target="_blank"
+              href={useBaseUrl("generative-ai/access-to-generative-ai-models/videos/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.mp4")}
+            >
+              <i className="sap-icon sap-icon--video sap-icon--neutral"></i>
+              <span>Webinar</span>
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href={useBaseUrl("generative-ai/access-to-generative-ai-models/pdfs/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.pdf")}
+            >
+              <i className="sap-icon sap-icon--document sap-icon--neutral"></i>
+              <span>Webinar (PDF Presentation)</span>
+            </a>
+          </li>
+        </LoginWall>
       </ul>
     </div>
   </div>
@@ -90,6 +93,8 @@ models and provide a wide spectrum of functionalities.
   Templating, Filtering, and more.
 - **Security & SAP Ecosystem**: It's fully integrated into the SAP Ecosystem, leveraging the best of SAP
   technologies.
+
+<LoginWall>
 
 ## <span className="step-number">2</span> <span className="step-title">Pre-requisites</span>
 
@@ -512,3 +517,4 @@ ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
 - Lange, Joerg
 
 </div>
+</LoginWall>

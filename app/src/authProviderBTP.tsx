@@ -11,6 +11,7 @@ interface AuthContextProps {
   login: () => Promise<void>;
   logout: () => void;
   user: UserInfo | null;
+  isLoading: boolean;
 }
 
 interface UserInfo {
@@ -27,7 +28,8 @@ const AuthContext = createContext<AuthContextProps>({
   isLoggedIn: false,
   login: async () => {},
   logout: () => {},
-  user: null
+  user: null,
+  isLoading: true
 });
 
 interface AuthProviderProps {
@@ -38,12 +40,13 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState<UserInfo | null>(null);
   const [token, setToken] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
   const history = useHistory();
 
   const login = async () => {
     // Redirect to login
-    window.location.href = `${BTP_API}/user/login?origin_uri=${window.location.origin}`;
+    window.location.href = `${BTP_API}/user/login?origin_uri=${window.location.href}`;
   };
 
   const logout = () => {
@@ -58,9 +61,10 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       isLoggedIn,
       login,
       logout,
-      user
+      user,
+      isLoading
     }),
-    [isLoggedIn, login, logout, user]
+    [isLoggedIn, login, logout, user, isLoading]
   );
 
   useEffect(() => {
@@ -72,37 +76,54 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, [token]);
 
   useEffect(() => {
-    const getUserInfo = async () => {
-      try {
-        const responseUser = await fetch(`${BTP_API}/user/getUserInfo`, {
-          headers: {
-            Authorization: `Bearer ${token}`
-          },
-          mode: "cors"
-        });
-        console.log(responseUser);
-        if (responseUser.ok) {
-          const dataUser = await responseUser.json();
-          console.log(dataUser);
-          setUser(dataUser);
-          setIsLoggedIn(true);
-        }
-      } catch (error) {
-        console.error("Error fetching user info:", error);
+    const checkAuth = async () => {
+      setIsLoading(true);
+      const params = new URLSearchParams(location.search);
+      const queryToken = params.get("t");
+      let currentToken = localStorage.getItem("token");
+
+      if (queryToken) {
+        setToken(queryToken);
+        localStorage.setItem("token", queryToken);
+        currentToken = queryToken;
+        history.replace(location.pathname);
+      } else if (currentToken) {
+        setToken(currentToken);
+      } else {
+        setIsLoading(false);
+        return;
       }
+
+      console.log(`Checking auth with token: ${currentToken}`);
+
+      if (currentToken) {
+        try {
+          const responseUser = await fetch(`${BTP_API}/user/getUserInfo`, {
+            headers: {
+              Authorization: `Bearer ${currentToken}`
+            },
+            mode: "cors"
+          });
+          console.log(responseUser);
+          if (responseUser.ok) {
+            const dataUser = await responseUser.json();
+            console.log(dataUser);
+            setUser(dataUser);
+            setIsLoggedIn(true);
+          } else {
+            console.error("Failed to fetch user info, potentially invalid token");
+            logout();
+          }
+        } catch (error) {
+          console.error("Error during auth check:", error);
+          logout();
+        }
+      }
+      setIsLoading(false);
     };
 
-    const params = new URLSearchParams(location.search);
-    if (params.get("t") > "") {
-      setToken(params.get("t"));
-      history.replace("/");
-    }
-
-    console.log(`token: ${token}`);
-    if (token > "") {
-      getUserInfo();
-    }
-  }, [location, history, token]);
+    checkAuth();
+  }, [location, history]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
