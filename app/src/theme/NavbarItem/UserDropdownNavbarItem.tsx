@@ -71,6 +71,31 @@ export default function UserDropdownNavbarItem() {
           )}
 
           <div className={styles.userDropdown__section}>
+            <ul className={styles.userDropdown__linkList}>
+              <li>
+                <a href="https://account.sap.com/" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__link}>
+                  Manage my account
+                </a>
+              </li>
+              <li>
+                <a href="https://account.sap.com/manage/info" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__link}>
+                  Personal Information
+                </a>
+              </li>
+              <li>
+                <a href="https://account.sap.com/manage/security" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__link}>
+                  Security
+                </a>
+              </li>
+              <li>
+                <a href="https://account.sap.com/manage/privacy" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__link}>
+                  Privacy
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className={styles.userDropdown__logoutSection}>
             <button onClick={() => logout()} className={`button button--primary ${styles.logoutButtonLarge}`}>
               Logout
             </button>

@@ -156,10 +156,58 @@
 /* General section styling */
 .userDropdown__section {
   padding: 15px 20px;
+  border-bottom: 1px solid #eeeeee; /* Separator before logout if it's not the last content section */
 }
 
-.userDropdown__section:last-child {
-  padding-bottom: 25px;
+[data-theme="dark"] .userDropdown__section {
+  border-bottom-color: var(--sap-horizon-neutral-10);
+}
+
+.userDropdown__section:last-of-type {
+  /* Ensure no border if it's the section right before logout */
+  /* This might need adjustment if logout is not directly after or if other sections are added */
+}
+
+/* Styling for the list of links */
+.userDropdown__linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.userDropdown__linkList li {
+  margin-bottom: 12px; /* Space between links */
+}
+
+.userDropdown__linkList li:last-child {
+  margin-bottom: 0; /* No margin for the last link item in the list */
+}
+
+/* Styling for individual links */
+.userDropdown__link {
+  font-size: 0.95em; /* Adjust as per image */
+  color: var(--ifm-link-color); /* Or your desired link color */
+  text-decoration: none;
+  display: block; /* Make the whole area clickable */
+}
+
+.userDropdown__link:hover {
+  text-decoration: underline;
+  color: var(--ifm-link-hover-color);
+}
+
+[data-theme="dark"] .userDropdown__link {
+  color: var(--ifm-font-color-base); /* Adjust for dark theme readability */
+}
+
+[data-theme="dark"] .userDropdown__link:hover {
+  color: var(--ifm-color-primary-light);
+}
+
+/* Section for the logout button */
+.userDropdown__logoutSection {
+  padding: 20px; /* Padding around the logout button */
+  /* border-top: 1px solid #eeeeee; */ /* Separator line - userDropdown__section now has border-bottom */
 }
 
 /* Separator line between sections */
@@ -177,7 +225,6 @@
 .logoutButtonLarge {
   display: block;
   width: 100%;
-  margin-top: 15px; /* Space above the logout button */
   padding: 10px 0; /* Generous padding */
   text-align: center;
   font-weight: bold;
