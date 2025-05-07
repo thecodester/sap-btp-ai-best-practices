@@ -60,7 +60,7 @@ backend-sample/
 >
 > 
 
-The application will serve the `/chatWithAgent` (filter input) and `/generateParaphrase` (filter output) APIs, which uses content filtering, then sends a prompt to the AI model and logs the response. 
+The application will serve the `/chatWithSupport` (filter input) and `/generateParaphrase` (filter output) APIs, which uses content filtering, then sends a prompt to the AI model and logs the response. 
 
 For local deployment, set `SAMPLE_CAP_HOST` as `http://localhost:4004`. For remote deployment, set `SAMPLE_CAP_HOST` as the value returned from the deployment step.
 
@@ -69,7 +69,7 @@ For local deployment, set `SAMPLE_CAP_HOST` as `http://localhost:4004`. For remo
 **Filtered**
 ```bash
 curl --request POST \
-  --url http://$SAMPLE_CAP_HOST$/odata/v4/orchestration/chatWithAgent \
+  --url http://$SAMPLE_CAP_HOST$/odata/v4/orchestration/chatWithSupport \
   --header "Content-Type: application/json" \
   --data '{
   "input": "I hate you!", "filterInput": true
@@ -79,7 +79,7 @@ curl --request POST \
 **Unfiltered**
 ```bash
 curl --request POST \
-  --url http://$SAMPLE_CAP_HOST$/odata/v4/orchestration/chatWithAgent \
+  --url http://$SAMPLE_CAP_HOST$/odata/v4/orchestration/chatWithSuport \
   --header "Content-Type: application/json" \
   --data '{
   "input": "I hate you!", "filterInput": false

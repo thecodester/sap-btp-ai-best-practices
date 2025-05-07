@@ -1,7 +1,18 @@
+import cds from '@sap/cds';
 import { OrchestrationClient } from '@sap-ai-sdk/orchestration';
 
-export default class OrchestrationService {
-  async askCapitalOfCountry(req: any) {
+export class OrchestrationService extends cds.ApplicationService {
+  init() {
+    const { askCapitalOfCountry } = this.operations;
+
+    // Register Action Handlers
+    this.on(askCapitalOfCountry, this.askCapitalOfCountryHandler);
+
+    // Add base class's handlers. Handlers registered above go first.
+    return super.init();
+  }
+
+  askCapitalOfCountryHandler = async (req: any) => {
     const country = req.data.country;
     if (!country) {
       req.reject(400, 'Country parameter is required');
@@ -26,5 +37,5 @@ export default class OrchestrationService {
       inputParams: { country: country }
     });
     return result.getContent();
-  }
+  };
 }
