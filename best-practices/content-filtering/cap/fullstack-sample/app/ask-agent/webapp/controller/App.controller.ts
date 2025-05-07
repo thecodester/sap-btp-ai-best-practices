@@ -44,7 +44,7 @@ export default class App extends Controller {
 
 			// Create and execute the OData action
 			const oBinding = oModel?.bindContext(
-				'/chatWithAgent(...)'
+				'/chatWithSupport(...)'
 			) as ODataContextBinding;
 			oBinding.setParameter('input', sInputPrompt);
 			oBinding.setParameter('filterInput', bFilterInput);

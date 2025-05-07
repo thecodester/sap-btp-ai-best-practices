@@ -1,6 +1,6 @@
-# CAP Implementations for Content Filtering
+# CAP Implementations for Generative AI Access
 
-This directory contains Cloud Application Programming (CAP) model implementations that demonstrate best practices for content filtering with AI model through SAP BTP services.
+This directory contains Cloud Application Programming (CAP) model implementations that demonstrate best practices for accessing generative AI models through SAP BTP services.
 
 ## Available Samples
 
@@ -11,7 +11,6 @@ This directory contains Cloud Application Programming (CAP) model implementation
 
 These samples showcase how to:
 
-- Apply content filtering to inputs and outputs of Generative AI Hub
 - Connect to generative AI services from CAP applications
 - Structure service layers for AI orchestration
 - Implement proper error handling

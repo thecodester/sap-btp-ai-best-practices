@@ -1,6 +1,7 @@
 # Best Practices for Content Filtering
 
-This section provides guidance and examples for accessing generative AI models, demonstrating content filtering for inputs and outputs.  AI Core provides content filtering for hateful, violent, sexual and vulgar content through input and output filtering.
+This section provides guidance and examples for data masking, a crucial technique used to protect sensitive information when interacting with Large Language Models (LLMs).
+
 
 Article related to this topic: [Content Filtering](https://sap.sharepoint.com/sites/210313/SitePages/GenAI%20-%20Plain%20-%20Orchestrated%20-%20Content%20Filtering.aspx)
 
