@@ -163,6 +163,32 @@
   border-bottom-color: var(--sap-horizon-neutral-10);
 }
 
+/* Styling for section titles that are also links */
+.userDropdown__sectionTitle {
+  font-size: 1em; /* Adjust as needed, could be larger than normal links */
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 12px; /* Space before the list of links */
+}
+
+.userDropdown__titleLink {
+  color: var(--ifm-color-content); /* Or specific title color */
+  text-decoration: none;
+}
+
+.userDropdown__titleLink:hover {
+  color: var(--ifm-color-content);
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .userDropdown__titleLink {
+  color: var(--ifm-font-color-base);
+}
+
+[data-theme="dark"] .userDropdown__titleLink:hover {
+  color: var(--ifm-font-color-base);
+}
+
 .userDropdown__section:last-of-type {
   /* Ensure no border if it's the section right before logout */
   /* This might need adjustment if logout is not directly after or if other sections are added */
@@ -188,7 +214,6 @@
   font-size: 0.95em; /* Adjust as per image */
   color: var(--ifm-link-color); /* Or your desired link color */
   text-decoration: none;
-  display: block; /* Make the whole area clickable */
 }
 
 .userDropdown__link:hover {
@@ -201,13 +226,12 @@
 }
 
 [data-theme="dark"] .userDropdown__link:hover {
-  color: var(--ifm-color-primary-light);
+  color: var(--ifm-font-color-base);
 }
 
 /* Section for the logout button */
 .userDropdown__logoutSection {
   padding: 20px; /* Padding around the logout button */
-  /* border-top: 1px solid #eeeeee; */ /* Separator line - userDropdown__section now has border-bottom */
 }
 
 /* Separator line between sections */

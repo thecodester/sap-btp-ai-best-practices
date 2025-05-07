@@ -71,12 +71,12 @@ export default function UserDropdownNavbarItem() {
           )}
 
           <div className={styles.userDropdown__section}>
+            <h3 className={styles.userDropdown__sectionTitle}>
+              <a href="https://account.sap.com/" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__titleLink}>
+                Manage my account
+              </a>
+            </h3>
             <ul className={styles.userDropdown__linkList}>
-              <li>
-                <a href="https://account.sap.com/" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__link}>
-                  Manage my account
-                </a>
-              </li>
               <li>
                 <a href="https://account.sap.com/manage/info" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__link}>
                   Personal Information
