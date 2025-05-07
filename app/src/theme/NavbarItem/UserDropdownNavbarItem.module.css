@@ -157,6 +157,7 @@
 .userDropdown__section {
   padding: 15px 20px;
   border-bottom: 1px solid #eeeeee; /* Separator before logout if it's not the last content section */
+  font-size: 0.9em;
 }
 
 [data-theme="dark"] .userDropdown__section {
@@ -165,7 +166,7 @@
 
 /* Styling for section titles that are also links */
 .userDropdown__sectionTitle {
-  font-size: 1em; /* Adjust as needed, could be larger than normal links */
+  font-size: 1.1em; /* Adjust as needed, could be larger than normal links */
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 12px; /* Space before the list of links */
@@ -202,7 +203,7 @@
 }
 
 .userDropdown__linkList li {
-  margin-bottom: 12px; /* Space between links */
+  margin-bottom: 8px; /* Space between links */
 }
 
 .userDropdown__linkList li:last-child {
@@ -260,6 +261,6 @@
 }
 
 .logoutButtonLarge:hover {
-  background-color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-primary-dark);
   color: var(--sap-horizon-neutral-1);
 }
