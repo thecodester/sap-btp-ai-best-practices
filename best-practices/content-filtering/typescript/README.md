@@ -61,7 +61,7 @@ The application requires proper configuration to connect to the SAP AI Core serv
 
 ## Usage Examples
 
-The application will serve the `/chatWithAgent` (filter input) and `/generateParaphrase` (filter output) APIs, which uses content filtering, then sends a prompt to the AI model and logs the response. 
+The application will serve the `/chatWithSupport` (filter input) and `/generateParaphrase` (filter output) APIs, which uses content filtering, then sends a prompt to the AI model and logs the response. 
 
 For local deployment, set `SAMPLE_HOST` as `http://localhost:3000`. For remote deployment, set `SAMPLE_HOST` as the value returned from the deployment step.
 
@@ -70,7 +70,7 @@ For local deployment, set `SAMPLE_HOST` as `http://localhost:3000`. For remote d
 **Filtered**
 ```bash
 curl --request POST \
-  --url http://$SAMPLE_HOST$/chatWithAgent \
+  --url http://$SAMPLE_HOST$/chatWithSupport \
   --header "Content-Type: application/json" \
   --data '{
   "input": "I hate you!", "filterInput": true
@@ -80,7 +80,7 @@ curl --request POST \
 **Unfiltered**
 ```bash
 curl --request POST \
-  --url http://$SAMPLE_HOST$/chatWithAgent \
+  --url http://$SAMPLE_HOST$/chatWithSupport \
   --header "Content-Type: application/json" \
   --data '{
   "input": "I hate you!", "filterInput": false
