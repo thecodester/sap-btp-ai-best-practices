@@ -62,11 +62,11 @@ export default function UserDropdownNavbarItem() {
                   {user.firstName} {user.lastName}
                 </p>
                 <p className={styles.userEmail}>{user.email}</p>
-                {/* {user.ID && <p className={styles.userEmail}>UserId: {user.ID}</p>}
+              </div>
+              {/* {user.ID && <p className={styles.userEmail}>UserId: {user.ID}</p>}
                 {user.type && <p className={styles.userEmail}>Type: {user.type}</p>}
                 {user.company && <p className={styles.userEmail}>Company: {user.company}</p>}
                 {user.companyId && <p className={styles.userEmail}>CompanyId: {user.companyId}</p>} */}
-              </div>
             </div>
           )}
 

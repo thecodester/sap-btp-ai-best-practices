@@ -74,6 +74,13 @@
   z-index: var(--ifm-z-index-dropdown);
 }
 
+@media (max-width: 500px) {
+  .userDropdown__content {
+    min-width: 280px;
+    right: -30px;
+  }
+}
+
 [data-theme="dark"] .userDropdown__content {
   background-color: var(--sap-horizon-neutral-11);
   color: var(--sap-horizon-neutral-1);
@@ -104,6 +111,7 @@
 /* Header section within the dropdown */
 .userDropdown__header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid #eeeeee; /* Light separator line */
@@ -114,8 +122,8 @@
 }
 
 .userAvatarLargePlaceholder {
-  width: 60px; /* Larger avatar */
-  height: 60px;
+  width: 80px; /* Larger avatar */
+  height: 80px;
   border-radius: 50%;
   background-color: var(--ifm-color-primary); /* Placeholder background */
   color: white;
@@ -123,8 +131,8 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 1.5em; /* Larger font for initials */
-  margin-right: 15px;
+  font-size: 2em; /* Larger font for initials */
+  margin-bottom: 20px;
 }
 
 .userDropdown__userDetails {
@@ -134,9 +142,10 @@
 
 .userName {
   font-size: 1.2em;
+  line-height: 1.2em;
   font-weight: bold;
   color: #333333;
-  margin: 0 0 4px 0;
+  margin: 0;
 }
 
 [data-theme="dark"] .userName {
@@ -144,9 +153,10 @@
 }
 
 .userEmail {
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: #666666;
   margin: 0;
+  text-align: center;
 }
 
 [data-theme="dark"] .userEmail {
@@ -263,4 +273,11 @@
 .logoutButtonLarge:hover {
   background-color: var(--ifm-color-primary-dark);
   color: var(--sap-horizon-neutral-1);
+}
+
+/* Padding for the header and sections */
+.userDropdown__header,
+.userDropdown__section,
+.userDropdown__logoutSection {
+  padding: 30px 40px;
 }
