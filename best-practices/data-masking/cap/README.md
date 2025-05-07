@@ -1,6 +1,6 @@
-# CAP Implementations for Generative AI Access
+# CAP Implementations for Data Masking
 
-This directory contains Cloud Application Programming (CAP) model implementations that demonstrate best practices for accessing generative AI models through SAP BTP services.
+This directory contains Cloud Application Programming (CAP) model implementations that demonstrate best practices for data masking with AI models through SAP BTP services.
 
 ## Available Samples
 

@@ -25,7 +25,7 @@ fullstack-sample/
 │       └── README.md        # Frontend documentation
 ├── srv/                     # Service layer containing CAP services
 │   ├── orchestration.cds    # CDS service definitions for AI orchestration
-│   └── orchestration.js     # Service implementation with AI SDK integration
+│   └── orchestration.ts     # Service implementation with AI SDK integration
 ├── package.json             # Project dependencies and scripts
 ├── manifest.yml             # CF deployment configuration
 └── README.md                # Project documentation
@@ -64,7 +64,7 @@ fullstack-sample/
 > Apply proper authentication mechanisms to avoid unauthorized access.
 
 1. Install dependencies using `npm install`.
-2. In the `mta.yml`, under the `resources` section on the `fullstack-sample-test-aicore`, modify the `service-name` from `best-practices-aicore` to the name of your AI Core Service instance.
+2. In the `mta.yml`, under the `resources` section on the `best-practices-aicore`, modify the `service-name` from `best-practices-aicore` to the name of your AI Core Service instance.
 3. Transpile the CAP application using `npm run build`.
 4. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`
 5. Deploy the application using `npm run deploy`
