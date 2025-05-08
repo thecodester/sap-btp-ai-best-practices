@@ -1,97 +1,59 @@
-# BTP AI Best Practices Project
+# BTP AI Best Practices Website
 
-This project contains the BTP AI Best Practices website and its supporting services.
+This project contains the BTP AI Best Practices website (Docusaurus frontend) and its supporting CAP backend service.
 
 ## Prerequisites
 
-- Node.js (version specified in `app/package.json` and `srv/package.json` respectively, check `engines` field if present)
+- Node.js (version `>=18.0` recommended, as specified in `app/package.json`)
 - npm (usually comes with Node.js)
-- Access to a HANA database (for the `srv` component if it requires one)
-- Cloud Foundry CLI (if deploying)
+- Cloud Foundry CLI (required for deploying the backend service)
+- Access to a HANA database (if the backend service `srv` is configured to use one)
 
 ## Project Structure
 
 - `app/`: Contains the Docusaurus frontend application.
 - `srv/`: Contains the CAP (Cloud Application Programming Model) backend service.
 
+See `app/README.md` and `srv/README.md` for more details specific to each component.
+
 ## Development
 
-### Running the Backend Service (`srv`)
+### 1. Backend Service (`srv`)
 
-1.  Navigate to the `srv` directory:
-    ```bash
-    cd srv
-    ```
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-3.  Run the service (usually for local development with in-memory DB or configured HANA):
+Navigate to the `srv` directory for backend development:
 
-    ```bash
-    cf login -a https://api.cf.eu10-005.hana.ondemand.com/
-    npm run watch
-    ```
+```bash
+cd srv
+npm install
+cf login -a https://api.cf.eu10-005.hana.ondemand.com/
+npm run watch
+```
 
-    This typically runs `cds-serve`. The service will be available at `http://localhost:4004` by default (or as configured).
+The service will usually be available at `http://localhost:4004`.
+For deployment-related commands (build, deploy), refer to `srv/README.md`.
 
-### Running the Frontend Application (`app`)
+### 2. Frontend Application (`app`)
 
-1.  Navigate to the `app` directory:
-    ```bash
-    cd app
-    ```
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-3.  Start the development server:
-    ```bash
-    npm start
-    ```
-    This runs `docusaurus start`. The application will usually be available at `http://localhost:3000`.
+Navigate to the `app` directory for frontend development:
+
+```bash
+cd app
+npm install
+# Start the development server:
+npm start
+```
+
+The application will usually be available at `http://localhost:3000`.
+For build and deployment instructions, refer to `app/README.md`.
 
 ## Building and Deployment
 
-### Backend Service (`srv`)
+Detailed build and deployment instructions for each component can be found in their respective README files:
 
-1.  To build the MTA (Multi-Target Application) archive for deployment:
-    Navigate to the `srv` directory:
-
-    ```bash
-    cd srv
-    npm run build
-    ```
-
-    This will create an `.mtar` file in the `srv/mta_archives` directory.
-
-2.  To deploy to Cloud Foundry (ensure you are logged in):
-    ```bash
-    npm run deploy
-    ```
-    (This script might need configuration or you might deploy the `.mtar` file manually using `cf deploy mta_archives/YOUR_ARCHIVE_NAME.mtar`)
-
-### Frontend Application (`app`)
-
-1.  To build the static site for production:
-    Navigate to the `app` directory:
-
-    ```bash
-    cd app
-    npm run build
-    ```
-
-    The build output will be in the `app/build` directory.
-
-2.  To serve the built site locally:
-
-    ```bash
-    npm run serve
-    ```
-
-3.  Deployment of the Docusaurus app typically involves deploying the static files in the `build` directory to a static site hosting service or a web server. Refer to the Docusaurus deployment documentation for more options.
+- **Backend Service (`srv`):** See `srv/README.md` (includes MTA build and CF deployment)
+- **Frontend Application (`app`):** See `app/README.md` (includes static site build and Docusaurus deployment options)
 
 ## Further Information
 
-- See `srv/README.md` for more details specific to the CAP service.
-- See `app/README.md` for more details specific to the Docusaurus application.
+- For detailed information about the CAP service, see `srv/README.md`.
+- For detailed information about the Docusaurus application, see `app/README.md`.
