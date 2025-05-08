@@ -17,7 +17,7 @@ This project demonstrates best practices for accessing Embeddings models using t
 ## Clone the repository
 ``` sh
 git clone https://github.com/SAP-samples/sap-btp-ai-best-practices/
-cd https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/vector-rag-embedding/python
+cd sap-btp-ai-best-practices/best-practices/vector-rag-embedding/python
 ```
 
 ## Create a virtual environment
