@@ -1,3 +1,5 @@
+aioboto3
+hdbcli
 python-dotenv
 notebook
 jupyterlab
@@ -7,5 +9,3 @@ langchain_openai
 langchain-google-genai
 langchain-aws
 hana_ml
-hdbcli==2.24.24
-aioboto3==14.1.0
