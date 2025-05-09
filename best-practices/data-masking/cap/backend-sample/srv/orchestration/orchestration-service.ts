@@ -1,10 +1,20 @@
-import { OrchestrationClient } from '@sap-ai-sdk/orchestration';
 import cds from '@sap/cds';
+import { OrchestrationClient } from '@sap-ai-sdk/orchestration';
 
 const LOG = cds.log('orchestration');
 
-export default class OrchestrationService {
-  async generateEmail(req: any) {
+export class OrchestrationService extends cds.ApplicationService {
+  init() {
+    const { generateEmail } = this.operations;
+
+    // Register Action Handlers
+    this.on(generateEmail, this.generateEmailHandler);
+
+    // Add base class's handlers. Handlers registered above go first.
+    return super.init();
+  }
+
+  generateEmailHandler = async (req: any) => {
     const { prompt, anonymize } = req.data;
     const orchestrationClient = new OrchestrationClient({
       llm: {
@@ -30,7 +40,7 @@ export default class OrchestrationService {
     });
 
     const result = await orchestrationClient.chatCompletion();
-    LOG.info(result.rawResponse);
+    LOG.info(result.getContent());
     return result.getContent();
-  }
+  };
 }

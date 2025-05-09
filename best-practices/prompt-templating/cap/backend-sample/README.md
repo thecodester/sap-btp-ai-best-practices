@@ -56,7 +56,6 @@ backend-sample/
 
 For local deployment, set `SAMPLE_CAP_HOST` as `http://localhost:4004`. For remote deployment, set `SAMPLE_CAP_HOST` as the value returned from the deployment step.
 
-### `orchestration`
 > [!WARNING]  
 > All CDS services are marked with `@requires: 'any'` and are publicly accessible in order to simplify the testing and deployment process.
 > Apply proper authentication mechanisms to avoid unauthorized access.
@@ -65,7 +64,7 @@ For local deployment, set `SAMPLE_CAP_HOST` as `http://localhost:4004`. For remo
 
 ```bash
 curl --request POST \
-  --url http://$SAMPLE_CAP_HOST$//odata/v4/orchestration/askCapitalOfCountry \
+  --url http://$SAMPLE_CAP_HOST$/odata/v4/orchestration/askCapitalOfCountry \
   --header "Content-Type: application/json" \
   --data '{
   "country": "United States"

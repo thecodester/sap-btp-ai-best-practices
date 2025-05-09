@@ -1,8 +1,8 @@
-# Best Practices for Prompt Templating
+# Best Practices for Prompt Tenplating
 
-This section provides guidance and examples for prompt templating, a method used to create structured and reusable prompts for Large Language Models (LLMs).
+This section provides guidance and examples for using the prompt templating.  Prompt templating is a method used to create structured and reusable prompts for Large Language Models (LLMs).
 
-Article related to this topic: [Prompt Templating](https://sap.sharepoint.com/sites/210313/SitePages/GenAI%20-%20Plain%20-%20Orchestrated%20-%20Prompt%20Templating.aspx)
+Article related to this topic: [Prompt Registry](https://sap.sharepoint.com/sites/210313/SitePages/GenAI%20-%20Plain%20-%20Orchestrated%20-%20Prompt%20Templating.aspx)
 
 ## Language-Specific Examples
 

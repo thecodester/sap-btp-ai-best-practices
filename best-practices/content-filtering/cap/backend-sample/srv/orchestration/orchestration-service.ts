@@ -17,12 +17,23 @@ const azureContentNoFilter = buildAzureContentSafetyFilter({
   Violence: 'ALLOW_ALL'
 });
 
-export default class OrchestrationService {
+export class OrchestrationService extends cds.ApplicationService {
+  init() {
+    const { chatWithSupport, generateParaphrase } = this.operations;
+
+    // Register Action Handlers
+    this.on(chatWithSupport, this.chatWithSupportHandler);
+    this.on(generateParaphrase, this.generateParaphraseHandler);
+
+    // Add base class's handlers. Handlers registered above go first.
+    return super.init();
+  }
+
   /**
    * A simple LLM request sending input to the LLM and returning the response.
    * @returns The orchestration service response.
    */
-  async chatWithSupport(req: any) {
+  chatWithSupportHandler = async (req: any) => {
     // check if input is provided
     const { input, filterInput } = req.data;
     if (!input) {
@@ -61,13 +72,13 @@ export default class OrchestrationService {
         throw error;
       }
     }
-  }
+  };
 
   /**
    * A simple LLM request generating paraphrases and returning the response.
    * @returns The orchestration service response.
    */
-  async generateParaphrase(req: any) {
+  generateParaphraseHandler = async (req: any) => {
     // the input parameter is required
     const { input, filterOutput } = req.data;
     if (!input) {
@@ -106,5 +117,5 @@ export default class OrchestrationService {
         req.error(400, 'Output was filtered by the content filter.');
       } else throw error;
     }
-  }
+  };
 }

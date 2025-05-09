@@ -1,6 +1,6 @@
 # Best Practices for Data Masking
 
-This section provides guidance and examples for content filtering of hateful, violent, sexual and vulgar content through input and output filtering.
+This section provides guidance and examples for data masking.  Data masking is a crucial technique used to protect sensitive information when interacting with Large Language Models (LLMs). It involves replacing identifiable or confidential data within prompts with placeholder text, ensuring that such information is not exposed to third-party models. This approach is particularly important for safeguarding personally identifiable information (PII) and other sensitive details.\
 
 Article related to this topic: [Data Masking](https://sap.sharepoint.com/sites/210313/SitePages/GenAI%20-%20Plain%20-%20Orchestrated%20-%20Data%20Masking.aspx)
 
