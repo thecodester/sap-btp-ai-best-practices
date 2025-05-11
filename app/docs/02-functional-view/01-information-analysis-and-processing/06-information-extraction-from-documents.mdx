@@ -17,21 +17,24 @@ import IconLinkButton from "@site/src/components/IconLinkButton";
 
 ### Food for Thought
 
-...
+AI can help extracting information from documents
 
 ### Example
 
-...
+Example: Customer name, address, total amount are extracted from an invoice e.g. in pdf format.
 
 ### Key Questions
 
-...
+- What documents are currently processed manually to extract data that are then used in a business process?
+- What specific information do you need to extract from those documents?
+- How do you leverage the information extracted from those documents?
 
 <br />
 
 <div className="section-with-background blue">
   ## Implementation
-  ...
+  For very simple PDF extractions, where the data is very well structured, and small, then simple parsing and Large Language Model prompting may be sufficient. For tasks that require contextual understanding, question answering, and handling large documents Vector RAG is a powerful and recommended approach for extracting and utilizing data from PDFs with Large Language Models.
+
 ### Related Best Practices
 
 <ul className="button-grid">
