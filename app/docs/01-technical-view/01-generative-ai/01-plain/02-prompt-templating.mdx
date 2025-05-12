@@ -151,20 +151,32 @@ Some effective patterns:
 - Few-shot examples: Show before asking (More in the  Step 15: Few-Shot Prompting of the Prompt LLMs in the generative AI hub in SAP AI Core & Launchpad learning journey)
 - Format enforcement: Respond in JSON
 - Role prompting: You are a marketing expert…
-- Standardize Formatting and Conventions
-- Define a consistent style for:
 
-Placeholder syntax:  {{?variable}}
-Prompt delimiters: """, ---
-Output formatting: markdown, JSON, tables
-Test Iteratively
-Validation: Validate prompts using edge cases and diverse inputs.
-Evaluation Metrics: Evaluate output quality, consistency, length, structure, and hallucination risks. Consider using prompt evaluation checklists or automated metrics.
-Handle Error Cases
-Fallback Templates: Build fallback templates for scenarios like empty inputs, unparseable outputs, and unexpected answers.
-Instructions for Errors: Provide instructions in the prompt such as: “If the input is unclear, respond with ‘Unable to generate response.’”
-Document Template Usage
-Examples and Annotations: Include examples of input/output for each template. Annotate templates with intended use cases, limitations, and customization tips.
+### Standardize Formatting and Conventions
+Define a consistent style for:
+- Placeholder syntax:  {{?variable}}
+- Prompt delimiters: """, ---
+- Output formatting: markdown, JSON, tables
+
+### Test Iteratively
+- Validation: Validate prompts using edge cases and diverse inputs.
+- Evaluation Metrics: Evaluate output quality, consistency, length, structure, and hallucination risks. Consider using prompt evaluation checklists or automated metrics.
+
+### Handle Error Cases
+- Fallback Templates: Build fallback templates for scenarios like empty inputs, unparseable outputs, and unexpected answers.
+- Instructions for Errors: Provide instructions in the prompt such as: “If the input is unclear, respond with ‘Unable to generate response.’”
+
+### Document Template Usage
+- Examples and Annotations: Include examples of input/output for each template. Annotate templates with intended use cases, limitations, and customization tips.
+
+### Prompt Engineering
+#### Scientific Papers
+- Prompt Sketching for Large Language Models
+- Enhancing Large Language Model Performance through Prompt Engineering Techniques
+- Sensitivity and Robustness of Large Language Models to Prompt Template in Japanese Text Classification Tasks
+
+#### Articles
+- What is prompt engineering? | SAP
 
 ## <span className="step-number">4</span> <span className="step-title">Implementation</span>
 
