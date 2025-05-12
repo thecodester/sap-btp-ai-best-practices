@@ -1,14 +1,19 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 title: "Prompt Templating"
-description: ""
+description: "Create structured and reusable prompts for Large Language Models."
 hide_title: true
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
-
+import IconLinkButton from "@site/src/components/IconLinkButton";
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
+import LoginWall from "@site/src/components/LoginWall";
+import Icon from "@site/src/components/Icon";
+import "@ui5/webcomponents-icons/dist/video.js";
+import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
 
 <PageViewTracker featureName="BP_PROMPT_TEMPLATING" />
 
@@ -16,4 +21,501 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
   <h1>Prompt Templating</h1>
 </div>
 
-In progress...
+<div className="section-with-background">
+  <div className="row">
+    <div className="col col--8">
+      <h2>Steps</h2>
+      <ol className="steps-list">
+        <li>
+          <a href="#1-overview">Overview</a>
+        </li>
+        <li>
+          <a href="#2-pre-requisites">Pre-requisites</a>
+        </li>
+        <li>
+          <a href="#3-key-choices-and-guidelines">Key Choices and Guidelines</a>
+        </li>
+        <li>
+          <a href="#4-implementation">Implementation</a>
+        </li>
+      </ol>
+    </div>
+    <div className="col col--4">
+      <ul className="resource-links">
+        <li>
+          <a
+            target="_blank"
+            href={useBaseUrl("generative-ai/access-to-generative-ai-models/videos/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models%20(intro).mp4")}
+          >
+            <Icon name="video" />
+            <span>Teaser</span>
+          </a>
+        </li>
+        <LoginWall renderOnlyWhenLoggedIn={true}>
+          <li>
+            <a
+              target="_blank"
+              href={useBaseUrl("generative-ai/access-to-generative-ai-models/videos/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.mp4")}
+            >
+              <Icon name="video"></Icon>
+              <span>Webinar</span>
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href={useBaseUrl("generative-ai/access-to-generative-ai-models/pdfs/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.pdf")}
+            >
+              <Icon name="pdf-attachment"></Icon>
+              <span>Webinar (PDF Presentation)</span>
+            </a>
+          </li>
+        </LoginWall>
+      </ul>
+    </div>
+  </div>
+</div>
+
+## <span className="step-number">1</span> <span className="step-title">Overview</span>
+
+### Description
+
+Prompt templating is a method used to create structured and reusable prompts for Large Language Models (LLMs). It involves converting static prompts into dynamic templates by using placeholders or variables that can be replaced with actual values at runtime. This approach allows developers to program, store, and reuse prompts efficiently across different tasks and applications.
+
+When using AI core this is achieved using the prompt registry. It is also possible to store and manage prompts as strings in code, however it is not recommended.
+
+### Expected Outcome
+
+Create reusable templates for specific tasks to ensure performance, reliability and efficiency of LLM responses.
+
+### Benefits
+
+- **Consistency and Reusability**: Templates ensure that prompts are structured consistently, which helps in achieving reliable responses from LLMs. They can be reused across different models and tasks.
+- **Efficiency**: enabling quick adaptation and reuse of structured instructions across different tasks and contexts without the need for manual rewriting. 
+- **Customization**: Templates allow for easy modification based on specific requirements or user inputs.
+
+<LoginWall>
+
+## <span className="step-number">2</span> <span className="step-title">Pre-requisites</span>
+
+### Commercial
+
+- SAP AI Core with the "Extended" tier on SAP BTP
+
+You can find pricing details for AI Core "Extended" in the [Discovery Center – AI Core](https://discovery-center.cloud.sap/serviceCatalog/sap-ai-core?tab=service_plan&region=all&service_plan=extended&commercialModel=btpea).
+
+### Technical
+
+- SAP Business Technology Platform (SAP BTP) subaccount ([Setup Guide](/docs/technology/sap-business-technology-platform#setup-guide))
+- SAP AI Core ([Setup Guide](/docs/technology/sap-ai-core#setup-guide))
+
+### High-level Reference Architecture
+
+![High-level Reference Architecture](@site/static/generative-ai/access-to-generative-ai-models/images/Access%20to%20Generative%20AI%20Models%20v2.png)
+
+#### SAP Business Technology Platform (SAP BTP)
+
+[SAP Business Technology Platform (BTP)](/docs/technology/sap-business-technology-platform) is an integrated suite of cloud services, databases, AI, and development
+tools that enable businesses to build, extend, and integrate SAP and non-SAP applications efficiently.
+
+#### SAP AI Core
+
+[SAP AI Core](/docs/technology/sap-ai-core) is a managed AI runtime that enables scalable execution of AI models and pipelines, integrating
+seamlessly with SAP applications and data on SAP BTP that supports full lifecycle management of AI scenarios.
+
+## <span className="step-number">3</span> <span className="step-title">Key Choices and Guidelines</span>
+
+A few case-specific decisions need to be considered that will impact the performance and utility of the app
+being developed.
+
+### Model
+
+The choice of model is critical to the accuracy of the answer, operating costs, language, and context window.
+Larger models are usually better for more complex tasks involving reasoning, longer context window, and better
+inference.
+
+#### How to choose the model?
+
+Use the [Model Library](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/model-library) to inform your model choice using benchmarking data for Text Generation, Speech to
+Text, Image Recognition, Image Generation, Embedding, and more.
+
+Steps to access the [Leaderboard view of the Model Library](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/model-library#leaderboard) in your SAP BTP subaccount:
+
+1. Go to your BTP subaccount with AI Core
+2. Navigate to Instances and Subscriptions
+3. Select SAP AI Launchpad
+4. Select your API Connection and Resource Group
+5. Go to Generative AI Hub
+6. Access Model Library
+
+**Relevant links**
+
+- [List of available models](https://me.sap.com/notes/3437766)
+- [AI Core Endpoint](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20AI%20Core.aspx#ai-core-endpoint)
+
+### Settings
+
+Picking correct values for [frequency penalty](/docs/glossary#frequency-penalty), [presence penalty](/docs/glossary#presence-penalty), [max tokens](/docs/glossary#max-tokens), and [temperature](/docs/glossary#temperature) is crucial to the
+quality of the inference. The choice depends on the needed variety, length, and control over the generated text.
+
+#### Example Applications
+
+1. [**Frequency Penalty**](/docs/glossary#frequency-penalty) (Reduces repetition of frequent words)
+
+   - **High – Summarization:** Reduces redundancy in reports or articles.
+   - **Low – Poetry/Mantras:** Encourages repetition for stylistic effect.
+
+2. [**Presence Penalty**](/docs/glossary#presence-penalty) (Discourages reuse of any previous words)
+
+   - **High – Idea Brainstorming:** Promotes diverse, non-repetitive topics.
+   - **Low – Themed Storytelling:** Reinforces a central topic or character.
+
+3. [**Max-Tokens**](/docs/glossary#max-tokens) (Limits response length)
+
+   - **Low – Chatbot Responses:** Short, to-the-point answers.
+   - **High – Long-Form Content:** Detailed articles or stories.
+
+4. [**Temperature**](/docs/glossary#temperature) (Controls randomness of output)
+
+   - **Low – Technical/Legal Writing:** Precise, deterministic output.
+   - **High – Creative Writing:** More imaginative and random text.
+
+## <span className="step-number">4</span> <span className="step-title">Implementation</span>
+
+Below you can find the necessary information to develop a project in your favorite language using the [official
+SAP Libraries and SDKs](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/libraries-and-sdks).
+
+### Programming Model Selection Guidelines
+
+When developing AI applications within the SAP ecosystem, consider the following recommendations:
+
+- **Backend-Only API**: Use Python (well-maintained) or JavaScript/TypeScript (strong async capabilities,
+  Node.js ecosystem).
+- **Fullstack Application (UI & Backend)**: Use CAP (Cloud Application Programming Model) for optimized
+  performance, scalability, and seamless SAP integration.
+
+While these are general best practices, the final choice should align with your team's expertise and project
+requirements.
+
+<div className="tabs-with-background">
+<Tabs groupId="language">
+  <TabItem value="python" label="Python" default>
+
+<h3>Recommendation</h3>
+
+There are multiple SDKs available for Python. We recommend using the [SAP Generative AI hub SDK](https://pypi.org/project/generative-ai-hub-sdk/) to harness
+the power of generative AI models, and the [SAP AI Core SDK](https://pypi.org/project/ai-core-sdk/) along with the [AI API Client SDK](https://pypi.org/project/ai-api-client-sdk/) for managing the
+AI Core lifecycle efficiently.
+
+<h3>SDK</h3>
+
+With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
+Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
+through langchain or the orchestration service.
+
+- **[SAP Generative AI hub SDK](#) (Recommended for building apps)**
+- [SAP AI Core SDK](https://pypi.org/project/ai-core-sdk/) and [AI API Client SDK](#https://pypi.org/project/ai-api-client-sdk/) (managing the AI Core lifecycle)
+
+<h3>Tutorials and Learning Journeys</h3>
+
+- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](https://developers.sap.com/tutorials/ai-core-orchestration-consumption.html) (SAP Generative AI hub SDK) from
+  [Generative AI with SAP AI Core](https://developers.sap.com/group.sap-ai-core-generative.html)
+
+<h3>Reference Code</h3>
+
+<h4>Recommended</h4>
+
+- **[SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/python)**
+- [btp-gen-ai-hub-sdk-samples](https://github.com/SAP-samples/btp-gen-ai-hub-sdk-samples) - SAP Generative AI hub SDK samples repository. See the specific file [`2-connect-genaihub-from-env.ipynb`](https://github.com/SAP-samples/btp-gen-ai-hub-sdk-samples/blob/main/docs/notebook-samples/2-connect-genaihub-from-env.ipynb) for connecting to GenAI Hub from environment.
+
+<h4>Other</h4>
+
+- [ai-core-samples](https://github.com/SAP-samples/ai-core-samples/) (SAP AI Core SDK)
+
+<h4>Relevant Code</h4>
+
+Simple chat completion call using the [SAP Generative AI hub SDK](https://pypi.org/project/generative-ai-hub-sdk/).
+
+```python
+from gen_ai_hub.proxy.langchain.init_models import init_llm
+from gen_ai_hub.proxy.core.proxy_clients import get_proxy_client
+from gen_ai_hub.proxy.langchain.openai import ChatOpenAI
+
+
+# note: proxy_client is optional
+proxy_client = get_proxy_client('gen-ai-hub')
+
+chat = ChatOpenAI(proxy_model_name="gpt-35-turbo", proxy_client=proxy_client, temperature=0)
+
+prompt = """Translate to danish: Guten Morgen"""
+chat.invoke(prompt).content
+```
+
+  </TabItem>
+  <TabItem value="javascript-typescript" label="JavaScript/TypeScript">
+
+<h3>Recommendation</h3>
+
+The [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js) is the official SAP AI SDK for TypeScript.
+
+<h3>SDK</h3>
+
+With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
+Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
+through langchain or the orchestration service.
+
+- [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js)
+
+<h3>Tutorials and Learning Journeys</h3>
+
+- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](https://developers.sap.com/tutorials/ai-core-orchestration-consumption.html) (SAP Cloud SDK) from [Generative AI with SAP AI Core](https://developers.sap.com/group.sap-ai-core-generative.html)
+
+<h3>Reference Code</h3>
+
+<h4>Recommended</h4>
+
+- **[SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/typescript)**
+- [SAP Cloud SDK for AI - Sample Code](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) - See the specific file [`orchestration.ts`](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts) for the `orchestrationChatCompletion` function implementation.
+
+<h3>Relevant Code</h3>
+
+Simple chat completion call using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js).
+
+```typescript
+const orchestrationClient = new OrchestrationClient({
+  // Define the language model to be used
+  llm: {
+    model_name: "gpt-4o",
+    model_params: {
+      max_tokens: 1000, // Maximum number of tokens to generate in the response. This limits the length of the generated text.
+      temperature: 0.6, // Lower values make the output more deterministic, while higher values make it more random.
+      n: 1 // Number of responses to generate.
+    }
+  },
+  // Define the prompt
+  templating: {
+    template: [{ role: "user", content: "What is the capital of France?" }]
+  }
+});
+
+// Execute the request
+const result = await orchestrationClient.chatCompletion();
+
+console.log(result.getContent());
+```
+
+  </TabItem>
+  <TabItem value="cap-app" label="CAP App">
+
+<h3>Recommendation</h3>
+
+There are 2 SDKs available for developing CAP applications, we recommend using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js)
+because it's the official SAP AI SDK, but the [CAP LLM Plugin](https://www.npmjs.com/package/cap-llm-plugin) has great code sample code to learn from.
+
+<h3>SDKs</h3>
+
+With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
+Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
+through langchain or the orchestration service.
+
+- **[SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js) (Recommended)**
+- [CAP LLM Plugin](https://www.npmjs.com/package/cap-llm-plugin)
+
+<h3>Tutorials and Learning Journeys</h3>
+
+- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](https://developers.sap.com/tutorials/ai-core-orchestration-consumption.html) (SAP Cloud SDK) from [Generative AI with SAP AI Core](https://developers.sap.com/group.sap-ai-core-generative.html)
+
+<h3>Reference Code</h3>
+
+<h4>Recommended</h4>
+
+- **[SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/cap)**
+- [SAP Cloud SDK for AI - Sample CAP](https://github.com/SAP/ai-sdk-js/tree/main/sample-cap) - See the specific file [`orchestration-service.ts`](https://github.com/SAP/ai-sdk-js/blob/main/sample-cap/srv/orchestration/orchestration-service.ts) for the `OrchestrationService` class implementation.
+
+For more details, please refer to the TypeScript section of this page because it has more examples and the SDK is
+the same.
+
+<h4>Other</h4>
+
+These sample projects might not use the official SDK or not follow the best practices but can be good examples
+for learning.
+
+- [CAP LLM Plugin - Sample Projects](https://github.com/SAP-samples/cap-llm-plugin-samples/)
+
+<h3>Relevant Code</h3>
+
+Simple chat completion call using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js).
+
+```typescript
+const orchestrationClient = new OrchestrationClient({
+  // Define the language model to be used
+  llm: {
+    model_name: "gpt-4o",
+    model_params: {
+      max_tokens: 1000, // Maximum number of tokens to generate in the response. This limits the length of the generated text.
+      temperature: 0.6, // Lower values make the output more deterministic, while higher values make it more random.
+      n: 1 // Number of responses to generate.
+    }
+  },
+  // Define the prompt
+  templating: {
+    template: [{ role: "user", content: "What is the capital of France?" }]
+  }
+});
+
+// Execute the request
+const result = await orchestrationClient.chatCompletion();
+
+console.log(result.getContent());
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
+<h3>Recommendation</h3>
+
+There is an official [SAP Java SDK](https://github.com/SAP/ai-sdk-java) for accessing foundation models through AI Core service. It is recommended to
+use the SDK and follow the examples in the given repository.
+
+<h3>SDKs</h3>
+
+With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
+Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
+through the APIs or the orchestration service.
+
+- [SAP Cloud SDK for AI (for Java)](https://github.com/SAP/ai-sdk-java)
+
+<h3>Tutorials and Learning Journeys</h3>
+
+- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](https://developers.sap.com/tutorials/ai-core-orchestration-consumption.html) (SAP Cloud SDK) from [Generative AI with SAP AI Core](https://developers.sap.com/group.sap-ai-core-generative.html)
+
+<h3>Reference Code</h3>
+
+- **[SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/java)**
+- [Sample Spring App example](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app) - See the specific files [`OpenAiService.java`](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers/OpenAiController.java) and [`OpenAiController.java`](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers/OpenAiController.java) to interact with the service.
+
+<h3>Relevant Code</h3>
+
+Simple code demonstrating AI capabilities using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app).
+
+```java
+@SuppressWarnings("unused") // The end-to-end test doesn't use this method
+@GetMapping("/streamChatCompletionDeltas")
+@Nonnull
+ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
+  final var message = "Can you give me the first 100 numbers of the Fibonacci sequence?";
+  final var stream = service.streamChatCompletionDeltas(message);
+  final var emitter = new ResponseBodyEmitter();
+  final Runnable consumeStream =
+      () -> {
+        final var totalOutput = new OpenAiChatCompletionOutput();
+        // try-with-resources ensures the stream is closed
+        try (stream) {
+          stream
+              .peek(totalOutput::addDelta)
+              .forEach(delta -> send(emitter, delta.getDeltaContent()));
+        } finally {
+          send(emitter, "\n\n-----Total Output-----\n\n" + objectToJson(totalOutput));
+          emitter.complete();
+        }
+      };
+  ThreadContextExecutors.getExecutor().execute(consumeStream);
+
+  // TEXT_EVENT_STREAM allows the browser to display the content as it is streamed
+  return ResponseEntity.ok().contentType(MediaType.TEXT_EVENT_STREAM).body(emitter);
+}
+```
+
+    </TabItem>
+
+  </Tabs>
+</div>
+
+<br />
+
+<div className="section-with-background blue">
+
+## <span className="post-article-first-title">Related Best Practices</span>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/technical-view/generative-ai/plain/prompt-templating" text="Prompt Templating" />
+  <IconLinkButton href="/docs/technical-view/generative-ai/plain/data-masking" text="Data Masking" />
+  <IconLinkButton href="/docs/technical-view/generative-ai/plain/content-filtering" text="Content Filtering" />
+</ul>
+
+</div>
+
+<br />
+
+<div className="section-with-background blue">
+
+## Related Functional Patterns
+
+<h3>
+  <a href={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</a>
+</h3>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/summarization-of-text" text="Summarization of Text" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/translation-of-text" text="Translation of Text" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/sentiment-analysis-of-text" text="Sentiment Analysis of Text" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/information-classification-in-categories" text="Information Classification in Categories" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/image-analysis" text="Image Analysis" />
+</ul>
+
+<h3>
+  <a href={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</a>
+</h3>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/content-creation/generate-text-generic-knowledge" text="Generate Text based on Generic Knowledge" />
+  <IconLinkButton href="/docs/functional-view/content-creation/review-and-refine-text" text="Review and Refine Text" />
+  <IconLinkButton href="/docs/functional-view/content-creation/generate-image-from-text" text="Generate Image from Text" />
+  <IconLinkButton href="/docs/functional-view/content-creation/describe-images" text="Describe Images" />
+</ul>
+
+<h3>
+  <a href={useBaseUrl("/docs/functional-view/conversational-interaction")}>Conversational Interaction</a>
+</h3>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/conversational-interaction/conversational-interaction-with-applications" text="Conversational Interaction with Applications" />
+  <IconLinkButton href="/docs/functional-view/conversational-interaction/conversational-interaction-with-analytics" text="Conversational Interaction with Analytics" />
+</ul>
+
+<h3>
+  <a href={useBaseUrl("/docs/functional-view/coding-assistance")}>Coding Assistance</a>
+</h3>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/coding-assistance/synthetic-data-generation" text="Synthetic Data Generation" />
+  <IconLinkButton href="/docs/functional-view/coding-assistance/code-generation" text="Code Generation" />
+  <IconLinkButton href="/docs/functional-view/coding-assistance/code-review" text="Code Review" />
+  <IconLinkButton href="/docs/functional-view/coding-assistance/code-documentation" text="Code Documentation" />
+  <IconLinkButton href="/docs/functional-view/coding-assistance/test-generation" text="Test-script and Test-case Generation" />
+</ul>
+
+</div>
+
+<br />
+
+<div className="section-with-background gradient-violet-blue">
+
+## Contributors
+
+- Marques, Luis
+- CIGAINA, MARCO
+- Rzhaksynskyi, Andrii
+- Stoyanov, Velizar
+- Rodriguez, Joel
+- Chopra, Aman
+- Bartler, Felix
+- Robledo, Francisco
+- Schulz, Robert
+- Antonio, Dan
+- Humphries, Ian
+- Lange, Joerg
+
+</div>
+
+</LoginWall>
