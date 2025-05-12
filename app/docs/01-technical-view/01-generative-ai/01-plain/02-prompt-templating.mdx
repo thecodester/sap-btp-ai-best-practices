@@ -129,51 +129,42 @@ If you're using the SAP AI Launchpad, the Prompt Registry is a feature within th
 - [Leveraging Prompt Registry for Seamless Orchestration](https://developers.sap.com/tutorials/ai-core-genaibub-prompt-registry.html)
 - [Prompt LLMs in the generative AI hub in SAP AI Core & Launchpad](https://developers.sap.com/tutorials/ai-core-generative-ai..html#fca384d9-406c-436c-bd87-2b1c1ba46274) (You can focus on the content from “Step 5: Querying the LLMs” to “Step 7: Prompt Administration")
 
-#### How to choose the model?
+### Choose the Right Template Structure
+#### Structured Templates vs. Modular Blocks
+Decide early whether you’ll use structured templates (e.g., parameterized strings like {{?input}}) or modular blocks (e.g., predefined instructions + dynamic task blocks).
+- Structured Templates: E.g., parameterized strings like {{?input}}
+- Modular Blocks: E.g., predefined instructions + dynamic task blocks 
 
-Use the [Model Library](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/model-library) to inform your model choice using benchmarking data for Text Generation, Speech to
-Text, Image Recognition, Image Generation, Embedding, and more.
+#### Separation of Instructions
+Prefer separating static instructions from dynamic input to keep templates clean and reusable.
 
-Steps to access the [Leaderboard view of the Model Library](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/model-library#leaderboard) in your SAP BTP subaccount:
+### Design for Flexibility and Reuse
+#### Parameterization
+Frequently changing parts such as tone, format, audience, and language should be parameterized. For example: Write a {{?tone}} summary for a {{?audience}} in {{?language}}.
 
-1. Go to your BTP subaccount with AI Core
-2. Navigate to Instances and Subscriptions
-3. Select SAP AI Launchpad
-4. Select your API Connection and Resource Group
-5. Go to Generative AI Hub
-6. Access Model Library
+#### Placeholder Names
+Use self-explanatory and domain-consistent placeholder names.
 
-**Relevant links**
+### Use Instructional Patterns
+Some effective patterns:
+- Chain of Thought: Think step by step
+- Few-shot examples: Show before asking (More in the  Step 15: Few-Shot Prompting of the Prompt LLMs in the generative AI hub in SAP AI Core & Launchpad learning journey)
+- Format enforcement: Respond in JSON
+- Role prompting: You are a marketing expert…
+- Standardize Formatting and Conventions
+- Define a consistent style for:
 
-- [List of available models](https://me.sap.com/notes/3437766)
-- [AI Core Endpoint](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20AI%20Core.aspx#ai-core-endpoint)
-
-### Settings
-
-Picking correct values for [frequency penalty](/docs/glossary#frequency-penalty), [presence penalty](/docs/glossary#presence-penalty), [max tokens](/docs/glossary#max-tokens), and [temperature](/docs/glossary#temperature) is crucial to the
-quality of the inference. The choice depends on the needed variety, length, and control over the generated text.
-
-#### Example Applications
-
-1. [**Frequency Penalty**](/docs/glossary#frequency-penalty) (Reduces repetition of frequent words)
-
-   - **High – Summarization:** Reduces redundancy in reports or articles.
-   - **Low – Poetry/Mantras:** Encourages repetition for stylistic effect.
-
-2. [**Presence Penalty**](/docs/glossary#presence-penalty) (Discourages reuse of any previous words)
-
-   - **High – Idea Brainstorming:** Promotes diverse, non-repetitive topics.
-   - **Low – Themed Storytelling:** Reinforces a central topic or character.
-
-3. [**Max-Tokens**](/docs/glossary#max-tokens) (Limits response length)
-
-   - **Low – Chatbot Responses:** Short, to-the-point answers.
-   - **High – Long-Form Content:** Detailed articles or stories.
-
-4. [**Temperature**](/docs/glossary#temperature) (Controls randomness of output)
-
-   - **Low – Technical/Legal Writing:** Precise, deterministic output.
-   - **High – Creative Writing:** More imaginative and random text.
+Placeholder syntax:  {{?variable}}
+Prompt delimiters: """, ---
+Output formatting: markdown, JSON, tables
+Test Iteratively
+Validation: Validate prompts using edge cases and diverse inputs.
+Evaluation Metrics: Evaluate output quality, consistency, length, structure, and hallucination risks. Consider using prompt evaluation checklists or automated metrics.
+Handle Error Cases
+Fallback Templates: Build fallback templates for scenarios like empty inputs, unparseable outputs, and unexpected answers.
+Instructions for Errors: Provide instructions in the prompt such as: “If the input is unclear, respond with ‘Unable to generate response.’”
+Document Template Usage
+Examples and Annotations: Include examples of input/output for each template. Annotate templates with intended use cases, limitations, and customization tips.
 
 ## <span className="step-number">4</span> <span className="step-title">Implementation</span>
 
