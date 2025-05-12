@@ -21,6 +21,9 @@ export const TRACKING_EVENTS = {
     BP_PROMPT_TEMPLATING: "pv-bp-prompt-templating",
     BP_DATA_MASKING: "pv-bp-data-masking",
     BP_CONTENT_FILTERING: "pv-bp-content-filtering",
+    TECHNICAL_VIEW_GENERATIVE_AI_RAG: "pv-technical-view-generative-ai-rag",
+    BP_VECTOR_BASED_RAG_EMBEDDING: "pv-bp-vector-based-rag-embedding",
+    BP_VECTOR_BASED_RAG_QUERY_PIPELINE: "pv-bp-vector-based-rag-query-pipeline",
 
     // Functional View
     FUNCTIONAL_VIEW: "pv-functional-view",

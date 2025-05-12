@@ -1,0 +1,49 @@
+---
+title: RAG (Retrieval Augmented Generation)
+hide_table_of_contents: true
+hide_title: true
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import IconLinkButton from "@site/src/components/IconLinkButton";
+import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
+
+<PageViewTracker featureName="TECHNICAL_VIEW_GENERATIVE_AI_RAG" />
+
+<div className="hero-header">
+  <h1>RAG (Retrieval Augmented Generation)</h1>
+</div>
+
+<div className="section-with-background blue">
+  <h2>What is RAG?</h2>
+  <p>
+    Retrieval Augmented Generation (RAG) is an AI framework that combines the strengths of large language models (LLMs) with external knowledge sources. By retrieving relevant
+    documents or data from a knowledge base and incorporating them into the generation process, RAG enables more accurate, up-to-date, and context-aware responses. This approach is
+    especially useful for scenarios where the model needs to reference specific, dynamic, or proprietary information beyond its training data.
+  </p>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="col col--4">
+    <h3>General</h3>
+    <ul className="button-list">
+      <IconLinkButton href="/docs/technical-view/generative-ai/rag/vector-vs-graph" text="Vector RAG vs Graph RAG" disabled={true} />
+    </ul>
+  </div>
+  <div class="col col--4">
+    <h3>Vector Database</h3>
+    <ul className="button-list">
+      <IconLinkButton href="/docs/technical-view/generative-ai/rag/vector-rag-embedding" text="Vector-based RAG Embedding" />
+      <IconLinkButton href="/docs/technical-view/generative-ai/rag/vector-rag-query-pipeline" text="Vector-based RAG Query Pipeline" />
+    </ul>
+  </div>
+  <div class="col col--4">
+    <h3>Knowledge Graph</h3>
+    <ul className="button-list">
+      <IconLinkButton href="/docs/technical-view/generative-ai/rag/graph-overall" text="Overall and Knowledge Graph Creation" disabled={true} />
+      <IconLinkButton href="/docs/technical-view/generative-ai/rag/graph-query" text="Query Pipeline" disabled={true} />
+    </ul>
+  </div>
+</div>
