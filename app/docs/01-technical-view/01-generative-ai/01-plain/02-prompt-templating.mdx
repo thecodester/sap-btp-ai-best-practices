@@ -114,26 +114,20 @@ You can find pricing details for AI Core "Extended" in the [Discovery Center –
 
 ![High-level Reference Architecture](@site/static/generative-ai/access-to-generative-ai-models/images/Access%20to%20Generative%20AI%20Models%20v2.png)
 
-#### SAP Business Technology Platform (SAP BTP)
-
-[SAP Business Technology Platform (BTP)](/docs/technology/sap-business-technology-platform) is an integrated suite of cloud services, databases, AI, and development
-tools that enable businesses to build, extend, and integrate SAP and non-SAP applications efficiently.
-
-#### SAP AI Core
-
-[SAP AI Core](/docs/technology/sap-ai-core) is a managed AI runtime that enables scalable execution of AI models and pipelines, integrating
-seamlessly with SAP applications and data on SAP BTP that supports full lifecycle management of AI scenarios.
-
 ## <span className="step-number">3</span> <span className="step-title">Key Choices and Guidelines</span>
 
-A few case-specific decisions need to be considered that will impact the performance and utility of the app
-being developed.
+When defining a template, it is vital to test the prompt and the LLM it is meant for. Some prompts are more efficient in specific LLMs. 
 
-### Model
+Templates must be well tested and revised as they will be repeatedly called, and the quality of the answer generated is heavily correlated to the prompt.
 
-The choice of model is critical to the accuracy of the answer, operating costs, language, and context window.
-Larger models are usually better for more complex tasks involving reasoning, longer context window, and better
-inference.
+### Prompt Registry feature within Generative AI Hub
+
+If you're using the SAP AI Launchpad, the Prompt Registry is a feature within the Generative AI Hub designed to efficiently manage and reuse prompt templates during orchestration. It is considered best practice to use this feature whenever possible. Storing prompts locally or in files should be a last resort.
+
+#### Tutorials and Learning Journeys
+
+- [Leveraging Prompt Registry for Seamless Orchestration](https://developers.sap.com/tutorials/ai-core-genaibub-prompt-registry.html)
+- [Prompt LLMs in the generative AI hub in SAP AI Core & Launchpad](https://developers.sap.com/tutorials/ai-core-generative-ai..html#fca384d9-406c-436c-bd87-2b1c1ba46274) (You can focus on the content from “Step 5: Querying the LLMs” to “Step 7: Prompt Administration")
 
 #### How to choose the model?
 
