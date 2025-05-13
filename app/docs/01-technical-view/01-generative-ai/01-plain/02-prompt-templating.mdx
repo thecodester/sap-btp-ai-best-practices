@@ -312,29 +312,37 @@ through langchain or the orchestration service.
 
 <h3>Relevant Code</h3>
 
-Simple chat completion call using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js).
+Simple prompt templating example call.
 
 ```typescript
-const orchestrationClient = new OrchestrationClient({
-  // Define the language model to be used
-  llm: {
-    model_name: "gpt-4o",
-    model_params: {
-      max_tokens: 1000, // Maximum number of tokens to generate in the response. This limits the length of the generated text.
-      temperature: 0.6, // Lower values make the output more deterministic, while higher values make it more random.
-      n: 1 // Number of responses to generate.
+export default class OrchestrationService {
+  async askCapitalOfCountry(req: any) {
+    const country = req.data.country;
+    if (!country) {
+      req.reject(400, 'Country parameter is required');
     }
-  },
-  // Define the prompt
-  templating: {
-    template: [{ role: "user", content: "What is the capital of France?" }]
+    const orchestrationClient = new OrchestrationClient({
+      llm: {
+        model_name: 'gpt-4o',
+        model_params: {
+          max_tokens: 1000,
+          temperature: 0.6,
+          n: 1
+        }
+      },
+      templating: {
+        template: [
+          { role: 'user', content: `What is the capital of {{?country}}?` }
+        ]
+      }
+    });
+​
+    const result = await orchestrationClient.chatCompletion({
+      inputParams: { country: country }
+    });
+    return result.getContent();
   }
-});
-
-// Execute the request
-const result = await orchestrationClient.chatCompletion();
-
-console.log(result.getContent());
+}
 ```
 
   </TabItem>
