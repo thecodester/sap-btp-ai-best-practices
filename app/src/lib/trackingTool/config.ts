@@ -68,9 +68,10 @@ export const TRACKING_EVENTS = {
     AI_CAPABILITY_AGENTIC_WORKFLOWS: "pv-ai-capability-agentic-workflows",
 
     // Technology Pages
-    TECHNOLOGIES: "pv-technologies", // TODO: Implement page, because currently it's a "generated-index"
     TECHNOLOGY_SAP_BTP: "pv-technology-sap-btp",
-    TECHNOLOGY_SAP_AI_CORE: "pv-technology-sap-ai-core"
+    TECHNOLOGY_SAP_AI_CORE: "pv-technology-sap-ai-core",
+    TECHNOLOGY_SAP_HANA_CLOUD: "pv-technology-sap-hana-cloud",
+    TECHNOLOGY_SAP_AI_LAUNCHPAD: "pv-technology-sap-ai-launchpad"
   },
 
   // Button click events
