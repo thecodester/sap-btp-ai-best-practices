@@ -272,32 +272,12 @@ through langchain or the orchestration service.
 - [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js)
 
 <h3>Tutorials and Learning Journeys</h3>
-
-- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](https://developers.sap.com/tutorials/ai-core-orchestration-consumption.html) (SAP Cloud SDK) from [Generative AI with SAP AI Core](https://developers.sap.com/group.sap-ai-core-generative.html)
+- [Defining content filters](https://developers.sap.com/tutorials/ai-core-orchestration-consumption-opt.html#1e1c51eb-2030-4b28-891b-168429b8b2cb) (SAP Generative AI hub SDK) from [Generative AI with SAP AI Core](https://developers.sap.com/group.sap-ai-core-generative.html)
 
 <h3>Reference Code</h3>
+- [SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/typescript)
+- [SAP Cloud SDK for AI - Sample Code](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) (refer to the **orchestrationInputFiltering** function located in the [ai-sdk-js/sample-code/src/orchestration.ts](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts) file)
 
-<h4>Recommended</h4>
-
-<ul className="download-source-link-in-list-container">
-  <li>
-    <strong>
-      <TrackableLink
-        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/typescript"
-        target="_blank"
-        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
-      >
-        <span>SAP BTP AI Best Practices - Sample Code</span>
-      </TrackableLink>
-    </strong>
-  </li>
-</ul>
-- [SAP Cloud SDK for AI - Sample Code](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) - See the specific file [`orchestration.ts`](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts)
-for the `orchestrationChatCompletion` function implementation.
-
-<h3>Relevant Code</h3>
-
-Simple chat completion call using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js).
 
 ```typescript
 const orchestrationClient = new OrchestrationClient({
