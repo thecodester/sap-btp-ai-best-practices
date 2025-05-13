@@ -5,11 +5,13 @@ This folder contains the **Python-based implementation** of best practices for b
 These examples demonstrate how to extract RDF triplets from raw text using prompt engineering and visualize structured knowledge for grounding LLM responses.
 
 ## Project Structure
+```
 knowledge-graph/
 └── python/
 ├── prompts.py # Prompt templates for KG creation and selective filtering
 ├── KG-RDF-creation-grounding-visualisation-BP07-BP08-BestPractice.ipynb # End-to-end example
 └── README.md # Project documentation (this file)
+```
 
 
 ## Included Content
