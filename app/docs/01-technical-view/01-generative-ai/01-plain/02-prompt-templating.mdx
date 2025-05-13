@@ -91,7 +91,7 @@ Create reusable templates for specific tasks to ensure performance, reliability 
 ### Benefits
 
 - **Consistency and Reusability**: Templates ensure that prompts are structured consistently, which helps in achieving reliable responses from LLMs. They can be reused across different models and tasks.
-- **Efficiency**: enabling quick adaptation and reuse of structured instructions across different tasks and contexts without the need for manual rewriting. 
+- **Efficiency**: enabling quick adaptation and reuse of structured instructions across different tasks and contexts without the need for manual rewriting.
 - **Customization**: Templates allow for easy modification based on specific requirements or user inputs.
 
 <LoginWall>
@@ -116,7 +116,7 @@ You can find pricing details for AI Core "Extended" in the [Discovery Center –
 
 ## <span className="step-number">3</span> <span className="step-title">Key Choices and Guidelines</span>
 
-When defining a template, it is vital to test the prompt and the LLM it is meant for. Some prompts are more efficient in specific LLMs. 
+When defining a template, it is vital to test the prompt and the LLM it is meant for. Some prompts are more efficient in specific LLMs.
 
 Templates must be well tested and revised as they will be repeatedly called, and the quality of the answer generated is heavily correlated to the prompt.
 
@@ -130,52 +130,69 @@ If you're using the SAP AI Launchpad, the Prompt Registry is a feature within th
 - [Prompt LLMs in the generative AI hub in SAP AI Core & Launchpad](https://developers.sap.com/tutorials/ai-core-generative-ai..html#fca384d9-406c-436c-bd87-2b1c1ba46274) (You can focus on the content from “Step 5: Querying the LLMs” to “Step 7: Prompt Administration")
 
 ### Choose the Right Template Structure
+
 #### Structured Templates vs. Modular Blocks
-Decide early whether you’ll use structured templates (e.g., parameterized strings like {{?input}}) or modular blocks (e.g., predefined instructions + dynamic task blocks).
-- Structured Templates: E.g., parameterized strings like {{?input}}
-- Modular Blocks: E.g., predefined instructions + dynamic task blocks 
+
+Decide early whether you’ll use structured templates (e.g., parameterized strings like `{{?input}})` or modular blocks (e.g., predefined instructions + dynamic task blocks).
+
+- Structured Templates: E.g., parameterized strings like `{{?input}}`
+- Modular Blocks: E.g., predefined instructions + dynamic task blocks
 
 #### Separation of Instructions
+
 Prefer separating static instructions from dynamic input to keep templates clean and reusable.
 
 ### Design for Flexibility and Reuse
+
 #### Parameterization
-Frequently changing parts such as tone, format, audience, and language should be parameterized. For example: Write a {{?tone}} summary for a {{?audience}} in {{?language}}.
+
+Frequently changing parts such as tone, format, audience, and language should be parameterized. For example: Write a `{{?tone}}` summary for a `{{?audience}}` in `{{?language}}.`
 
 #### Placeholder Names
+
 Use self-explanatory and domain-consistent placeholder names.
 
 ### Use Instructional Patterns
+
 Some effective patterns:
+
 - Chain of Thought: Think step by step
-- Few-shot examples: Show before asking (More in the  Step 15: Few-Shot Prompting of the Prompt LLMs in the generative AI hub in SAP AI Core & Launchpad learning journey)
+- Few-shot examples: Show before asking (More in the Step 15: Few-Shot Prompting of the Prompt LLMs in the generative AI hub in SAP AI Core & Launchpad learning journey)
 - Format enforcement: Respond in JSON
 - Role prompting: You are a marketing expert…
 
 ### Standardize Formatting and Conventions
+
 Define a consistent style for:
-- Placeholder syntax:  {{?variable}}
+
+- Placeholder syntax: `{{?variable}}`
 - Prompt delimiters: """, ---
 - Output formatting: markdown, JSON, tables
 
 ### Test Iteratively
+
 - Validation: Validate prompts using edge cases and diverse inputs.
 - Evaluation Metrics: Evaluate output quality, consistency, length, structure, and hallucination risks. Consider using prompt evaluation checklists or automated metrics.
 
 ### Handle Error Cases
+
 - Fallback Templates: Build fallback templates for scenarios like empty inputs, unparseable outputs, and unexpected answers.
 - Instructions for Errors: Provide instructions in the prompt such as: “If the input is unclear, respond with ‘Unable to generate response.’”
 
 ### Document Template Usage
+
 - Examples and Annotations: Include examples of input/output for each template. Annotate templates with intended use cases, limitations, and customization tips.
 
 ### Prompt Engineering
+
 #### Scientific Papers
+
 - Prompt Sketching for Large Language Models
 - Enhancing Large Language Model Performance through Prompt Engineering Techniques
 - Sensitivity and Robustness of Large Language Models to Prompt Template in Japanese Text Classification Tasks
 
 #### Articles
+
 - What is prompt engineering? | SAP
 
 ## <span className="step-number">4</span> <span className="step-title">Implementation</span>
@@ -245,7 +262,7 @@ template = Template(
     messages=[
         SystemMessage("You are a helpful translation assistant."),
         UserMessage(
-            "Translate the following text to {{?to_lang}}: {{?text}}"
+            "Translate the following text to `{{?to_lang}}:` `{{?text}}"`
         ),
     ],
     defaults=[
