@@ -120,8 +120,9 @@ You can find pricing details for AI Core "Extended" in the [Discovery Center –
 
 ### Technical
 
-- SAP Business Technology Platform (SAP BTP) subaccount ([Setup Guide](/docs/technology/sap-business-technology-platform#setup-guide))
-- SAP AI Core ([Setup Guide](/docs/technology/sap-ai-core#setup-guide))
+1. Set up an SAP Business Technology Platform (SAP BTP) subaccount ([Setup Guide](/docs/technology/sap-business-technology-platform#setup-guide))
+2. Deploy SAP AI Core ([Setup Guide](/docs/technology/sap-ai-core#setup-guide))
+3. Configure the Orchestration service in AI Launchpad ([Setup Guide](/docs/technology/sap-ai-core#setup-guide))
 
 ### High-level Reference Architecture
 
@@ -139,60 +140,33 @@ seamlessly with SAP applications and data on SAP BTP that supports full lifecycl
 
 ## <span className="step-number">3</span> <span className="step-title">Key Choices and Guidelines</span>
 
-A few case-specific decisions need to be considered that will impact the performance and utility of the app
-being developed.
+When implementing LLM content filtering, several key choices and considerations are crucial for effectiveness, fairness, and scalability. 
 
-### Model
+#### Filtering selection
+Selecting the right approach such as keyword-based, rule-based, or AI-driven moderation—affects accuracy and adaptability. Balancing strictness and flexibility is essential to minimize false positives and negatives while ensuring appropriate content cTontrol. 
 
-The choice of model is critical to the accuracy of the answer, operating costs, language, and context window.
-Larger models are usually better for more complex tasks involving reasoning, longer context window, and better
-inference.
+AI core supports 2 filtering providers - llama_guard_3_8b and azure_content_safety
 
-#### How to choose the model?
+- azure_content_safety: you can set different scores for each of the four content categories: Hate, Violence, Sexual, and Self-Harm. Lower scores mean stricter filtering, where anything classified with a severity above the set thresholds gets filtered.
+- llama_guard_3_8b: you can configure fourteen different content categories using a boolean value. Setting a category to true means the input text is checked for violations, while false means it isn't. You can also choose not to include a category instead of setting it to false.
 
-Use the [Model Library](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/model-library) to inform your model choice using benchmarking data for Text Generation, Speech to
-Text, Image Recognition, Image Generation, Embedding, and more.
+#### Ethical considerations
+Certain ethical problems , such as bias mitigation and fairness, must be addressed to prevent disproportionate filtering of specific groups or viewpoints.
 
-Steps to access the [Leaderboard view of the Model Library](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/model-library#leaderboard) in your SAP BTP subaccount:
+In order to avoid ethical problems like bias, fairness, hate use the following:
+- azure_content_safety:  you need to use the Hate and Fairness category
+- llama_guard_3_8b: you need to use hate and elections categories
 
-1. Go to your BTP subaccount with AI Core
-2. Navigate to Instances and Subscriptions
-3. Select SAP AI Launchpad
-4. Select your API Connection and Resource Group
-5. Go to Generative AI Hub
-6. Access Model Library
+#### Performance Considerations
+Real-time performance is another critical factor, as filtering should be efficient without significantly delaying responses. 
 
-**Relevant links**
+#### Oversight
+ Continuous monitoring and updating of filtering policies and datasets are necessary to adapt to evolving language use and emerging threats. 
 
-- [List of available models](https://me.sap.com/notes/3437766)
-- [AI Core Endpoint](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20AI%20Core.aspx#ai-core-endpoint)
+#### Explainability
+Transparency in filtering decisions, including explainability and user feedback mechanisms, can improve trust and compliance with regulatory standards.
 
-### Settings
-
-Picking correct values for [frequency penalty](/docs/glossary#frequency-penalty), [presence penalty](/docs/glossary#presence-penalty), [max tokens](/docs/glossary#max-tokens), and [temperature](/docs/glossary#temperature) is crucial to the
-quality of the inference. The choice depends on the needed variety, length, and control over the generated text.
-
-#### Example Applications
-
-1. [**Frequency Penalty**](/docs/glossary#frequency-penalty) (Reduces repetition of frequent words)
-
-   - **High – Summarization:** Reduces redundancy in reports or articles.
-   - **Low – Poetry/Mantras:** Encourages repetition for stylistic effect.
-
-2. [**Presence Penalty**](/docs/glossary#presence-penalty) (Discourages reuse of any previous words)
-
-   - **High – Idea Brainstorming:** Promotes diverse, non-repetitive topics.
-   - **Low – Themed Storytelling:** Reinforces a central topic or character.
-
-3. [**Max-Tokens**](/docs/glossary#max-tokens) (Limits response length)
-
-   - **Low – Chatbot Responses:** Short, to-the-point answers.
-   - **High – Long-Form Content:** Detailed articles or stories.
-
-4. [**Temperature**](/docs/glossary#temperature) (Controls randomness of output)
-
-   - **Low – Technical/Legal Writing:** Precise, deterministic output.
-   - **High – Creative Writing:** More imaginative and random text.
+More details on exact input filtering and output filtering implementation and usage can be found in the AI Core Documentation
 
 ## <span className="step-number">4</span> <span className="step-title">Implementation</span>
 
