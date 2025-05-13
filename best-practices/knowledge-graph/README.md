@@ -4,7 +4,7 @@ This repository collects best practices and prompt engineering examples for work
 
 > 📚 Related SAP AI best practice guides:
 > - [KG RAG – Overall and KG Creation](https://sap.sharepoint.com/sites/210313/SitePages/GenAI%20-%20RAG%20-%20Knowledge%20Graph%20-%20Overall%20and%20KG%20creation.aspx)
-> - [KG RAG – Query Pipeline (internal)](https://sap.sharepoint.com/sites/210313/SitePages/GenAI%20-%20RAG%20-%20Knowledge%20Graph%20-%20Query%20pipeline.aspx)
+> - [KG RAG – Query Pipeline](https://sap.sharepoint.com/sites/210313/SitePages/GenAI%20-%20RAG%20-%20Knowledge%20Graph%20-%20Query%20pipeline.aspx)
 
 ## Overview
 
