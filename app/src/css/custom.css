@@ -959,3 +959,25 @@ html .card:hover {
   border-color: var(--ifm-color-primary);
   color: var(--ifm-color-primary);
 }
+
+.download-source-btn {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  float: right;
+}
+
+.download-source-btn--tab {
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 1400px) {
+  .download-source-btn {
+    float: none;
+    width: 100%;
+  }
+}
+
+.download-source-link-in-list-container {
+  margin-bottom: 4px;
+}

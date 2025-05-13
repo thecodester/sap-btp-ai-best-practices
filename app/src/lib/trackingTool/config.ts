@@ -71,5 +71,15 @@ export const TRACKING_EVENTS = {
     TECHNOLOGIES: "pv-technologies", // TODO: Implement page, because currently it's a "generated-index"
     TECHNOLOGY_SAP_BTP: "pv-technology-sap-btp",
     TECHNOLOGY_SAP_AI_CORE: "pv-technology-sap-ai-core"
+  },
+
+  // Button click events
+  BUTTON_CLICK: {
+    DOWNLOAD_ACCESS_TO_GEN_AI_MODELS: "btn-download-access-to-gen-ai-models",
+    DOWNLOAD_PROMPT_TEMPLATING: "btn-download-prompt-templating",
+    DOWNLOAD_DATA_MASKING: "btn-download-data-masking",
+    DOWNLOAD_CONTENT_FILTERING: "btn-download-content-filtering",
+    DOWNLOAD_VECTOR_RAG_EMBEDDING: "btn-download-vector-rag-embedding",
+    DOWNLOAD_VECTOR_RAG_QUERY_PIPELINE: "btn-download-vector-rag-query-pipeline"
   }
 } as const;

@@ -98,14 +98,14 @@ const config: Config = {
         {
           type: "custom-user-dropdown",
           position: "right"
-        },
-        {
-          href: "https://github.com/SAP-samples/sap-btp-ai-best-practices",
-          className: "navbar-icon-link",
-          "aria-label": "GitHub repository",
-          html: `<img src="${baseUrl}img/github.svg" alt="GitHub" width="32" height="32" />`,
-          position: "right"
         }
+        // {
+        //   href: "https://github.com/SAP-samples/sap-btp-ai-best-practices",
+        //   className: "navbar-icon-link",
+        //   "aria-label": "GitHub repository",
+        //   html: `<img src="${baseUrl}img/github.svg" alt="GitHub" width="32" height="32" />`,
+        //   position: "right"
+        // }
       ]
     },
     docs: {

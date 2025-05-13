@@ -10,6 +10,7 @@ import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 import IconLinkButton from "@site/src/components/IconLinkButton";
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
+import TrackableLink from "@site/src/components/TrackableLink";
 import LoginWall from "@site/src/components/LoginWall";
 import Icon from "@site/src/components/Icon";
 import "@ui5/webcomponents-icons/dist/video.js";
@@ -75,6 +76,17 @@ import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
     </div>
   </div>
 </div>
+
+<LoginWall renderOnlyWhenLoggedIn={true}>
+  <TrackableLink
+    href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models"
+    className="button button--primary button--lg download-source-btn"
+    target="_blank"
+    trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+  >
+    <span>Download Source Code</span>
+  </TrackableLink>
+</LoginWall>
 
 ## <span className="step-number">1</span> <span className="step-title">Overview</span>
 
@@ -204,6 +216,15 @@ requirements.
 <Tabs groupId="language">
   <TabItem value="python" label="Python" default>
 
+<TrackableLink
+  href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/python"
+  className="button button--primary button--lg download-source-btn--tab"
+  target="_blank"
+  trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+>
+  <span>Download Source Code</span>
+</TrackableLink>
+
 <h3>Recommendation</h3>
 
 There are multiple SDKs available for Python. We recommend using the [SAP Generative AI hub SDK](https://pypi.org/project/generative-ai-hub-sdk/) to harness
@@ -228,8 +249,21 @@ through langchain or the orchestration service.
 
 <h4>Recommended</h4>
 
-- **[SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/python)**
-- [btp-gen-ai-hub-sdk-samples](https://github.com/SAP-samples/btp-gen-ai-hub-sdk-samples) - SAP Generative AI hub SDK samples repository. See the specific file [`2-connect-genaihub-from-env.ipynb`](https://github.com/SAP-samples/btp-gen-ai-hub-sdk-samples/blob/main/docs/notebook-samples/2-connect-genaihub-from-env.ipynb) for connecting to GenAI Hub from environment.
+<ul className="download-source-link-in-list-container">
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/python"
+        target="_blank"
+        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
+</ul>
+- [btp-gen-ai-hub-sdk-samples](https://github.com/SAP-samples/btp-gen-ai-hub-sdk-samples) - SAP Generative AI hub SDK samples repository. See the specific file [`2-connect-genaihub-from-env.ipynb`](https://github.com/SAP-samples/btp-gen-ai-hub-sdk-samples/blob/main/docs/notebook-samples/2-connect-genaihub-from-env.ipynb)
+for connecting to GenAI Hub from environment.
 
 <h4>Other</h4>
 
@@ -257,6 +291,15 @@ chat.invoke(prompt).content
   </TabItem>
   <TabItem value="javascript-typescript" label="JavaScript/TypeScript">
 
+<TrackableLink
+  href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/typescript"
+  className="button button--primary button--lg download-source-btn--tab"
+  target="_blank"
+  trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+>
+  <span>Download Source Code</span>
+</TrackableLink>
+
 <h3>Recommendation</h3>
 
 The [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js) is the official SAP AI SDK for TypeScript.
@@ -277,8 +320,21 @@ through langchain or the orchestration service.
 
 <h4>Recommended</h4>
 
-- **[SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/typescript)**
-- [SAP Cloud SDK for AI - Sample Code](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) - See the specific file [`orchestration.ts`](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts) for the `orchestrationChatCompletion` function implementation.
+<ul className="download-source-link-in-list-container">
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/typescript"
+        target="_blank"
+        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
+</ul>
+- [SAP Cloud SDK for AI - Sample Code](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) - See the specific file [`orchestration.ts`](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts)
+for the `orchestrationChatCompletion` function implementation.
 
 <h3>Relevant Code</h3>
 
@@ -310,6 +366,15 @@ console.log(result.getContent());
   </TabItem>
   <TabItem value="cap-app" label="CAP App">
 
+<TrackableLink
+  href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/cap"
+  className="button button--primary button--lg download-source-btn--tab"
+  target="_blank"
+  trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+>
+  <span>Download Source Code</span>
+</TrackableLink>
+
 <h3>Recommendation</h3>
 
 There are 2 SDKs available for developing CAP applications, we recommend using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js)
@@ -332,8 +397,21 @@ through langchain or the orchestration service.
 
 <h4>Recommended</h4>
 
-- **[SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/cap)**
-- [SAP Cloud SDK for AI - Sample CAP](https://github.com/SAP/ai-sdk-js/tree/main/sample-cap) - See the specific file [`orchestration-service.ts`](https://github.com/SAP/ai-sdk-js/blob/main/sample-cap/srv/orchestration/orchestration-service.ts) for the `OrchestrationService` class implementation.
+<ul className="download-source-link-in-list-container">
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/cap"
+        target="_blank"
+        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
+</ul>
+- [SAP Cloud SDK for AI - Sample CAP](https://github.com/SAP/ai-sdk-js/tree/main/sample-cap) - See the specific file [`orchestration-service.ts`](https://github.com/SAP/ai-sdk-js/blob/main/sample-cap/srv/orchestration/orchestration-service.ts)
+for the `OrchestrationService` class implementation.
 
 For more details, please refer to the TypeScript section of this page because it has more examples and the SDK is
 the same.
@@ -374,6 +452,15 @@ console.log(result.getContent());
 
   </TabItem>
   <TabItem value="java" label="Java">
+  
+<TrackableLink
+  href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/java"
+  className="button button--primary button--lg download-source-btn--tab"
+  target="_blank"
+  trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+>
+  <span>Download Source Code</span>
+</TrackableLink>
 
 <h3>Recommendation</h3>
 
@@ -394,8 +481,22 @@ through the APIs or the orchestration service.
 
 <h3>Reference Code</h3>
 
-- **[SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/java)**
-- [Sample Spring App example](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app) - See the specific files [`OpenAiService.java`](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers/OpenAiController.java) and [`OpenAiController.java`](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers/OpenAiController.java) to interact with the service.
+<ul className="download-source-link-in-list-container">
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/java"
+        target="_blank"
+        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
+</ul>
+- [Sample Spring App example](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app) - See the specific files [`OpenAiService.java`](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers/OpenAiController.java)
+and [`OpenAiController.java`](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers/OpenAiController.java) to interact with
+the service.
 
 <h3>Relevant Code</h3>
 

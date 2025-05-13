@@ -42,7 +42,7 @@ export default function UserDropdownNavbarItem() {
   );
 
   return (
-    <div className={`${styles.userDropdown} ${isDropdownOpen ? styles.userDropdownOpenState : ""}`} ref={dropdownRef}>
+    <div className={`navbar__item ${styles.userDropdown} ${isDropdownOpen ? styles.userDropdownOpenState : ""}`} ref={dropdownRef}>
       <button className={styles.userDropdown__button} onClick={toggleDropdown}>
         {/* Replace with an avatar icon/image if available */}
         <UserAvatar />
