@@ -341,76 +341,56 @@ through langchain or the orchestration service.
 
 <h3>Tutorials and Learning Journeys</h3>
 
-- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](https://developers.sap.com/tutorials/ai-core-orchestration-consumption.html) (SAP Cloud SDK) from [Generative AI with SAP AI Core](https://developers.sap.com/group.sap-ai-core-generative.html)
+- [Defining content filters](https://developers.sap.com/tutorials/ai-core-orchestration-consumption-opt.html#1e1c51eb-2030-4b28-891b-168429b8b2cb) (SAP Generative AI hub SDK) from Generative AI with SAP AI Core
 
 <h3>Reference Code</h3>
 
-<h4>Recommended</h4>
+- [SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/cap)
 
-<ul className="download-source-link-in-list-container">
-  <li>
-    <strong>
-      <TrackableLink
-        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/cap"
-        target="_blank"
-        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
-      >
-        <span>SAP BTP AI Best Practices - Sample Code</span>
-      </TrackableLink>
-    </strong>
-  </li>
-</ul>
-- [SAP Cloud SDK for AI - Sample CAP](https://github.com/SAP/ai-sdk-js/tree/main/sample-cap) - See the specific file [`orchestration-service.ts`](https://github.com/SAP/ai-sdk-js/blob/main/sample-cap/srv/orchestration/orchestration-service.ts)
-for the `OrchestrationService` class implementation.
-
-For more details, please refer to the TypeScript section of this page because it has more examples and the SDK is
-the same.
-
-<h4>Other</h4>
-
-These sample projects might not use the official SDK or not follow the best practices but can be good examples
-for learning.
-
-- [CAP LLM Plugin - Sample Projects](https://github.com/SAP-samples/cap-llm-plugin-samples/)
-
-<h3>Relevant Code</h3>
-
-Simple chat completion call using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js).
+- [SAP Cloud SDK for AI - Sample Code](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) (refer to the orchestrationCompletionMasking function located in the [ai-sdk-js/sample-code/src/orchestration.ts](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts) file)
 
 ```typescript
-const orchestrationClient = new OrchestrationClient({
-  // Define the language model to be used
-  llm: {
-    model_name: "gpt-4o",
-    model_params: {
-      max_tokens: 1000, // Maximum number of tokens to generate in the response. This limits the length of the generated text.
-      temperature: 0.6, // Lower values make the output more deterministic, while higher values make it more random.
-      n: 1 // Number of responses to generate.
+export async function orchestrationInputFiltering(): Promise<ErrorResponse> {
+  // Build Azure content filter with only safe content allowed for hate and violence
+  const azureContentSafetyFilter = buildAzureContentSafetyFilter({
+    Hate: 'ALLOW_SAFE',
+    Violence: 'ALLOW_SAFE'
+  });
+​
+  // Build Llama guard content filter with categories 'privacy' enabled
+  const llamaGuardFilter = buildLlamaGuardFilter('privacy');
+​
+  const orchestrationClient = new OrchestrationClient({
+    llm,
+    templating,
+    filtering: {
+      input: {
+        filters: [azureContentSafetyFilter, llamaGuardFilter]
+      }
     }
-  },
-  // Define the prompt
-  templating: {
-    template: [{ role: "user", content: "What is the capital of France?" }]
+  });
+​
+  try {
+    // Trigger the input filters which results in a 400 Bad Request error
+    await orchestrationClient.chatCompletion({
+      inputParams: { input: 'My social insurance number is ABC123456789.' } // Should be filtered by the Llama guard filter
+    });
+    throw new Error('Input was not filtered as expected.');
+  } catch (error: any) {
+    if (error.cause?.status === 400) {
+      logger.info('Input was filtered as expected.');
+    } else {
+      throw error;
+    }
+    return error.cause?.response?.data;
   }
-});
+}
 
-// Execute the request
-const result = await orchestrationClient.chatCompletion();
-
-console.log(result.getContent());
-```
+​```
 
   </TabItem>
   <TabItem value="java" label="Java">
   
-<TrackableLink
-  href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/java"
-  className="button button--primary button--lg download-source-btn--tab"
-  target="_blank"
-  trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
->
-  <span>Download Source Code</span>
-</TrackableLink>
 
 <h3>Recommendation</h3>
 
