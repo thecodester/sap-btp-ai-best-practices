@@ -127,15 +127,15 @@ const config: Config = {
             }
           ]
         },
-        {
-          title: "Community",
-          items: [
-            {
-              label: "GitHub",
-              href: "https://github.com/SAP-samples/sap-btp-ai-best-practices"
-            }
-          ]
-        },
+        // {
+        //   title: "Community",
+        //   items: [
+        //     {
+        //       label: "GitHub",
+        //       href: "https://github.com/SAP-samples/sap-btp-ai-best-practices"
+        //     }
+        //   ]
+        // },
         {
           title: "Resources",
           items: [
