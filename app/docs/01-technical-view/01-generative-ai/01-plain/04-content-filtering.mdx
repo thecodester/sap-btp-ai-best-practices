@@ -147,8 +147,8 @@ Selecting the right approach such as keyword-based, rule-based, or AI-driven mod
 
 AI core supports 2 filtering providers - [llama_guard_3_8b](https://github.com/meta-llama/PurpleLlama/blob/main/Llama-Guard3/8B/MODEL_CARD.md#hazard-taxonomy-and-policy) and [azure_content_safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/harm-categories?tabs=warning)
 
-- azure_content_safety: you can set different scores for each of the four content categories: Hate, Violence, Sexual, and Self-Harm. Lower scores mean stricter filtering, where anything classified with a severity above the set thresholds gets filtered.
-- llama_guard_3_8b: you can configure fourteen different content categories using a boolean value. Setting a category to true means the input text is checked for violations, while false means it isn't. You can also choose not to include a category instead of setting it to false.
+- **azure_content_safety**: you can set different scores for each of the four content categories: Hate, Violence, Sexual, and Self-Harm. Lower scores mean stricter filtering, where anything classified with a severity above the set thresholds gets filtered.
+- **llama_guard_3_8b**: you can configure fourteen different content categories using a boolean value. Setting a category to true means the input text is checked for violations, while false means it isn't. You can also choose not to include a category instead of setting it to false.
 
 #### Ethical considerations
 Certain ethical problems , such as bias mitigation and fairness, must be addressed to prevent disproportionate filtering of specific groups or viewpoints.
