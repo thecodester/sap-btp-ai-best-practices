@@ -233,31 +233,40 @@ through langchain or the orchestration service.
 Simple chat completion call using the [SAP Generative AI hub SDK](https://pypi.org/project/generative-ai-hub-sdk/).
 
 ```python
-from gen_ai_hub.proxy.langchain.init_models import init_llm
-from gen_ai_hub.proxy.core.proxy_clients import get_proxy_client
-from gen_ai_hub.proxy.langchain.openai import ChatOpenAI
-
-
-# note: proxy_client is optional
-proxy_client = get_proxy_client('gen-ai-hub')
-
-chat = ChatOpenAI(proxy_model_name="gpt-35-turbo", proxy_client=proxy_client, temperature=0)
-
-prompt = """Translate to danish: Guten Morgen"""
-chat.invoke(prompt).content
+from gen_ai_hub.orchestration.models.content_filtering import InputFiltering, OutputFiltering
+from gen_ai_hub.orchestration.models.azure_content_filter import AzureContentFilter, AzureThreshold
+from gen_ai_hub.orchestration.models.llama_guard_3_filter import LlamaGuard38bFilter
+​
+input_filter= AzureContentFilter(hate=AzureThreshold.ALLOW_SAFE,
+                                  violence=AzureThreshold.ALLOW_SAFE,
+                                  self_harm=AzureThreshold.ALLOW_SAFE,
+                                  sexual=AzureThreshold.ALLOW_SAFE)
+input_filter_llama = LlamaGuard38bFilter(hate=True)
+output_filter = AzureContentFilter(hate=AzureThreshold.ALLOW_SAFE,
+                                   violence=AzureThreshold.ALLOW_SAFE_LOW,
+                                   self_harm=AzureThreshold.ALLOW_SAFE_LOW_MEDIUM,
+                                   sexual=AzureThreshold.ALLOW_ALL)
+output_filter_llama = LlamaGuard38bFilter(hate=True)
+​
+config = OrchestrationConfig(
+    template=Template(
+        messages=[
+            SystemMessage("You are a helpful AI assistant."),
+            UserMessage("{{?text}}"),
+        ]
+    ),
+    llm=LLM(
+        name="gpt-4o",
+    ),
+    input_filtering=InputFiltering(filters=[input_filter,input_filter_llama]),
+    output_filtering=OutputFiltering(filters=[output_filter, output_filter_llama])
+)
+​
 ```
 
   </TabItem>
   <TabItem value="javascript-typescript" label="JavaScript/TypeScript">
 
-<TrackableLink
-  href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/typescript"
-  className="button button--primary button--lg download-source-btn--tab"
-  target="_blank"
-  trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
->
-  <span>Download Source Code</span>
-</TrackableLink>
 
 <h3>Recommendation</h3>
 
