@@ -157,6 +157,10 @@ const config: Config = {
               to: "/privacy"
             },
             {
+              label: "Cookie Preferences",
+              to: "/cookies"
+            },
+            {
               label: "Legal Disclosure",
               href: "https://www.sap.com/impressum"
             },

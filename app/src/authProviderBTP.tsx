@@ -51,7 +51,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setIsLoggedIn(false);
     setUser(null);
     setToken("");
-    localStorage.removeItem("token");
+    localStorage.removeItem("sap-btp-ai-bp-auth-token");
   };
 
   const value = useMemo(
@@ -67,9 +67,9 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   useEffect(() => {
     if (token > "") {
-      localStorage.setItem("token", token);
-    } else if (localStorage.getItem("token")) {
-      setToken(localStorage.getItem("token"));
+      localStorage.setItem("sap-btp-ai-bp-auth-token", token);
+    } else if (localStorage.getItem("sap-btp-ai-bp-auth-token")) {
+      setToken(localStorage.getItem("sap-btp-ai-bp-auth-token"));
     }
   }, [token]);
 
@@ -78,11 +78,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       setIsLoading(true);
       const params = new URLSearchParams(location.search);
       const queryToken = params.get("t");
-      let currentToken = localStorage.getItem("token");
+      let currentToken = localStorage.getItem("sap-btp-ai-bp-auth-token");
 
       if (queryToken) {
         setToken(queryToken);
-        localStorage.setItem("token", queryToken);
+        localStorage.setItem("sap-btp-ai-bp-auth-token", queryToken);
         currentToken = queryToken;
         history.replace(location.pathname);
       } else if (currentToken) {

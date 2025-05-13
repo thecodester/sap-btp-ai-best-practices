@@ -78,6 +78,25 @@ html[data-theme="dark"] .headerContainer {
   text-align: center;
 }
 
+.divider {
+  width: 100%;
+  border-top: 1px solid var(--sap-horizon-neutral-5);
+}
+
+html[data-theme="dark"] .divider {
+  border-top: 1px solid var(--sap-horizon-neutral-10);
+}
+
+.actionsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ifm-spacing-vertical);
+  margin: var(--ifm-spacing-vertical) 0;
+  width: 100%;
+  padding: 20px 48px 14px;
+}
+
 .loginWallPopup button,
 .loginWallPopup button:hover {
   color: var(--sap-horizon-neutral-1);
@@ -89,13 +108,58 @@ html[data-theme="dark"] .headerContainer {
   float: left;
 }
 
-.actionsContainer {
+.termsContainer {
+  width: 100%;
+  text-align: left;
+}
+
+.termsLabel {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--ifm-spacing-vertical);
-  margin-top: var(--ifm-spacing-vertical);
-  margin-bottom: var(--ifm-spacing-vertical);
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+}
+
+.termsLabel input {
+  margin-top: 4px;
+}
+
+.termsLabel span {
+  font-weight: 500;
+}
+
+.termsError span {
+  color: #e52929;
+}
+
+.inputError {
+  outline: 2px solid #e52929;
+  border-color: #e52929;
+}
+
+.errorMessage {
+  color: #e52929;
+  font-size: 0.85rem;
+  margin: 4px 0 0 24px;
+  text-align: left;
+}
+
+.required {
+  color: #e52929;
+  font-weight: bold;
+}
+
+.termsText {
+  font-size: 0.6rem;
+  color: var(--sap-horizon-neutral-8);
+  margin-top: 4px;
+  margin-left: 24px;
+}
+
+html[data-theme="dark"] .termsText {
+  color: var(--sap-horizon-neutral-7);
 }
 
 .loginWallPopup .createAccountLink {
