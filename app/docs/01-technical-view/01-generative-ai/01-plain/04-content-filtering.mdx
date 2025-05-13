@@ -407,57 +407,35 @@ through the APIs or the orchestration service.
 
 <h3>Tutorials and Learning Journeys</h3>
 
-- [Consumption of GenAI models Using Orchestration - A Beginner's Guide](https://developers.sap.com/tutorials/ai-core-orchestration-consumption.html) (SAP Cloud SDK) from [Generative AI with SAP AI Core](https://developers.sap.com/group.sap-ai-core-generative.html)
+- [Defining content filters](https://developers.sap.com/tutorials/ai-core-orchestration-consumption-opt.html#1e1c51eb-2030-4b28-891b-168429b8b2cb) (SAP Generative AI hub SDK) from [Generative AI with SAP AI Core](https://developers.sap.com/group.sap-ai-core-generative.html)
 
 <h3>Reference Code</h3>
 
-<ul className="download-source-link-in-list-container">
-  <li>
-    <strong>
-      <TrackableLink
-        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/java"
-        target="_blank"
-        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
-      >
-        <span>SAP BTP AI Best Practices - Sample Code</span>
-      </TrackableLink>
-    </strong>
-  </li>
-</ul>
-- [Sample Spring App example](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app) - See the specific files [`OpenAiService.java`](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers/OpenAiController.java)
-and [`OpenAiController.java`](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers/OpenAiController.java) to interact with
-the service.
+- [SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/java)
 
-<h3>Relevant Code</h3>
-
-Simple code demonstrating AI capabilities using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app).
+- [Sample Spring App example](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app) (Refer to service [ai-sdk-java/](https://github.com/SAP/ai-sdk-java/tree/main)…/[services](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/services)/SpringAiOrchestrationService.java and the controller to interact with the service [ai-sdk-java](https://github.com/SAP/ai-sdk-java/tree/main)/…/[controllers](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers)/OrchestrationController.java)
 
 ```java
-@SuppressWarnings("unused") // The end-to-end test doesn't use this method
-@GetMapping("/streamChatCompletionDeltas")
-@Nonnull
-ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
-  final var message = "Can you give me the first 100 numbers of the Fibonacci sequence?";
-  final var stream = service.streamChatCompletionDeltas(message);
-  final var emitter = new ResponseBodyEmitter();
-  final Runnable consumeStream =
-      () -> {
-        final var totalOutput = new OpenAiChatCompletionOutput();
-        // try-with-resources ensures the stream is closed
-        try (stream) {
-          stream
-              .peek(totalOutput::addDelta)
-              .forEach(delta -> send(emitter, delta.getDeltaContent()));
-        } finally {
-          send(emitter, "\n\n-----Total Output-----\n\n" + objectToJson(totalOutput));
-          emitter.complete();
-        }
-      };
-  ThreadContextExecutors.getExecutor().execute(consumeStream);
-
-  // TEXT_EVENT_STREAM allows the browser to display the content as it is streamed
-  return ResponseEntity.ok().contentType(MediaType.TEXT_EVENT_STREAM).body(emitter);
-}
+@GetMapping("/inputFiltering/{policy}")
+  @Nonnull
+  Object inputFiltering(
+      @Nullable @RequestParam(value = "format", required = false) final String format,
+      @Nonnull @PathVariable("policy") final AzureFilterThreshold policy) {
+​
+    final OrchestrationChatResponse response;
+    try {
+      response = service.inputFiltering(policy);
+    } catch (OrchestrationClientException e) {
+      final var msg = "Failed to obtain a response as the content was flagged by input filter.";
+      log.debug(msg, e);
+      return ResponseEntity.internalServerError().body(msg);
+    }
+​
+    if ("json".equals(format)) {
+      return response;
+    }
+    return response.getContent();
+  }
 ```
 
     </TabItem>
@@ -537,18 +515,11 @@ ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
 
 ## Contributors
 
-- Marques, Luis
-- CIGAINA, MARCO
-- Rzhaksynskyi, Andrii
-- Stoyanov, Velizar
-- Rodriguez, Joel
-- Chopra, Aman
-- Bartler, Felix
-- Robledo, Francisco
-- Schulz, Robert
+- Stoyanov, Velizar 
 - Antonio, Dan
-- Humphries, Ian
-- Lange, Joerg
+- Marques, Luis
+- Robledo, Francisco
+- Cigaina, Marco
 
 </div>
 
