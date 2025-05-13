@@ -7,13 +7,629 @@ hide_title: true
 
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
-
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Icon from "@site/src/components/Icon";
+import LoginWall from "@site/src/components/LoginWall";
+import "@ui5/webcomponents-icons/dist/video.js";
+import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
+import TrackableLink from "@site/src/components/TrackableLink";
+import IconLinkButton from "@site/src/components/IconLinkButton";
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 
-<PageViewTracker featureName="BP_DATA_MASKING" />
+<PageViewTracker featureName="BP_DATA_MASKING"/>
 
-<div className="hero-header">
-  <h1>Data Masking</h1>
+<div className="hero-header"><h1>Data Masking</h1></div>
+
+<div className="section-with-background">
+    <div className="row">
+        <div className="col col--8">
+            <h2>Steps</h2>
+            <ol className="steps-list">
+                <li><a href="#1-overview">Overview</a></li>
+                <li><a href="#2-pre-requisites">Pre-requisites</a></li>
+                <li><a href="#3-key-choices-and-guidelines">Key Choices and Guidelines</a></li>
+                <li><a href="#4-implementation">Implementation</a></li>
+            </ol>
+        </div>
+        <div className="col col--4">
+            <ul className="resource-links">
+                <li>
+                    <a target="_blank"
+                       href={useBaseUrl(
+                           "generative-ai/data-masking/videos/BTP%20AI%20Best%20Practices%20-%20Data%20Masking.mp4")}>
+                        <Icon name="video"/>
+                        <span>Teaser</span>
+                    </a>
+                </li>
+                <LoginWall renderOnlyWhenLoggedIn={true}>
+                    <li>
+                        <a target="_blank"
+                           href={useBaseUrl(
+                               "generative-ai/data-masking/videos/BTP%20AI%20Best%20Practices%20-%20Data%20Masking.mp4")}>
+                            <Icon name="video"></Icon>
+                            <span>Webinar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank"
+                           href={useBaseUrl(
+                               "generative-ai/data-masking/pdfs/BTP%20AI%20Best%20Practices%20-%20Data%20masking.pdf")}>
+                            <Icon name="pdf-attachment"></Icon>
+                            <span>Webinar (PDF Presentation)</span>
+                        </a>
+                    </li>
+                </LoginWall>
+            </ul>
+        </div>
+    </div>
 </div>
 
-In progress...
+## <span className="step-number">1</span> <span className="step-title">Overview</span>
+
+### Description
+
+Data masking is a crucial technique used to protect sensitive information when interacting with Large Language Models (LLMs). It involves replacing identifiable or confidential data within prompts with placeholder text, ensuring that such information is not exposed to third-party models. This approach is particularly important for safeguarding personally identifiable information (PII) and other sensitive details.
+
+Advanced pattern matching and machine learning algorithms are used to identify sensitive data within prompts. Once identified, the sensitive data is replaced with generic placeholders, such as `<Person_0>` for names or `<Organization_1>` for company names. The masked prompt is then processed by the LLM without exposing the original sensitive information. After receiving the response from the LLM, the masked data can be reverted back to its original form if necessary, ensuring that any generated output remains relevant and accurate. AI Core supports [data masking](https://help.sap.com/docs/AI_CORE/2d6c5984063c40a59eda62f4a9135bee/data-masking?locale=en-US&version=CLOUD&q=masking) as a feature.
+
+### Expected Outcome
+
+The expected outcome after implementing data masking is to ensure that sensitive information is protected and not exposed during data processing and analysis. This helps in maintaining data privacy and security, which is crucial for compliance with various regulations and standards.
+
+### Benefits
+
+- **Protects Sensitive Information**: Data masking ensures that personally identifiable information (PII), financial data, or any confidential business information isn’t exposed to the LLM.
+- **Prevents Data Leakage into Model Training**: Even if the LLM operates in a stateless or non-retentive mode, some implementations may store prompts for debugging, analytics, or fine-tuning. Masking ensures that any accidentally stored data won’t include sensitive or proprietary information.
+- **Enables Safe Testing and Debugging**: By using masked data, developers and data scientists can test prompts, fine-tune models, and debug workflows without risking exposure of real user data.
+
+### Key Concepts
+
+- **Tokenization/Redaction**: Replacing sensitive data (e.g., names, IDs) with placeholders before sending the prompt.
+- **Context Preservation**: Ensuring the masked data maintains enough context for the LLM to generate meaningful responses.
+- **Reversible Mapping**: Optionally mapping masked outputs back to real data after inference for post-processing or display.
+
+<LoginWall>
+
+    ## <span className="step-number">2</span> <span className="step-title">Pre-requisites</span>
+
+    ### Commercial
+
+    - SAP AI Core with the “Extended” tier on SAP BTP
+
+    You can find pricing details for AI Core “Extended” in the [Discovery Center – AI
+    Core](https://discovery-center.cloud.sap/serviceCatalog/sap-ai-core?tab=service_plan&region=all&service_plan=extended&commercialModel=btpea).
+
+    ### Technical
+
+    1. Set up a SAP Business Technology Platform (SAP BTP) subaccount ([Setup
+    Guide](https://sap.sharepoint.com/sites/210313/SitePages/SAP%20Business%20Technology%20Platform%20(SAP%20BTP).aspx)).
+    2. Deploy SAP AI Core with extended service plan ([Setup
+    Guide](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20AI%20Core.aspx#setup)).
+    3. Configure the Orchestration service in AI Launchpad - ([Setup
+    Guide](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20AI%20Launchpad.aspx)).
+
+    ### High-level reference architecture
+
+    ![High-level Reference
+    Architecture](@site/static/generative-ai/data-masking/images/High-level_reference_architecture.webp)
+
+    ## <span className="step-number">3</span> <span className="step-title">Key Choices and Guidelines</span>
+
+    Data masking and anonymization are essential techniques to ensure **data privacy** and **security**, especially when
+    handling **personally identifiable information (PII)**. In the context of SAP AI Core service, these techniques can
+    be implemented using various modules and methods to comply with security standards and maintain usability.
+
+    You can find some more information on privacy preservation using LLMs [here](https://arxiv.org/abs/2309.08628).
+
+    ### Define scope
+
+    - **Guideline**: Identify sensitive data types to be masked, such as:
+    - Personally Identifiable Information (PII): names, emails, phone numbers, IDs
+    - Financial data: credit card numbers, account balances
+    - Health data (for HIPAA compliance)
+
+    To see the full list of PII detected by **AI Core** anonymisation service you can refer to this
+    [wiki](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/data-masking?locale=en-US).
+
+    - **Choice**: Use static rules (e.g., regex patterns) or ML-based classifiers for data detection.
+
+    More information for navigating data privacy with LLMs can be found
+    [here](https://repository.gatech.edu/server/api/core/bitstreams/3abad316-4fdc-4699-b98b-7fbd2dfd5190/content).
+
+    ### Choose Masking Technique
+
+    - **Anonymization**: replaces personally identifiable information in chosen categories with a placeholder (e.g.,
+    `{{MASKED_ENTITY}}`). This method is irreversible, meaning the original data cannot be retrieved once anonymized. It
+    is useful for scenarios where data privacy is paramount, but it may limit the model's ability to process the input
+    due to loss of context.
+
+    - **Pseudonymization**: substitutes personally identifiable information with reversible tokens (e.g.,
+    `{{MASKED_ENTITY_ID}}`). This method allows the original data to be unmasked in the response, providing a balance
+    between privacy and usability.
+
+    - **Redaction**: Fully remove or obscure the sensitive parts.
+
+    Note: Current data masking SAP model used by AI Core supports only anonymisation for compliance purposes.
+
+    ### Preserve Prompt Intent
+
+    - **Guideline**: Ensure that masking doesn’t distort the semantic meaning of the input. For example:
+    - Instead of “John Doe ordered 10 boxes,” → use “`{{CUSTOMER_NAME}}` ordered 10 boxes.”
+
+    - **Choice**: Balance between anonymization and utility—over-masking may reduce LLM accuracy.
+
+    ### Evaluate Compliance & Risk
+
+    - **Guideline**: Ensure your approach aligns with company policies and regulations (e.g., GDPR, HIPAA).
+    - **Choice**: Work with legal and data privacy teams to define acceptable masking standards.
+
+    ### Test & Monitor
+
+    - **Guideline**: Regularly test prompts with masked vs. unmasked inputs to ensure quality and accuracy.
+    - **Choice**: Include masking logic in your CI pipeline or prompt evaluation tools.
+
+    More information about secure analytics with data masking [here](https://ieeexplore.ieee.org/document/10433801).
+
+    More information about the data masking provided by AI Core can be found
+    [here](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/data-masking?locale=en-US).
+
+    ## <span className="step-number">4</span> <span className="step-title">Implementation</span>
+
+    Below you can find the necessary information to develop a project in your favorite language using the [official SAP
+    Libraries and SDKs](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/libraries-and-sdks).
+
+    ### Programming Model Selection Guidelines
+
+    When developing AI applications within the SAP ecosystem, consider the following recommendations:
+
+    - **Backend-Only API**: Use **Python** (well-maintained) or **JavaScript/TypeScript** (strong async capabilities,
+    Node.js ecosystem).
+    - **Fullstack Application (UI & Backend)**: Use **CAP** (Cloud Application Programming Model) for optimized
+    performance, scalability, and seamless SAP integration.
+
+    While these are general best practices, the final choice should align with your team’s expertise and project
+    requirements.
+
+    <div className="tabs-with-background">
+    <Tabs groupId="language">
+        <TabItem value="python" label="Python" default>
+
+            <TrackableLink
+                href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/python"
+                className="button button--primary button--lg download-source-btn--tab"
+                target="_blank"
+                trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+            >
+                <span>Download Source Code</span>
+            </TrackableLink>
+
+            <h3>Recommendation</h3>
+
+            There are multiple SDKs available for Python. We recommend using the [SAP Generative AI hub
+            SDK](https://pypi.org/project/generative-ai-hub-sdk/) to harness the power of generative AI models, and the
+            [SAP AI Core SDK](https://pypi.org/project/ai-core-sdk/) along with the [AI API Client
+            SDK](https://pypi.org/project/ai-api-client-sdk/) for managing the AI Core lifecycle efficiently.
+
+            <h3>SDK</h3>
+
+            With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
+            Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
+            through LangChain or the orchestration service.
+
+            - **[SAP Generative AI hub SDK](https://pypi.org/project/generative-ai-hub-sdk/)** **(Recommended for
+            building apps)**
+            - [SAP AI Core SDK](https://pypi.org/project/ai-core-sdk/) and [AI API Client
+            SDK](https://pypi.org/project/ai-api-client-sdk/) (managing the AI Core lifecycle)
+
+            <h3>Tutorials and Learning Journeys</h3>
+
+            - [Setting up Data
+            Masking](https://developers.sap.com/tutorials/ai-core-orchestration-consumption-opt.html#7187fbc0-036c-483b-a1e8-a7846b27f1e2)
+            (Step 3 of the Learning Journey) from [Generative AI with SAP AI
+            Core](https://developers.sap.com/group.sap-ai-core-generative.html)
+
+            <h3>Reference Code</h3>
+
+            <ul className="download-source-link-in-list-container">
+                <li>
+                    <strong>
+                        <TrackableLink
+                            href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/python"
+                            target="_blank"
+                            trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS">
+                            <span>SAP BTP AI Best Practices - Sample Code</span>
+                        </TrackableLink>
+                    </strong>
+                </li>
+            </ul>
+            - [SAP Generative AI hub SDK - Data
+            Masking](https://help.sap.com/doc/generative-ai-hub-sdk/CLOUD/en-US/_reference/orchestration-service.html#data-masking)
+
+            <h4>Additional</h4>
+
+            -
+            [ai-core-samples](https://github.com/SAP-samples/ai-core-samples/blob/main/11_orchestration/orchestration%20with%20sdk%202.ipynb)
+            (the “Step 2: Setup Data Masking” section)
+
+            <h4>Relevant Code</h4>
+
+            ```python
+            from gen_ai_hub.orchestration.utils import load_text_file
+            from gen_ai_hub.orchestration.models.data_masking import DataMasking
+            from gen_ai_hub.orchestration.models.sap_data_privacy_integration import SAPDataPrivacyIntegration, MaskingMethod, \
+                ProfileEntity
+
+            data_masking = DataMasking(
+                providers=[
+                    SAPDataPrivacyIntegration(
+                        method=MaskingMethod.ANONYMIZATION,  # or MaskingMethod.PSEUDONYMIZATION
+                        entities=[
+                            ProfileEntity.EMAIL,
+                            ProfileEntity.PHONE,
+                            ProfileEntity.PERSON,
+                            ProfileEntity.ORG,
+                            ProfileEntity.LOCATION
+                        ]
+                    )
+                ]
+            )
+
+            config = OrchestrationConfig(
+                template=Template(
+                    messages=[
+                        SystemMessage("You are a helpful AI assistant."),
+                        UserMessage("Summarize the following CV in 10 sentences: {{?orgCV}}"),
+                    ]
+                ),
+                llm=LLM(
+                    name="gpt-4o",
+                ),
+                data_masking=data_masking
+            )
+
+            cv_as_string = load_text_file("data/cv.txt")
+
+            result = orchestration_service.run(
+                config=config,
+                template_values=[
+                    TemplateValue(name="orgCV", value=cv_as_string)
+                ]
+            )
+            ```
+
+        </TabItem>
+
+        <TabItem value="javascript-typescript" label="JavaScript/TypeScript">
+
+            <TrackableLink
+                href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/typescript"
+                className="button button--primary button--lg download-source-btn--tab"
+                target="_blank"
+                trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+            >
+                <span>Download Source Code</span>
+            </TrackableLink>
+
+            <h3>Recommendation</h3>
+
+            The [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js) is the official SAP AI SDK for TypeScript.
+
+            <h3>SDK</h3>
+
+            With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
+            Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
+            through langchain or the orchestration service.
+
+            - [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js)
+
+            <h3>Tutorials and Learning Journeys</h3>
+
+            - [Setting up Data
+            Masking](https://developers.sap.com/tutorials/ai-core-orchestration-consumption-opt.html#1e1c51eb-2030-4b28-891b-168429b8b2cb)
+            (SAP Generative AI hub SDK) from [Generative AI with SAP AI
+            Core](https://developers.sap.com/group.sap-ai-core-generative.html)
+
+            <h3>Reference Code</h3>
+
+            <ul className="download-source-link-in-list-container">
+                <li>
+                    <strong>
+                        <TrackableLink
+                            href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/typescript"
+                            target="_blank"
+                            trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+                        >
+                            <span>SAP BTP AI Best Practices - Sample Code</span>
+                        </TrackableLink>
+                    </strong>
+                </li>
+            </ul>
+            - [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) - Sample Code (refer to the
+            **orchestrationCompletionMasking** function located in the
+            [ai-sdk-js/sample-code/src/orchestration.ts](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts)
+            file)
+
+
+            ```typescript
+            async function orchestrationCompletionMasking(): Promise<
+              string | undefined
+            > {
+              const orchestrationClient = new OrchestrationClient({
+                llm: {
+                  model_name: 'gpt-4-32k'
+                },
+                templating: {
+                  template: [
+                    {
+                      role: 'user',
+                      content:
+                        'Please write an email to {{?user}} ({{?email}}), informing them about the amazing capabilities of generative AI! Be brief and concise, write at most 6 sentences.'
+                    }
+                  ]
+                },
+                masking: {
+                  masking_providers: [
+                    {
+                      type: 'sap_data_privacy_integration',
+                      method: 'pseudonymization',
+                      entities: [{ type: 'profile-email' }, { type: 'profile-person' }]
+                    }
+                  ]
+                }
+              });
+
+              const response = await orchestrationClient.chatCompletion({
+                inputParams: { user: 'Alice Anderson', email: 'alice.anderson@sap.com' }
+              });
+              return response.getContent();
+            }
+            ```
+
+        </TabItem>
+
+        <TabItem value="cap-app" label="CAP App">
+
+            <TrackableLink
+                href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/cap"
+                className="button button--primary button--lg download-source-btn--tab"
+                target="_blank"
+                trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+            >
+                <span>Download Source Code</span>
+            </TrackableLink>
+
+            <h3>Recommendation</h3>
+
+            There are 2 SDKs available for developing CAP applications, we recommend using the [SAP Cloud SDK for
+            AI](https://github.com/SAP/ai-sdk-js)
+            because it's the official SAP AI SDK, but the [CAP LLM Plugin](https://www.npmjs.com/package/cap-llm-plugin)
+            has great code sample code to learn from.
+
+            <h3>SDKs</h3>
+
+            With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
+            Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
+            through langchain or the orchestration service.
+
+            - **[SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js) (Recommended)**
+            - [CAP LLM Plugin](https://www.npmjs.com/package/cap-llm-plugin)
+
+            <h3>Tutorials and Learning Journeys</h3>
+
+            - [Setting up Data
+            Masking](https://developers.sap.com/tutorials/ai-core-orchestration-consumption-opt.html#1e1c51eb-2030-4b28-891b-168429b8b2cb)
+            (SAP Generative AI hub SDK) from [Generative AI with SAP AI
+            Core](https://developers.sap.com/group.sap-ai-core-generative.html)
+
+            <h3>Reference Code</h3>
+
+            <ul className="download-source-link-in-list-container">
+                <li>
+                    <strong>
+                        <TrackableLink
+                            href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/cap"
+                            target="_blank"
+                            trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+                        >
+                            <span>SAP BTP AI Best Practices - Sample Code</span>
+                        </TrackableLink>
+                    </strong>
+                </li>
+            </ul>
+            - [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) - Sample Code (refer to the
+            **orchestrationCompletionMasking** function located in the
+            [ai-sdk-js/sample-code/src/orchestration.ts](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts)
+            file)
+
+
+            ```typescript
+            async function orchestrationCompletionMasking(): Promise<
+              string | undefined
+            > {
+              const orchestrationClient = new OrchestrationClient({
+                llm: {
+                  model_name: 'gpt-4-32k'
+                },
+                templating: {
+                  template: [
+                    {
+                      role: 'user',
+                      content:
+                        'Please write an email to {{?user}} ({{?email}}), informing them about the amazing capabilities of generative AI! Be brief and concise, write at most 6 sentences.'
+                    }
+                  ]
+                },
+                masking: {
+                  masking_providers: [
+                    {
+                      type: 'sap_data_privacy_integration',
+                      method: 'pseudonymization',
+                      entities: [{ type: 'profile-email' }, { type: 'profile-person' }]
+                    }
+                  ]
+                }
+              });
+            ​
+              const response = await orchestrationClient.chatCompletion({
+                inputParams: { user: 'Alice Anderson', email: 'alice.anderson@sap.com' }
+              });
+              return response.getContent();
+            }
+            ```
+
+        </TabItem>
+
+        <TabItem value="java" label="Java">
+
+            <TrackableLink
+                href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models/java"
+                className="button button--primary button--lg download-source-btn--tab"
+                target="_blank"
+                trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+            >
+                <span>Download Source Code</span>
+            </TrackableLink>
+
+            <h3>Recommendation</h3>
+
+            There is an official [SAP Java SDK](https://github.com/SAP/ai-sdk-java) for accessing foundation models
+            through AI Core service. It is recommended to
+            use the SDK and follow the examples in the given repository.
+
+            <h3>SDKs</h3>
+
+            With this SDK you can leverage the power of generative models available in the generative AI Hub of SAP AI
+            Core, it provides model access by wrapping the native SDKs of the model providers (OpenAI, Amazon, Google),
+            through the APIs or the orchestration service.
+
+            - [SAP Cloud SDK for AI (for Java)](https://github.com/SAP/ai-sdk-java)
+
+            <h3>Tutorials and Learning Journeys</h3>
+
+            - [Setting up Data
+            Masking](https://developers.sap.com/tutorials/ai-core-orchestration-consumption-opt.html#1e1c51eb-2030-4b28-891b-168429b8b2cb)
+            (SAP Generative AI hub SDK) from [Generative AI with SAP AI
+            Core](https://developers.sap.com/group.sap-ai-core-generative.html)
+
+            <h3>Reference Code</h3>
+
+            <ul className="download-source-link-in-list-container">
+                <li>
+                    <strong>
+                        <TrackableLink
+                            href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/java"
+                            target="_blank"
+                            trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+                        >
+                            <span>SAP BTP AI Best Practices - Sample Code</span>
+                        </TrackableLink>
+                    </strong>
+                </li>
+            </ul>
+            - [Sample Spring App example](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app) (Refer to
+            service
+            [ai-sdk-java/…/services/SpringAiOrchestrationService.java](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/services/SpringAiOrchestrationService.java)
+            and the controller to interact with the service
+            [ai-sdk-java/…/controllers/OrchestrationController.java](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers/OrchestrationController.java))
+
+            ```java
+             @GetMapping("/maskingAnonymization")
+              @Nonnull
+              Object maskingAnonymization(
+                  @Nullable @RequestParam(value = "format", required = false) final String format) {
+                final var response = service.maskingAnonymization(DPIEntities.PERSON);
+                if ("json".equals(format)) {
+                  return response;
+                }
+                return response.getContent();
+              }
+            ```
+
+        </TabItem>
+    </Tabs>
+</div>
+
+    <br/>
+
+    <div className="section-with-background blue">
+
+        ## <span className="post-article-first-title">Related Best Practices</span>
+
+        <ul className="button-grid">
+            <IconLinkButton href="/docs/technical-view/generative-ai/plain/access-to-generative-ai-models"
+                            text="Access to Generative AI Models"/>
+            <IconLinkButton href="/docs/technical-view/generative-ai/plain/prompt-templating" text="Prompt Templating"/>
+            <IconLinkButton href="/docs/technical-view/generative-ai/plain/content-filtering" text="Content Filtering"/>
+        </ul>
+
+    </div>
+
+    <br/>
+
+    <div className="section-with-background blue">
+
+        ## Related AI Capabilities
+
+        <h3>
+            <a href={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis &
+                Processing</a>
+        </h3>
+
+        <ul className="button-grid">
+            <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/summarization-of-text"
+                            text="Summarization of Text"/>
+            <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/translation-of-text"
+                            text="Translation of Text"/>
+            <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/sentiment-analysis-of-text"
+                            text="Sentiment Analysis of Text"/>
+            <IconLinkButton
+                href="/docs/functional-view/information-analysis-and-processing/information-classification-in-categories"
+                text="Information Classification in Categories"/>
+            <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/image-analysis"
+                            text="Image Analysis"/>
+        </ul>
+
+        <h3>
+            <a href={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</a>
+        </h3>
+
+        <ul className="button-grid">
+            <IconLinkButton href="/docs/functional-view/content-creation/generate-text-generic-knowledge"
+                            text="Generate Text based on Generic Knowledge"/>
+            <IconLinkButton href="/docs/functional-view/content-creation/review-and-refine-text"
+                            text="Review and Refine Text"/>
+            <IconLinkButton href="/docs/functional-view/content-creation/generate-image-from-text"
+                            text="Generate Image from Text"/>
+            <IconLinkButton href="/docs/functional-view/content-creation/describe-images" text="Describe Images"/>
+        </ul>
+
+        <h3>
+            <a href={useBaseUrl("/docs/functional-view/conversational-interaction")}>Conversational Interaction</a>
+        </h3>
+
+        <ul className="button-grid">
+            <IconLinkButton
+                href="/docs/functional-view/conversational-interaction/conversational-interaction-with-applications"
+                text="Conversational Interaction with Applications"/>
+            <IconLinkButton
+                href="/docs/functional-view/conversational-interaction/conversational-interaction-with-analytics"
+                text="Conversational Interaction with Analytics"/>
+        </ul>
+
+    </div>
+
+    <br/>
+
+    <div className="section-with-background gradient-violet-blue">
+
+        ## Contributors
+
+        - Stoyanov, Velizar
+        - Antonio, Dan
+        - Marques, Luis
+        - Robledo, Francisco
+        - CIGAINA, MARCO
+
+    </div>
+
+</LoginWall>
