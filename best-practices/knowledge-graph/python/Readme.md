@@ -17,20 +17,22 @@ knowledge-graph/
 ## Included Content
 
 - ✅ **Prompt Engineering Templates**  
-  `prompts.py` defines reusable LangChain prompt templates for RDF triplet extraction — aligned with SAP-approved node and relation schemas.
+  `prompts.py` defines reusable LangChain prompt templates for RDF triplet extraction — you can update it for your domain.
 
 - 📊 **Notebook Demo**  
   `KG-RDF-creation-grounding-visualisation-BP07-BP08-BestPractice.ipynb` demonstrates:
   - Extracting entities and relationships
   - Filtering by allowed attributes
   - Creating RDF graphs from plain text
+  - Upload KG to HANA DB
+  - Using som attributes for searching in a new document
   - Visualizing the result using Python tooling
 
 ## Use Case
 
 This implementation supports the BTP AI Best Practices themes:
 - **KG RAG – Overall and KG Creation**
-- **KG RAG – Query Pipeline** *(visualization and structure generation only)*
+- **KG RAG – Query Pipeline** 
 
 > For full pipeline integration and execution, see the parent folder's `README.md`.
 
