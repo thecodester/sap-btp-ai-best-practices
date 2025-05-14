@@ -18,6 +18,7 @@ const LoginWall: React.FC<LoginWallProps> = ({
 }) => {
   const { isLoggedIn, login, isLoading } = useAuth();
   const logoUrl = useBaseUrl("/img/logo.svg");
+  const privacyUrl = useBaseUrl("/privacy");
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [showTermsError, setShowTermsError] = useState(false);
 
@@ -89,7 +90,7 @@ const LoginWall: React.FC<LoginWallProps> = ({
             <p className={styles.termsText} style={{ marginBottom: "0", textAlign: "center" }}>
               By clicking "Login with your SAP account", you agree to SAP BTP AI Best Practices' terms. You can learn about how SAP BTP AI Best Practices collects, uses, and shares
               data in the{" "}
-              <a href="https://sap-samples.github.io/sap-btp-ai-best-practices/privacy" target="_blank" rel="noopener noreferrer">
+              <a href={privacyUrl} target="_blank" rel="noopener noreferrer">
                 SAP BTP AI Best Practices' Privacy Statement
               </a>
               .
