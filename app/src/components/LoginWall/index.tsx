@@ -12,8 +12,8 @@ interface LoginWallProps {
 
 const LoginWall: React.FC<LoginWallProps> = ({
   children,
-  message = "Log in or create a free SAP account to unlock this exclusive content. Get started in moments!",
-  title = "Unlock Exclusive Content",
+  message = "Log in or create a free SAP account to unlock this content. Get started in moments!",
+  title = "Unlock Free Content",
   renderOnlyWhenLoggedIn = false
 }) => {
   const { isLoggedIn, login, isLoading } = useAuth();
