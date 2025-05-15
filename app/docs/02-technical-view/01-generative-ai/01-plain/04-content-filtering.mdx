@@ -1,5 +1,4 @@
 ---
-sidebar_position: 1
 title: "Content Filtering"
 description: "Ensure that the generative AI models in SAP AI Core produce safe and appropriate content, adhering to the specified content safety criteria thus ensuring compliance and alignment is achieved in generated text."
 hide_title: true
@@ -70,10 +69,10 @@ import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
 
 <LoginWall renderOnlyWhenLoggedIn={true}>
   <TrackableLink
-    href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/access-to-generative-ai-models"
+    href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering"
     className="button button--primary button--lg download-source-btn"
     target="_blank"
-    trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+    trackingFeature="DOWNLOAD_CONTENT_FILTERING"
   >
     <span>Download Source Code</span>
   </TrackableLink>
@@ -186,6 +185,15 @@ requirements.
 <Tabs groupId="language">
   <TabItem value="python" label="Python" default>
 
+<TrackableLink
+  href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/python"
+  className="button button--primary button--lg download-source-btn--tab"
+  target="_blank"
+  trackingFeature="DOWNLOAD_CONTENT_FILTERING"
+>
+  <span>Download Source Code</span>
+</TrackableLink>
+
 <h3>Recommendation</h3>
 
 There are multiple SDKs available for Python. We recommend using the [SAP Generative AI hub SDK](https://pypi.org/project/generative-ai-hub-sdk/) to harness
@@ -209,7 +217,20 @@ through langchain or the orchestration service.
 
 <h4>Recommended</h4>
 
-- [SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/python)
+<ul className="download-source-link-in-list-container">
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/python"
+        target="_blank"
+        trackingFeature="DOWNLOAD_CONTENT_FILTERING"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
+</ul>
+
 - [SAP Generative AI hub SDK - Content Filtering](https://help.sap.com/doc/generative-ai-hub-sdk/CLOUD/en-US/_reference/orchestration-service.html#content-filtering)
 
 <h4>Additional</h4>
@@ -255,6 +276,15 @@ config = OrchestrationConfig(
   </TabItem>
   <TabItem value="javascript-typescript" label="JavaScript/TypeScript">
 
+<TrackableLink
+  href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/typescript"
+  className="button button--primary button--lg download-source-btn--tab"
+  target="_blank"
+  trackingFeature="DOWNLOAD_CONTENT_FILTERING"
+>
+  <span>Download Source Code</span>
+</TrackableLink>
+
 <h3>Recommendation</h3>
 
 The [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js) is the official SAP AI SDK for TypeScript.
@@ -273,7 +303,19 @@ through langchain or the orchestration service.
 
 <h3>Reference Code</h3>
 
-- [SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/typescript)
+<ul className="download-source-link-in-list-container">
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/typescript"
+        target="_blank"
+        trackingFeature="DOWNLOAD_CONTENT_FILTERING"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
+</ul>
 
 - [SAP Cloud SDK for AI - Sample Code](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) (refer to the **orchestrationInputFiltering** function located in the [ai-sdk-js/sample-code/src/orchestration.ts](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts) file)
 
@@ -315,6 +357,15 @@ export async function orchestrationInputFiltering(): Promise<ErrorResponse> {
   </TabItem>
   <TabItem value="cap-app" label="CAP App">
 
+<TrackableLink
+  href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/cap"
+  className="button button--primary button--lg download-source-btn--tab"
+  target="_blank"
+  trackingFeature="DOWNLOAD_CONTENT_FILTERING"
+>
+  <span>Download Source Code</span>
+</TrackableLink>
+
 <h3>Recommendation</h3>
 
 There are 2 SDKs available for developing CAP applications, we recommend using the [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js)
@@ -335,7 +386,19 @@ through langchain or the orchestration service.
 
 <h3>Reference Code</h3>
 
-- [SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/cap)
+<ul className="download-source-link-in-list-container">
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/cap"
+        target="_blank"
+        trackingFeature="DOWNLOAD_CONTENT_FILTERING"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
+</ul>
 
 - [SAP Cloud SDK for AI - Sample Code](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) (refer to the **orchestrationInputFiltering** function located in the [ai-sdk-js/sample-code/src/orchestration.ts](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts) file)
 
@@ -377,6 +440,15 @@ export async function orchestrationInputFiltering(): Promise<ErrorResponse> {
   </TabItem>
   <TabItem value="java" label="Java">
 
+<TrackableLink
+  href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/java"
+  className="button button--primary button--lg download-source-btn--tab"
+  target="_blank"
+  trackingFeature="DOWNLOAD_CONTENT_FILTERING"
+>
+  <span>Download Source Code</span>
+</TrackableLink>
+
 <h3>Recommendation</h3>
 
 There is an official [SAP Java SDK](https://github.com/SAP/ai-sdk-java) for accessing foundation models through AI Core service. It is recommended to
@@ -396,7 +468,19 @@ through the APIs or the orchestration service.
 
 <h3>Reference Code</h3>
 
-- [SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/java)
+<ul className="download-source-link-in-list-container">
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/content-filtering/java"
+        target="_blank"
+        trackingFeature="DOWNLOAD_CONTENT_FILTERING"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
+</ul>
 
 - [Sample Spring App example](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app) (Refer to service [ai-sdk-java/](https://github.com/SAP/ai-sdk-java/tree/main)…/[services](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/services)/SpringAiOrchestrationService.java and the controller to interact with the service [ai-sdk-java](https://github.com/SAP/ai-sdk-java/tree/main)/…/[controllers](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers)/OrchestrationController.java)
 

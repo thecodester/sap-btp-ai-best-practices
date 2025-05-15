@@ -1,5 +1,4 @@
 ---
-sidebar_position: 3
 title: "Data Masking"
 description: ""
 hide_title: true
@@ -67,6 +66,17 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
     </div>
   </div>
 </div>
+
+<LoginWall renderOnlyWhenLoggedIn={true}>
+  <TrackableLink
+    href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking"
+    className="button button--primary button--lg download-source-btn"
+    target="_blank"
+    trackingFeature="DOWNLOAD_DATA_MASKING"
+  >
+    <span>Download Source Code</span>
+  </TrackableLink>
+</LoginWall>
 
 ## <span className="step-number">1</span> <span className="step-title">Overview</span>
 
@@ -176,13 +186,14 @@ While these are general best practices, the final choice should align with your 
 <Tabs groupId="language">
 <TabItem value="python" label="Python" default>
 
-    <TrackableLink
-        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/python"
-        className="button button--primary button--lg download-source-btn--tab"
-        target="_blank"
-        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS">
-        <span>Download Source Code</span>
-    </TrackableLink>
+<TrackableLink
+  href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/python"
+  className="button button--primary button--lg download-source-btn--tab"
+  target="_blank"
+  trackingFeature="DOWNLOAD_DATA_MASKING"
+>
+  <span>Download Source Code</span>
+</TrackableLink>
 
 <h3>Recommendation</h3>
 
@@ -207,7 +218,7 @@ With this SDK you can leverage the power of generative models available in the g
       <TrackableLink
         href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/python"
         target="_blank"
-        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+        trackingFeature="DOWNLOAD_DATA_MASKING"
       >
         <span>SAP BTP AI Best Practices - Sample Code</span>
       </TrackableLink>
@@ -275,7 +286,7 @@ result = orchestration_service.run(
         href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/typescript"
         className="button button--primary button--lg download-source-btn--tab"
         target="_blank"
-        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS">
+        trackingFeature="DOWNLOAD_DATA_MASKING">
         <span>Download Source Code</span>
     </TrackableLink>
 
@@ -301,7 +312,7 @@ With this SDK you can leverage the power of generative models available in the g
       <TrackableLink
         href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/typescript"
         target="_blank"
-        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+        trackingFeature="DOWNLOAD_DATA_MASKING"
       >
         <span>SAP BTP AI Best Practices - Sample Code</span>
       </TrackableLink>
@@ -348,13 +359,14 @@ async function orchestrationCompletionMasking(): Promise<string | undefined> {
 
 <TabItem value="cap-app" label="CAP App">
 
-    <TrackableLink
-        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/cap"
-        className="button button--primary button--lg download-source-btn--tab"
-        target="_blank"
-        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS">
-        <span>Download Source Code</span>
-    </TrackableLink>
+<TrackableLink
+  href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/cap"
+  className="button button--primary button--lg download-source-btn--tab"
+  target="_blank"
+  trackingFeature="DOWNLOAD_DATA_MASKING"
+>
+  <span>Download Source Code</span>
+</TrackableLink>
 
 <h3>Recommendation</h3>
 
@@ -379,7 +391,7 @@ With this SDK you can leverage the power of generative models available in the g
       <TrackableLink
         href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/cap"
         target="_blank"
-        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+        trackingFeature="DOWNLOAD_DATA_MASKING"
       >
         <span>SAP BTP AI Best Practices - Sample Code</span>
       </TrackableLink>
@@ -426,13 +438,14 @@ async function orchestrationCompletionMasking(): Promise<string | undefined> {
 
 <TabItem value="java" label="Java">
 
-    <TrackableLink
-        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/java"
-        className="button button--primary button--lg download-source-btn--tab"
-        target="_blank"
-        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS">
-        <span>Download Source Code</span>
-    </TrackableLink>
+<TrackableLink
+  href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/java"
+  className="button button--primary button--lg download-source-btn--tab"
+  target="_blank"
+  trackingFeature="DOWNLOAD_DATA_MASKING"
+>
+  <span>Download Source Code</span>
+</TrackableLink>
 
 <h3>Recommendation</h3>
 
@@ -456,7 +469,7 @@ With this SDK you can leverage the power of generative models available in the g
       <TrackableLink
         href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/java"
         target="_blank"
-        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+        trackingFeature="DOWNLOAD_DATA_MASKING"
       >
         <span>SAP BTP AI Best Practices - Sample Code</span>
       </TrackableLink>
