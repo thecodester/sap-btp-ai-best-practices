@@ -20,7 +20,7 @@ export const trackEvent = async ({ toolName = TRACKING_CONFIG.toolName, featureN
   //   return;
   // }
 
-  console.log("window.isConsentEnabled(www.sap.com, 1)", window.isConsentEnabled("www.sap.com", 1));
+  console.log("window.isConsentEnabled(www.sap.com, 1) = ", window.isConsentEnabled("www.sap.com", 1));
 
   // setTimeout(() => {
   //   if (window.isConsentEnabled("www.sap.com", 1)) {

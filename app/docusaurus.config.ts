@@ -44,7 +44,7 @@ const config: Config = {
   // Add external scripts
   scripts: [
     {
-      src: `${baseUrl}globalConfigSAP.js`,
+      src: `${baseUrl}cookieConsentConfig.js`,
       async: false
     },
     {
@@ -52,9 +52,6 @@ const config: Config = {
       async: false
     }
   ],
-
-  // Use clientModules to add scripts with delay instead of direct scripts
-  clientModules: ["./src/client/delayedScripts.ts"],
 
   presets: [
     [
@@ -174,7 +171,7 @@ const config: Config = {
               to: "/cookies"
             },
             {
-              html: `<div id="teconsent-footer"></div>`
+              html: `<a class="footer__link-item open-cookie-preferences" href="#cookie-preferences">Cookie Preferences</a>`
             },
             {
               label: "Legal Disclosure",
