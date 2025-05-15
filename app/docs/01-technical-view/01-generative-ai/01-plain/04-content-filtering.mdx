@@ -44,29 +44,20 @@ import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
     <div className="col col--4">
       <ul className="resource-links">
         <li>
-          <a
-            target="_blank"
-            href={useBaseUrl("generative-ai/access-to-generative-ai-models/videos/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models%20(intro).mp4")}
-          >
+          <a target="_blank" href={useBaseUrl("generative-ai/content-filtering/videos/BTP%20AI%20Best%20Practices%20-%20Content%20Filtering%20intro.mp4")}>
             <Icon name="video" />
             <span>Teaser</span>
           </a>
         </li>
         <LoginWall renderOnlyWhenLoggedIn={true}>
           <li>
-            <a
-              target="_blank"
-              href={useBaseUrl("generative-ai/access-to-generative-ai-models/videos/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.mp4")}
-            >
+            <a target="_blank" href={useBaseUrl("generative-ai/content-filtering/videos/BTP%20AI%20Best%20Practices%20-%20Content%20filtering.mp4")}>
               <Icon name="video"></Icon>
               <span>Webinar</span>
             </a>
           </li>
           <li>
-            <a
-              target="_blank"
-              href={useBaseUrl("generative-ai/access-to-generative-ai-models/pdfs/SAP%20BTP%20AI%20Best%20Practices%20-%20Access%20to%20Generative%20AI%20Models.pdf")}
-            >
+            <a target="_blank" href={useBaseUrl("generative-ai/content-filtering/pdfs/BTP%20AI%20Best%20Practices%20-%20Content%20filtering.pdf")}>
               <Icon name="pdf-attachment"></Icon>
               <span>Webinar (PDF Presentation)</span>
             </a>
@@ -140,10 +131,11 @@ seamlessly with SAP applications and data on SAP BTP that supports full lifecycl
 
 ## <span className="step-number">3</span> <span className="step-title">Key Choices and Guidelines</span>
 
-When implementing LLM content filtering, several key choices and considerations are crucial for effectiveness, fairness, and scalability. 
+When implementing LLM content filtering, several key choices and considerations are crucial for effectiveness, fairness, and scalability.
 
 #### Filtering selection
-Selecting the right approach such as keyword-based, rule-based, or AI-driven moderation—affects accuracy and adaptability. Balancing strictness and flexibility is essential to minimize false positives and negatives while ensuring appropriate content cTontrol. 
+
+Selecting the right approach such as keyword-based, rule-based, or AI-driven moderation—affects accuracy and adaptability. Balancing strictness and flexibility is essential to minimize false positives and negatives while ensuring appropriate content cTontrol.
 
 AI core supports 2 filtering providers - [llama_guard_3_8b](https://github.com/meta-llama/PurpleLlama/blob/main/Llama-Guard3/8B/MODEL_CARD.md#hazard-taxonomy-and-policy) and [azure_content_safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/harm-categories?tabs=warning)
 
@@ -151,19 +143,24 @@ AI core supports 2 filtering providers - [llama_guard_3_8b](https://github.com/m
 - **llama_guard_3_8b**: you can configure fourteen different content categories using a boolean value. Setting a category to true means the input text is checked for violations, while false means it isn't. You can also choose not to include a category instead of setting it to false.
 
 #### Ethical considerations
+
 Certain ethical problems , such as **bias mitigation** and **fairness**, must be addressed to prevent disproportionate filtering of specific groups or viewpoints.
 
 In order to avoid ethical problems like bias, fairness, hate use the following:
-- **azure_content_safety**:  you need to use the Hate and Fairness category
+
+- **azure_content_safety**: you need to use the Hate and Fairness category
 - **llama_guard_3_8b**: you need to use hate and elections categories
 
 #### Performance Considerations
-Real-time performance is another critical factor, as filtering should be efficient without significantly delaying responses. 
+
+Real-time performance is another critical factor, as filtering should be efficient without significantly delaying responses.
 
 #### Oversight
- Continuous monitoring and updating of filtering policies and datasets are necessary to adapt to evolving language use and emerging threats. 
+
+Continuous monitoring and updating of filtering policies and datasets are necessary to adapt to evolving language use and emerging threats.
 
 #### Explainability
+
 Transparency in filtering decisions, including explainability and user feedback mechanisms, can improve trust and compliance with regulatory standards.
 
 More details on exact [input filtering](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/input-filtering?locale=en-US) and [output filtering](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/output-filtering?locale=en-US) implementation and usage can be found in the [AI Core Documentation](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/orchestration-workflow?locale=en-US).
@@ -258,7 +255,6 @@ config = OrchestrationConfig(
   </TabItem>
   <TabItem value="javascript-typescript" label="JavaScript/TypeScript">
 
-
 <h3>Recommendation</h3>
 
 The [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js) is the official SAP AI SDK for TypeScript.
@@ -281,18 +277,15 @@ through langchain or the orchestration service.
 
 - [SAP Cloud SDK for AI - Sample Code](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) (refer to the **orchestrationInputFiltering** function located in the [ai-sdk-js/sample-code/src/orchestration.ts](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts) file)
 
-
 ```typescript
 export async function orchestrationInputFiltering(): Promise<ErrorResponse> {
   // Build Azure content filter with only safe content allowed for hate and violence
   const azureContentSafetyFilter = buildAzureContentSafetyFilter({
-    Hate: 'ALLOW_SAFE',
-    Violence: 'ALLOW_SAFE'
+    Hate: "ALLOW_SAFE",
+    Violence: "ALLOW_SAFE"
   });
-​
   // Build Llama guard content filter with categories 'privacy' enabled
-  const llamaGuardFilter = buildLlamaGuardFilter('privacy');
-​
+  const llamaGuardFilter = buildLlamaGuardFilter("privacy");
   const orchestrationClient = new OrchestrationClient({
     llm,
     templating,
@@ -302,28 +295,25 @@ export async function orchestrationInputFiltering(): Promise<ErrorResponse> {
       }
     }
   });
-​
   try {
     // Trigger the input filters which results in a 400 Bad Request error
     await orchestrationClient.chatCompletion({
-      inputParams: { input: 'My social insurance number is ABC123456789.' } // Should be filtered by the Llama guard filter
+      inputParams: { input: "My social insurance number is ABC123456789." } // Should be filtered by the Llama guard filter
     });
-    throw new Error('Input was not filtered as expected.');
+    throw new Error("Input was not filtered as expected.");
   } catch (error: any) {
     if (error.cause?.status === 400) {
-      logger.info('Input was filtered as expected.');
+      logger.info("Input was filtered as expected.");
     } else {
       throw error;
     }
     return error.cause?.response?.data;
   }
 }
-​
 ```
 
   </TabItem>
   <TabItem value="cap-app" label="CAP App">
-
 
 <h3>Recommendation</h3>
 
@@ -353,13 +343,11 @@ through langchain or the orchestration service.
 export async function orchestrationInputFiltering(): Promise<ErrorResponse> {
   // Build Azure content filter with only safe content allowed for hate and violence
   const azureContentSafetyFilter = buildAzureContentSafetyFilter({
-    Hate: 'ALLOW_SAFE',
-    Violence: 'ALLOW_SAFE'
+    Hate: "ALLOW_SAFE",
+    Violence: "ALLOW_SAFE"
   });
-​
   // Build Llama guard content filter with categories 'privacy' enabled
-  const llamaGuardFilter = buildLlamaGuardFilter('privacy');
-​
+  const llamaGuardFilter = buildLlamaGuardFilter("privacy");
   const orchestrationClient = new OrchestrationClient({
     llm,
     templating,
@@ -369,28 +357,25 @@ export async function orchestrationInputFiltering(): Promise<ErrorResponse> {
       }
     }
   });
-​
   try {
     // Trigger the input filters which results in a 400 Bad Request error
     await orchestrationClient.chatCompletion({
-      inputParams: { input: 'My social insurance number is ABC123456789.' } // Should be filtered by the Llama guard filter
+      inputParams: { input: "My social insurance number is ABC123456789." } // Should be filtered by the Llama guard filter
     });
-    throw new Error('Input was not filtered as expected.');
+    throw new Error("Input was not filtered as expected.");
   } catch (error: any) {
     if (error.cause?.status === 400) {
-      logger.info('Input was filtered as expected.');
+      logger.info("Input was filtered as expected.");
     } else {
       throw error;
     }
     return error.cause?.response?.data;
   }
 }
-
 ```
 
   </TabItem>
   <TabItem value="java" label="Java">
-  
 
 <h3>Recommendation</h3>
 
@@ -515,7 +500,7 @@ through the APIs or the orchestration service.
 
 ## Contributors
 
-- Stoyanov, Velizar 
+- Stoyanov, Velizar
 - Antonio, Dan
 - Marques, Luis
 - Robledo, Francisco

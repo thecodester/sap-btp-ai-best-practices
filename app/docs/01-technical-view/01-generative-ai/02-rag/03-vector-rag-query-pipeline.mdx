@@ -22,44 +22,52 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 </div>
 
 <div className="section-with-background">
-    <div className="row">
-        <div className="col col--8">
-            <h2>Steps</h2>
-            <ol className="steps-list">
-                <li><a href="#1-overview">Overview</a></li>
-                <li><a href="#2-pre-requisites">Pre-requisites</a></li>
-                <li><a href="#3-key-choices-and-guidelines">Key Choices and Guidelines</a></li>
-                <li><a href="#4-implementation">Implementation</a></li>
-            </ol>
-        </div>
-        <div className="col col--4">
-            <ul className="resource-links">
-                <li>
-                    <a target="_blank" href={useBaseUrl(
-                        "generative-ai/vector-rag-query-pipeline/videos/BTP%20AI%20Best%20Practices%20-%20RAG%20Query%20Pipeline.mp4")}>
-                        <Icon name="video"/>
-                        <span>Teaser</span>
-                    </a>
-                </li>
-                <LoginWall renderOnlyWhenLoggedIn={true}>
-                    <li>
-                        <a target="_blank" href={useBaseUrl(
-                            "generative-ai/vector-rag-query-pipeline/videos/BTP%20AI%20Best%20Practices%20-%20RAG%20Query%20Pipeline.mp4")}>
-                            <Icon name="video"/>
-                            <span>Webinar</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href={useBaseUrl(
-                            "generative-ai/vector-rag-query-pipeline/pdfs/BTP%20AI%20Best%20Practices%20-%20RAG%20Query%20Pipeline.pdf")}>
-                            <Icon name="pdf-attachment"/>
-                            <span>Webinar (PDF Presentation)</span>
-                        </a>
-                    </li>
-                </LoginWall>
-            </ul>
-        </div>
+  <div className="row">
+    <div className="col col--8">
+      <h2>Steps</h2>
+      <ol className="steps-list">
+        <li>
+          <a href="#1-overview">Overview</a>
+        </li>
+        <li>
+          <a href="#2-pre-requisites">Pre-requisites</a>
+        </li>
+        <li>
+          <a href="#3-key-choices-and-guidelines">Key Choices and Guidelines</a>
+        </li>
+        <li>
+          <a href="#4-implementation">Implementation</a>
+        </li>
+      </ol>
     </div>
+    <div className="col col--4">
+      <ul className="resource-links">
+        <li>
+          <a
+            target="_blank"
+            href={useBaseUrl("generative-ai/vector-rag-query-pipeline/videos/BTP%20AI%20Best%20Practices%20-%20Vector-based%20RAG%20Query%20Pipeline%20intro.mp4")}
+          >
+            <Icon name="video" />
+            <span>Teaser</span>
+          </a>
+        </li>
+        <LoginWall renderOnlyWhenLoggedIn={true}>
+          <li>
+            <a target="_blank" href={useBaseUrl("generative-ai/vector-rag-query-pipeline/videos/BTP%20AI%20Best%20Practices%20-%20Vector-based%20RAG%20Query%20Pipeline.mp4")}>
+              <Icon name="video" />
+              <span>Webinar</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href={useBaseUrl("generative-ai/vector-rag-query-pipeline/pdfs/BTP%20AI%20Best%20Practices%20-%20Vector-based%20RAG%20Query%20Pipeline.pdf")}>
+              <Icon name="pdf-attachment" />
+              <span>Webinar (PDF Presentation)</span>
+            </a>
+          </li>
+        </LoginWall>
+      </ul>
+    </div>
+  </div>
 </div>
 
 ## <span className="step-number">1</span> <span className="step-title">Overview</span>
@@ -67,7 +75,6 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 ### Description
 
 Retrieval-Augmented Generation (RAG) is a powerful technique that combines the strengths of retrieval-based and [Large Language generative models (LLMs)](https://sap.sharepoint.com/sites/210313/SitePages/Glossary.aspx#llm-%28large-language-model%29) to enhance the quality and relevance of generated content. Implementing a Vector Based RAG is a two step approach-
-
 
 1. Embedding Creation - Embeddings are the numerical vector representation of the knowledge segments. In this step, you convert knowledge base to vectors and store them in [vector database](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/introduction?locale=en-US&q=HANA+VEctor+Engine). To have a better understanding of this topic and related best practices, it is recommended to go through [Vector Embedding(1/1)](https://sap.sharepoint.com/sites/210313/SitePages/GenAI%20-%20RAG%20-%20Vector%20Database%20-%20Overall%20and%20Embedding%20Creation.aspx) part in this series.
 2. Query Pipeline - In this step we leverage the vector representation of the knowledge base and augment the LLM context. To achieve this, first we convert the question into vector embedding and then perform similarity search in Vector database and fetch the best matches. Post that we leverage these best matches as augmented context along with prompt to LLM to generate a response for the user's question.
@@ -79,6 +86,7 @@ In this best practice we will focus on querying aspect when using RAG technique.
 In the context of SAP's Generative AI Hub, it serves as a central platform for orchestrating AI processes, allowing developers to leverage pre-trained models and integrate external, domain-specific data to improve AI outputs. This approach is particularly beneficial in business scenarios where contextual relevance and data privacy are paramount. By utilizing SAP [HANA Cloud's Vector Engine](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/introduction?locale=en-US&q=HANA+VEctor+Engine) and the [Generative AI Hub SDK](https://pypi.org/project/generative-ai-hub-sdk/), developers can create sophisticated RAG applications that not only generate high-quality content but also maintain data privacy through techniques like data masking.
 
 RAG technique is applicable and beneficial in a variety of GenAI scenarios. Some of the use cases are as follows:
+
 - **Question Answering Systems:** RAG can power Q&A systems that deliver accurate and up-to-date responses, especially in domains with frequently changing information (e.g., finance, healthcare)
 - **Chatbots and Virtual Assistants:** RAG-powered chatbots can provide more helpful and informative responses, drawing on relevant information from knowledge bases
 - **Code Completion and Suggestion Systems:** RAG can enhance code suggestion systems by incorporating context-specific knowledge from code repositories or documentation.
@@ -119,7 +127,7 @@ You can find pricing details for the above services in the [SAP Discovery Center
 
 ### Technical
 
-1. Setup SAP Business Technology Platform (SAP BTP) subaccount ([Setup Guide](https://sap.sharepoint.com/sites/210313/SitePages/SAP%20Business%20Technology%20Platform%20(SAP%20BTP).aspx))
+1. Setup SAP Business Technology Platform (SAP BTP) subaccount ([Setup Guide](<https://sap.sharepoint.com/sites/210313/SitePages/SAP%20Business%20Technology%20Platform%20(SAP%20BTP).aspx>))
 2. Create an instance of SAP HANA Cloud ([Setup Guide](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20HANA%20Cloud.aspx))
 3. Create an instance of SAP AI Core ([Setup Guide](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20AI%20Core.aspx#setup))
 4. Subscribe to SAP AI Launchpad ([Setup Guide](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20AI%20Launchpad.aspx))
@@ -188,8 +196,9 @@ RAG is a powerful technique to ground context and control the size of informatio
 
 Programming and Runtime Selection Guidelines
 While the Business Technology platform provides support for different development languages and several application runtimes, here are some of the recommendations while developing AI applications within the SAP ecosystem:
+
 - **Backend-Only API:** Use **Python** or **JavaScript/TypeScript** (strong async capabilities, Node.js ecosystem).
-    - **AI Workloads** - Use Python or any other language to build Docker images and host the AI application backend in AI Core. For an application that requires GPU resources for training/inference, AI Core-based deployment helps you scale the applications easily. For the code samples below, you would not require Docker-based development.
+  - **AI Workloads** - Use Python or any other language to build Docker images and host the AI application backend in AI Core. For an application that requires GPU resources for training/inference, AI Core-based deployment helps you scale the applications easily. For the code samples below, you would not require Docker-based development.
 - **Fullstack Application (UI & Backend):** Use **CAP** (Cloud Application Programming Model) for optimized performance, scalability, and seamless SAP integration.
 
 SAP offers strong development libraries and SDKs to support your development in the language of your choice. Refer to the [official SAP Libraries and SDKs](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/libraries-and-sdks) page for the list of all available options.
@@ -228,16 +237,17 @@ With this SDK you can leverage the power of generative models available in the g
 <h3>Reference Code</h3>
 
 <ul className="download-source-link-in-list-container">
-    <li>
-        <strong>
-            <TrackableLink
-                href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/vector-rag-query"
-                target="_blank"
-                trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS">
-                <span>SAP BTP AI Best Practices - Sample Code (End-to-end retrieval and generation scenario)</span>
-            </TrackableLink>
-        </strong>
-    </li>
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/vector-rag-query"
+        target="_blank"
+        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code (End-to-end retrieval and generation scenario)</span>
+      </TrackableLink>
+    </strong>
+  </li>
 </ul>
 
 You can also kickstart your development by referencing the below Python notebooks, which leverage [SAP GenAI hub SDK](https://pypi.org/project/generative-ai-hub-sdk/) to harness the LLM capabilities for RAG implementation:
@@ -251,8 +261,6 @@ Additionally, you can also refer [SAP community blog](https://community.sap.com/
 <h4>Relevant Code</h4>
 
 Below is a Python code snippet demonstrating the implementation of a RAG application using the Generative AI Hub SDK and SAP HANA Vector DB.
-
-
 
 ```python
 #Assuming HANA Vector Store instance is already initialized and have all the vectors loaded already.
@@ -270,6 +278,7 @@ docs = db.similarity_search(query, k=2)
 # The first 20 (fetch_k) items will be retrieved from the DB. The MMR algorithm will then find the best 2 (k) matches.
 docs = db.max_marginal_relevance_search(query, k=2, fetch_k=20)
 ```
+
 If you would like to augment LLM response with additional context without having a dedicated vector Database setup, you can leverage below code snippet to achieve the grounded response based on context provided. This technique is very helpful if you would like to provide document summary creation or in-document QnA feature in your application.
 
 ```python
@@ -324,19 +333,21 @@ There are currently no learning journeys using the official SDK.
 <h3>Reference Code</h3>
 
 <ul className="download-source-link-in-list-container">
-    <li>
-        <strong>
-            <TrackableLink
-                href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/vector-rag-query-pipeline/typescript"
-                target="_blank"
-                trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS">
-                <span>SAP BTP AI Best Practices - Sample Code</span>
-            </TrackableLink>
-        </strong>
-    </li>
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/vector-rag-query-pipeline/typescript"
+        target="_blank"
+        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
 </ul>
-- [SAP Cloud SDK for AI - Compute Embedding](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/foundation-models/azure-openai.ts) (Look at the computeEmbedding() function to create embeddings to store in a Vector Database)
-- [SAP Cloud SDK for AI - Document Grounding](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/document-grounding.ts) (To use the Document Grounding feature)
+- [SAP Cloud SDK for AI - Compute Embedding](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/foundation-models/azure-openai.ts) (Look at the computeEmbedding() function to
+create embeddings to store in a Vector Database) - [SAP Cloud SDK for AI - Document Grounding](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/document-grounding.ts) (To
+use the Document Grounding feature)
 
 #### Relevant Code
 
@@ -348,16 +359,15 @@ There are currently no learning journeys using the official SDK.
 export async function retrieveDocuments(): Promise<RetievalSearchResults> {
   return RetrievalApi.search(
     {
-      query:
-        'When was the last time SAP AI SDK JavaScript end to end test was executed?',
+      query: "When was the last time SAP AI SDK JavaScript end to end test was executed?",
       filters: [
         {
-          id: 'my-filter',
+          id: "my-filter",
           searchConfiguration: {
             maxChunkCount: 10
           },
-          dataRepositories: ['*'],
-          dataRepositoryType: 'vector',
+          dataRepositories: ["*"],
+          dataRepositoryType: "vector",
           dataRepositoryMetadata: [],
           documentMetadata: [],
           chunkMetadata: []
@@ -365,7 +375,7 @@ export async function retrieveDocuments(): Promise<RetievalSearchResults> {
       ]
     },
     {
-      'AI-Resource-Group': 'ai-sdk-js-e2e'
+      "AI-Resource-Group": "ai-sdk-js-e2e"
     }
   ).execute();
 }
@@ -409,19 +419,21 @@ There are currently no learning journeys using the official SDK.
 #### Recommended
 
 <ul className="download-source-link-in-list-container">
-    <li>
-        <strong>
-            <TrackableLink
-                href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/vector-rag-query-pipeline/cap"
-                target="_blank"
-                trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS">
-                <span>SAP BTP AI Best Practices - Sample Code</span>
-            </TrackableLink>
-        </strong>
-    </li>
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/vector-rag-query-pipeline/cap"
+        target="_blank"
+        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
 </ul>
-- [SAP Cloud SDK for AI - Compute Embedding](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/foundation-models/azure-openai.ts) (Look at the computeEmbedding() function to create embeddings to store in a Vector Database)
-- [SAP Cloud SDK for AI - Document Grounding](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/document-grounding.ts) (To use the Document Grounding feature)
+- [SAP Cloud SDK for AI - Compute Embedding](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/foundation-models/azure-openai.ts) (Look at the computeEmbedding() function to
+create embeddings to store in a Vector Database) - [SAP Cloud SDK for AI - Document Grounding](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/document-grounding.ts) (To
+use the Document Grounding feature)
 
 #### Other
 
@@ -438,16 +450,15 @@ There are currently no learning journeys using the official SDK.
 export async function retrieveDocuments(): Promise<RetievalSearchResults> {
   return RetrievalApi.search(
     {
-      query:
-        'When was the last time SAP AI SDK JavaScript end to end test was executed?',
+      query: "When was the last time SAP AI SDK JavaScript end to end test was executed?",
       filters: [
         {
-          id: 'my-filter',
+          id: "my-filter",
           searchConfiguration: {
             maxChunkCount: 10
           },
-          dataRepositories: ['*'],
-          dataRepositoryType: 'vector',
+          dataRepositories: ["*"],
+          dataRepositoryType: "vector",
           dataRepositoryMetadata: [],
           documentMetadata: [],
           chunkMetadata: []
@@ -455,7 +466,7 @@ export async function retrieveDocuments(): Promise<RetievalSearchResults> {
       ]
     },
     {
-      'AI-Resource-Group': 'ai-sdk-js-e2e'
+      "AI-Resource-Group": "ai-sdk-js-e2e"
     }
   ).execute();
 }
@@ -466,39 +477,43 @@ export async function retrieveDocuments(): Promise<RetievalSearchResults> {
 </Tabs>
 </div>
 
-<br/>
+<br />
 
 <div className="section-with-background blue">
 
 ## <span className="post-article-first-title">Related Best Practices</span>
 
 <ul className="button-grid">
-    <IconLinkButton href="/docs/technical-view/generative-ai/rag/vector-rag-embedding" text="Vector-based RAG Embedding"/>
+  <IconLinkButton href="/docs/technical-view/generative-ai/rag/vector-rag-embedding" text="Vector-based RAG Embedding" />
 </ul>
 
 </div>
 
-<br/>
+<br />
 
 <div className="section-with-background blue">
 
 ## Related AI Capabilities
 
-<h3><a href={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</a></h3>
+<h3>
+  <a href={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</a>
+</h3>
 
 <ul className="button-grid">
-    <IconLinkButton href="/docs/functional-view/content-creation/generate-text-specific-knowledge" text="Generate Text based on Proprietary, Specific Knowledge"/>
+  <IconLinkButton href="/docs/functional-view/content-creation/generate-text-specific-knowledge" text="Generate Text based on Proprietary, Specific Knowledge" />
 </ul>
 
-<h3><a href={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</a></h3>
+<h3>
+  <a href={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</a>
+</h3>
 
 <ul className="button-grid">
-    <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/qa-on-enterprise-knowledge-base" text="Question & Answers on Enterprise Knowledge Base"/>
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/qa-on-enterprise-knowledge-base" text="Question & Answers on Enterprise Knowledge Base" />
 </ul>
 
 </div>
 
-<br/>
+<br />
 
 <div className="section-with-background gradient-violet-blue">
 

@@ -16,51 +16,56 @@ import TrackableLink from "@site/src/components/TrackableLink";
 import IconLinkButton from "@site/src/components/IconLinkButton";
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 
-<PageViewTracker featureName="BP_DATA_MASKING"/>
+<PageViewTracker featureName="BP_DATA_MASKING" />
 
 <div className="hero-header">
-    <h1>Data Masking</h1>
+  <h1>Data Masking</h1>
 </div>
 
 <div className="section-with-background">
-    <div className="row">
-        <div className="col col--8">
-            <h2>Steps</h2>
-            <ol className="steps-list">
-                <li><a href="#1-overview">Overview</a></li>
-                <li><a href="#2-pre-requisites">Pre-requisites</a></li>
-                <li><a href="#3-key-choices-and-guidelines">Key Choices and Guidelines</a></li>
-                <li><a href="#4-implementation">Implementation</a></li>
-            </ol>
-        </div>
-        <div className="col col--4">
-            <ul className="resource-links">
-                <li>
-                    <a target="_blank" href={useBaseUrl(
-                        "generative-ai/data-masking/videos/BTP%20AI%20Best%20Practices%20-%20Data%20Masking.mp4")}>
-                        <Icon name="video"/>
-                        <span>Teaser</span>
-                    </a>
-                </li>
-                <LoginWall renderOnlyWhenLoggedIn={true}>
-                    <li>
-                        <a target="_blank" href={useBaseUrl(
-                            "generative-ai/data-masking/videos/BTP%20AI%20Best%20Practices%20-%20Data%20Masking.mp4")}>
-                            <Icon name="video"/>
-                            <span>Webinar</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href={useBaseUrl(
-                            "generative-ai/data-masking/pdfs/BTP%20AI%20Best%20Practices%20-%20Data%20masking.pdf")}>
-                            <Icon name="pdf-attachment"/>
-                            <span>Webinar (PDF Presentation)</span>
-                        </a>
-                    </li>
-                </LoginWall>
-            </ul>
-        </div>
+  <div className="row">
+    <div className="col col--8">
+      <h2>Steps</h2>
+      <ol className="steps-list">
+        <li>
+          <a href="#1-overview">Overview</a>
+        </li>
+        <li>
+          <a href="#2-pre-requisites">Pre-requisites</a>
+        </li>
+        <li>
+          <a href="#3-key-choices-and-guidelines">Key Choices and Guidelines</a>
+        </li>
+        <li>
+          <a href="#4-implementation">Implementation</a>
+        </li>
+      </ol>
     </div>
+    <div className="col col--4">
+      <ul className="resource-links">
+        <li>
+          <a target="_blank" href={useBaseUrl("generative-ai/data-masking/videos/BTP%20AI%20Best%20Practices%20-%20Data%20Masking%20intro.mp4")}>
+            <Icon name="video" />
+            <span>Teaser</span>
+          </a>
+        </li>
+        <LoginWall renderOnlyWhenLoggedIn={true}>
+          <li>
+            <a target="_blank" href={useBaseUrl("generative-ai/data-masking/videos/BTP%20AI%20Best%20Practices%20-%20Data%20Masking.mp4")}>
+              <Icon name="video" />
+              <span>Webinar</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href={useBaseUrl("generative-ai/data-masking/pdfs/BTP%20AI%20Best%20Practices%20-%20Data%20masking.pdf")}>
+              <Icon name="pdf-attachment" />
+              <span>Webinar (PDF Presentation)</span>
+            </a>
+          </li>
+        </LoginWall>
+      </ul>
+    </div>
+  </div>
 </div>
 
 ## <span className="step-number">1</span> <span className="step-title">Overview</span>
@@ -99,7 +104,7 @@ You can find pricing details for AI Core “Extended” in the [Discovery Center
 
 ### Technical
 
-1. Set up a SAP Business Technology Platform (SAP BTP) subaccount ([Setup Guide](https://sap.sharepoint.com/sites/210313/SitePages/SAP%20Business%20Technology%20Platform%20(SAP%20BTP).aspx)).
+1. Set up a SAP Business Technology Platform (SAP BTP) subaccount ([Setup Guide](<https://sap.sharepoint.com/sites/210313/SitePages/SAP%20Business%20Technology%20Platform%20(SAP%20BTP).aspx>)).
 2. Deploy SAP AI Core with extended service plan ([Setup Guide](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20AI%20Core.aspx#setup)).
 3. Configure the Orchestration service in AI Launchpad - ([Setup Guide](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20AI%20Launchpad.aspx)).
 
@@ -197,16 +202,17 @@ With this SDK you can leverage the power of generative models available in the g
 <h3>Reference Code</h3>
 
 <ul className="download-source-link-in-list-container">
-    <li>
-        <strong>
-            <TrackableLink
-                href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/python"
-                target="_blank"
-                trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS">
-                <span>SAP BTP AI Best Practices - Sample Code</span>
-            </TrackableLink>
-        </strong>
-    </li>
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/python"
+        target="_blank"
+        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
 </ul>
 
 - [SAP Generative AI hub SDK - Data Masking](https://help.sap.com/doc/generative-ai-hub-sdk/CLOUD/en-US/_reference/orchestration-service.html#data-masking)
@@ -290,51 +296,49 @@ With this SDK you can leverage the power of generative models available in the g
 <h3>Reference Code</h3>
 
 <ul className="download-source-link-in-list-container">
-    <li>
-        <strong>
-            <TrackableLink
-                href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/typescript"
-                target="_blank"
-                trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS">
-                <span>SAP BTP AI Best Practices - Sample Code</span>
-            </TrackableLink>
-        </strong>
-    </li>
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/typescript"
+        target="_blank"
+        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
 </ul>
 
 - [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) - Sample Code (refer to the **orchestrationCompletionMasking** function located in the [ai-sdk-js/sample-code/src/orchestration.ts](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts) file)
 
-
 ```typescript
-async function orchestrationCompletionMasking(): Promise<
-  string | undefined
-> {
+async function orchestrationCompletionMasking(): Promise<string | undefined> {
   const orchestrationClient = new OrchestrationClient({
     llm: {
-      model_name: 'gpt-4-32k'
+      model_name: "gpt-4-32k"
     },
     templating: {
       template: [
         {
-          role: 'user',
+          role: "user",
           content:
-            'Please write an email to {{?user}} ({{?email}}), informing them about the amazing capabilities of generative AI! Be brief and concise, write at most 6 sentences.'
+            "Please write an email to {{?user}} ({{?email}}), informing them about the amazing capabilities of generative AI! Be brief and concise, write at most 6 sentences."
         }
       ]
     },
     masking: {
       masking_providers: [
         {
-          type: 'sap_data_privacy_integration',
-          method: 'pseudonymization',
-          entities: [{ type: 'profile-email' }, { type: 'profile-person' }]
+          type: "sap_data_privacy_integration",
+          method: "pseudonymization",
+          entities: [{ type: "profile-email" }, { type: "profile-person" }]
         }
       ]
     }
   });
 
   const response = await orchestrationClient.chatCompletion({
-    inputParams: { user: 'Alice Anderson', email: 'alice.anderson@sap.com' }
+    inputParams: { user: "Alice Anderson", email: "alice.anderson@sap.com" }
   });
   return response.getContent();
 }
@@ -370,51 +374,49 @@ With this SDK you can leverage the power of generative models available in the g
 <h3>Reference Code</h3>
 
 <ul className="download-source-link-in-list-container">
-    <li>
-        <strong>
-            <TrackableLink
-                href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/cap"
-                target="_blank"
-                trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS">
-                <span>SAP BTP AI Best Practices - Sample Code</span>
-            </TrackableLink>
-        </strong>
-    </li>
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/cap"
+        target="_blank"
+        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
 </ul>
 
 - [SAP Cloud SDK for AI](https://github.com/SAP/ai-sdk-js/tree/main/sample-code) - Sample Code (refer to the **orchestrationCompletionMasking** function located in the [ai-sdk-js/sample-code/src/orchestration.ts](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.ts) file)
 
-
 ```typescript
-async function orchestrationCompletionMasking(): Promise<
-  string | undefined
-> {
+async function orchestrationCompletionMasking(): Promise<string | undefined> {
   const orchestrationClient = new OrchestrationClient({
     llm: {
-      model_name: 'gpt-4-32k'
+      model_name: "gpt-4-32k"
     },
     templating: {
       template: [
         {
-          role: 'user',
+          role: "user",
           content:
-            'Please write an email to {{?user}} ({{?email}}), informing them about the amazing capabilities of generative AI! Be brief and concise, write at most 6 sentences.'
+            "Please write an email to {{?user}} ({{?email}}), informing them about the amazing capabilities of generative AI! Be brief and concise, write at most 6 sentences."
         }
       ]
     },
     masking: {
       masking_providers: [
         {
-          type: 'sap_data_privacy_integration',
-          method: 'pseudonymization',
-          entities: [{ type: 'profile-email' }, { type: 'profile-person' }]
+          type: "sap_data_privacy_integration",
+          method: "pseudonymization",
+          entities: [{ type: "profile-email" }, { type: "profile-person" }]
         }
       ]
     }
   });
 
   const response = await orchestrationClient.chatCompletion({
-    inputParams: { user: 'Alice Anderson', email: 'alice.anderson@sap.com' }
+    inputParams: { user: "Alice Anderson", email: "alice.anderson@sap.com" }
   });
   return response.getContent();
 }
@@ -449,16 +451,17 @@ With this SDK you can leverage the power of generative models available in the g
 <h3>Reference Code</h3>
 
 <ul className="download-source-link-in-list-container">
-    <li>
-        <strong>
-            <TrackableLink
-                href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/java"
-                target="_blank"
-                trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS">
-                <span>SAP BTP AI Best Practices - Sample Code</span>
-            </TrackableLink>
-        </strong>
-    </li>
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/data-masking/java"
+        target="_blank"
+        trackingFeature="DOWNLOAD_ACCESS_TO_GEN_AI_MODELS"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
 </ul>
 
 - [Sample Spring App example](https://github.com/SAP/ai-sdk-java/tree/main/sample-code/spring-app) (Refer to service [ai-sdk-java/…/services/SpringAiOrchestrationService.java](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/services/SpringAiOrchestrationService.java) and the controller to interact with the service [ai-sdk-java/…/controllers/OrchestrationController.java](https://github.com/SAP/ai-sdk-java/blob/main/sample-code/spring-app/src/main/java/com/sap/ai/sdk/app/controllers/OrchestrationController.java))
@@ -475,60 +478,67 @@ With this SDK you can leverage the power of generative models available in the g
     return response.getContent();
   }
 ```
+
 </TabItem>
 
 </Tabs>
 </div>
 
-<br/>
+<br />
 
 <div className="section-with-background blue">
 
 ## <span className="post-article-first-title">Related Best Practices</span>
 
 <ul className="button-grid">
-    <IconLinkButton href="/docs/technical-view/generative-ai/plain/access-to-generative-ai-models" text="Access to Generative AI Models"/>
-    <IconLinkButton href="/docs/technical-view/generative-ai/plain/prompt-templating" text="Prompt Templating"/>
-    <IconLinkButton href="/docs/technical-view/generative-ai/plain/content-filtering" text="Content Filtering"/>
+  <IconLinkButton href="/docs/technical-view/generative-ai/plain/access-to-generative-ai-models" text="Access to Generative AI Models" />
+  <IconLinkButton href="/docs/technical-view/generative-ai/plain/prompt-templating" text="Prompt Templating" />
+  <IconLinkButton href="/docs/technical-view/generative-ai/plain/content-filtering" text="Content Filtering" />
 </ul>
 
 </div>
 
-<br/>
+<br />
 
 <div className="section-with-background blue">
 
 ## Related AI Capabilities
 
-<h3><a href={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</a></h3>
+<h3>
+  <a href={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</a>
+</h3>
 
 <ul className="button-grid">
-    <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/summarization-of-text" text="Summarization of Text"/>
-    <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/translation-of-text" text="Translation of Text"/>
-    <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/sentiment-analysis-of-text" text="Sentiment Analysis of Text"/>
-    <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/information-classification-in-categories" text="Information Classification in Categories"/>
-    <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/image-analysis" text="Image Analysis"/>
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/summarization-of-text" text="Summarization of Text" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/translation-of-text" text="Translation of Text" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/sentiment-analysis-of-text" text="Sentiment Analysis of Text" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/information-classification-in-categories" text="Information Classification in Categories" />
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/image-analysis" text="Image Analysis" />
 </ul>
 
-<h3><a href={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</a></h3>
+<h3>
+  <a href={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</a>
+</h3>
 
 <ul className="button-grid">
-    <IconLinkButton href="/docs/functional-view/content-creation/generate-text-generic-knowledge" text="Generate Text based on Generic Knowledge"/>
-    <IconLinkButton href="/docs/functional-view/content-creation/review-and-refine-text" text="Review and Refine Text"/>
-    <IconLinkButton href="/docs/functional-view/content-creation/generate-image-from-text" text="Generate Image from Text"/>
-    <IconLinkButton href="/docs/functional-view/content-creation/describe-images" text="Describe Images"/>
+  <IconLinkButton href="/docs/functional-view/content-creation/generate-text-generic-knowledge" text="Generate Text based on Generic Knowledge" />
+  <IconLinkButton href="/docs/functional-view/content-creation/review-and-refine-text" text="Review and Refine Text" />
+  <IconLinkButton href="/docs/functional-view/content-creation/generate-image-from-text" text="Generate Image from Text" />
+  <IconLinkButton href="/docs/functional-view/content-creation/describe-images" text="Describe Images" />
 </ul>
 
-<h3><a href={useBaseUrl("/docs/functional-view/conversational-interaction")}>Conversational Interaction</a></h3>
+<h3>
+  <a href={useBaseUrl("/docs/functional-view/conversational-interaction")}>Conversational Interaction</a>
+</h3>
 
 <ul className="button-grid">
-    <IconLinkButton href="/docs/functional-view/conversational-interaction/conversational-interaction-with-applications" text="Conversational Interaction with Applications"/>
-    <IconLinkButton href="/docs/functional-view/conversational-interaction/conversational-interaction-with-analytics" text="Conversational Interaction with Analytics"/>
+  <IconLinkButton href="/docs/functional-view/conversational-interaction/conversational-interaction-with-applications" text="Conversational Interaction with Applications" />
+  <IconLinkButton href="/docs/functional-view/conversational-interaction/conversational-interaction-with-analytics" text="Conversational Interaction with Analytics" />
 </ul>
 
 </div>
 
-<br/>
+<br />
 
 <div className="section-with-background gradient-violet-blue">
 
