@@ -20,6 +20,9 @@ export const trackEvent = async ({ toolName = TRACKING_CONFIG.toolName, featureN
   //   return;
   // }
 
+  // Disable tracking for testing
+  return;
+
   try {
     const trackingTool = new SAPTrackingTool({
       apiKey: TRACKING_CONFIG.apiKey,
