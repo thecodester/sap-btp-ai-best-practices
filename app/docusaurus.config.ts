@@ -41,7 +41,16 @@ const config: Config = {
   },
 
   // Add external scripts
-  scripts: [],
+  scripts: [
+    {
+      src: `${baseUrl}globalConfigSAP.js`,
+      async: false
+    },
+    {
+      src: "https://www.sap.com/sharedlibs/globaltop/script-1.0.50.min.js",
+      async: false
+    }
+  ],
 
   presets: [
     [
