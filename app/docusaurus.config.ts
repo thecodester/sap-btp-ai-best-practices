@@ -153,11 +153,11 @@ const config: Config = {
           title: "Legal & Privacy",
           items: [
             {
-              label: "Privacy",
+              label: "Privacy Statement",
               to: "/privacy"
             },
             {
-              label: "Cookie Preferences",
+              label: "Cookie Statement",
               to: "/cookies"
             },
             {
