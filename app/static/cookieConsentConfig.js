@@ -2,7 +2,7 @@ window.SAP = window.SAP || {};
 
 window.SAP.global = {
   trustArc: {
-    domain: "www.sap.com",
+    domain: "www.sap.com", // sap-btp-ai-best-practices.com / test-sap-btp-ai-best-practices.com
     privacyPolicyLink: "https://btp-ai-bp.docs.sap/privacy",
     cookieLink: "https://btp-ai-bp.docs.sap/cookies"
   },
