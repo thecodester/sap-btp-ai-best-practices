@@ -2,13 +2,15 @@
  * Client-side script to load external scripts with delay
  */
 
-// Get the base URL from Docusaurus
-const baseUrl = document.querySelector('meta[name="docusaurus-base-url"]')?.getAttribute("content") || "/";
+// Check if we're in browser environment
+const isBrowser = typeof window !== "undefined" && typeof document !== "undefined";
 
 /**
  * Loads a script dynamically
  */
 function loadScript(src: string, async: boolean = false): Promise<void> {
+  if (!isBrowser) return Promise.resolve();
+
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
     script.src = src;
@@ -23,6 +25,8 @@ function loadScript(src: string, async: boolean = false): Promise<void> {
  * Add scripts with delay
  */
 export function onRouteDidUpdate(): void {
+  if (!isBrowser) return;
+
   // Delay script loading by specified milliseconds
   const DELAY_MS = 1000; // Adjust delay time as needed
 
