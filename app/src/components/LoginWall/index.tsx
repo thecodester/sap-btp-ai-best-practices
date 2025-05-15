@@ -33,7 +33,11 @@ const LoginWall: React.FC<LoginWallProps> = ({
   };
 
   if (isLoading) {
-    return null;
+    return (
+      <div className={styles.loadingContainer}>
+        <div className={styles.spinner}></div>
+      </div>
+    );
   }
 
   if (isLoggedIn) {
