@@ -27,9 +27,7 @@ export function onRouteDidUpdate(): void {
   const DELAY_MS = 1000; // Adjust delay time as needed
 
   setTimeout(() => {
-    // Load the scripts in sequence
-    loadScript(`${baseUrl}globalConfigSAP.js`)
-      .then(() => loadScript("https://www.sap.com/sharedlibs/globaltop/script-1.0.50.min.js"))
-      .catch((error) => console.error("Failed to load scripts:", error));
+    // Load only the SAP shared library script
+    loadScript("https://www.sap.com/sharedlibs/globaltop/script-1.0.50.min.js").catch((error) => console.error("Failed to load scripts:", error));
   }, DELAY_MS);
 }
