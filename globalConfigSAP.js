@@ -1,4 +1,5 @@
 window.SAP = window.SAP || {};
+
 window.SAP.global = {
   trustArc: {
     domain: "www.sap.com",
