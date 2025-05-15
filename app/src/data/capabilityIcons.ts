@@ -6,10 +6,79 @@ import "@ui5/webcomponents-icons/dist/hide.js";
 import "@ui5/webcomponents-icons/dist/filter.js";
 import "@ui5/webcomponents-icons/dist/compare.js";
 import "@ui5/webcomponents-icons/dist/discussion.js";
+import "@ui5/webcomponents-icons/dist/translate.js";
+import "@ui5/webcomponents-icons/dist/theater.js";
+import "@ui5/webcomponents-icons/dist/detail-view.js";
+import "@ui5/webcomponents-icons/dist/doc-attachment.js";
+import "@ui5/webcomponents-icons/dist/ppt-attachment.js";
+import "@ui5/webcomponents-icons/dist/background.js";
+import "@ui5/webcomponents-icons/dist/document-text.js";
+import "@ui5/webcomponents-icons/dist/course-program.js";
+import "@ui5/webcomponents-icons/dist/write-new-document.js";
+import "@ui5/webcomponents-icons/dist/attachment-text-file.js";
+import "@ui5/webcomponents-icons/dist/image-viewer.js";
+import "@ui5/webcomponents-icons/dist/comment.js";
+import "@ui5/webcomponents-icons/dist/customer-view.js";
+import "@ui5/webcomponents-icons/dist/sys-enter.js";
+import "@ui5/webcomponents-icons/dist/overview-chart.js";
+import "@ui5/webcomponents-icons/dist/workflow-tasks.js";
+import "@ui5/webcomponents-icons/dist/quality-issue.js";
+import "@ui5/webcomponents-icons/dist/business-objects-explorer.js";
+import "@ui5/webcomponents-icons/dist/collapse-group.js";
+import "@ui5/webcomponents-icons/dist/provision.js";
+import "@ui5/webcomponents-icons/dist/syntax.js";
+import "@ui5/webcomponents-icons/dist/vds-file.js";
+import "@ui5/webcomponents-icons/dist/paste.js";
+import "@ui5/webcomponents-icons/dist/lab.js";
+import "@ui5/webcomponents-icons/dist/machine.js";
+import "@ui5/webcomponents-icons/dist/add-product.js";
+import "@ui5/webcomponents-icons/dist/pipeline-analysis.js";
+
+import "@ui5/webcomponents-icons/dist/education.js";
+import "@ui5/webcomponents-icons/dist/machine.js";
+import "@ui5/webcomponents-icons/dist/machine.js";
 
 const capabilityIcons: Record<string, string> = {
   // === Functional View ===
+
+  // Information Analysis & Processing
   "/docs/functional-view/information-analysis-and-processing/summarization-of-text": "decrease-line-height",
+  "/docs/functional-view/information-analysis-and-processing/translation-of-text": "translate",
+  "/docs/functional-view/information-analysis-and-processing/sentiment-analysis-of-text": "theater",
+  "/docs/functional-view/information-analysis-and-processing/qa-on-enterprise-knowledge-base": "detail-view",
+  "/docs/functional-view/information-analysis-and-processing/information-classification-in-categories": "doc-attachment",
+  "/docs/functional-view/information-analysis-and-processing/information-extraction-from-documents": "ppt-attachment",
+  "/docs/functional-view/information-analysis-and-processing/image-analysis": "background",
+
+  // Content Creation
+  "/docs/functional-view/content-creation/generate-text-generic-knowledge": "document-text",
+  "/docs/functional-view/content-creation/generate-text-specific-knowledge": "course-program",
+  "/docs/functional-view/content-creation/review-and-refine-text": "write-new-document",
+  "/docs/functional-view/content-creation/generate-image-from-text": "image-viewer",
+  "/docs/functional-view/content-creation/describe-images": "attachment-text-file",
+
+  // Conversational Interaction
+  "/docs/functional-view/conversational-interaction/conversational-interaction-with-applications": "comment",
+  "/docs/functional-view/conversational-interaction/conversational-interaction-with-analytics": "customer-view",
+
+  // Decision Support
+  "/docs/functional-view/decision-support/recommendations-historical-data": "sys-enter",
+  "/docs/functional-view/decision-support/data-clustering": "overview-chart",
+  "/docs/functional-view/decision-support/forecasting-historical-data": "workflow-tasks",
+  "/docs/functional-view/decision-support/anomaly-detection": "quality-issue",
+  "/docs/functional-view/decision-support/scenario-simulations": "business-objects-explorer",
+  "/docs/functional-view/decision-support/alternative-ranking": "collapse-group",
+
+  // Coding Assistance
+  "/docs/functional-view/coding-assistance/synthetic-data-generation": "provision",
+  "/docs/functional-view/coding-assistance/code-generation": "syntax",
+  "/docs/functional-view/coding-assistance/code-review": "vds-file",
+  "/docs/functional-view/coding-assistance/code-documentation": "paste",
+  "/docs/functional-view/coding-assistance/test-generation": "lab",
+
+  // Agentic Workflows
+  "/docs/functional-view/agentic-workflows/agentic-workflows": "machine",
+
   // Add other functional view mappings... Ensure NO trailing slashes in keys
 
   // === Technical View - Generative AI ===
@@ -24,15 +93,18 @@ const capabilityIcons: Record<string, string> = {
   "/docs/technical-view/generative-ai/rag/vector-vs-graph": "compare",
   "/docs/technical-view/generative-ai/rag/vector-overall": "lateness",
   "/docs/technical-view/generative-ai/rag/vector-query": "lateness",
-  "/docs/technical-view/generative-ai/rag/graph-overall": "lateness",
-  "/docs/technical-view/generative-ai/rag/graph-query": "lateness",
+  "/docs/technical-view/generative-ai/rag/graph-overall": "education",
+  "/docs/technical-view/generative-ai/rag/graph-query": "pipeline-analysis",
+  "/docs/technical-view/generative-ai/rag/vector-rag-embedding": "add-product",
+  "/docs/technical-view/generative-ai/rag/vector-rag-query-pipeline": "pipeline-analysis",
 
   // Agentic
   "/docs/technical-view/generative-ai/agentic/single-agent": "lateness",
-  "/docs/technical-view/generative-ai/agentic/multi-agent": "lateness"
+  "/docs/technical-view/generative-ai/agentic/multi-agent": "lateness",
 
   // Default/Placeholder for others
   // Add specific mappings here as new capabilities get icons
+
 };
 
 /**
