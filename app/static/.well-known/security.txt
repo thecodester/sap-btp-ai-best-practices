@@ -1,0 +1,14 @@
+# This file follows the specification at https://securitytxt.org/
+# RFC 9116: https://www.rfc-editor.org/rfc/rfc9116.html
+
+# Contact information
+Contact: mailto:btp_ai_bp@sap.com
+
+# Expiration date (should be 1 year from now)
+Expires: 2025-05-15T00:00:00.000Z
+
+# Preferred languages
+Preferred-Languages: en
+
+# Policy link (replace with actual link)
+Policy: https://sap-samples.github.io/sap-btp-ai-best-practices/privacy
