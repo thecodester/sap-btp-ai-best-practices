@@ -16,4 +16,110 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
   <h1>SAP HANA Cloud</h1>
 </div>
 
-In progress...
+## What is SAP HANA Cloud?
+
+[SAP HANA Cloud](https://www.sap.com/products/data-cloud/hana.html) is SAP’s cloud-native database, delivered as a fully managed Database-as-a-Service (DBaaS). It combines the in-memory speed and performance of SAP HANA with cloud-optimized flexibility, connectivity, and features.
+
+It acts as the core database layer within the **SAP Business Technology Platform (BTP)**, which unifies database management, analytics, application development, integration, and intelligent technologies like AI.
+
+SAP HANA Cloud supports the development and deployment of intelligent applications at scale, incorporating technologies like generative AI and context-aware processing. It handles both OLAP and OLTP workloads, making it a versatile solution for a wide range of enterprise scenarios.
+
+## Documentation
+
+The [SAP Help Portal](https://help.sap.com/docs/) serves as the central repository for all official SAP product documentation, offering content in multiple languages through machine translation capabilities
+
+- [SAP HANA Cloud](https://help.sap.com/docs/hana-cloud?locale=en-US): Overview, features, links to all component documentation.
+- [SAP HANA Cloud Getting Started Guide](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-getting-started-guide/introduction-to-sap-hana-cloud): Essential steps for initial setup, basic concepts, connecting clients.
+- [SAP HANA Cloud Administration Guide](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/sap-hana-cloud-administration-guide): Covers instance creation, management, maintenance using SAP HANA Cloud Central.
+- [SAP HANA Cloud,SAP HANA Database Administration Guide](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/sap-hana-cloud-sap-hana-database-administration-guide): Focuses on database-level administration tasks using SAP HANA Cockpit and Database Explorer (monitoring, security, tuning).
+- [Security in SAP HANA Cloud](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-security-guide/data-protection-and-privacy): Comprehensive guide on security features, configuration, and best practices.
+- [SAP HANA Database SQL Reference Guide](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-sql-reference-guide/sap-hana-cloud-sap-hana-database-sql-reference-guide): Definitive reference for SQL syntax, functions, data types, system views, error codes.
+- [SAP HANA Cloud Developer Guides](https://help.sap.com/docs/hana-cloud-database?locale=en-US#discover_task-development): Guides for specific development topics like SQLScript, Modeling (Calculation Views), HDI, JSON Document Store, Spatial, Graph, etc.
+- [SAP HANA Database Vector Engine Guide](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/sap-hana-cloud-sap-hana-database-vector-engine-guide): Specific documentation for using the REAL_VECTOR data type and similarity search functions:
+- [SAP HANA Database Predictive Analysis Library (PAL) Guide](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-predictive-analysis-library/sap-hana-cloud-sap-hana-database-predictive-analysis-library-pal?locale=en-US): Details on using the PAL algorithms for machine learning.
+- [SAP HANA Automated Predictive Library (APL) Developer Guide](https://help.sap.com/docs/apl?locale=en-US): Details on using the APL functions for automated machine learning.
+- [SAP HANA Cloud Migration Guide](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-migration-guide/sap-hana-cloud-migration-guide?locale=en-US): Guidance on migrating from other SAP HANA versions to SAP HANA Cloud.
+- [SAP Tutorial Navigator](https://developers.sap.com/tutorial-navigator.html?tag=software-product:technology-platform/sap-hana-cloud/sap-hana-cloud): Collection of hands-on tutorials for developers and administrators.
+- [SAP Community (SAP HANA Cloud Tag)](https://community.sap.com/t5/tag/whatsnewinsaphanacloud/tg-p): Blogs, articles, Q&A forums for community support and expert insights.
+
+## Setup
+
+Setting up SAP HANA Cloud involves meeting specific prerequisites related to the [SAP Business Technology Platform (BTP)](https://sap.sharepoint.com/sites/210313/SitePages/SAP%20Business%20Technology%20Platform%20(SAP%20BTP).aspx) environment and configuring the instance itself, typically through SAP HANA Cloud Central or command-line tools.
+
+### Prerequisites
+
+- **SAP BTP Environment**
+    - An active SAP BTP global account is required. [Setup Guide](https://sap.sharepoint.com/sites/210313/SitePages/SAP%20Business%20Technology%20Platform%20(SAP%20BTP).aspx)
+    - Within the global account, a subaccount must exist where SAP HANA Cloud Services entitlements and quota are assigned. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/sap-hana-cloud-sap-hana-database-administration-guide).
+- **SAP BTP Roles and Authorizations**
+    - Subaccount Administrator: Required for configuring the subaccount, managing entitlements and quotas, enabling CF and subscribing to services. More information available [here](https://help.sap.com/docs/HANA_CLOUD_ALIBABA_CLOUD/683a53aec4fc408783bbb2dd8e47afeb/784a1dbb421a4da29fb1e3bdf5f198ec.html).
+    - SAP HANA Cloud Administrator: Required specifically to access and use SAP HANA Cloud Central for creating and managing instances via the web UI. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/navigating-sap-hana-cloud-central).
+    - Subaccount Service Administrator: Needed if provisioning instances using Infrastructure-as-Code tools like Terraform. More information available [here](https://help.sap.com/docs/hana-cloud/683a53aec4fc408783bbb2dd8e47afeb/00a61d6caac84da7b8c737cdd2588065.html).
+- **Database User Roles and Privileges**
+    - Initial database administrator user is `DBADMIN`, created during instance provisioning.
+    - For Predictive Analysis Library (PAL), the executing database user needs the `AFL__SYS_AFL_AFLPAL_EXECUTE` role. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-getting-started-guide/502e458a260d4445810e6b9094c5b7e7.html).
+    - For Automated Predictive Library (APL), the executing database user needs the `sap.pa.apl.base.roles::APL_EXECUTE` role. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-getting-started-guide/502e458a260d4445810e6b9094c5b7e7.html).
+    - For using the Document Filters Library, the `AFL__SYS_AFL_DFL_AREA_EXECUTE` role is required. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/document-filters-library-plugin).
+
+### Setup Guide
+
+SAP HANA Cloud Instances can be provisioned using several methods, catering to different preferences (UI, CLI).
+
+- **Using SAP HANA Cloud Central:** Most common method involves the wizard in [SAP HANA Cloud Central](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/operating-model). Full tutorial available [here](https://help.sap.com/docs/HANA_CLOUD_ALIBABA_CLOUD/683a53aec4fc408783bbb2dd8e47afeb/92c59db648b940f48105d62a34f099fc.html).
+- **Alternative Methods:** Instance provisioning can be automated using the CLI tools. Full tutorial available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/using-sap-btp-command-line-interface-btp-cli-with-sap-hana-cloud).
+
+#### Recommended
+
+Maintaining a robust security posture is key.
+
+- **User Management & Authorization:** Implement the principle of least privilege. Grant necessary permissions using database roles, like `AFL__SYS_AFL_AFLPAL_EXECUTE` for PAL or `sap.pa.apl.base.roles::APL_EXECUTE` for APL, rather than assigning privileges directly to users. Regularly audit user access and role assignments. The initial `DBADMIN` user should be used primarily for administrative setup and granting roles, not for routine application access.
+- **Authentication:** Enforce strong password policies for database users. For enhanced security and user convenience, consider integrating SAP HANA Cloud authentication with corporate Identity Providers (IdPs) via SAP BTP's identity services to enable Single Sign-On (SSO).
+- **Encryption:** SAP HANA Cloud automatically encrypts data at rest (including data volumes, redo logs, and backups) and data in transit. Organizations with specific compliance requirements can explore options for using customer-managed encryption keys via services like SAP Data Custodian, if available for their configuration. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/operating-model).
+- **Network Security:** Strictly configure the "Allowed Connections" list in SAP HANA Cloud Central to permit access only from trusted IP addresses or ranges. If using the SAP Cloud Connector for hybrid connectivity to on-premise systems, ensure it is configured securely according to SAP guidelines. For direct, secure connections within hyperscaler environments, investigate SAP Private Link Service options. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/operating-model).
+- **Auditing:** Configure database auditing policies to log relevant activities, such as sensitive data access or execution of specific procedures (e.g., APL functions), based on security and compliance requirements. See [Activate the Traces](https://help.sap.com/docs/apl/419fd47c26b345239fdbb5e476a6bc54/ccca6f47e33e477c9e3c189667c1c46d.html) and [Audit SAP HANA APL](https://help.sap.com/docs/apl/419fd47c26b345239fdbb5e476a6bc54/ee335ae4c741455999f68a248d010157.html) pages.
+- **Data Protection & Privacy:** Leverage built-in features like data masking and data anonymization where appropriate to protect sensitive information. Be mindful that database logs, traces, and dumps could potentially contain personal data and should be handled accordingly
+
+## Vector Engine
+
+The SAP HANA Cloud Vector Engine is an integrated feature designed to support similarity search and other vector-based operations, primarily targeting Artificial Intelligence (AI) and Machine Learning (ML) use cases. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/introduction).
+Key use cases enabled by this capability include:
+
+- **Semantic Search:** Finding documents or items based on meaning rather than just keywords.
+- **Natural Language Processing (NLP):** Various tasks involving understanding and comparing text.
+- **Retrieval-Augmented Generation (RAG):** Enhancing LLM responses by retrieving relevant, up-to-date information from a vector database (like SAP HANA Cloud) and providing it as context to the LLM, thereby improving accuracy and relevance.
+- **Recommendation Systems:** Suggesting similar items or content based on user preferences or item characteristics.
+- **Classification and Clustering:** Grouping similar items together or assigning items to predefined categories based on vector proximity.
+- **Anomaly Detection:** Identifying outliers or unusual data points that are distant from typical clusters in the vector space.
+
+A significant advantage of SAP HANA Cloud's approach is the integration of the vector engine within the multi-model database. This means vector data (REAL_VECTOR type) coexists with relational, JSON, spatial, and graph data.
+
+### The REAL_VECTOR Data Type
+
+The foundation of the vector engine is the REAL_VECTOR SQL data type. It stores a fixed-dimension vector of REAL elements, which correspond to IEEE 754 single-precision floating-point numbers. Its dimension can range from 1 up to 65000. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/real-vector-data-type).
+
+### Key Vector Functions
+
+SAP HANA Cloud provides several built-in SQL functions for working with REAL_VECTOR data. A detailed guide can be found [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/vector-function-reference?locale=en-US):
+
+- [Similarity/Distance Calculation](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/performing-similarity-searches):
+COSINE_SIMILARITY(`<vector1>`, `<vector2>`): Calculates the cosine of the angle between two vectors. Result ranges from -1 (opposite) to 1 (identical direction), with 0 indicating orthogonality. Commonly used for semantic similarity.
+L2DISTANCE(`<vector1>`, `<vector2>`): Computes the Euclidean (straight-line) distance between the endpoints of two vectors in the vector space.
+
+- [Embedding Generation](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/creating-text-embeddings-in-sap-hana-cloud):
+    - VECTOR_EMBEDDING (`<text>`, `<text_type>`, `<model_and_version>`): Creates a REAL_VECTOR embedding from input text using a specified embedding model. Requires the "Natural Language Processing (NLP)" capability to be enabled for the instance.
+        - `<text>`: The input string.
+        - `<text_type>`: Specifies the nature of the text, typically 'DOCUMENT' for indexing content or 'QUERY' for embedding search queries.
+        - `<model_and_version>`: Identifies the embedding model, e.g., 'SAP_NEB.20240715'. Different models produce vectors of specific dimensions (e.g., 768 for SAP_NEB.20240715) and have input token limits.
+
+- Construction and Serialization:
+    - TO_REAL_VECTOR (`<input>`): Constructs a REAL_VECTOR from various representations. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/to-real-vector-function-data-type-conversion?locale=en-US):
+        - Textual: e.g., TO_REAL_VECTOR('[0.1, 0.2, 0.3]')
+        - Binary: e.g., TO_REAL_VECTOR(x'03000000...') (hex representation of binary format)
+        - SQL Array: e.g., TO_REAL_VECTOR(ARRAY(0.1, 0.2, 0.3))
+    - TO_NVARCHAR(`<vector>`),TO_NCLOB(`<vector>`): Serializes a vector to its textual representation More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/to-nvarchar-function-data-type-conversion?locale=en-US).
+    - TO_VARBINARY(`<vector>`),TO_BLOB(`<vector>`): Serializes a vector to its binary representation. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/to-varbinary-function-data-type-conversion?locale=en-US).
+    - TO_ARRAY(`<vector>`): Converts a vector to an SQL array of REAL elements. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/to-array-function-data-type-conversion?locale=en-US).
+
+- Utility Functions:
+    - CARDINALITY(`<vector>`): Returns the dimension (number of elements) of the vector. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-sql-reference-guide/cardinality-function-vector).
+    - MEMBER_AT(`<vector>`, `<index>`): Retrieves the element at a specific 1-based index within the vector. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-sql-reference-guide/member-at-function-vector).
