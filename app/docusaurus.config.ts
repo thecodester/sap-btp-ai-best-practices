@@ -5,7 +5,8 @@ import { environment } from "./src/config/environment"; // Import environment co
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-const baseUrl = environment.isDevelopment ? "/" : "/sap-btp-ai-best-practices/";
+// const baseUrl = environment.isDevelopment ? "/" : "/sap-btp-ai-best-practices/";
+const baseUrl = "/";
 
 const config: Config = {
   title: "SAP BTP AI Best Practices",
@@ -13,7 +14,7 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://sap-samples.github.io/",
+  url: "https://btp-ai-bp.docs.sap/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl,
@@ -44,6 +45,10 @@ const config: Config = {
   scripts: [
     {
       src: `${baseUrl}globalConfigSAP.js`,
+      async: false
+    },
+    {
+      src: "https://www.sap.com/sharedlibs/globaltop/script-1.0.50.min.js",
       async: false
     }
   ],
@@ -169,7 +174,7 @@ const config: Config = {
               to: "/cookies"
             },
             {
-              html: `<div id="teconsent"></div>`
+              html: `<div id="teconsent-footer"></div>`
             },
             {
               label: "Legal Disclosure",

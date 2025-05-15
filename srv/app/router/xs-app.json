@@ -2,7 +2,7 @@
   "authenticationMethod": "route",
   "logout": {
     "logoutEndpoint": "/logout",
-    "logoutPage": "https://sap-samples.github.io/sap-btp-ai-best-practices"
+    "logoutPage": "https://btp-ai-bp.docs.sap"
   },
   "routes": [
     {

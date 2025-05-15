@@ -1,4 +1,4 @@
-const ORIGINS = ["http://localhost:3000/", "https://sap-samples.github.io"];
+const ORIGINS = ["http://localhost:3000/", "https://btp-ai-bp.docs.sap"];
 
 cds.on("bootstrap", (app) => {
   app.enable("trust proxy");
