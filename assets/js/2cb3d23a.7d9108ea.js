@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksap_btp_ai_best_practices_website=self.webpackChunksap_btp_ai_best_practices_website||[]).push([[7677],{1416:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/sap-btp-ai-best-practices/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

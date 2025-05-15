@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksap_btp_ai_best_practices_website=self.webpackChunksap_btp_ai_best_practices_website||[]).push([[1903],{1912:s=>{s.exports=JSON.parse('{"blogBasePath":"/sap-btp-ai-best-practices/blog","blogTitle":"Blog","authorsListPath":"/sap-btp-ai-best-practices/blog/authors"}')}}]);
