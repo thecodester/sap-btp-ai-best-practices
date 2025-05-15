@@ -2,6 +2,19 @@
  * Client-side script to load external scripts with delay
  */
 
+// Type declaration for global SAP object
+declare global {
+  interface Window {
+    SAP?: {
+      global?: {
+        isProd: boolean;
+        [key: string]: any;
+      };
+      [key: string]: any;
+    };
+  }
+}
+
 // Check if we're in browser environment
 const isBrowser = typeof window !== "undefined" && typeof document !== "undefined";
 
@@ -26,6 +39,16 @@ function loadScript(src: string, async: boolean = false): Promise<void> {
  */
 export function onRouteDidUpdate(): void {
   if (!isBrowser) return;
+
+  // This file contains scripts that will be loaded after the page loads
+  // The advantage is that these scripts go through the Webpack build process
+
+  // Set production environment flag if we're in browser
+  if (isBrowser && window.SAP && window.SAP.global) {
+    // Use process.env which will be properly replaced by Webpack
+    window.SAP.global.isProd = process.env.NODE_ENV !== "development";
+    console.log("Environment:", process.env.NODE_ENV);
+  }
 
   // Delay script loading by specified milliseconds
   const DELAY_MS = 1000; // Adjust delay time as needed
