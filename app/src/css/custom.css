@@ -173,6 +173,19 @@ h6,
   opacity: 0.6;
 }
 
+.footer__item a {
+  color: var(--ifm-footer-link-color);
+}
+
+#teconsent {
+  margin: 0.15rem 0;
+}
+
+#teconsent a:hover {
+  text-decoration: underline;
+  color: var(--ifm-color-primary);
+}
+
 /* Sidebar */
 .theme-doc-sidebar-container {
   background-color: var(--sap-horizon-neutral-2);
