@@ -41,7 +41,7 @@ const config: Config = {
   },
 
   // Use clientModules to add scripts with delay instead of direct scripts
-  // clientModules: ["./src/client/delayedScripts.ts"],
+  clientModules: ["./src/client/delayedScripts.ts"],
 
   presets: [
     [
