@@ -40,17 +40,8 @@ const config: Config = {
     locales: ["en"]
   },
 
-  // Add external scripts
-  scripts: [
-    {
-      src: `${baseUrl}globalConfigSAP.js`,
-      async: false
-    },
-    {
-      src: "https://www.sap.com/sharedlibs/globaltop/script-1.0.50.min.js",
-      async: false
-    }
-  ],
+  // Use clientModules to add scripts with delay instead of direct scripts
+  // clientModules: ["./src/client/delayedScripts.ts"],
 
   presets: [
     [
@@ -168,6 +159,9 @@ const config: Config = {
             {
               label: "Cookie Statement",
               to: "/cookies"
+            },
+            {
+              html: `<div id="teconsent"></div>`
             },
             {
               label: "Legal Disclosure",
