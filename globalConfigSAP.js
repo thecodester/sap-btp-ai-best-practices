@@ -6,7 +6,5 @@ window.SAP.global = {
     privacyPolicyLink: "https://sap-samples.github.io/sap-btp-ai-best-practices/privacy",
     cookieLink: "https://sap-samples.github.io/sap-btp-ai-best-practices/cookies"
   },
-  isProd: false // Default value, will be set correctly by environment
+  isProd: false // This will be set in the src/client/delayedScripts.ts file using environment variables
 };
-
-// Environment will be set by a Webpack-processed script
