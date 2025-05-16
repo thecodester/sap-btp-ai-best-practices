@@ -85,9 +85,9 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 
 ### Description
 
-Retrieval-Augmented Generation (RAG) is a powerful technique that combines the strengths of retrieval-based and [Large Language generative models (LLMs)](https://sap.sharepoint.com/sites/210313/SitePages/Glossary.aspx#llm-%28large-language-model%29) to enhance the quality and relevance of generated content. Implementing a Vector Based RAG is a two step approach-
+Retrieval-Augmented Generation (RAG) is a powerful technique that combines the strengths of retrieval-based and [Large Language generative models (LLMs)](/docs/glossary#llm-large-language-model) to enhance the quality and relevance of generated content. Implementing a Vector Based RAG is a two step approach-
 
-1. Embedding Creation - Embeddings are the numerical vector representation of the knowledge segments. In this step, you convert knowledge base to vectors and store them in [vector database](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/introduction?locale=en-US&q=HANA+VEctor+Engine). To have a better understanding of this topic and related best practices, it is recommended to go through [Vector Embedding(1/1)](https://sap.sharepoint.com/sites/210313/SitePages/GenAI%20-%20RAG%20-%20Vector%20Database%20-%20Overall%20and%20Embedding%20Creation.aspx) part in this series.
+1. Embedding Creation - Embeddings are the numerical vector representation of the knowledge segments. In this step, you convert knowledge base to vectors and store them in [vector database](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/introduction?locale=en-US&q=HANA+VEctor+Engine). To have a better understanding of this topic and related best practices, it is recommended to go through [Vector Embedding(1/1)](/docs/technical-view/generative-ai/rag/vector-rag-embedding) part in this series.
 2. Query Pipeline - In this step we leverage the vector representation of the knowledge base and augment the LLM context. To achieve this, first we convert the question into vector embedding and then perform similarity search in Vector database and fetch the best matches. Post that we leverage these best matches as augmented context along with prompt to LLM to generate a response for the user's question.
 
 In this best practice we will focus on querying aspect when using RAG technique.
@@ -106,7 +106,7 @@ RAG technique is applicable and beneficial in a variety of GenAI scenarios. Some
 
 ### Expected Outcome
 
-RAG technique helps to generate content to increase the quality while keeping it relevant to the business context (also called [grounding](https://sap.sharepoint.com/sites/210313/SitePages/Glossary.aspx#grounding) in LLM space). Some of the key outcomes of the RAG technique are:
+RAG technique helps to generate content to increase the quality while keeping it relevant to the business context (also called [grounding](/docs/glossary#grounding) in LLM space). Some of the key outcomes of the RAG technique are:
 
 - **More Accurate and Relevant Answers:** Because the system retrieves context that aligns with the meaning of the query, the LLM is more likely to produce useful, correct, and directly related responses
 - **Better User Experience:** Users can phrase queries naturally (like how they’d talk to a human) and still get meaningful answers. No need to “speak the system’s language.” This lowers the learning curve and boosts adoption.
@@ -138,10 +138,10 @@ You can find pricing details for the above services in the [SAP Discovery Center
 
 ### Technical
 
-1. Setup SAP Business Technology Platform (SAP BTP) subaccount ([Setup Guide](<https://sap.sharepoint.com/sites/210313/SitePages/SAP%20Business%20Technology%20Platform%20(SAP%20BTP).aspx>))
-2. Create an instance of SAP HANA Cloud ([Setup Guide](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20HANA%20Cloud.aspx))
-3. Create an instance of SAP AI Core ([Setup Guide](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20AI%20Core.aspx#setup))
-4. Subscribe to SAP AI Launchpad ([Setup Guide](https://sap.sharepoint.com/sites/210313/SitePages/Technology%20-%20SAP%20AI%20Launchpad.aspx))
+1. Setup SAP Business Technology Platform (SAP BTP) subaccount ([Setup Guide](/docs/technology/sap-business-technology-platform))
+2. Create an instance of SAP HANA Cloud ([Setup Guide](/docs/technology/sap-hana-cloud))
+3. Create an instance of SAP AI Core ([Setup Guide](/docs/technology/sap-ai-core#setup))
+4. Subscribe to SAP AI Launchpad ([Setup Guide](/docs/technology/sap-ai-launchpad))
 
 ### High-level reference architecture
 
@@ -201,7 +201,7 @@ How to measure system performance.
 
 RAG is a powerful technique to ground context and control the size of information sent to LLMs. Before querying your RAG-powered chatbot or application, ensure that vector embeddings are created using your chosen vector engine. A well-designed chunking strategy is key to balancing context completeness with token limits.
 
-**If you haven't created the embeddings yet, please refer to the [Embedding Creation](https://sap.sharepoint.com/sites/210313/SitePages/GenAI%20-%20RAG%20-%20Vector%20Database%20-%20Overall%20and%20Embedding%20Creation.aspx) best practice page.**
+**If you haven't created the embeddings yet, please refer to the [Embedding Creation](/docs/technical-view/generative-ai/rag/vector-rag-embedding) best practice page.**
 
 ### Programming Model Selection Guidelines
 
@@ -243,7 +243,7 @@ With this SDK you can leverage the power of generative models available in the g
 <h3>Tutorials and Learning Journeys</h3>
 
 - If you are new to AI core and lifecycle management in AI Launchpad, we recommend going through [Predictive AI with SAP AI Core](https://developers.sap.com/group.ai-core-get-started-basics.html) tutorial to make yourself comfortable with its features and available best practices.
-- We also recommend that you to go through the [Access to Generative AI Models](https://sap.sharepoint.com/sites/210313/SitePages/GenAI%20-%20Plain%20-%20Direct%20-%20Inference%20Request.aspx) page and experiment with GenAI hub models.
+- We also recommend that you to go through the [Access to Generative AI Models](/docs/technical-view/generative-ai/plain/access-to-generative-ai-models) page and experiment with GenAI hub models.
 - [RAG with HANA Vector Engine](https://developers.sap.com/tutorials/ai-core-genai-hana-vector.html) curates step by step process to do hands-on exercise on RAG leveraging HANA Vector Database.
 
 <h3>Reference Code</h3>
