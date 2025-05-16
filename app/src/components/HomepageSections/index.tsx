@@ -2,7 +2,7 @@ import Link from "@docusaurus/Link";
 import Heading from "@theme/Heading";
 import clsx from "clsx";
 import type { ReactNode } from "react";
-import { Icon } from "@ui5/webcomponents-react";
+import Icon from "@site/src/components/Icon";
 import "@ui5/webcomponents-icons/dist/idea-wall.js";
 import "@ui5/webcomponents-icons/dist/tools-opportunity.js";
 import "@ui5/webcomponents-icons/dist/developer-settings.js";

@@ -1,6 +1,6 @@
 import React from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import { Icon } from "@ui5/webcomponents-react";
+import Icon from "@site/src/components/Icon";
 import { getIconForCapability } from "@site/src/data/capabilityIcons";
 
 interface Props {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useAuth } from "../../authProviderBTP"; // Adjust path if necessary
-import { Icon } from "@ui5/webcomponents-react";
+import Icon from "@site/src/components/Icon";
 import "@ui5/webcomponents-icons/dist/person-placeholder.js";
 import styles from "./UserDropdownNavbarItem.module.css"; // We'll create this for styling
 
