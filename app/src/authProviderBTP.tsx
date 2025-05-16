@@ -10,6 +10,7 @@ interface AuthContextProps {
   logout: () => void;
   user: UserInfo | null;
   isLoading: boolean;
+  token: string;
 }
 
 interface UserInfo {
@@ -27,7 +28,8 @@ const AuthContext = createContext<AuthContextProps>({
   login: async () => {},
   logout: () => {},
   user: null,
-  isLoading: true
+  isLoading: true,
+  token: ""
 });
 
 interface AuthProviderProps {
@@ -60,9 +62,10 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       login,
       logout,
       user,
-      isLoading
+      isLoading,
+      token
     }),
-    [isLoggedIn, login, logout, user, isLoading]
+    [isLoggedIn, login, logout, user, isLoading, token]
   );
 
   useEffect(() => {

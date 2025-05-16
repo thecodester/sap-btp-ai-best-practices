@@ -16,8 +16,7 @@ const LoginWall: React.FC<LoginWallProps> = ({
   title = "Unlock Free Content",
   renderOnlyWhenLoggedIn = false
 }) => {
-  const { isLoggedIn, login, isLoading } = useAuth();
-  let currentToken = localStorage.getItem("sap-btp-ai-bp-auth-token");
+  const { isLoggedIn, login, isLoading, token } = useAuth();
   const logoUrl = useBaseUrl("/img/logo.svg");
   const privacyUrl = useBaseUrl("/privacy");
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -34,7 +33,7 @@ const LoginWall: React.FC<LoginWallProps> = ({
   };
 
   // Load the content during the "loading" state if there is a token (so that the table of contents links work)
-  if (isLoggedIn || (currentToken && isLoading)) {
+  if (isLoggedIn || (token && isLoading)) {
     return <>{children}</>;
   }
 
