@@ -17,6 +17,7 @@ const LoginWall: React.FC<LoginWallProps> = ({
   renderOnlyWhenLoggedIn = false
 }) => {
   const { isLoggedIn, login, isLoading } = useAuth();
+  let currentToken = localStorage.getItem("sap-btp-ai-bp-auth-token");
   const logoUrl = useBaseUrl("/img/logo.svg");
   const privacyUrl = useBaseUrl("/privacy");
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -32,16 +33,17 @@ const LoginWall: React.FC<LoginWallProps> = ({
     login();
   };
 
+  // Load the content during the "loading" state if there is a token (so that the table of contents links work)
+  if (isLoggedIn || (currentToken && isLoading)) {
+    return <>{children}</>;
+  }
+
   if (isLoading) {
     return (
       <div className={styles.loadingContainer}>
         <div className={styles.spinner}></div>
       </div>
     );
-  }
-
-  if (isLoggedIn) {
-    return <>{children}</>;
   }
 
   if (renderOnlyWhenLoggedIn) {
