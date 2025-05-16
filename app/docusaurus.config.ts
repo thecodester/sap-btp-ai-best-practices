@@ -21,7 +21,7 @@ const config: Config = {
 
   // Add custom fields
   customFields: {
-    apiUrl: environment.isDevelopment ? "http://localhost:4004" : "https://btp-ai-best-practices-qa-qa-btp-ai-best-practices-srv.cfapps.eu10-005.hana.ondemand.com"
+    apiUrl: environment.apiUrl
   },
 
   // GitHub pages deployment config.

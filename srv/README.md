@@ -27,6 +27,22 @@ npm run build
 npm run deploy
 ```
 
+## Deploy Environment Variables
+
+```bash
+cf login -a https://api.cf.eu10-005.hana.ondemand.com/
+
+cf set-env btp-ai-best-practices-srv GIGYA_API_KEY <value>
+cf set-env btp-ai-best-practices-srv GIGYA_USER_KEY <value>
+cf set-env btp-ai-best-practices-srv GIGYA_SECRET_KEY <value>
+
+cf restage btp-ai-best-practices-srv
+```
+
+## Change CAP Service URL (DEV, QA or PROD)
+
+Change the field `apiUrl` on the config file `app/src/config/environment.ts` to the QA URL.
+
 ## Learn More
 
 Learn more at https://cap.cloud.sap/docs/get-started/.

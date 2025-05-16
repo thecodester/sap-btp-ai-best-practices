@@ -1,6 +1,7 @@
 import { useLocation, useHistory } from "@docusaurus/router";
-import React, { createContext, useState, useContext, useEffect, useMemo } from "react";
+import React, { createContext, useState, useContext, useEffect, useMemo, useRef } from "react";
 import siteConfig from "@generated/docusaurus.config";
+import { authStorage, AuthData } from "./utils/authStorage";
 
 const BTP_API = siteConfig.customFields.apiUrl as string;
 
@@ -41,6 +42,8 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<UserInfo | null>(null);
   const [token, setToken] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  // Prevents multiple simultaneous auth checks which could create duplicate users
+  const authCheckInProgress = useRef(false);
   const location = useLocation();
   const history = useHistory();
 
@@ -53,7 +56,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setIsLoggedIn(false);
     setUser(null);
     setToken("");
-    localStorage.removeItem("sap-btp-ai-bp-auth-token");
+    authStorage.clear();
   };
 
   const value = useMemo(
@@ -70,47 +73,70 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   useEffect(() => {
     if (token > "") {
-      localStorage.setItem("sap-btp-ai-bp-auth-token", token);
-    } else if (localStorage.getItem("sap-btp-ai-bp-auth-token")) {
-      setToken(localStorage.getItem("sap-btp-ai-bp-auth-token"));
+      authStorage.update({
+        token,
+        email: user?.email
+      });
+    } else {
+      const authData = authStorage.load();
+      if (authData?.token) {
+        setToken(authData.token);
+      }
     }
-  }, [token]);
+  }, [token, user?.email]);
 
   useEffect(() => {
     const checkAuth = async () => {
+      // Prevent concurrent auth checks to avoid duplicate API calls
+      // This ensures we don't create multiple users when isFreshLogin=true
+      if (authCheckInProgress.current) return;
+      authCheckInProgress.current = true;
+
       setIsLoading(true);
       const params = new URLSearchParams(location.search);
       const queryToken = params.get("t");
-      let currentToken = localStorage.getItem("sap-btp-ai-bp-auth-token");
+      let currentToken = "";
+      let isFreshLogin = false;
 
       if (queryToken) {
         setToken(queryToken);
-        localStorage.setItem("sap-btp-ai-bp-auth-token", queryToken);
+        authStorage.save({ token: queryToken });
         currentToken = queryToken;
-        history.replace(location.pathname);
-      } else if (currentToken) {
-        setToken(currentToken);
+        isFreshLogin = true;
+        history.replace({ ...location, search: "" });
       } else {
-        setIsLoading(false);
-        return;
+        const authData = authStorage.load();
+        if (authData?.token) {
+          setToken(authData.token);
+          currentToken = authData.token;
+        } else {
+          setIsLoading(false);
+          return;
+        }
       }
-
-      // console.log(`Checking auth with token: ${currentToken}`);
 
       if (currentToken) {
         try {
-          const responseUser = await fetch(`${BTP_API}/user/getUserInfo`, {
+          const userInfoUrl = new URL(`${BTP_API}/user/getUserInfo`);
+          if (isFreshLogin) {
+            userInfoUrl.searchParams.append("isNewLogin", "true");
+          }
+
+          const responseUser = await fetch(userInfoUrl.toString(), {
             headers: {
               Authorization: `Bearer ${currentToken}`
             },
             mode: "cors"
           });
-          // console.log(responseUser);
           if (responseUser.ok) {
             const dataUser = await responseUser.json();
-            // console.log(dataUser);
             setUser(dataUser);
             setIsLoggedIn(true);
+
+            // Update storage with email
+            if (dataUser.email) {
+              authStorage.update({ email: dataUser.email });
+            }
           } else {
             console.error("Failed to fetch user info, potentially invalid token");
             logout();
@@ -121,6 +147,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         }
       }
       setIsLoading(false);
+      authCheckInProgress.current = false;
     };
 
     checkAuth();
