@@ -48,7 +48,7 @@ const config: Config = {
       async: false
     },
     {
-      src: "https://www.sap.com/sharedlibs/globaltop/script-1.0.51.min.js",
+      src: "https://www.sap.com/sharedlibs/globaltop/script-latest.min.js",
       async: false
     }
   ],
