@@ -1,5 +1,5 @@
 _schema-version: 3.3.0
-ID: backend-sample
+ID: ai-rag-embedding-cap-backend-demo
 version: 1.0.0
 description: "A simple CAP project."
 parameters:
@@ -11,7 +11,7 @@ build-parameters:
         - npm ci
         - npx cds build --production
 modules:
-  - name: backend-sample-srv
+  - name: ai-rag-embedding-cap-backend-demo-srv
     type: nodejs
     path: gen/srv
     parameters:
@@ -24,49 +24,32 @@ modules:
         properties:
           srv-url: ${default-url}
     requires:
-      - name: backend-sample-auth
-      - name: backend-sample-db
+      - name: best-practices-xsuaa
+      - name: best-practices-aicore
+      - name: ai-rag-embedding-cap-backend-demo-db
 
-  - name: backend-sample-db-deployer
+  - name: ai-rag-embedding-cap-backend-demo-db-deployer
     type: hdb
     path: gen/db
     parameters:
       buildpack: nodejs_buildpack
     requires:
-      - name: backend-sample-db
-
-  - name: backend-sample
-    type: approuter.nodejs
-    path: app/router
-    parameters:
-      keep-existing-routes: true
-      disk-quota: 256M
-      memory: 256M
-    requires:
-      - name: srv-api
-        group: destinations
-        properties:
-          name: srv-api # must be used in xs-app.json as well
-          url: ~{srv-url}
-          forwardAuthToken: true
-      - name: backend-sample-auth
-    provides:
-      - name: app-api
-        properties:
-          app-protocol: ${protocol}
-          app-uri: ${default-uri}
+      - name: ai-rag-embedding-cap-backend-demo-db
 
 resources:
-  - name: backend-sample-auth
+  - name: best-practices-xsuaa
     type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
       service-plan: application
       path: ./xs-security.json
-      config:
-        xsappname: backend-sample-${org}-${space}
-        tenant-mode: dedicated
-  - name: backend-sample-db
+
+  - name: best-practices-aicore
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: best-practices-aicore
+
+  - name: ai-rag-embedding-cap-backend-demo-db
     type: com.sap.xs.hdi-container
     parameters:
       service: hana

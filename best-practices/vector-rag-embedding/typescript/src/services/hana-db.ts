@@ -31,26 +31,20 @@ export default class HANADb {
    * @returns The results of the query.
    */
   public async executeQuery(query: string, data?: any[]): Promise<any> {
-    let result: any;
-    const hanaConnection = hana.createConnection();
+    const hanaConnection: hana.Connection = hana.createConnection();
 
     try {
       // Connect to the database
       await PromiseModule.connect(hanaConnection, this.connectionOptions);
 
       // Execute the query
-      const stmt = await PromiseModule.prepare(hanaConnection, query);
-      const results = await PromiseModule.execute(stmt, data);
+      const stmt: hana.Statement = await PromiseModule.prepare(hanaConnection, query);
+      const results: hana.ResultSet = await PromiseModule.execute(stmt, data);
 
-      // Check if the query returned results
-      const allResults = [];
-      while (results.next()) {
-        allResults.push(results.getValues());
-      }
-      results.close();
+      // Close connection
       PromiseModule.disconnect(hanaConnection);
 
-      return allResults;
+      return results;
     } catch (err: any) {
       logger.error(err);
     }

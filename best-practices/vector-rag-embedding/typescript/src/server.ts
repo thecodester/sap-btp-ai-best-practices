@@ -32,9 +32,9 @@ app.use(express.json());
 // Handle Requests
 app.get("/scienceData", async (req: Request, res: Response): Promise<void> => {
   // Query the database
-  const result = await oHanaDb.executeQuery(`SELECT * FROM AI_DB_SCIENCE_DATA;`);
+  const result = await oHanaDb.executeQuery(`SELECT ID,TOPIC,DIFFICULTY_LEVEL,CATEGORY FROM AI_DB_SCIENCE_DATA;`);
   // Return the results
-  res.status(200).json(result);
+  res.status(200).json({ count: result.length, result });
 });
 
 app.post("/uploadScienceData", upload.single("csvFile"), async (req: Request, res: Response): Promise<void> => {
@@ -61,7 +61,7 @@ app.post("/uploadScienceData", upload.single("csvFile"), async (req: Request, re
       const embeddingResults = await oAiSdk.createEmbeddings(scienceDataChunks, embeddingBatchSize);
 
       // Store in DB
-      const columns = Object.keys(embeddingResults[0]).join(", ");
+      const columns = "TOPIC, DIFFICULTY_LEVEL, CATEGORY, ID, EMBEDDING";
       const values = embeddingResults.map((row: any) => Object.values(row));
       const result = await oHanaDb.executeBatchQuery(
         `INSERT INTO AI_DB_SCIENCE_DATA (${columns}) VALUES (?,?,?,?,TO_REAL_VECTOR(?))`,
