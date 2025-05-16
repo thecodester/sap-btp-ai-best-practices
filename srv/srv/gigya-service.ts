@@ -94,6 +94,7 @@ export const insertUserInGigya = async (
   if (userData.companyId) dataPayload.companyId = userData.companyId;
   if (userData.company) dataPayload.company = userData.company;
   if (userData.sapID) dataPayload.sapID = userData.sapID;
+  if (userData.type) dataPayload.type = userData.type;
 
   const insertParams: Record<string, any> = {
     isRegistered: true,
