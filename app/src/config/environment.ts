@@ -10,5 +10,5 @@ export const environment = {
   // Local URL: http://localhost:4004
   // QA URL: https://btp-ai-best-practices-qa-qa-btp-ai-best-practices-srv.cfapps.eu10-005.hana.ondemand.com
   // PROD URL: https://btp-ai-best-practices-prod-prod-btp-ai-best-practices-srv.cfapps.eu10-005.hana.ondemand.com
-  apiUrl: process.env.NODE_ENV === "development" ? "http://localhost:4004" : "https://btp-ai-best-practices-qa-qa-btp-ai-best-practices-srv.cfapps.eu10-005.hana.ondemand.com"
+  apiUrl: process.env.NODE_ENV === "development" ? "http://localhost:4004" : "https://btp-ai-best-practices-prod-prod-btp-ai-best-practices-srv.cfapps.eu10-005.hana.ondemand.com"
 };
