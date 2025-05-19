@@ -17,9 +17,14 @@ This repository focuses on two key areas:
 - 🧱 **KG Creation and Grounding** — extracting RDF triplets from domain documents using prompt templates with HANA Cloud and AI CORE
 - 🔎 **Query Pipeline** — retrieving grounded facts from a KG and injecting them into prompts for LLMs
 
-## Language Support
+## Data Samples
+
+You can use PDF documents as domain data sources for knowledge graph creation. Here are a couple of examples:
+> - [EBMUD 2312 - Four 1500-HP Main Air Compressor Motors (PDF)](https://www.ebmud.com/application/files/3416/7771/2399/2312_-_Four_1500-HP_Main_Air_Compressor_Motors_FINAL.pdf)
+> - [RS Components A700000006779737 (PDF)](https://docs.rs-online.com/d853/A700000006779737.pdf)
 
 
+Feel free to use your own PDF documents in the repository to experiment with KG extraction and grounding.
 
 ## Language Support
 
