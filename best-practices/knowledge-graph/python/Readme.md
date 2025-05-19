@@ -11,6 +11,7 @@ knowledge-graph/
 ├── prompts.py # Prompt templates for KG creation and selective filtering
 ├── KG-RDF-creation-grounding-visualisation-BP07-BP08-BestPractice.ipynb # End-to-end example
 └── README.md # Project documentation (this file)
+└── requirements.txt
 ```
 
 
