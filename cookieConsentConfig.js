@@ -6,7 +6,7 @@ window.SAP.global = {
     privacyPolicyLink: "https://btp-ai-bp.docs.sap/privacy",
     cookieLink: "https://btp-ai-bp.docs.sap/cookies"
   },
-  isProd: false // This will be set in the src/client/delayedScripts.ts file using environment variables
+  isProd: true
 };
 
 // Add click event to document for cookie preference elements
