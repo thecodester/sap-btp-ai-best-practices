@@ -10,9 +10,9 @@ Anomaly detection is a critical task in many business scenarios, including fraud
 
 The repository is organized into three main directories:
 
-- **generate_anomaly_data/**: Scripts for generating synthetic datasets with controlled anomalies
-- **general_anomaly/**: Jupyter notebooks implementing various anomaly detection algorithms for tabular data
-- **timeseries_anomaly/**: Jupyter notebooks implementing time series anomaly detection algorithms
+- **[generate_anomaly_data/](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/anomaly-detection/python/generate_anomaly_data)**: Scripts for generating synthetic datasets with controlled anomalies
+- **[general_anomaly/](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/anomaly-detection/python/general_anomaly)**: Jupyter notebooks implementing various anomaly detection algorithms for tabular data
+- **[timeseries_anomaly/](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/anomaly-detection/python/timeseries_anomaly)**: Jupyter notebooks implementing time series anomaly detection algorithms
 
 ## Prerequisites
 
@@ -44,8 +44,8 @@ pip install -r requirements.txt
 
 Two scripts are provided for generating synthetic data with controlled anomalies:
 
-1. **anomaly_generator.py**: Generates tabular data with multiple features and controlled anomaly distributions
-2. **time_series_anomaly_generator.py**: Generates time series data with seasonal patterns and injected point anomalies
+1. **[anomaly_generator.py](https://github.com/SAP-samples/sap-btp-ai-best-practices/blob/main/best-practices/anomaly-detection/python/generate_anomaly_data/anomaly_generator.py)**: Generates tabular data with multiple features and controlled anomaly distributions
+2. **[time_series_anomaly_generator.py](https://github.com/SAP-samples/sap-btp-ai-best-practices/blob/main/best-practices/anomaly-detection/python/generate_anomaly_data/time_series_anomaly_generator.py)**: Generates time series data with seasonal patterns and injected point anomalies
 
 Example usage:
 ```bash
@@ -60,22 +60,22 @@ python time_series_anomaly_generator.py
 
 The following notebooks demonstrate anomaly detection methods for tabular data:
 
-1. **isolation_forest.ipynb**: Uses Isolation Forest, an ensemble-based algorithm that efficiently isolates anomalies by randomly partitioning the data
+1. **[isolation_forest.ipynb](https://github.com/SAP-samples/sap-btp-ai-best-practices/blob/main/best-practices/anomaly-detection/python/general_anomaly/isolation_forest.ipynb)**: Uses Isolation Forest, an ensemble-based algorithm that efficiently isolates anomalies by randomly partitioning the data
    - Suitable for high-dimensional data
    - Works well with small sample sizes
    - No assumptions about data distribution
 
-2. **dbscan_anomaly.ipynb**: Implements Density-Based Spatial Clustering of Applications with Noise (DBSCAN)
+2. **[dbscan_anomaly.ipynb](https://github.com/SAP-samples/sap-btp-ai-best-practices/blob/main/best-practices/anomaly-detection/python/general_anomaly/dbscan_anomaly.ipynb)**: Implements Density-Based Spatial Clustering of Applications with Noise (DBSCAN)
    - Does not require specifying the number of clusters
    - Effective at finding clusters of arbitrary shapes
    - Labels points in low-density regions as outliers
 
-3. **OneClassSVM.ipynb**: Implements One-Class Support Vector Machine
+3. **[OneClassSVM.ipynb](https://github.com/SAP-samples/sap-btp-ai-best-practices/blob/main/best-practices/anomaly-detection/python/general_anomaly/OneClassSVM.ipynb)**: Implements One-Class Support Vector Machine
    - Works well with high-dimensional data
    - Suitable for cases with limited examples of anomalies
    - Effective at defining a tight boundary around normal data
 
-4. **outlier_detection_kmeans.ipynb**: Uses K-means clustering distance-based approach for anomaly detection
+4. **[outlier_detection_kmeans.ipynb](https://github.com/SAP-samples/sap-btp-ai-best-practices/blob/main/best-practices/anomaly-detection/python/general_anomaly/outlier_detection_kmeans.ipynb)**: Uses K-means clustering distance-based approach for anomaly detection
    - Simple and computationally efficient
    - Identifies points far from their nearest cluster centroids as anomalies
    - Assumes spherical clusters
@@ -84,7 +84,7 @@ The following notebooks demonstrate anomaly detection methods for tabular data:
 
 The following notebook demonstrates anomaly detection for time series data:
 
-1. **OutlierDetectionTS.ipynb**: Implements time series anomaly detection with multiple approaches:
+1. **[OutlierDetectionTS.ipynb](https://github.com/SAP-samples/sap-btp-ai-best-practices/blob/main/best-practices/anomaly-detection/python/timeseries_anomaly/OutlierDetectionTS.ipynb)**: Implements time series anomaly detection with multiple approaches:
    - Auto mode (PAL selects appropriate methods)
    - Median smoothing with IQR-based outlier detection
    - LOESS smoothing with MAD-based outlier detection
@@ -103,7 +103,7 @@ Each notebook provides:
 
 1. **In-database processing**: Computations are performed inside the SAP HANA database, reducing data movement and leveraging SAP HANA's speed
 2. **Scalability**: Supports large datasets through SAP HANA's columnar storage and parallel processing
-3. **Integration**: Seamlessly integrates with Python data science ecosystem (pandas, matplotlib, scikit-learn)
+3. **Integration**: Seamlessly integrates with Python data science ecosystem (pandas, matplotlib, etc.)
 4. **Productionization**: Models can be deployed directly within SAP HANA for real-time scoring
 
 ## Best Practices
