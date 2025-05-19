@@ -14,6 +14,16 @@ It contains these folders and files, following our recommended project layout:
 
 ## Working Locally
 
+1. Create a `.env` file in the root directory with the following environment variables:
+
+```bash
+GIGYA_API_KEY=<your_api_key>
+GIGYA_USER_KEY=<your_user_key>
+GIGYA_SECRET_KEY=<your_secret_key>
+```
+
+2. Install dependencies and start the development server:
+
 ```bash
 npm install
 npm run watch
