@@ -44,10 +44,12 @@ const config: Config = {
   // Add external scripts
   scripts: [
     {
+      // Custom configuration for SAP's cookie consent and privacy management
       src: `${baseUrl}cookieConsentConfig.js`,
       async: false
     },
     {
+      // Library designed to handle user geolocation, consent management (TrustArc), and tag management (Adobe Launch)
       src: "https://www.sap.com/sharedlibs/globaltop/script-latest.min.js",
       async: false
     }
