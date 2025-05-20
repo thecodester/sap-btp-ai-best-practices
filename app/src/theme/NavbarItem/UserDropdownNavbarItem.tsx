@@ -3,6 +3,7 @@ import { useAuth } from "../../authProviderBTP"; // Adjust path if necessary
 import Icon from "@site/src/components/Icon";
 import "@ui5/webcomponents-icons/dist/person-placeholder.js";
 import styles from "./UserDropdownNavbarItem.module.css"; // We'll create this for styling
+import Link from "@docusaurus/Link";
 
 export default function UserDropdownNavbarItem() {
   const { isLoggedIn, user, login, logout } = useAuth();
@@ -72,25 +73,25 @@ export default function UserDropdownNavbarItem() {
 
           <div className={styles.userDropdown__section}>
             <h3 className={styles.userDropdown__sectionTitle}>
-              <a href="https://account.sap.com/" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__titleLink}>
+              <Link to="https://account.sap.com/" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__titleLink}>
                 Manage my account
-              </a>
+              </Link>
             </h3>
             <ul className={styles.userDropdown__linkList}>
               <li>
-                <a href="https://account.sap.com/manage/info" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__link}>
+                <Link to="https://account.sap.com/manage/info" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__link}>
                   Personal Information
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://account.sap.com/manage/security" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__link}>
+                <Link to="https://account.sap.com/manage/security" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__link}>
                   Security
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://account.sap.com/manage/privacy" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__link}>
+                <Link to="https://account.sap.com/manage/privacy" target="_blank" rel="noopener noreferrer" className={styles.userDropdown__link}>
                   Privacy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

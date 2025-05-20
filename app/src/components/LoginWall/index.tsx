@@ -2,6 +2,7 @@ import React, { type ReactNode, useState } from "react";
 import { useAuth } from "@site/src/authProviderBTP"; // Adjust path if necessary
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./styles.module.css";
+import Link from "@docusaurus/Link";
 
 interface LoginWallProps {
   children: ReactNode;
@@ -80,9 +81,9 @@ const LoginWall: React.FC<LoginWallProps> = ({
               <p className={styles.termsText}>
                 By clicking "Login with your SAP account", you agree to SAP BTP AI Best Practices' terms. You can learn about how SAP BTP AI Best Practices collects, uses, and
                 shares data in the{" "}
-                <a href="https://btp-ai-bp.docs.sap/privacy" target="_blank" rel="noopener noreferrer">
+                <Link to="https://btp-ai-bp.docs.sap/privacy" target="_blank" rel="noopener noreferrer">
                   SAP BTP AI Best Practices' Privacy Statement
-                </a>
+                </Link>
                 .
               </p>
             </div> */}
@@ -95,16 +96,16 @@ const LoginWall: React.FC<LoginWallProps> = ({
             <p className={styles.termsText} style={{ marginBottom: "0", textAlign: "center" }}>
               By clicking "Login with your SAP account", you agree to SAP BTP AI Best Practices' terms. You can learn about how SAP BTP AI Best Practices collects, uses, and shares
               data in the{" "}
-              <a href={privacyUrl} target="_blank" rel="noopener noreferrer">
+              <Link to={privacyUrl} target="_blank" rel="noopener noreferrer">
                 SAP BTP AI Best Practices' Privacy Statement
-              </a>
+              </Link>
               .
             </p>
 
             <div className={styles.orSeparator}>or</div>
-            <a href="https://account.sap.com/register" target="_blank" className={styles.createAccountLink}>
+            <Link to="https://account.sap.com/register" target="_blank" className={styles.createAccountLink}>
               Create your free SAP account
-            </a>
+            </Link>
           </div>
         </div>
       </div>
