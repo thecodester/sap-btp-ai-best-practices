@@ -10,7 +10,7 @@ import Tabs from "@theme/Tabs";
 
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 
-<PageViewTracker featureName="TECHNOLOGY_SAP_HANA_CLOUD" />
+<PageViewTracker />
 
 <div className="hero-header">
   <h1>SAP HANA Cloud</h1>
@@ -49,17 +49,17 @@ Setting up SAP HANA Cloud involves meeting specific prerequisites related to the
 ### Prerequisites
 
 - **SAP BTP Environment**
-    - An active SAP BTP global account is required. [Setup Guide](/docs/technology/sap-business-technology-platform)
-    - Within the global account, a subaccount must exist where SAP HANA Cloud Services entitlements and quota are assigned. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/sap-hana-cloud-sap-hana-database-administration-guide).
+  - An active SAP BTP global account is required. [Setup Guide](/docs/technology/sap-business-technology-platform)
+  - Within the global account, a subaccount must exist where SAP HANA Cloud Services entitlements and quota are assigned. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/sap-hana-cloud-sap-hana-database-administration-guide).
 - **SAP BTP Roles and Authorizations**
-    - Subaccount Administrator: Required for configuring the subaccount, managing entitlements and quotas, enabling CF and subscribing to services. More information available [here](https://help.sap.com/docs/HANA_CLOUD_ALIBABA_CLOUD/683a53aec4fc408783bbb2dd8e47afeb/784a1dbb421a4da29fb1e3bdf5f198ec.html).
-    - SAP HANA Cloud Administrator: Required specifically to access and use SAP HANA Cloud Central for creating and managing instances via the web UI. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/navigating-sap-hana-cloud-central).
-    - Subaccount Service Administrator: Needed if provisioning instances using Infrastructure-as-Code tools like Terraform. More information available [here](https://help.sap.com/docs/hana-cloud/683a53aec4fc408783bbb2dd8e47afeb/00a61d6caac84da7b8c737cdd2588065.html).
+  - Subaccount Administrator: Required for configuring the subaccount, managing entitlements and quotas, enabling CF and subscribing to services. More information available [here](https://help.sap.com/docs/HANA_CLOUD_ALIBABA_CLOUD/683a53aec4fc408783bbb2dd8e47afeb/784a1dbb421a4da29fb1e3bdf5f198ec.html).
+  - SAP HANA Cloud Administrator: Required specifically to access and use SAP HANA Cloud Central for creating and managing instances via the web UI. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/navigating-sap-hana-cloud-central).
+  - Subaccount Service Administrator: Needed if provisioning instances using Infrastructure-as-Code tools like Terraform. More information available [here](https://help.sap.com/docs/hana-cloud/683a53aec4fc408783bbb2dd8e47afeb/00a61d6caac84da7b8c737cdd2588065.html).
 - **Database User Roles and Privileges**
-    - Initial database administrator user is `DBADMIN`, created during instance provisioning.
-    - For Predictive Analysis Library (PAL), the executing database user needs the `AFL__SYS_AFL_AFLPAL_EXECUTE` role. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-getting-started-guide/502e458a260d4445810e6b9094c5b7e7.html).
-    - For Automated Predictive Library (APL), the executing database user needs the `sap.pa.apl.base.roles::APL_EXECUTE` role. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-getting-started-guide/502e458a260d4445810e6b9094c5b7e7.html).
-    - For using the Document Filters Library, the `AFL__SYS_AFL_DFL_AREA_EXECUTE` role is required. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/document-filters-library-plugin).
+  - Initial database administrator user is `DBADMIN`, created during instance provisioning.
+  - For Predictive Analysis Library (PAL), the executing database user needs the `AFL__SYS_AFL_AFLPAL_EXECUTE` role. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-getting-started-guide/502e458a260d4445810e6b9094c5b7e7.html).
+  - For Automated Predictive Library (APL), the executing database user needs the `sap.pa.apl.base.roles::APL_EXECUTE` role. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-getting-started-guide/502e458a260d4445810e6b9094c5b7e7.html).
+  - For using the Document Filters Library, the `AFL__SYS_AFL_DFL_AREA_EXECUTE` role is required. More information available [here](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/document-filters-library-plugin).
 
 ### Setup Guide
 
@@ -102,24 +102,26 @@ The foundation of the vector engine is the REAL_VECTOR SQL data type. It stores 
 SAP HANA Cloud provides several built-in SQL functions for working with REAL_VECTOR data. A detailed guide can be found [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/vector-function-reference?locale=en-US):
 
 - [Similarity/Distance Calculation](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/performing-similarity-searches):
-COSINE_SIMILARITY(`<vector1>`, `<vector2>`): Calculates the cosine of the angle between two vectors. Result ranges from -1 (opposite) to 1 (identical direction), with 0 indicating orthogonality. Commonly used for semantic similarity.
-L2DISTANCE(`<vector1>`, `<vector2>`): Computes the Euclidean (straight-line) distance between the endpoints of two vectors in the vector space.
+  COSINE_SIMILARITY(`<vector1>`, `<vector2>`): Calculates the cosine of the angle between two vectors. Result ranges from -1 (opposite) to 1 (identical direction), with 0 indicating orthogonality. Commonly used for semantic similarity.
+  L2DISTANCE(`<vector1>`, `<vector2>`): Computes the Euclidean (straight-line) distance between the endpoints of two vectors in the vector space.
 
 - [Embedding Generation](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/creating-text-embeddings-in-sap-hana-cloud):
-    - VECTOR_EMBEDDING (`<text>`, `<text_type>`, `<model_and_version>`): Creates a REAL_VECTOR embedding from input text using a specified embedding model. Requires the "Natural Language Processing (NLP)" capability to be enabled for the instance.
-        - `<text>`: The input string.
-        - `<text_type>`: Specifies the nature of the text, typically 'DOCUMENT' for indexing content or 'QUERY' for embedding search queries.
-        - `<model_and_version>`: Identifies the embedding model, e.g., 'SAP_NEB.20240715'. Different models produce vectors of specific dimensions (e.g., 768 for SAP_NEB.20240715) and have input token limits.
+
+  - VECTOR_EMBEDDING (`<text>`, `<text_type>`, `<model_and_version>`): Creates a REAL_VECTOR embedding from input text using a specified embedding model. Requires the "Natural Language Processing (NLP)" capability to be enabled for the instance.
+    - `<text>`: The input string.
+    - `<text_type>`: Specifies the nature of the text, typically 'DOCUMENT' for indexing content or 'QUERY' for embedding search queries.
+    - `<model_and_version>`: Identifies the embedding model, e.g., 'SAP_NEB.20240715'. Different models produce vectors of specific dimensions (e.g., 768 for SAP_NEB.20240715) and have input token limits.
 
 - Construction and Serialization:
-    - TO_REAL_VECTOR (`<input>`): Constructs a REAL_VECTOR from various representations. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/to-real-vector-function-data-type-conversion?locale=en-US):
-        - Textual: e.g., TO_REAL_VECTOR('[0.1, 0.2, 0.3]')
-        - Binary: e.g., TO_REAL_VECTOR(x'03000000...') (hex representation of binary format)
-        - SQL Array: e.g., TO_REAL_VECTOR(ARRAY(0.1, 0.2, 0.3))
-    - TO_NVARCHAR(`<vector>`),TO_NCLOB(`<vector>`): Serializes a vector to its textual representation More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/to-nvarchar-function-data-type-conversion?locale=en-US).
-    - TO_VARBINARY(`<vector>`),TO_BLOB(`<vector>`): Serializes a vector to its binary representation. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/to-varbinary-function-data-type-conversion?locale=en-US).
-    - TO_ARRAY(`<vector>`): Converts a vector to an SQL array of REAL elements. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/to-array-function-data-type-conversion?locale=en-US).
+
+  - TO_REAL_VECTOR (`<input>`): Constructs a REAL_VECTOR from various representations. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/to-real-vector-function-data-type-conversion?locale=en-US):
+    - Textual: e.g., TO_REAL_VECTOR('[0.1, 0.2, 0.3]')
+    - Binary: e.g., TO_REAL_VECTOR(x'03000000...') (hex representation of binary format)
+    - SQL Array: e.g., TO_REAL_VECTOR(ARRAY(0.1, 0.2, 0.3))
+  - TO_NVARCHAR(`<vector>`),TO_NCLOB(`<vector>`): Serializes a vector to its textual representation More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/to-nvarchar-function-data-type-conversion?locale=en-US).
+  - TO_VARBINARY(`<vector>`),TO_BLOB(`<vector>`): Serializes a vector to its binary representation. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/to-varbinary-function-data-type-conversion?locale=en-US).
+  - TO_ARRAY(`<vector>`): Converts a vector to an SQL array of REAL elements. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-vector-engine-guide/to-array-function-data-type-conversion?locale=en-US).
 
 - Utility Functions:
-    - CARDINALITY(`<vector>`): Returns the dimension (number of elements) of the vector. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-sql-reference-guide/cardinality-function-vector).
-    - MEMBER_AT(`<vector>`, `<index>`): Retrieves the element at a specific 1-based index within the vector. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-sql-reference-guide/member-at-function-vector).
+  - CARDINALITY(`<vector>`): Returns the dimension (number of elements) of the vector. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-sql-reference-guide/cardinality-function-vector).
+  - MEMBER_AT(`<vector>`, `<index>`): Retrieves the element at a specific 1-based index within the vector. More information available [here](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-sql-reference-guide/member-at-function-vector).

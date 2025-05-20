@@ -10,49 +10,59 @@ import Tabs from "@theme/Tabs";
 
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 
-<PageViewTracker featureName="TECHNOLOGY_SAP_AI_LAUNCHPAD" />
+<PageViewTracker />
 
 <div className="hero-header">
   <h1>SAP AI Launchpad</h1>
 </div>
 
 ### What is SAP AI Launchpad?
+
 SAP AI Launchpad is a multitenant software as a service (SaaS) application on SAP Business Technology Platform (SAP BTP). Customers and partners can use SAP AI Launchpad to manage AI use cases (scenarios) across multiple instances of AI runtimes (such as SAP AI Core). SAP AI Launchpad also provides generative AI capabilities via the Generative AI Hub.
 
 ### Documentation
+
 - [SAP AI Launchpad](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/what-is-sap-ai-launchpad?locale=en-US&state=PRODUCTION&version=CLOUD) (SAP Help)
 
 ### Setup
+
 - [AI Launchpad Setup Guide](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/initial-setup) (SAP Help)
 
 #### Prerequisites
+
 - You have an enterprise global account and subaccount on SAP Business Technology Platform. For an overview of the required steps, see [Getting Started in the Cloud Foundry Environment](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/b328cc89ea14484d9655b8cfb8efb508.html).
 - Your SAP BTP administrator has set the entitlement to a subaccount so that you can provision SAP AI Launchpad.
 
 #### Setup Guide
+
 After making sure the subaccount has the correct entitlements follow the steps:
+
 1. Subscribe to the AI Launchpad service with extended service plan ([SAP Help](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/subscribe-to-sap-ai-launchpad))
 2. Allow access to the needed users to the AI Launchpad service ([SAP Help](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/allow-access-to-sap-ai-launchpad))
 
 ##### Recommended
+
 - [Prompt LLMs in the generative AI hub in SAP AI Core & Launchpad](https://developers.sap.com/tutorials/ai-core-generative-ai.html) (From Section: “Provisioning SAP AI Core” to section “Querying the LLMs”)
 
 ##### Other
+
 - [Learning: Use Boosters for Free Tier Use of SAP AI Core and SAP AI Launchpad](https://developers.sap.com/tutorials/ai-core-launchpad-provisioning.html) (Use “Extended” tier)
 
 - [End-to-end use case](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/example-end-to-end-use-case)
 
 ### Features
+
 - **Model Library**: Explore available models and their specifications. Inform your model choice using benchmarking data.
 - **Grounding Management**: The grounding management app lets you manage the lifecycle of your data pipelines.
 - **Workspaces**: You use the app to create and manage connections between SAP AI Launchpad and your AI runtimes (for example ,SAP AI Core). The app lets you switch between your AI runtime instances so that you can carry out further actions.
 - **ML Operations**: The app helps you manage the lifecycle tasks for an AI use case (business project), created for a resource group that exists on an AI runtime platform such as SAP AI Core.
 
 #### Orchestration
+
 The orchestration service operates under the global AI scenario orchestration, which is managed by SAP AI Core. This service enables the use of various generative AI models with a unified code, configuration, and deployment.
 
 In this orchestration, the harmonized API allows you to use different foundation models without changing the client code. To use different foundation models and versions, you need to create at least one orchestration deployment, or use the orchestration deployment in your default resource group.
- 
+
 Key features include:
 
 - **Templating**: This feature lets you compose prompts with placeholders that are filled during inference.
