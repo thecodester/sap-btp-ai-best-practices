@@ -391,7 +391,8 @@ h2 .step-number {
   color: var(--sap-horizon-neutral-1);
 }
 
-[data-theme="dark"] .section-with-background {
+[data-theme="dark"] .section-with-background.blue,
+[data-theme="dark"] .section-with-background.gradient-violet-blue {
   background: var(--sap-horizon-neutral-11);
 }
 
