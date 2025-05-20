@@ -1,17 +1,51 @@
+/**
+ * SAP BTP AI Best Practices Website Tracking Utility
+ *
+ * This utility handles user tracking for the SAP BTP AI Best Practices website with two main modes:
+ *
+ * 1. With User Consent (Cookie-based tracking):
+ *    - Uses persistent storage to track user sessions
+ *    - Associates tracking with user's email if logged in
+ *    - Falls back to anonymous tracking if no email is available
+ *    - Maintains usage history across sessions
+ *
+ * 2. Without User Consent (In-memory tracking):
+ *    - Uses in-memory storage for the current session only
+ *    - Creates a unique session ID for each visit
+ *    - If user is logged in, links session data to user email via additionalData
+ *    - Data is not persisted between sessions
+ *
+ * Consent Levels:
+ * - Level 1: Basic tracking consent
+ * - Level 2: Enhanced tracking consent
+ * - Either level is sufficient for enabling cookie-based tracking
+ *
+ * Usage:
+ * - Call trackEvent() with toolName and featureName to track user interactions
+ * - The utility automatically handles consent checking and appropriate storage method
+ * - Use clear() to reset tracking data when needed (e.g., on logout)
+ *
+ * Note: This utility integrates with SAP's TrustArc for consent management
+ * and requires the global window.SAP.trustArc configuration to be present.
+ */
+
 import SAPTrackingTool from "@site/src/lib/trackingTool/automated-usage-tracking-tool/web";
 import { InMemoryTrackingStorage } from "./InMemoryTrackingStorage";
-
 import { environment } from "@site/src/config/environment";
 import { TRACKING_CONFIG } from "./config";
 import { authStorage } from "@site/src/utils/authStorage";
 
-// Create and export a singleton tracking tool instance
-export const trackingTool = new SAPTrackingTool({
-  apiKey: TRACKING_CONFIG.apiKey,
-  dataCenter: TRACKING_CONFIG.dataCenter,
-  storageName: environment.storageName
-});
+// Types
+interface TrackingParams {
+  toolName?: string;
+  featureName: string;
+}
 
+// Constants
+const ANONYMOUS_EMAIL_DOMAIN = "anonymous.btp-ai-bp.docs.sap";
+const SESSION_EMAIL_DOMAIN = "session.btp-ai-bp.docs.sap";
+
+// Global type declarations
 declare global {
   interface Window {
     SAP?: {
@@ -25,12 +59,17 @@ declare global {
   }
 }
 
-interface TrackingParams {
-  toolName?: string;
-  featureName: string;
-}
+// Create and export a singleton tracking tool instance
+export const trackingTool = new SAPTrackingTool({
+  apiKey: TRACKING_CONFIG.apiKey,
+  dataCenter: TRACKING_CONFIG.dataCenter,
+  storageName: environment.storageName
+});
 
-const hasConsentLevel = () => {
+/**
+ * Checks if user has given consent for tracking
+ */
+const hasConsentLevel = (): boolean => {
   if (!window.SAP?.global?.trustArc?.domain || !window.isConsentEnabled) {
     console.error("window.SAP.global.trustArc.domain or window.isConsentEnabled is not set");
     return false;
@@ -44,48 +83,62 @@ const hasConsentLevel = () => {
 };
 
 /**
- * Shared tracking utility that can be used by both hooks and event handlers
+ * Generates an email based on the provided identifier and domain
  */
-export const trackEvent = async ({ toolName = TRACKING_CONFIG.toolName, featureName = window.location.pathname }: TrackingParams): Promise<void> => {
-  const authData = authStorage.load();
-  const hasUserConsent = hasConsentLevel();
-  // const hasUserConsent = false;
-  console.log("hasConsentLevel", hasUserConsent);
+const generateEmail = (identifier: string, domain: string): string => `${identifier}@${domain}`;
 
-  // If not consent to track cookies, track usage in memory and create a new CDC lite user for each session
-  // If the user is logged in, use the user's email in a "data" field to connect the "session user" to the logged in user
-  if (!hasUserConsent) {
-    // Track usage in memory for the current session
-    const memoryStorage = InMemoryTrackingStorage.getInstance();
-    memoryStorage.addUsage(toolName, featureName);
+/**
+ * Handles tracking when user has not given consent
+ */
+const handleTrackingWithoutConsent = async (toolName: string, featureName: string, userEmail?: string): Promise<void> => {
+  const memoryStorage = InMemoryTrackingStorage.getInstance();
+  memoryStorage.addUsage(toolName, featureName);
 
-    trackingTool.customTrackUsage({
-      toolName,
-      featureName,
-      email: `${memoryStorage.getSessionId()}@session.btp-ai-bp.docs.sap`,
-      usages: memoryStorage.getUsages(),
-      // If the user is logged in, use the user's email in a "data" field to connect the "session user" to the logged in user
-      ...(authData?.email && { additionalData: { userEmail: authData.email } })
-    });
-    return;
-  }
+  const sessionId = memoryStorage.getSessionId();
+  const sessionEmail = generateEmail(sessionId, SESSION_EMAIL_DOMAIN);
 
-  // If consent to track cookies, track usage in the tracking tool and use the user's email as the "session email"
-  const email = authData?.email || trackingTool.storage.getEmail() || `${crypto.randomUUID()}@anonymous.btp-ai-bp.docs.sap`;
+  await trackingTool.customTrackUsage({
+    toolName,
+    featureName,
+    email: sessionEmail,
+    usages: memoryStorage.getUsages(),
+    ...(userEmail && { additionalData: { userEmail } })
+  });
+};
 
-  // If e-mail is different than the current e-mail, clear the tracking tool storage and set the new e-mail
+/**
+ * Handles tracking when user has given consent
+ */
+const handleTrackingWithConsent = async (toolName: string, featureName: string, userEmail?: string): Promise<void> => {
+  const email = userEmail || trackingTool.storage.getEmail() || generateEmail(crypto.randomUUID(), ANONYMOUS_EMAIL_DOMAIN);
+
   if (email !== trackingTool.storage.getEmail()) {
     trackingTool.storage.clear();
     trackingTool.storage.setEmail(email);
   }
 
   trackingTool.storage.setLatestUsage(toolName, featureName);
-  trackingTool.customTrackUsage({
+  await trackingTool.customTrackUsage({
     toolName,
     featureName,
     email,
     usages: trackingTool.storage.getLatestUsages()
   });
+};
+
+/**
+ * Shared tracking utility that can be used by both hooks and event handlers
+ */
+export const trackEvent = async ({ toolName = TRACKING_CONFIG.toolName, featureName = window.location.pathname }: TrackingParams): Promise<void> => {
+  const authData = authStorage.load();
+  const hasUserConsent = hasConsentLevel();
+
+  if (!hasUserConsent) {
+    await handleTrackingWithoutConsent(toolName, featureName, authData?.email);
+    return;
+  }
+
+  await handleTrackingWithConsent(toolName, featureName, authData?.email);
 };
 
 /**
