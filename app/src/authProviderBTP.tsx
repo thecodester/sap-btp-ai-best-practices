@@ -1,8 +1,8 @@
 import { useLocation, useHistory } from "@docusaurus/router";
 import React, { createContext, useState, useContext, useEffect, useMemo, useRef } from "react";
 import siteConfig from "@generated/docusaurus.config";
-import { authStorage, AuthData } from "./utils/authStorage";
-
+import { authStorage } from "./utils/authStorage";
+import { clear as clearTracking } from "./lib/trackingTool/trackingUtils";
 const BTP_API = siteConfig.customFields.apiUrl as string;
 
 interface AuthContextProps {
@@ -57,6 +57,8 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setUser(null);
     setToken("");
     authStorage.clear();
+    clearTracking();
+    window.location.reload();
   };
 
   const value = useMemo(
