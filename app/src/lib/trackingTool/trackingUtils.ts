@@ -39,6 +39,7 @@ import { authStorage } from "@site/src/utils/authStorage";
 interface TrackingParams {
   toolName?: string;
   featureName: string;
+  additionalData?: Record<string, any>;
 }
 
 // Constants
@@ -129,7 +130,7 @@ const handleTrackingWithConsent = async (toolName: string, featureName: string, 
 /**
  * Shared tracking utility that can be used by both hooks and event handlers
  */
-export const trackEvent = async ({ toolName = TRACKING_CONFIG.toolName, featureName = window.location.pathname }: TrackingParams): Promise<void> => {
+export const trackEvent = async ({ toolName = TRACKING_CONFIG.toolName, featureName = window.location.pathname, additionalData }: TrackingParams): Promise<void> => {
   const authData = authStorage.load();
   const hasUserConsent = hasConsentLevel();
 
