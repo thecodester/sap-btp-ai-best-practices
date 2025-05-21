@@ -9,7 +9,7 @@ interface TrackingParams {
 /**
  * Hook for tracking page views
  * - For non-logged in users: tracks immediately
- * - For logged in users: waits for loading to complete to get email
+ * - For logged in users: waits until email is available (local storage first, then API call)
  */
 export const useTracking = ({ toolName, featureName }: TrackingParams) => {
   const { isLoggedIn, isLoading, token, user } = useAuth();
