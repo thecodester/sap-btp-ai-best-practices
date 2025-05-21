@@ -12,6 +12,7 @@ interface AuthContextProps {
   user: UserInfo | null;
   isLoading: boolean;
   token: string;
+  stopTracking: boolean;
 }
 
 interface UserInfo {
@@ -30,7 +31,8 @@ const AuthContext = createContext<AuthContextProps>({
   logout: () => {},
   user: null,
   isLoading: true,
-  token: ""
+  token: "",
+  stopTracking: false // Prevents tracking when logging out
 });
 
 interface AuthProviderProps {
@@ -42,6 +44,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<UserInfo | null>(null);
   const [token, setToken] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [stopTracking, setStopTracking] = useState(false);
   // Prevents multiple simultaneous auth checks which could create duplicate users
   const authCheckInProgress = useRef(false);
   const location = useLocation();
@@ -53,6 +56,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   const logout = () => {
+    setStopTracking(true);
     setIsLoggedIn(false);
     setUser(null);
     setToken("");
@@ -68,9 +72,10 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       logout,
       user,
       isLoading,
-      token
+      token,
+      stopTracking
     }),
-    [isLoggedIn, login, logout, user, isLoading, token]
+    [isLoggedIn, login, logout, user, isLoading, token, stopTracking]
   );
 
   useEffect(() => {
