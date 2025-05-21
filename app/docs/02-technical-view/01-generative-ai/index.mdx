@@ -5,10 +5,11 @@ hide_title: true
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import Link from "@docusaurus/Link";
 import IconLinkButton from "@site/src/components/IconLinkButton";
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 
-<PageViewTracker featureName="TECHNICAL_VIEW_GENERATIVE_AI" />
+<PageViewTracker />
 
 <div className="hero-header">
   <h1>Generative AI</h1>
@@ -24,7 +25,7 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 <div className="row">
   <div className="col col--4">
     <h3>
-      <a href={useBaseUrl("/docs/technical-view/generative-ai/plain/")}>Plain <small>(Foundational Model Access)</small></a>
+      <Link to={useBaseUrl("/docs/technical-view/generative-ai/plain/")}>Plain <small>(Foundational Model Access)</small></Link>
     </h3>
     <h4>Direct</h4>
     <ul className="button-list">
@@ -51,7 +52,7 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
   </div>
   <div className="col col--4">
     <h3>
-      RAG <small>(Retrieval Augmented Generation)</small>
+      <Link to={useBaseUrl("/docs/technical-view/generative-ai/rag/")}>RAG <small>(Retrieval Augmented Generation)</small></Link>
     </h3>
     <h4>General</h4>
     <ul className="button-list">

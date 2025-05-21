@@ -12,10 +12,12 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 import TrackableLink from "@site/src/components/TrackableLink";
 import LoginWall from "@site/src/components/LoginWall";
 import Icon from "@site/src/components/Icon";
+import Link from "@docusaurus/Link";
 import "@ui5/webcomponents-icons/dist/video.js";
 import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
+import PageContributors from "@site/src/components/PageContributors";
 
-<PageViewTracker featureName="BP_CONTENT_FILTERING" />
+<PageViewTracker />
 
 <div className="hero-header">
   <h1>Content Filtering</h1>
@@ -27,39 +29,39 @@ import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
       <h2>Steps</h2>
       <ol className="steps-list">
         <li>
-          <a href="#1-overview">Overview</a>
+          <Link to="#1-overview">Overview</Link>
         </li>
         <li>
-          <a href="#2-pre-requisites">Pre-requisites</a>
+          <Link to="#2-pre-requisites">Pre-requisites</Link>
         </li>
         <li>
-          <a href="#3-key-choices-and-guidelines">Key Choices and Guidelines</a>
+          <Link to="#3-key-choices-and-guidelines">Key Choices and Guidelines</Link>
         </li>
         <li>
-          <a href="#4-implementation">Implementation</a>
+          <Link to="#4-implementation">Implementation</Link>
         </li>
       </ol>
     </div>
     <div className="col col--4">
       <ul className="resource-links">
         <li>
-          <a target="_blank" href={useBaseUrl("generative-ai/content-filtering/videos/BTP%20AI%20Best%20Practices%20-%20Content%20Filtering%20intro.mp4")}>
+          <Link target="_blank" to={useBaseUrl("generative-ai/content-filtering/videos/BTP%20AI%20Best%20Practices%20-%20Content%20Filtering%20intro.mp4")}>
             <Icon name="video" />
             <span>Teaser</span>
-          </a>
+          </Link>
         </li>
         <LoginWall renderOnlyWhenLoggedIn={true}>
           <li>
-            <a target="_blank" href={useBaseUrl("generative-ai/content-filtering/videos/BTP%20AI%20Best%20Practices%20-%20Content%20filtering.mp4")}>
+            <Link target="_blank" to={useBaseUrl("generative-ai/content-filtering/videos/BTP%20AI%20Best%20Practices%20-%20Content%20filtering.mp4")}>
               <Icon name="video"></Icon>
               <span>Webinar</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a target="_blank" href={useBaseUrl("generative-ai/content-filtering/pdfs/BTP%20AI%20Best%20Practices%20-%20Content%20filtering.pdf")}>
+            <Link target="_blank" to={useBaseUrl("generative-ai/content-filtering/pdfs/BTP%20AI%20Best%20Practices%20-%20Content%20filtering.pdf")}>
               <Icon name="pdf-attachment"></Icon>
               <span>Webinar (PDF Presentation)</span>
-            </a>
+            </Link>
           </li>
         </LoginWall>
       </ul>
@@ -528,12 +530,12 @@ through the APIs or the orchestration service.
 
 <br />
 
-<div className="section-with-background blue">
+<div className="section-with-background purple">
 
-## Related Functional Patterns
+## Related AI Capabilities
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</a>
+  <Link to={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</Link>
 </h3>
 
 <ul className="button-grid">
@@ -545,7 +547,7 @@ through the APIs or the orchestration service.
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</a>
+  <Link to={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</Link>
 </h3>
 
 <ul className="button-grid">
@@ -556,7 +558,7 @@ through the APIs or the orchestration service.
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/conversational-interaction")}>Conversational Interaction</a>
+  <Link to={useBaseUrl("/docs/functional-view/conversational-interaction")}>Conversational Interaction</Link>
 </h3>
 
 <ul className="button-grid">
@@ -565,7 +567,7 @@ through the APIs or the orchestration service.
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/coding-assistance")}>Coding Assistance</a>
+  <Link to={useBaseUrl("/docs/functional-view/coding-assistance")}>Coding Assistance</Link>
 </h3>
 
 <ul className="button-grid">
@@ -584,11 +586,7 @@ through the APIs or the orchestration service.
 
 ## Contributors
 
-- Stoyanov, Velizar
-- Antonio, Dan
-- Marques, Luis
-- Robledo, Francisco
-- Cigaina, Marco
+<PageContributors contributorIds={["velizar-stoyanov", "dan-antonio", "luis-marques", "francisco-robledo", "marco-cigaina"]} />
 
 </div>
 

@@ -5,6 +5,7 @@ hide_title: true
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import Link from "@docusaurus/Link";
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 import IconLinkButton from "@site/src/components/IconLinkButton";
@@ -14,8 +15,9 @@ import LoginWall from "@site/src/components/LoginWall";
 import Icon from "@site/src/components/Icon";
 import "@ui5/webcomponents-icons/dist/video.js";
 import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
+import PageContributors from "@site/src/components/PageContributors";
 
-<PageViewTracker featureName="BP_ACCESS_TO_GENERATIVE_AI_MODELS" />
+<PageViewTracker />
 
 <div className="hero-header">
   <h1>Access to Generative AI Models</h1>
@@ -27,16 +29,16 @@ import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
       <h2>Steps</h2>
       <ol className="steps-list">
         <li>
-          <a href="#1-overview">Overview</a>
+          <Link to="#1-overview">Overview</Link>
         </li>
         <li>
-          <a href="#2-pre-requisites">Pre-requisites</a>
+          <Link to="#2-pre-requisites">Pre-requisites</Link>
         </li>
         <li>
-          <a href="#3-key-choices-and-guidelines">Key Choices and Guidelines</a>
+          <Link to="#3-key-choices-and-guidelines">Key Choices and Guidelines</Link>
         </li>
         <li>
-          <a href="#4-implementation">Implementation</a>
+          <Link to="#4-implementation">Implementation</Link>
         </li>
       </ol>
     </div>
@@ -550,12 +552,12 @@ ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
 
 <br />
 
-<div className="section-with-background blue">
+<div className="section-with-background purple">
 
-## Related Functional Patterns
+## Related AI Capabilities
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</a>
+  <Link to={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</Link>
 </h3>
 
 <ul className="button-grid">
@@ -567,7 +569,7 @@ ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</a>
+  <Link to={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</Link>
 </h3>
 
 <ul className="button-grid">
@@ -578,7 +580,7 @@ ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/conversational-interaction")}>Conversational Interaction</a>
+  <Link to={useBaseUrl("/docs/functional-view/conversational-interaction")}>Conversational Interaction</Link>
 </h3>
 
 <ul className="button-grid">
@@ -587,7 +589,7 @@ ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/coding-assistance")}>Coding Assistance</a>
+  <Link to={useBaseUrl("/docs/functional-view/coding-assistance")}>Coding Assistance</Link>
 </h3>
 
 <ul className="button-grid">
@@ -606,18 +608,22 @@ ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
 
 ## Contributors
 
-- Marques, Luis
-- Cigaina, Marco
-- Rzhaksynskyi, Andrii
-- Stoyanov, Velizar
-- Rodriguez, Joel
-- Chopra, Aman
-- Bartler, Felix
-- Robledo, Francisco
-- Schulz, Robert
-- Antonio, Dan
-- Humphries, Ian
-- Lange, Joerg
+<PageContributors
+  contributorIds={[
+    "luis-marques",
+    "marco-cigaina",
+    "andrii-rzhaksynskyi",
+    "velizar-stoyanov",
+    "joel-rodriguez",
+    "aman-chopra",
+    "felix-bartler",
+    "francisco-robledo",
+    "robert-schulz",
+    "dan-antonio",
+    "ian-humphries",
+    "joerg-lange"
+  ]}
+/>
 
 </div>
 

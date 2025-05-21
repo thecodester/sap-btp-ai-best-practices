@@ -67,7 +67,7 @@
   display: none; /* Hidden by default */
   position: absolute;
   right: 0;
-  top: calc(100% + 18px); /* Position below the navbar item with some spacing */
+  top: calc(100% + 14px); /* Position below the navbar item with some spacing */
   background-color: #ffffff; /* White background like the image */
   min-width: 360px; /* Adjusted width based on image */
   box-shadow: 0px 10px 30px 0px #22364940;

@@ -382,7 +382,10 @@ h2 .step-number {
 }
 
 .section-with-background.blue {
-  background: #f4f9fd;
+  background: #ebf7ff;
+}
+.section-with-background.purple {
+  background: #f0ecfe;
 }
 
 .section-with-background.gradient-violet-blue {
@@ -391,7 +394,9 @@ h2 .step-number {
   color: var(--sap-horizon-neutral-1);
 }
 
-[data-theme="dark"] .section-with-background {
+[data-theme="dark"] .section-with-background,
+[data-theme="dark"] .section-with-background.blue,
+[data-theme="dark"] .section-with-background.gradient-violet-blue {
   background: var(--sap-horizon-neutral-11);
 }
 
@@ -988,4 +993,97 @@ html .card:hover {
 
 .download-source-link-in-list-container {
   margin-bottom: 4px;
+}
+
+/* Cookies Banner Styling */
+
+html button#truste-consent-required {
+  border-color: transparent;
+  background: transparent;
+}
+
+html button#truste-consent-required:hover {
+  border-color: transparent;
+}
+
+/* Contributors Section Styling */
+.contributors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.contributor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--sap-horizon-neutral-1);
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.contributor-card:hover {
+  transform: translateY(-5px);
+  text-decoration: none;
+  color: var(--sap-horizon-neutral-1);
+}
+
+.contributor-photo {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: var(--sap-horizon-neutral-1);
+}
+
+.contributor-photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sap-horizon-neutral-2);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contributor-photo-placeholder ui5-icon {
+  width: 50%;
+  height: 50%;
+  color: var(--sap-horizon-neutral-7);
+}
+
+.contributor-name {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+[data-theme="dark"] .contributor-photo {
+  border-color: var(--sap-horizon-neutral-1);
+}
+
+[data-theme="dark"] .contributor-photo-placeholder {
+  background-color: var(--sap-horizon-neutral-10);
+}
+
+[data-theme="dark"] .contributor-photo-placeholder ui5-icon {
+  color: var(--sap-horizon-neutral-6);
+}
+
+@media screen and (max-width: 768px) {
+  .contributors-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .contributor-photo,
+  .contributor-photo-placeholder {
+    width: 100px;
+    height: 100px;
+  }
 }

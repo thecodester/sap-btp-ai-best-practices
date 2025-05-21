@@ -5,6 +5,7 @@ hide_title: true
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import Link from "@docusaurus/Link";
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 import IconLinkButton from "@site/src/components/IconLinkButton";
@@ -14,8 +15,9 @@ import LoginWall from "@site/src/components/LoginWall";
 import Icon from "@site/src/components/Icon";
 import "@ui5/webcomponents-icons/dist/video.js";
 import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
+import PageContributors from "@site/src/components/PageContributors";
 
-<PageViewTracker featureName="BP_PROMPT_TEMPLATING" />
+<PageViewTracker />
 
 <div className="hero-header">
   <h1>Prompt Templating</h1>
@@ -27,39 +29,39 @@ import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
       <h2>Steps</h2>
       <ol className="steps-list">
         <li>
-          <a href="#1-overview">Overview</a>
+          <Link to="#1-overview">Overview</Link>
         </li>
         <li>
-          <a href="#2-pre-requisites">Pre-requisites</a>
+          <Link to="#2-pre-requisites">Pre-requisites</Link>
         </li>
         <li>
-          <a href="#3-key-choices-and-guidelines">Key Choices and Guidelines</a>
+          <Link to="#3-key-choices-and-guidelines">Key Choices and Guidelines</Link>
         </li>
         <li>
-          <a href="#4-implementation">Implementation</a>
+          <Link to="#4-implementation">Implementation</Link>
         </li>
       </ol>
     </div>
     <div className="col col--4">
       <ul className="resource-links">
         <li>
-          <a target="_blank" href={useBaseUrl("generative-ai/prompt-templating/videos/BTP%20AI%20Best%20Practices%20-%20Prompt%20Templating%20intro.mp4")}>
+          <Link target="_blank" to={useBaseUrl("generative-ai/prompt-templating/videos/BTP%20AI%20Best%20Practices%20-%20Prompt%20Templating%20intro.mp4")}>
             <Icon name="video" />
             <span>Teaser</span>
-          </a>
+          </Link>
         </li>
         <LoginWall renderOnlyWhenLoggedIn={true}>
           <li>
-            <a target="_blank" href={useBaseUrl("generative-ai/prompt-templating/videos/BTP%20AI%20Best%20Practices%20-%20Prompt%20Templating.mp4")}>
+            <Link target="_blank" to={useBaseUrl("generative-ai/prompt-templating/videos/BTP%20AI%20Best%20Practices%20-%20Prompt%20Templating.mp4")}>
               <Icon name="video"></Icon>
               <span>Webinar</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a target="_blank" href={useBaseUrl("generative-ai/prompt-templating/pdfs/BTP%20AI%20Best%20Practices%20-%20Prompt%20Templating.pdf")}>
+            <Link target="_blank" to={useBaseUrl("generative-ai/prompt-templating/pdfs/BTP%20AI%20Best%20Practices%20-%20Prompt%20Templating.pdf")}>
               <Icon name="pdf-attachment"></Icon>
               <span>Webinar (PDF Presentation)</span>
-            </a>
+            </Link>
           </li>
         </LoginWall>
       </ul>
@@ -129,13 +131,13 @@ If you're using the SAP AI Launchpad, the Prompt Registry is a feature within th
 #### Tutorials and Learning Journeys
 
 - [Leveraging Prompt Registry for Seamless Orchestration](https://developers.sap.com/tutorials/ai-core-genaibub-prompt-registry.html)
-- [Prompt LLMs in the generative AI hub in SAP AI Core & Launchpad](https://developers.sap.com/tutorials/ai-core-generative-ai..html#fca384d9-406c-436c-bd87-2b1c1ba46274) (You can focus on the content from “Step 5: Querying the LLMs” to “Step 7: Prompt Administration")
+- [Prompt LLMs in the generative AI hub in SAP AI Core & Launchpad](https://developers.sap.com/tutorials/ai-core-generative-ai..html#fca384d9-406c-436c-bd87-2b1c1ba46274) (You can focus on the content from "Step 5: Querying the LLMs" to "Step 7: Prompt Administration")
 
 ### Choose the Right Template Structure
 
 #### Structured Templates vs. Modular Blocks
 
-Decide early whether you’ll use structured templates (e.g., parameterized strings like `{{?input}})` or modular blocks (e.g., predefined instructions + dynamic task blocks).
+Decide early whether you'll use structured templates (e.g., parameterized strings like `{{?input}})` or modular blocks (e.g., predefined instructions + dynamic task blocks).
 
 - **Structured Templates**: E.g., parameterized strings like `{{?input}}`
 - **Modular Blocks**: E.g., predefined instructions + dynamic task blocks
@@ -179,7 +181,7 @@ Define a consistent style for:
 ### Handle Error Cases
 
 - **Fallback Templates**: Build fallback templates for scenarios like empty inputs, unparseable outputs, and unexpected answers.
-- **Instructions for Errors**: Provide instructions in the prompt such as: “If the input is unclear, respond with ‘Unable to generate response.’”
+- **Instructions for Errors**: Provide instructions in the prompt such as: "If the input is unclear, respond with 'Unable to generate response.'"
 
 ### Document Template Usage
 
@@ -267,7 +269,7 @@ through langchain or the orchestration service.
 
 <h4>Other</h4>
 
-- [ai-core-samples](https://github.com/SAP-samples/ai-core-samples/) (the “Step 1: Templating” section)
+- [ai-core-samples](https://github.com/SAP-samples/ai-core-samples/) ("Step 1: Templating" section)
 
 <h4>Relevant Code</h4>
 
@@ -438,6 +440,7 @@ file](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/orchestration.t
   to the **OrchestrationService class** located in the [ai-sdk-js/sample-cap/srv/orchestration/orchestration-service.ts file](https://github.com/SAP/ai-sdk-js/blob/main/sample-cap/srv/orchestration/orchestration-service.ts))
 
 <h3>Relevant Code</h3>
+
 Simple prompt templating example call.
 
 ```typescript
@@ -550,12 +553,12 @@ Simple prompt templating example call.
 
 <br />
 
-<div className="section-with-background blue">
+<div className="section-with-background purple">
 
-## Related Functional Patterns
+## Related AI Capabilities
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</a>
+  <Link to={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</Link>
 </h3>
 
 <ul className="button-grid">
@@ -567,7 +570,7 @@ Simple prompt templating example call.
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</a>
+  <Link to={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</Link>
 </h3>
 
 <ul className="button-grid">
@@ -578,7 +581,7 @@ Simple prompt templating example call.
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/conversational-interaction")}>Conversational Interaction</a>
+  <Link to={useBaseUrl("/docs/functional-view/conversational-interaction")}>Conversational Interaction</Link>
 </h3>
 
 <ul className="button-grid">
@@ -587,7 +590,7 @@ Simple prompt templating example call.
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/coding-assistance")}>Coding Assistance</a>
+  <Link to={useBaseUrl("/docs/functional-view/coding-assistance")}>Coding Assistance</Link>
 </h3>
 
 <ul className="button-grid">
@@ -606,11 +609,7 @@ Simple prompt templating example call.
 
 ## Contributors
 
-- Stoyanov, Velizar
-- Antonio, Dan
-- Marques, Luis
-- Robledo, Francisco
-- Cigaina, Marco
+<PageContributors contributorIds={["velizar-stoyanov", "dan-antonio", "luis-marques", "francisco-robledo", "marco-cigaina"]} />
 
 </div>
 

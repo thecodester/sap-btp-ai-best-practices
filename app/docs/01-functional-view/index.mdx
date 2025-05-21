@@ -5,11 +5,12 @@ hide_title: true
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import Link from "@docusaurus/Link";
 import IconLinkButton from "@site/src/components/IconLinkButton";
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 import { TRACKING_EVENTS } from "@site/src/lib/trackingTool/config";
 
-<PageViewTracker featureName="FUNCTIONAL_VIEW" />
+<PageViewTracker />
 
 <div className="hero-header">
   <h1>Functional View</h1>
@@ -24,7 +25,7 @@ import { TRACKING_EVENTS } from "@site/src/lib/trackingTool/config";
 </div>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</a>
+  <Link to={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</Link>
 </h3>
 
 <ul className="button-grid">
@@ -38,7 +39,7 @@ import { TRACKING_EVENTS } from "@site/src/lib/trackingTool/config";
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</a>
+  <Link to={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</Link>
 </h3>
 
 <ul className="button-grid">
@@ -50,7 +51,7 @@ import { TRACKING_EVENTS } from "@site/src/lib/trackingTool/config";
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/conversational-interaction")}>Conversational Interaction</a>
+  <Link to={useBaseUrl("/docs/functional-view/conversational-interaction")}>Conversational Interaction</Link>
 </h3>
 
 <ul className="button-grid">
@@ -59,7 +60,7 @@ import { TRACKING_EVENTS } from "@site/src/lib/trackingTool/config";
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/decision-support")}>Decision Support</a>
+  <Link to={useBaseUrl("/docs/functional-view/decision-support")}>Decision Support</Link>
 </h3>
 
 <ul className="button-grid">
@@ -72,7 +73,7 @@ import { TRACKING_EVENTS } from "@site/src/lib/trackingTool/config";
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/coding-assistance")}>Coding Assistance</a>
+  <Link to={useBaseUrl("/docs/functional-view/coding-assistance")}>Coding Assistance</Link>
 </h3>
 
 <ul className="button-grid">
@@ -84,7 +85,7 @@ import { TRACKING_EVENTS } from "@site/src/lib/trackingTool/config";
 </ul>
 
 <h3>
-  <a href={useBaseUrl("/docs/functional-view/agentic-workflows")}>Agentic Workflows</a>
+  <Link to={useBaseUrl("/docs/functional-view/agentic-workflows")}>Agentic Workflows</Link>
 </h3>
 
 <ul className="button-grid">

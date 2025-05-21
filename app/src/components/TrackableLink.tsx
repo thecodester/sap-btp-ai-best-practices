@@ -15,7 +15,6 @@ export default function TrackableLink({ href, className, target, trackingFeature
     // Track the click event with consent skipped (assuming consent was given at page load)
     trackEvent({
       featureName: TRACKING_EVENTS.BUTTON_CLICK[trackingFeature],
-      skipConsent: true,
       // Add additional data for tracking new tab
       additionalData: {
         isNewTab: e.ctrlKey || e.metaKey || e.button === 1 || target === "_blank",
@@ -28,7 +27,6 @@ export default function TrackableLink({ href, className, target, trackingFeature
     // Track right-click events that might lead to "Open in New Tab"
     trackEvent({
       featureName: TRACKING_EVENTS.BUTTON_CLICK[trackingFeature],
-      skipConsent: true,
       additionalData: {
         isNewTab: true, // Assume right-click might lead to opening in new tab
         interactionType: "contextmenu"

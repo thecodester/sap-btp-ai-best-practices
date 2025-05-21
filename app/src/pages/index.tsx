@@ -65,7 +65,7 @@ export default function Home(): ReactNode {
         {/* <ValueProposition /> */}
       </main>
 
-      <PageViewTracker featureName="HOME" />
+      <PageViewTracker />
     </Layout>
   );
 }

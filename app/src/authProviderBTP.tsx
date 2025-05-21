@@ -1,8 +1,8 @@
 import { useLocation, useHistory } from "@docusaurus/router";
 import React, { createContext, useState, useContext, useEffect, useMemo, useRef } from "react";
 import siteConfig from "@generated/docusaurus.config";
-import { authStorage, AuthData } from "./utils/authStorage";
-
+import { authStorage } from "./utils/authStorage";
+import { clear as clearTracking } from "./lib/trackingTool/trackingUtils";
 const BTP_API = siteConfig.customFields.apiUrl as string;
 
 interface AuthContextProps {
@@ -15,13 +15,13 @@ interface AuthContextProps {
 }
 
 interface UserInfo {
-  ID: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  company: string;
-  companyId: string[];
-  type: string;
+  ID?: string;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  company?: string;
+  companyId?: string[];
+  type?: string;
 }
 
 const AuthContext = createContext<AuthContextProps>({
@@ -57,6 +57,8 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setUser(null);
     setToken("");
     authStorage.clear();
+    clearTracking();
+    window.location.reload();
   };
 
   const value = useMemo(
@@ -109,6 +111,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         if (authData?.token) {
           setToken(authData.token);
           currentToken = authData.token;
+
+          // If already available, set the user email
+          if (authData.email) {
+            setUser({ email: authData.email });
+          }
         } else {
           setIsLoading(false);
           return;

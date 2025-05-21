@@ -1,5 +1,6 @@
 import React from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import Link from "@docusaurus/Link";
 import Icon from "@site/src/components/Icon";
 import { getIconForCapability } from "@site/src/data/capabilityIcons";
 
@@ -29,15 +30,14 @@ const IconLinkButton: React.FC<Props> = ({ href, icon, text, disabled = false })
   // Pass href directly, getIconForCapability handles undefined
   const iconName = icon || getIconForCapability(href);
 
-  // Always render an <a> tag. The lack of a valid href on disabled items
+  // Always render a Link component. The lack of a valid href on disabled items
   // combined with the .disabled class should handle behavior and styling.
-
   return (
     <li className="list-button-item">
-      <a href={linkUrl} className={linkClass}>
+      <Link to={linkUrl} className={linkClass}>
         {iconName && <Icon name={iconName}></Icon>}
         <span>{text}</span>
-      </a>
+      </Link>
     </li>
   );
 };
