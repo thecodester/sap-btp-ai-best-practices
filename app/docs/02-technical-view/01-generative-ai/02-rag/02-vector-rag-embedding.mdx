@@ -15,6 +15,7 @@ import TrackableLink from "@site/src/components/TrackableLink";
 import IconLinkButton from "@site/src/components/IconLinkButton";
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 import Link from "@docusaurus/Link";
+import PageContributors from "@site/src/components/PageContributors";
 
 <PageViewTracker />
 
@@ -555,13 +556,7 @@ export async function createDocumentsWithTimestamp(collectionId: string, timesta
 
 ## Contributors
 
-- Gupta, Chirag
-- Behera, Bhagabat Prasad
-- Marques, Luis
-- CIGAINA, MARCO
-- Robledo, Francisco
-- Antonio, Dan
-- Humphries, Ian
+<PageContributors contributorIds={["chirag-gupta", "bhagabat-prasad-behera", "luis-marques", "francisco-robledo", "marco-cigaina", "dan-antonio", "ian-humphries"]} />
 
 </div>
 

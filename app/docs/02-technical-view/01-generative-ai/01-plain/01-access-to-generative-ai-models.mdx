@@ -15,6 +15,7 @@ import LoginWall from "@site/src/components/LoginWall";
 import Icon from "@site/src/components/Icon";
 import "@ui5/webcomponents-icons/dist/video.js";
 import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
+import PageContributors from "@site/src/components/PageContributors";
 
 <PageViewTracker />
 
@@ -607,18 +608,22 @@ ResponseEntity<ResponseBodyEmitter> streamChatCompletionDeltas() {
 
 ## Contributors
 
-- Marques, Luis
-- Cigaina, Marco
-- Rzhaksynskyi, Andrii
-- Stoyanov, Velizar
-- Rodriguez, Joel
-- Chopra, Aman
-- Bartler, Felix
-- Robledo, Francisco
-- Schulz, Robert
-- Antonio, Dan
-- Humphries, Ian
-- Lange, Joerg
+<PageContributors
+  contributorIds={[
+    "luis-marques",
+    "marco-cigaina",
+    "andrii-rzhaksynskyi",
+    "velizar-stoyanov",
+    "joel-rodriguez",
+    "aman-chopra",
+    "felix-bartler",
+    "francisco-robledo",
+    "robert-schulz",
+    "dan-antonio",
+    "ian-humphries",
+    "joerg-lange"
+  ]}
+/>
 
 </div>
 

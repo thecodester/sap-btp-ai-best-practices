@@ -15,6 +15,7 @@ import LoginWall from "@site/src/components/LoginWall";
 import Icon from "@site/src/components/Icon";
 import "@ui5/webcomponents-icons/dist/video.js";
 import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
+import PageContributors from "@site/src/components/PageContributors";
 
 <PageViewTracker />
 
@@ -130,13 +131,13 @@ If you're using the SAP AI Launchpad, the Prompt Registry is a feature within th
 #### Tutorials and Learning Journeys
 
 - [Leveraging Prompt Registry for Seamless Orchestration](https://developers.sap.com/tutorials/ai-core-genaibub-prompt-registry.html)
-- [Prompt LLMs in the generative AI hub in SAP AI Core & Launchpad](https://developers.sap.com/tutorials/ai-core-generative-ai..html#fca384d9-406c-436c-bd87-2b1c1ba46274) (You can focus on the content from “Step 5: Querying the LLMs” to “Step 7: Prompt Administration")
+- [Prompt LLMs in the generative AI hub in SAP AI Core & Launchpad](https://developers.sap.com/tutorials/ai-core-generative-ai..html#fca384d9-406c-436c-bd87-2b1c1ba46274) (You can focus on the content from "Step 5: Querying the LLMs" to "Step 7: Prompt Administration")
 
 ### Choose the Right Template Structure
 
 #### Structured Templates vs. Modular Blocks
 
-Decide early whether you’ll use structured templates (e.g., parameterized strings like `{{?input}})` or modular blocks (e.g., predefined instructions + dynamic task blocks).
+Decide early whether you'll use structured templates (e.g., parameterized strings like `{{?input}})` or modular blocks (e.g., predefined instructions + dynamic task blocks).
 
 - **Structured Templates**: E.g., parameterized strings like `{{?input}}`
 - **Modular Blocks**: E.g., predefined instructions + dynamic task blocks
@@ -180,7 +181,7 @@ Define a consistent style for:
 ### Handle Error Cases
 
 - **Fallback Templates**: Build fallback templates for scenarios like empty inputs, unparseable outputs, and unexpected answers.
-- **Instructions for Errors**: Provide instructions in the prompt such as: “If the input is unclear, respond with ‘Unable to generate response.’”
+- **Instructions for Errors**: Provide instructions in the prompt such as: "If the input is unclear, respond with 'Unable to generate response.'"
 
 ### Document Template Usage
 
@@ -268,7 +269,7 @@ through langchain or the orchestration service.
 
 <h4>Other</h4>
 
-- [ai-core-samples](https://github.com/SAP-samples/ai-core-samples/) (the “Step 1: Templating” section)
+- [ai-core-samples](https://github.com/SAP-samples/ai-core-samples/) ("Step 1: Templating" section)
 
 <h4>Relevant Code</h4>
 
@@ -608,11 +609,7 @@ Simple prompt templating example call.
 
 ## Contributors
 
-- Stoyanov, Velizar
-- Antonio, Dan
-- Marques, Luis
-- Robledo, Francisco
-- Cigaina, Marco
+<PageContributors contributorIds={["velizar-stoyanov", "dan-antonio", "luis-marques", "francisco-robledo", "marco-cigaina"]} />
 
 </div>
 

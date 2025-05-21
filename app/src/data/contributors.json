@@ -1,0 +1,61 @@
+{
+  "contributors": {
+    "luis-marques": {
+      "name": "Marques, Luis",
+      "photo": "/img/contributors/luis-marques.jpg",
+      "link": "https://www.linkedin.com/in/luismarques-io/"
+    },
+    "marco-cigaina": {
+      "name": "Cigaina, Marco",
+      "photo": "/img/contributors/marco-cigaina.jpg"
+    },
+    "andrii-rzhaksynskyi": {
+      "name": "Rzhaksynskyi, Andrii",
+      "photo": "/img/contributors/andrii-rzhaksynskyi.jpg"
+    },
+    "velizar-stoyanov": {
+      "name": "Stoyanov, Velizar",
+      "photo": "/img/contributors/velizar-stoyanov.jpg"
+    },
+    "joel-rodriguez": {
+      "name": "Rodriguez, Joel",
+      "photo": "/img/contributors/joel-rodriguez.jpg"
+    },
+    "aman-chopra": {
+      "name": "Chopra, Aman",
+      "photo": "/img/contributors/aman-chopra.jpg"
+    },
+    "felix-bartler": {
+      "name": "Bartler, Felix",
+      "photo": "/img/contributors/felix-bartler.jpg"
+    },
+    "francisco-robledo": {
+      "name": "Robledo, Francisco",
+      "photo": "/img/contributors/francisco-robledo.jpg"
+    },
+    "robert-schulz": {
+      "name": "Schulz, Robert",
+      "photo": "/img/contributors/robert-schulz.jpg"
+    },
+    "dan-antonio": {
+      "name": "Antonio, Dan",
+      "photo": "/img/contributors/dan-antonio.jpg"
+    },
+    "ian-humphries": {
+      "name": "Humphries, Ian",
+      "photo": "/img/contributors/ian-humphries.jpg"
+    },
+    "joerg-lange": {
+      "name": "Lange, Joerg",
+      "photo": "/img/contributors/joerg-lange.jpg"
+    },
+    "chirag-gupta": {
+      "name": "Gupta, Chirag",
+      "photo": "/img/contributors/chirag-gupta.jpg"
+    },
+    "bhagabat-prasad-behera": {
+      "name": "Behera, Bhagabat Prasad",
+      "photo": "/img/contributors/bhagabat-prasad-behera.jpg"
+    }
+  }
+}
