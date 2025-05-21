@@ -12,11 +12,15 @@ interface TrackingParams {
  * - For logged in users: waits until email is available (local storage first, then API call)
  */
 export const useTracking = ({ toolName, featureName }: TrackingParams) => {
-  const { isLoggedIn, isLoading, token, user } = useAuth();
+  const { isLoggedIn, isLoading, token, user, stopTracking } = useAuth();
 
   const userEmail = user?.email;
 
   useEffect(() => {
+    if (stopTracking) {
+      return;
+    }
+
     // Add delay to ensure we don't track duplicate events before the user "isLoading" is started
     const timeoutId = setTimeout(() => {
       // If user is not logged in, track immediately
