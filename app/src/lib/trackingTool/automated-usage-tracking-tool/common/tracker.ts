@@ -34,7 +34,7 @@ export default abstract class Tracker {
   }
 
   async customTrackUsage(trackUsageArguments: CustomTrackUsageArguments): Promise<void> {
-    console.log("customTrackUsage", trackUsageArguments);
+    // console.log("customTrackUsage", trackUsageArguments);
     const { email, usages, additionalData } = trackUsageArguments;
     await this.account.setLatestUsages(email, usages, additionalData);
   }

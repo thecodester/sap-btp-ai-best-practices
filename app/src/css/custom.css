@@ -382,7 +382,10 @@ h2 .step-number {
 }
 
 .section-with-background.blue {
-  background: #f4f9fd;
+  background: #ebf7ff;
+}
+.section-with-background.purple {
+  background: #f0ecfe;
 }
 
 .section-with-background.gradient-violet-blue {
