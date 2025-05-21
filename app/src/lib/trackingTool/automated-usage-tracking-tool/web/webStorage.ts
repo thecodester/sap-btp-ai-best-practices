@@ -1,5 +1,7 @@
 import Storage from "../common/storage";
 
+const isBrowser = typeof window !== "undefined";
+
 export default class WebStorage extends Storage {
   constructor(location: string) {
     super(location);
@@ -7,10 +9,14 @@ export default class WebStorage extends Storage {
   }
 
   protected initStorage(): void {
-    this.read();
+    if (isBrowser) {
+      this.read();
+    }
   }
 
   protected read(): Storage {
+    if (!isBrowser) return this;
+
     const storedUsage = localStorage.getItem(this.location);
     if (null === storedUsage || undefined === storedUsage) {
       return this;
@@ -19,11 +25,14 @@ export default class WebStorage extends Storage {
   }
 
   protected write() {
+    if (!isBrowser) return;
     localStorage.setItem(this.location, btoa(this.toString()));
   }
 
   clear(): void {
     this.clearInternal();
-    localStorage.removeItem(this.location);
+    if (isBrowser) {
+      localStorage.removeItem(this.location);
+    }
   }
 }
