@@ -15,13 +15,13 @@ interface AuthContextProps {
 }
 
 interface UserInfo {
-  ID: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  company: string;
-  companyId: string[];
-  type: string;
+  ID?: string;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  company?: string;
+  companyId?: string[];
+  type?: string;
 }
 
 const AuthContext = createContext<AuthContextProps>({
@@ -111,6 +111,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         if (authData?.token) {
           setToken(authData.token);
           currentToken = authData.token;
+
+          // If already available, set the user email
+          if (authData.email) {
+            setUser({ email: authData.email });
+          }
         } else {
           setIsLoading(false);
           return;

@@ -12,7 +12,9 @@ interface TrackingParams {
  * - For logged in users: waits for loading to complete to get email
  */
 export const useTracking = ({ toolName, featureName }: TrackingParams) => {
-  const { isLoggedIn, isLoading, token } = useAuth();
+  const { isLoggedIn, isLoading, token, user } = useAuth();
+
+  const userEmail = user?.email;
 
   useEffect(() => {
     // Add delay to ensure we don't track duplicate events before the user "isLoading" is started
@@ -23,12 +25,12 @@ export const useTracking = ({ toolName, featureName }: TrackingParams) => {
         return;
       }
 
-      // If user is logged in, wait for loading to complete
-      if (isLoggedIn && !isLoading) {
+      if (userEmail && (isLoggedIn || isLoading)) {
         trackEvent({ toolName, featureName });
+        return;
       }
     }, 100);
 
     return () => clearTimeout(timeoutId);
-  }, [toolName, featureName, isLoggedIn, isLoading, token]);
+  }, [toolName, featureName, token, userEmail]);
 };
