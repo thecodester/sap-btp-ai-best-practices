@@ -991,3 +991,14 @@ html .card:hover {
 .download-source-link-in-list-container {
   margin-bottom: 4px;
 }
+
+/* Cookies Banner Styling */
+
+html button#truste-consent-required {
+  border-color: transparent;
+  background: transparent;
+}
+
+html button#truste-consent-required:hover {
+  border-color: transparent;
+}
