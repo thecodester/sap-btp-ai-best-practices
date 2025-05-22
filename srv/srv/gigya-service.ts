@@ -19,7 +19,7 @@ const callGigyaApi = async (endpoint: string, params: Record<string, any>) => {
     ...params
   };
 
-  console.log(`Calling Gigya API: ${endpoint}`, JSON.stringify(allParams));
+  // console.log(`Calling Gigya API: ${endpoint}`, JSON.stringify(allParams));
 
   const response = await fetch(url, {
     method: "POST",
