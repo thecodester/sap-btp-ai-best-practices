@@ -4,7 +4,7 @@ This project demonstrates best practices for accessing Embeddings models using t
 
 ## Project Structure
 
-```
+```table
 typescript
 ├── db
 │   └── src                     # HANA database source files, table definitions, etc.
@@ -40,22 +40,27 @@ typescript
    npm install
    ```
 
-3. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`.
+3. In the `mta.yml`, under the `resources` section on the `best-practices-aicore`, modify the `service-name` from `best-practices-aicore` to the name of your AI Core Service instance.
 
-4. **Build and deploy to create the HDI container:**
+4. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`.
+
+5. **Build and deploy to create the HDI container:**
+
    ```bash
    npm run build
    npm run deploy
    ```
 
-5. **Configure environment variables:**
+6. **Configure environment variables:**
 
    Copy the `.env.example` file to `.env`:
+
    ```bash
    cp .env.example .env
    ```
-   
+
    Populate the `.env` file with the required values.
+
    ```bash
    VCAP_SERVICES='{
       < contents of VCAP_SERVICES >
@@ -63,11 +68,13 @@ typescript
    ```
 
    To view the environment (VCAP_SERVICES) of the deployed service, you can use the BTP cockpit or use this command:
-   ```
+
+   ```bash
    cf env ai-rag-embedding-typescript-demo-srv
    ```
   
-6. **Run the application locally:**
+7. **Run the application locally:**
+
    ```bash
    npm run watch
    ```
@@ -75,12 +82,13 @@ typescript
 ## Usage Example
 
 The application will serve the following APIs:
- - POST `/uploadScienceData` upload and created embeddings for the science data from a CSV file.
- - GET `/scienceData` view the uploaded science data
+
+- POST `/uploadScienceData` upload and created embeddings for the science data from a CSV file.
+- GET `/scienceData` view the uploaded science data
 
 For local deployment, set `$SAMPLE_HOST` as `http://localhost:3000`. For remote deployment, set `$SAMPLE_HOST` as the value returned from the deployment step.
 
-#### Upload Science Data
+### Upload Science Data
 
 ```bash
 curl --request POST --url http://$SAMPLE_HOST/uploadScienceData \
@@ -88,7 +96,7 @@ curl --request POST --url http://$SAMPLE_HOST/uploadScienceData \
   --form 'csvFile=@../sample_files/science-data-sample.csv' 
 ```
 
-#### View Science Data
+### View Science Data
 
 ```bash
 curl --request GET --url http://$SAMPLE_HOST/scienceData

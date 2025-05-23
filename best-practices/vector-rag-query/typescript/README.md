@@ -4,7 +4,7 @@ This project demonstrates best practices for using Retrieval Augmented Generatio
 
 ## Project Structure
 
-```
+```table
 typescript
 ├── db
 │   └── src                     # Contains HANA Database schema tables, etc.
@@ -38,15 +38,18 @@ typescript
    npm install
    ```
 
-3. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`.
+3. In the `mta.yml`, under the `resources` section on the `best-practices-aicore`, modify the `service-name` from `best-practices-aicore` to the name of your AI Core Service instance.
 
-4. **Build and deploy to create the HDI container:**
+4. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`.
+
+5. **Build and deploy to create the HDI container:**
+
    ```bash
    npm run build
    npm run deploy
    ```
 
-5. **Configure environment variables:**
+6. **Configure environment variables:**
 
    Copy the `.env.example` file to `.env`:
 
@@ -64,11 +67,11 @@ typescript
 
    To view the environment (VCAP_SERVICES) of the deployed service, you can use the BTP cockpit or use this command:
 
-   ```
+   ```bash
    cf env ai-rag-query-typescript-demo-srv
    ```
   
-6. **Run the application locally:**
+7. **Run the application locally:**
 
    ```bash
    npm run watch
@@ -78,13 +81,13 @@ typescript
 
 The application will serve the following APIs:
 
- - POST `/uploadScienceData` upload and created embeddings for the science data from a CSV file.
- - GET `/scienceData` view the uploaded science data
- - GET `/queryScienceData` query the uploaded science data for similar records using vector query
+- POST `/uploadScienceData` upload and created embeddings for the science data from a CSV file.
+- GET `/scienceData` view the uploaded science data
+- GET `/queryScienceData` query the uploaded science data for similar records using vector query
 
 For local deployment, set `$SAMPLE_HOST` as `localhost:3000`. For remote deployment, set `$SAMPLE_HOST` as the value returned from the deployment step (and you will need to change it to https).
 
-#### Upload Science Data
+### Upload Science Data
 
 ```bash
 curl --request POST --url http://$SAMPLE_HOST/uploadScienceData \
@@ -92,13 +95,13 @@ curl --request POST --url http://$SAMPLE_HOST/uploadScienceData \
   --form 'csvFile=@../../vector-rag-embedding/sample_files/science-data-sample.csv'
 ```
 
-#### View Science Data
+### View Science Data
 
 ```bash
 curl --request GET --url http://$SAMPLE_HOST/scienceData
 ```
 
-#### Query Science Data for closest matches
+### Query Science Data for closest matches
 
 ```bash
 curl --request GET -G --url http://$SAMPLE_HOST/queryScienceData \
