@@ -106,11 +106,11 @@ const config: Config = {
           position: "left",
           label: "Technical View"
         },
-        // {
-        //   to: "/about",
-        //   position: "left",
-        //   label: "About"
-        // },
+        {
+          to: "/about",
+          position: "left",
+          label: "About"
+        },
         // { to: "/blog", label: "Blog", position: "left" },
         {
           type: "custom-user-dropdown",

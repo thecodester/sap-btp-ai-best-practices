@@ -377,39 +377,77 @@ There are currently no learning journeys using the official SDK.
 create embeddings to store in a Vector Database) - [SAP Cloud SDK for AI - Document Grounding](https://github.com/SAP/ai-sdk-js/blob/main/sample-code/src/document-grounding.ts) (To
 use the Document Grounding feature)
 
+<h4>Relevant Code</h4>
+
+```typescript
+// Upload CSV File, then prepare embeddings and store in HANA DB
+app.post("/uploadScienceData", upload.single("csvFile"), async (req: Request, res: Response): Promise<void> => {
+  try {
+    const filePath = req.file?.path;
+    if (!filePath) {
+      res.status(400).send("No file uploaded.");
+    } else {
+      // Parse the CSV file
+      const scienceDataRows: any[] = await parseFile(filePath);
+      // Break into chunks
+      let scienceDataChunks: any[] = [];
+      scienceDataRows.forEach((row: IScienceData) => {
+        let index = 0;
+        while (index < row.Topic.length) {
+          scienceDataChunks.push({ ...row, ID: uuidv4(), Topic: row.Topic.slice(index, index + chunkSize) });
+          index += chunkSize;
+        }
+      });
+      // Create Embeddings
+      const embeddingResults = await oAiSdk.createEmbeddings(scienceDataChunks, embeddingBatchSize);
+      // Store in DB
+      const columns = "TOPIC, DIFFICULTY_LEVEL, CATEGORY, ID, EMBEDDING";
+      const values = embeddingResults.map((row: any) => Object.values(row));
+      const result = await oHanaDb.executeBatchQuery(`INSERT INTO AI_DB_SCIENCE_DATA (${columns}) VALUES (?,?,?,?,TO_REAL_VECTOR(?))`, values);
+      // Return the results
+      res.status(200).json(result);
+    }
+  } catch (error) {
+    logger.error(error);
+    res.status(500).json({
+      error: "Internal Server Error",
+      message: error instanceof Error ? error.message : "An unknown error occurred"
+    });
+  }
+});
+```
+
 ```typescript
 /**
- * Create document with a timestamp in it.
- * @param collectionId - Collection ID.
- * @param timestamp - Timestamp at which e2e was executed.
- * @returns Documents creation response.
- */
-export async function createDocumentsWithTimestamp(collectionId: string, timestamp: number): Promise<DocumentsListResponse> {
-  return VectorApi.createDocuments(
-    collectionId,
-    {
-      documents: [
-        {
-          metadata: [],
-          chunks: [
-            {
-              content: `The last SAP AI SDK JavaScript end to end test was run at ${timestamp}.`,
-              metadata: [
-                {
-                  key: "context",
-                  value: ["sap-ai-sdk-js"]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "AI-Resource-Group": "ai-sdk-js-e2e"
+* Create Embeddings
+* @param {Array<IScienceData>} science data - An array of science data.
+* @return {Promise} - Returns a Promise that resolves to an array of embeddings.
+*/
+public createEmbeddings = async (rows: Array<IScienceData>, batchSize: number): Promise<any> => {
+  try {
+    const client = this.getEmbeddingClient(this.resourceGroupId);
+​
+    for (let i = 0; i < rows.length / batchSize; i++) {
+      const startIndex = i * batchSize;
+      const batchTopics = rows.slice(startIndex, startIndex + batchSize).map((row) => row.Topic);
+      const batchResponse = await client.run({ input: batchTopics });
+      const batchEmbeddings = batchResponse.getEmbeddings();
+      batchEmbeddings.forEach((response: any, idx: number) => {
+        rows[startIndex + idx].Embedding = `[${response!.join(",")}]`;
+      });
     }
-  ).execute();
-}
+    return rows;
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : "Error creating embeddings";
+    throw new Error(errorMessage);
+  }
+};
+​
+private readonly getEmbeddingClient = (resourceGroupId: string) => {
+  return new AzureOpenAiEmbeddingClient({
+    modelName: "text-embedding-3-small",
+  });
+};
 ```
 
 </TabItem>
@@ -472,41 +510,77 @@ use the Document Grounding feature)
 - [CAP LLM Plugin - Harmonized RAG Quickstart CAP Application using CAP LLM Plugin's harmonized chat completion powered by SAP AI Core's orchestration service](https://github.com/SAP-samples/cap-llm-plugin-samples/tree/main/samples/harmonized-rag-app)
 - [CAP LLM Plugin - RAG Quickstart using CAP LLM Plugin](https://github.com/SAP-samples/cap-llm-plugin-samples/tree/main/samples/rag-quickstart-app)
 
-#### Relevant code
+<h4>Relevant Code</h4>
+
+```typescript
+// Upload CSV File, then prepare embeddings and store in HANA DB
+app.post("/uploadScienceData", upload.single("csvFile"), async (req: Request, res: Response): Promise<void> => {
+  try {
+    const filePath = req.file?.path;
+    if (!filePath) {
+      res.status(400).send("No file uploaded.");
+    } else {
+      // Parse the CSV file
+      const scienceDataRows: any[] = await parseFile(filePath);
+      // Break into chunks
+      let scienceDataChunks: any[] = [];
+      scienceDataRows.forEach((row: IScienceData) => {
+        let index = 0;
+        while (index < row.Topic.length) {
+          scienceDataChunks.push({ ...row, ID: uuidv4(), Topic: row.Topic.slice(index, index + chunkSize) });
+          index += chunkSize;
+        }
+      });
+      // Create Embeddings
+      const embeddingResults = await oAiSdk.createEmbeddings(scienceDataChunks, embeddingBatchSize);
+      // Store in DB
+      const columns = "TOPIC, DIFFICULTY_LEVEL, CATEGORY, ID, EMBEDDING";
+      const values = embeddingResults.map((row: any) => Object.values(row));
+      const result = await oHanaDb.executeBatchQuery(`INSERT INTO AI_DB_SCIENCE_DATA (${columns}) VALUES (?,?,?,?,TO_REAL_VECTOR(?))`, values);
+      // Return the results
+      res.status(200).json(result);
+    }
+  } catch (error) {
+    logger.error(error);
+    res.status(500).json({
+      error: "Internal Server Error",
+      message: error instanceof Error ? error.message : "An unknown error occurred"
+    });
+  }
+});
+```
 
 ```typescript
 /**
- * Create document with a timestamp in it.
- * @param collectionId - Collection ID.
- * @param timestamp - Timestamp at which e2e was executed.
- * @returns Documents creation response.
- */
-export async function createDocumentsWithTimestamp(collectionId: string, timestamp: number): Promise<DocumentsListResponse> {
-  return VectorApi.createDocuments(
-    collectionId,
-    {
-      documents: [
-        {
-          metadata: [],
-          chunks: [
-            {
-              content: `The last SAP AI SDK JavaScript end to end test was run at ${timestamp}.`,
-              metadata: [
-                {
-                  key: "context",
-                  value: ["sap-ai-sdk-js"]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "AI-Resource-Group": "ai-sdk-js-e2e"
+* Create Embeddings
+* @param {Array<IScienceData>} science data - An array of science data.
+* @return {Promise} - Returns a Promise that resolves to an array of embeddings.
+*/
+public createEmbeddings = async (rows: Array<IScienceData>, batchSize: number): Promise<any> => {
+  try {
+    const client = this.getEmbeddingClient(this.resourceGroupId);
+​
+    for (let i = 0; i < rows.length / batchSize; i++) {
+      const startIndex = i * batchSize;
+      const batchTopics = rows.slice(startIndex, startIndex + batchSize).map((row) => row.Topic);
+      const batchResponse = await client.run({ input: batchTopics });
+      const batchEmbeddings = batchResponse.getEmbeddings();
+      batchEmbeddings.forEach((response: any, idx: number) => {
+        rows[startIndex + idx].Embedding = `[${response!.join(",")}]`;
+      });
     }
-  ).execute();
-}
+    return rows;
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : "Error creating embeddings";
+    throw new Error(errorMessage);
+  }
+};
+​
+private readonly getEmbeddingClient = (resourceGroupId: string) => {
+  return new AzureOpenAiEmbeddingClient({
+    modelName: "text-embedding-3-small",
+  });
+};
 ```
 
 </TabItem>
