@@ -1,0 +1,362 @@
+.main {
+  background-color: var(--sap-horizon-neutral-2);
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .main {
+  background-color: var(--sap-horizon-neutral-10);
+}
+
+.heroBanner {
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(135deg, #6a50ff 0%, #0057d2 100%);
+}
+
+.heroImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 3;
+  max-width: 900px;
+  margin-left: 4rem;
+  color: white;
+}
+
+.heroText {
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  max-width: 800px;
+  animation: fadeInUp 1s ease-out 0.2s both;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.contentSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.introSection {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.introText {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--sap-horizon-neutral-10);
+  font-weight: 400;
+}
+
+[data-theme="dark"] .introText {
+  color: var(--sap-horizon-neutral-2);
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.gridItem {
+  height: 100%;
+}
+
+.card {
+  height: 100%;
+  padding: 2rem;
+  background: var(--sap-horizon-neutral-1);
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
+
+[data-theme="dark"] .card {
+  background: var(--sap-horizon-neutral-9);
+}
+
+.cardTitleContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 0.75rem;
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ifm-color-primary);
+  background: linear-gradient(135deg, #6a50ff 0%, #0057d2 100%);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: white;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+}
+
+.cardIcon ui5-icon {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  color: white !important;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--sap-horizon-neutral-10);
+  line-height: 1.2;
+}
+
+[data-theme="dark"] .cardIcon {
+  background: var(--ifm-color-primary-lighter);
+}
+
+[data-theme="dark"] .cardIcon ui5-icon {
+  color: var(--ifm-color-primary-darkest) !important;
+}
+
+[data-theme="dark"] .card h2 {
+  color: var(--sap-horizon-neutral-2);
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--sap-horizon-neutral-8);
+  margin: 0;
+}
+
+[data-theme="dark"] .card p {
+  color: var(--sap-horizon-neutral-4);
+}
+
+.cardButtonLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #6a50ff 0%, #0057d2 100%);
+  color: white;
+  border-radius: 0.5rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid var(--sap-horizon-blue-6);
+  font-weight: 600;
+  margin-top: 1.5rem;
+  text-decoration: none;
+}
+
+.cardButtonLink:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+[data-theme="dark"] .cardButtonLink {
+  background: rgba(184, 166, 255, 0.1);
+  border-color: var(--sap-horizon-blue-4);
+  color: var(--sap-horizon-blue-4);
+}
+
+[data-theme="dark"] .cardButtonLink:hover {
+  background: var(--sap-horizon-blue-4);
+  color: var(--sap-horizon-neutral-10);
+}
+
+.cardButtonLink svg {
+  transition: transform 0.3s ease;
+}
+
+.cardButtonLink:hover svg {
+  transform: translateX(4px);
+}
+
+.bestPracticesSection {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.bestPracticesSection h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--sap-horizon-neutral-10);
+}
+
+[data-theme="dark"] .bestPracticesSection h2 {
+  color: var(--sap-horizon-neutral-2);
+}
+
+.bestPracticesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.bestPracticesGrid a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--sap-horizon-neutral-1);
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  color: var(--sap-horizon-blue-6);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-align: center;
+  min-height: 80px;
+  font-size: 1rem;
+}
+
+/* .bestPracticesGrid a:hover {
+  background: var(--sap-horizon-blue-6);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+} */
+
+[data-theme="dark"] .bestPracticesGrid a {
+  background: var(--sap-horizon-neutral-9);
+}
+
+.ctaSectionWrapper {
+  background: linear-gradient(0deg, var(--sap-horizon-neutral-1) 0%, var(--sap-horizon-neutral-1) 50%, var(--sap-horizon-neutral-2) 100%);
+
+  padding: 0 0 4rem;
+}
+
+.ctaSection {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.ctaCard {
+  padding: 3rem;
+  background: linear-gradient(135deg, #6a50ff 0%, #0057d2 100%);
+  border-radius: 1rem;
+  color: white;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ctaCard h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.ctaCard p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.ctaCard a {
+  color: white;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.ctaCard a:hover {
+  opacity: 0.9;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroBanner {
+    padding: 4rem 0;
+    min-height: 50vh;
+  }
+
+  .heroContent {
+    margin-left: 2rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .bestPracticesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaCard {
+    padding: 2rem;
+  }
+}
