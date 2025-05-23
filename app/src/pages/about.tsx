@@ -9,6 +9,7 @@ import Icon from "@site/src/components/Icon";
 import "@ui5/webcomponents-icons/dist/idea-wall.js";
 import "@ui5/webcomponents-icons/dist/developer-settings.js";
 import "@ui5/webcomponents-icons/dist/tools-opportunity.js";
+import "@ui5/webcomponents-icons/dist/lightbulb.js";
 
 import styles from "./about.module.css";
 
@@ -53,6 +54,37 @@ export default function About(): React.ReactNode {
                 <div className={styles.card}>
                   <div className={styles.cardTitleContainer}>
                     <div className={styles.cardIcon}>
+                      <Icon name="lightbulb"></Icon>
+                    </div>
+                    <h2>Concept</h2>
+                  </div>
+                  <div className={styles.cardContent}>
+                    <p>
+                      An AI use case leverages one or more <strong>AI capabilities</strong>, which describe what AI functionally does (e.g., summarizing text, identifying an
+                      anomaly). With this in mind, we have designed the functional view of this site as a catalogue of <strong>functional patterns</strong> that frequently recur in
+                      AI use cases. Each pattern comes with a clear description, practical examples, and thought-provoking questions you can use to{" "}
+                      <strong>spark new use-case ideas</strong> related to that specific capability.
+                    </p>
+                    <p>
+                      You can also directly access the technical view, which organizes Best Practices based on different <strong>AI domains</strong> (such as generative AI or
+                      narrow ML) and links them back to the possible capabilities they can implement. This view helps you understand the underlying technology and how it can be
+                      applied to <strong>solve real-world business challenges</strong>.
+                    </p>
+                    <p>
+                      Defined AI use cases are then implemented as SAP BTP applications (whether a standalone application, an extension, or an analytics solution). We offer{" "}
+                      <strong>a direct connection</strong> from the AI capabilities to implementation guidelines, leveraging one or more Best Practices to ensure your solutions are
+                      robust and efficient.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* <div className={styles.gridContainer}>
+              <div className={styles.gridItem}>
+                <div className={styles.card}>
+                  <div className={styles.cardTitleContainer}>
+                    <div className={styles.cardIcon}>
                       <Icon name="idea-wall"></Icon>
                     </div>
                     <h2>Functional Patterns</h2>
@@ -76,7 +108,6 @@ export default function About(): React.ReactNode {
                 <div className={styles.card}>
                   <div className={styles.cardTitleContainer}>
                     <div className={styles.cardIcon}>
-                      {/* @ts-ignore */}
                       <Icon name="developer-settings"></Icon>
                     </div>
                     <h2>Technical View</h2>
@@ -100,7 +131,6 @@ export default function About(): React.ReactNode {
                 <div className={styles.card}>
                   <div className={styles.cardTitleContainer}>
                     <div className={styles.cardIcon}>
-                      {/* @ts-ignore */}
                       <Icon name="tools-opportunity"></Icon>
                     </div>
                     <h2>Implementation Guidelines</h2>
@@ -118,11 +148,8 @@ export default function About(): React.ReactNode {
                   </Link>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.ctaSectionWrapper}>
-          <div className="container">
+            </div> */}
+
             <div className={styles.contentSection}>
               <div className={styles.bestPracticesSection}>
                 <h2>Available Best Practices</h2>
@@ -142,14 +169,18 @@ export default function About(): React.ReactNode {
               </div>
             </div>
           </div>
-
+        </div>
+        <div className={styles.ctaSectionWrapper}>
           <div className={styles.ctaSection}>
             <div className={styles.ctaCard}>
               <h2>Get Involved</h2>
               <p>
                 We're continuously expanding this collection to bring you the latest insights and proven approaches. Your feedback is invaluable in shaping this resource, so please
-                give us <strong>your feedback</strong> <a href="mailto:btp_ai_bp@sap.com?subject=[SAP BTP AI Best Practices Feedback]">here</a>.
+                give us your feedback.
               </p>
+              <Link to="mailto:btp_ai_bp@sap.com?subject=[SAP BTP AI Best Practices Feedback]" className={`${styles.cardButtonLink} ${styles.cardButtonLinkWhite}`}>
+                <span>Provide Feedback</span>
+              </Link>
             </div>
           </div>
         </div>

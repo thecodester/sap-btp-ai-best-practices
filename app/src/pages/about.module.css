@@ -178,6 +178,10 @@
   margin: 0;
 }
 
+.cardContent p {
+  margin-bottom: 1rem;
+}
+
 [data-theme="dark"] .card p {
   color: var(--sap-horizon-neutral-4);
 }
@@ -190,13 +194,11 @@
   background: linear-gradient(135deg, #6a50ff 0%, #0057d2 100%);
   color: white;
   border-radius: 0.5rem;
-  color: white;
   text-decoration: none;
   transition: all 0.3s ease;
   border: 2px solid var(--sap-horizon-blue-6);
   font-weight: 600;
   margin-top: 1.5rem;
-  text-decoration: none;
 }
 
 .cardButtonLink:hover {
@@ -204,6 +206,19 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-decoration: none;
+}
+
+html a.cardButtonLinkWhite {
+  background: #fff;
+  color: var(--sap-horizon-neutral-10);
+  border: 2px solid var(--sap-horizon-neutral-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+html a.cardButtonLinkWhite:hover {
+  background: var(--sap-horizon-neutral-2);
+  color: var(--sap-horizon-neutral-10);
 }
 
 [data-theme="dark"] .cardButtonLink {
