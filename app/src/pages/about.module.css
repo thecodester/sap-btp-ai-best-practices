@@ -207,13 +207,7 @@
 }
 
 [data-theme="dark"] .cardButtonLink {
-  background: rgba(184, 166, 255, 0.1);
-  border-color: var(--sap-horizon-blue-4);
-  color: var(--sap-horizon-blue-4);
-}
-
-[data-theme="dark"] .cardButtonLink:hover {
-  background: var(--sap-horizon-blue-4);
+  background: var(--sap-horizon-neutral-2);
   color: var(--sap-horizon-neutral-10);
 }
 
@@ -265,22 +259,31 @@
   font-size: 1rem;
 }
 
-/* .bestPracticesGrid a:hover {
-  background: var(--sap-horizon-blue-6);
-  color: white;
+.bestPracticesGrid a:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-decoration: none;
-} */
+}
 
 [data-theme="dark"] .bestPracticesGrid a {
-  background: var(--sap-horizon-neutral-9);
+  background: var(--sap-horizon-neutral-2);
+  color: var(--sap-horizon-neutral-10);
+}
+
+[data-theme="dark"] .bestPracticesGrid a:hover {
+  background: var(--sap-horizon-neutral-2);
+  color: var(--sap-horizon-neutral-10);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: transparent;
 }
 
 .ctaSectionWrapper {
   background: linear-gradient(0deg, var(--sap-horizon-neutral-1) 0%, var(--sap-horizon-neutral-1) 50%, var(--sap-horizon-neutral-2) 100%);
-
   padding: 0 0 4rem;
+}
+
+[data-theme="dark"] .ctaSectionWrapper {
+  background: linear-gradient(0deg, var(--sap-horizon-neutral-10) 0%, var(--sap-horizon-neutral-9) 50%, var(--sap-horizon-neutral-10) 100%);
 }
 
 .ctaSection {
@@ -295,6 +298,10 @@
   color: white;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .ctaCard {
+  background: var(--sap-horizon-neutral-10);
 }
 
 .ctaCard h2 {
