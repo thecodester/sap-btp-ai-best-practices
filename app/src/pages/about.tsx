@@ -4,7 +4,6 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Heading from "@theme/Heading";
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
 import Link from "@docusaurus/Link";
-import useBaseUrl from "@docusaurus/useBaseUrl";
 import IconLinkButton from "@site/src/components/IconLinkButton";
 import Icon from "@site/src/components/Icon";
 import "@ui5/webcomponents-icons/dist/idea-wall.js";
@@ -54,8 +53,7 @@ export default function About(): React.ReactNode {
                 <div className={styles.card}>
                   <div className={styles.cardTitleContainer}>
                     <div className={styles.cardIcon}>
-                      {/* @ts-ignore */}
-                      <ui5-icon name="idea-wall"></ui5-icon>
+                      <Icon name="idea-wall"></Icon>
                     </div>
                     <h2>Functional Patterns</h2>
                   </div>
@@ -79,7 +77,7 @@ export default function About(): React.ReactNode {
                   <div className={styles.cardTitleContainer}>
                     <div className={styles.cardIcon}>
                       {/* @ts-ignore */}
-                      <ui5-icon name="developer-settings"></ui5-icon>
+                      <Icon name="developer-settings"></Icon>
                     </div>
                     <h2>Technical View</h2>
                   </div>
@@ -103,7 +101,7 @@ export default function About(): React.ReactNode {
                   <div className={styles.cardTitleContainer}>
                     <div className={styles.cardIcon}>
                       {/* @ts-ignore */}
-                      <ui5-icon name="tools-opportunity"></ui5-icon>
+                      <Icon name="tools-opportunity"></Icon>
                     </div>
                     <h2>Implementation Guidelines</h2>
                   </div>
