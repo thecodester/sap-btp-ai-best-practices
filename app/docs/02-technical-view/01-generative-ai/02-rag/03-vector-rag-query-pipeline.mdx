@@ -367,33 +367,66 @@ use the Document Grounding feature)
 #### Relevant Code
 
 ```typescript
-/**
- * Retrieve documents across data repositories.
- * @returns Search results.
- */
-export async function retrieveDocuments(): Promise<RetievalSearchResults> {
-  return RetrievalApi.search(
-    {
-      query: "When was the last time SAP AI SDK JavaScript end to end test was executed?",
-      filters: [
-        {
-          id: "my-filter",
-          searchConfiguration: {
-            maxChunkCount: 10
-          },
-          dataRepositories: ["*"],
-          dataRepositoryType: "vector",
-          dataRepositoryMetadata: [],
-          documentMetadata: [],
-          chunkMetadata: []
-        }
-      ]
-    },
-    {
-      "AI-Resource-Group": "ai-sdk-js-e2e"
-    }
-  ).execute();
-}
+// Create embedding query to find related documents, then get response from LLM
+app.get("/queryScienceData", async (req: Request, res: Response): Promise<void> => {
+  const { query } = req.query;
+  if (query) {
+    const queryVector = await oAiSdk.createEmbedding(query.toString());
+    const top = 5; //Number of vector documents to include
+    // Query the database
+    const vectorResult = await oHanaDb.executeQuery(
+      `SELECT TOP ${top} ID,Topic,Difficulty_Level,Category FROM AI_DB_SCIENCE_DATA ORDER BY L2DISTANCE(EMBEDDING, TO_REAL_VECTOR('${queryVector}')) ASC;`
+    );
+    const context = vectorResult.reduce((outputString: string, row: any) => {
+      return (outputString += `${row.TOPIC} `);
+    }, "");
+    // Create prompt
+    const prompt = `Use the following context information to answer to user's query.
+      Here is some context: ${context}
+​
+      Based on the above context, answer the following query:
+      ${query}
+​
+      The answer tone has to be very professional in nature.
+​
+      If you don't know the answer, politely say that you don't know, don't try to make up an answer.
+      `;
+    // Ask the LLM
+    const response = await oAiSdk.chatCompletion(prompt);
+    res.status(200).json({ response: response.getContent(0) });
+  } else {
+    res.status(400).send("Missing parameters.  'query' required.");
+  }
+});
+```
+
+```typescript
+public createEmbedding = async (query: string): Promise<any> => {
+  try {
+    const client = this.getEmbeddingClient(this.resourceGroupId);
+    const embeddingResponse = await client.run({ input: query });
+    return `[${embeddingResponse.getEmbedding(0)}]`;
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : "Error creating embeddings";
+    throw new Error(errorMessage);
+  }
+};
+​
+public chatCompletion = async (prompt: string): Promise<AzureOpenAiChatCompletionResponse> => {
+  try {
+    const client = this.getChatCompletionClient(this.resourceGroupId);
+    const chatResponse = await client.run({
+      messages: [
+        { role: "system", content: "You are an intelligent assistant." },
+        { role: "user", content: prompt },
+      ],
+    });
+    return chatResponse;
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : "Error in chat request.";
+    throw new Error(errorMessage);
+  }
+};
 ```
 
 </TabItem>
@@ -459,33 +492,66 @@ use the Document Grounding feature)
 #### Relevant code
 
 ```typescript
-/**
- * Retrieve documents across data repositories.
- * @returns Search results.
- */
-export async function retrieveDocuments(): Promise<RetievalSearchResults> {
-  return RetrievalApi.search(
-    {
-      query: "When was the last time SAP AI SDK JavaScript end to end test was executed?",
-      filters: [
-        {
-          id: "my-filter",
-          searchConfiguration: {
-            maxChunkCount: 10
-          },
-          dataRepositories: ["*"],
-          dataRepositoryType: "vector",
-          dataRepositoryMetadata: [],
-          documentMetadata: [],
-          chunkMetadata: []
-        }
-      ]
-    },
-    {
-      "AI-Resource-Group": "ai-sdk-js-e2e"
-    }
-  ).execute();
-}
+// Create embedding query to find related documents, then get response from LLM
+app.get("/queryScienceData", async (req: Request, res: Response): Promise<void> => {
+  const { query } = req.query;
+  if (query) {
+    const queryVector = await oAiSdk.createEmbedding(query.toString());
+    const top = 5; //Number of vector documents to include
+    // Query the database
+    const vectorResult = await oHanaDb.executeQuery(
+      `SELECT TOP ${top} ID,Topic,Difficulty_Level,Category FROM AI_DB_SCIENCE_DATA ORDER BY L2DISTANCE(EMBEDDING, TO_REAL_VECTOR('${queryVector}')) ASC;`
+    );
+    const context = vectorResult.reduce((outputString: string, row: any) => {
+      return (outputString += `${row.TOPIC} `);
+    }, "");
+    // Create prompt
+    const prompt = `Use the following context information to answer to user's query.
+      Here is some context: ${context}
+​
+      Based on the above context, answer the following query:
+      ${query}
+​
+      The answer tone has to be very professional in nature.
+​
+      If you don't know the answer, politely say that you don't know, don't try to make up an answer.
+      `;
+    // Ask the LLM
+    const response = await oAiSdk.chatCompletion(prompt);
+    res.status(200).json({ response: response.getContent(0) });
+  } else {
+    res.status(400).send("Missing parameters.  'query' required.");
+  }
+});
+```
+
+```typescript
+public createEmbedding = async (query: string): Promise<any> => {
+  try {
+    const client = this.getEmbeddingClient(this.resourceGroupId);
+    const embeddingResponse = await client.run({ input: query });
+    return `[${embeddingResponse.getEmbedding(0)}]`;
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : "Error creating embeddings";
+    throw new Error(errorMessage);
+  }
+};
+​
+public chatCompletion = async (prompt: string): Promise<AzureOpenAiChatCompletionResponse> => {
+  try {
+    const client = this.getChatCompletionClient(this.resourceGroupId);
+    const chatResponse = await client.run({
+      messages: [
+        { role: "system", content: "You are an intelligent assistant." },
+        { role: "user", content: prompt },
+      ],
+    });
+    return chatResponse;
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : "Error in chat request.";
+    throw new Error(errorMessage);
+  }
+};
 ```
 
 </TabItem>
