@@ -19,22 +19,22 @@ Each subdirectory contains:
 
 ### Narrow AI
 
-| Topic                                             | Description                                                                                                    | Status    |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | --------- |
-| [Linear Regression](narrow-ai/linear-regression/) | Predict housing prices using SAP HANA and hana-ml, including data exploration, model training, and evaluation. | Available |
-| [Anomaly Detection](narrow-ai/anomaly-detection/) | Detect anomalies and outliers in tabular and time series data using SAP HANA and multiple ML algorithms.       | Available |
+| Topic                                             | Description                                                                                                    |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| [Linear Regression](narrow-ai/linear-regression/) | Predict housing prices using SAP HANA and hana-ml, including data exploration, model training, and evaluation. |
+| [Anomaly Detection](narrow-ai/anomaly-detection/) | Detect anomalies and outliers in tabular and time series data using SAP HANA and multiple ML algorithms.       |
 
 ### Generative AI
 
-| Topic                                                                           | Description                                                                                | Status    |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------- |
-| [Access to Generative AI Models](generative-ai/access-to-generative-ai-models/) | Securely connect to generative AI models, handle authentication, and manage API calls.     | Available |
-| [Content Filtering](generative-ai/content-filtering/)                           | Implement content filtering for AI-generated outputs.                                      | Available |
-| [Data Masking](generative-ai/data-masking/)                                     | Protect sensitive data (PII, anonymization) when using AI services.                        | Available |
-| [Prompt Templating](generative-ai/prompt-templating/)                           | Create and optimize prompt templates for generative AI models.                             | Available |
-| [Vector RAG - Embedding](generative-ai/vector-rag-embedding/)                   | Create and manage vector embeddings for Retrieval-Augmented Generation (RAG) applications. | Available |
-| [Vector RAG - Query](generative-ai/vector-rag-query/)                           | Implement vector-based querying in RAG systems.                                            | Available |
-| [Prompt Registry](generative-ai/prompt-registry/)                               | Manage and reuse prompt templates for generative AI workflows.                             | Available |
+| Topic                                                                           | Description                                                                                |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| [Access to Generative AI Models](generative-ai/access-to-generative-ai-models/) | Securely connect to generative AI models, handle authentication, and manage API calls.     |
+| [Content Filtering](generative-ai/content-filtering/)                           | Implement content filtering for AI-generated outputs.                                      |
+| [Data Masking](generative-ai/data-masking/)                                     | Protect sensitive data (PII, anonymization) when using AI services.                        |
+| [Prompt Templating](generative-ai/prompt-templating/)                           | Create and optimize prompt templates for generative AI models.                             |
+| [Vector RAG - Embedding](generative-ai/vector-rag-embedding/)                   | Create and manage vector embeddings for Retrieval-Augmented Generation (RAG) applications. |
+| [Vector RAG - Query](generative-ai/vector-rag-query/)                           | Implement vector-based querying in RAG systems.                                            |
+| [Prompt Registry](generative-ai/prompt-registry/)                               | Manage and reuse prompt templates for generative AI workflows.                             |
 
 ---
 
