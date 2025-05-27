@@ -66,14 +66,14 @@ export default function About(): React.ReactNode {
                       <strong>spark new use-case ideas</strong> related to that specific capability.
                     </p>
                     <p>
-                      You can also directly access the technical view, which organizes Best Practices based on different <strong>AI domains</strong> (such as generative AI or
-                      narrow ML) and links them back to the possible capabilities they can implement. This view helps you understand the underlying technology and how it can be
-                      applied to <strong>solve real-world business challenges</strong>.
-                    </p>
-                    <p>
                       Defined AI use cases are then implemented as SAP BTP applications (whether a standalone application, an extension, or an analytics solution). We offer{" "}
                       <strong>a direct connection</strong> from the AI capabilities to implementation guidelines, leveraging one or more Best Practices to ensure your solutions are
                       robust and efficient.
+                    </p>
+                    <p>
+                      You can also directly access the technical view, which organizes Best Practices based on different <strong>AI domains</strong> (such as generative AI or
+                      narrow ML) and links them back to the possible capabilities they can implement. This view helps you understand the underlying technology and how it can be
+                      applied to <strong>solve real-world business challenges</strong>.
                     </p>
                   </div>
                 </div>
