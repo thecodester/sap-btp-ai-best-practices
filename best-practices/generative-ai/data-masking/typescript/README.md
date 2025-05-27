@@ -25,7 +25,7 @@ typescript
 
    ```bash
    git clone https://github.com/SAP-samples/sap-btp-ai-best-practices.git
-   cd sap-btp-ai-best-practices/best-practices/data-masking/typescript
+   cd sap-btp-ai-best-practices/best-practices/generative-ai/data-masking/typescript
    ```
 
 2. **Install dependencies:**
@@ -49,7 +49,7 @@ typescript
 
 ## Usage Example
 
-The application will serve the `/generateEmail` API, which triggers the masking model, then sends a prompt to the AI model and logs the response. 
+The application will serve the `/generateEmail` API, which triggers the masking model, then sends a prompt to the AI model and logs the response.
 
 For local deployment, set `$SAMPLE_HOST` as `http://localhost:4004`. For remote deployment, set `SAMPLE_CAP_HOST` as the value returned from the deployment step.
 
@@ -60,11 +60,10 @@ curl --request POST \
   --url http://$SAMPLE_HOST/generateEmail \
   --header "Content-Type: application/json" \
   --data '{
-  "prompt": "Please write an email to John Doe (john.doe@sap.com), informing them about the amazing capabilities of generative AI! Be brief and concise, write at most 6 sentences.", 
+  "prompt": "Please write an email to John Doe (john.doe@sap.com), informing them about the amazing capabilities of generative AI! Be brief and concise, write at most 6 sentences.",
   "anonymize": true
 }'
 ```
-
 
 ## Contributing
 

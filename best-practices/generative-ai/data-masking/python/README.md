@@ -3,6 +3,7 @@
 This project demonstrates best practices for accessing generative AI models using the SAP GenAI Hub. It provides examples of how to interact with various language models to obtain responses based on user prompts.
 
 ## Project Structure
+
 ```
 access-to-generative-ai-models
 └── python
@@ -12,14 +13,13 @@ access-to-generative-ai-models
     └── README.md                  # Project documentation
 ```
 
-
 ## Setup Instructions
 
 1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/SAP-samples/sap-btp-ai-best-practices/
-   cd sap-btp-ai-best-practices/best-practices/access-to-generative-ai-models/python
+   cd sap-btp-ai-best-practices/best-practices/generative-ai/access-to-generative-ai-models/python
    ```
 
 2. **Create a virtual environment:**
@@ -48,8 +48,8 @@ access-to-generative-ai-models
    ```bash
    jupyter notebook
    ```
-   - Open the `langchain_implementation.ipynb`, `native_implementation.ipynb`, or `orchestration_implementation.ipynb` notebook in your browser, depending on the implementation you wish to explore.
 
+   - Open the `langchain_implementation.ipynb`, `native_implementation.ipynb`, or `orchestration_implementation.ipynb` notebook in your browser, depending on the implementation you wish to explore.
 
 ## Usage Examples
 
@@ -70,6 +70,7 @@ Each section in the notebook provides a detailed example of how to set up and in
 ### Recommended Method
 
 The recommended method for accessing generative AI models depends on the use case:
+
 - **For quick calls to LLMs:** Use the `native_implementation.ipynb`.
 - **If using in conjunction with other LangChain functions or modules:** Use the `langchain_implementation.ipynb`.
 - **For integration with other GenAI Hub Modules:** Use the `orchestration_implementation.ipynb`.

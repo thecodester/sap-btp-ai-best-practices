@@ -19,6 +19,7 @@ typescript
 ├── tsconfig.json               # TypeScript configuration file
 └── README.md                   # Project documentation
 ```
+
 ## Configuration
 
 The application requires proper configuration to connect to the SAP AI Core service. This is handled through CDS bindings in both local and remote deployments.
@@ -29,7 +30,7 @@ The application requires proper configuration to connect to the SAP AI Core serv
 
    ```bash
    git clone https://github.com/SAP-samples/sap-btp-ai-best-practices.git
-   cd sap-btp-ai-best-practices/best-practices/content-filtering/typescript
+   cd sap-btp-ai-best-practices/best-practices/generative-ai/content-filtering/typescript
    ```
 
 2. **Install dependencies:**
@@ -58,17 +59,17 @@ The application requires proper configuration to connect to the SAP AI Core serv
 3. Modify `services` in `manifest.yml`, rename `best-practices-aicore` to match the service instance in your space.
 4. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`.
 5. Deploy the application using `npm run deploy`.
-   
 
 ## Usage Examples
 
-The application will serve the `/chatWithSupport` (filter input) and `/generateParaphrase` (filter output) APIs, which uses content filtering, then sends a prompt to the AI model and logs the response. 
+The application will serve the `/chatWithSupport` (filter input) and `/generateParaphrase` (filter output) APIs, which uses content filtering, then sends a prompt to the AI model and logs the response.
 
 For local deployment, set `SAMPLE_HOST` as `http://localhost:3000`. For remote deployment, set `SAMPLE_HOST` as the value returned from the deployment step.
 
 #### Chat with Agent
 
 **Filtered**
+
 ```bash
 curl --request POST \
   --url http://$SAMPLE_HOST$/chatWithSupport \
@@ -79,6 +80,7 @@ curl --request POST \
 ```
 
 **Unfiltered**
+
 ```bash
 curl --request POST \
   --url http://$SAMPLE_HOST$/chatWithSupport \
@@ -91,6 +93,7 @@ curl --request POST \
 #### Generate Paraphrase
 
 **Filtered**
+
 ```bash
 curl --request POST \
   --url http://$SAMPLE_HOST$/generateParaphrase \
@@ -101,6 +104,7 @@ curl --request POST \
 ```
 
 **Unfiltered**
+
 ```bash
 curl --request POST \
   --url http://$SAMPLE_HOST$/generateParaphrase \

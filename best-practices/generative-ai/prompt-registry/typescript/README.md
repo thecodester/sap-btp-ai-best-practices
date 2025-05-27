@@ -18,6 +18,7 @@ typescript
 ├── tsconfig.json               # TypeScript configuration file
 └── README.md                   # Project documentation
 ```
+
 ## Configuration
 
 The application requires proper configuration to connect to the SAP AI Core service. This is handled through CDS bindings in both local and remote deployments.
@@ -28,7 +29,7 @@ The application requires proper configuration to connect to the SAP AI Core serv
 
    ```bash
    git clone https://github.com/SAP-samples/sap-btp-ai-best-practices.git
-   cd sap-btp-ai-best-practices/best-practices/prompt-registry/typescript
+   cd sap-btp-ai-best-practices/best-practices/generative-ai/prompt-registry/typescript
    ```
 
 2. **Install dependencies:**
@@ -57,18 +58,19 @@ The application requires proper configuration to connect to the SAP AI Core serv
 3. Modify `services` in `manifest.yml`, rename `best-practices-aicore` to match the service instance in your space.
 4. Login using `cf login -a API_ENDPOINT -o ORG -s SPACE`.
 5. Deploy the application using `npm run deploy`.
-   
 
 ## Usage Example
 
-The application will serve the `/askCapitalOfCountry` API, which uses prompt templating, then sends a prompt to the AI model and logs the response. 
+The application will serve the `/askCapitalOfCountry` API, which uses prompt templating, then sends a prompt to the AI model and logs the response.
 
 For local deployment, set `$SAMPLE_HOST` as `http://localhost:3000`. For remote deployment, set `$SAMPLE_HOST` as the value returned from the deployment step.
 
 #### Create Prompt Registry Template
+
 This is a one-time setup step, and could also be created manually in the AI Launchpad.
 
-*NOTE: Save the ID from this step, so you can use it in the last step to delete the prompt from the registry.
+\*NOTE: Save the ID from this step, so you can use it in the last step to delete the prompt from the registry.
+
 ```bash
 curl --request POST \
   --url http://$SAMPLE_HOST/createPromptTemplate \
@@ -90,7 +92,9 @@ curl --request POST \
    "country": "France"
 }'
 ```
+
 #### Delete Prompt Registry Template
+
 This is just to show it can be deleted. It can also be deleted manually in the AI Launchpad.
 
 ```bash

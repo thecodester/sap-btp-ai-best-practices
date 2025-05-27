@@ -3,6 +3,7 @@
 This project demonstrates best practices for accessing generative AI models using the SAP AI SDK. It provides a simple example of how to interact with a language model while making sure the input and output are sterile of NSFW content.
 
 ## Project Structure
+
 ```
 content-filtering
 └── python
@@ -12,14 +13,13 @@ content-filtering
     └── README.md                  # Project documentation
 ```
 
-
 ## Setup Instructions
 
 1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/SAP-samples/sap-btp-ai-best-practices/
-   cd sap-btp-ai-best-practices/best-practices/content-filtering/python
+   cd sap-btp-ai-best-practices/best-practices/generative-ai/content-filtering/python
    ```
 
 2. **Create a virtual environment:**
@@ -48,12 +48,13 @@ content-filtering
    ```bash
    jupyter notebook
    ```
-   - Open the `orchestration_implementation.ipynb` notebook in your browser, depending on the implementation you wish to explore.
 
+   - Open the `orchestration_implementation.ipynb` notebook in your browser, depending on the implementation you wish to explore.
 
 ## Usage Examples
 
 The notebooks demonstrate various methods to call LLMs through SAP GenAI Hub:
+
 - **Orchestration Implementation (`orchestration_implementation.ipynb`):**
   - Unified method to call any model from SAP GenAI Hub
 

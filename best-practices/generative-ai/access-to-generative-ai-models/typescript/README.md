@@ -25,7 +25,7 @@ access-to-generative-ai-models
 
    ```bash
    git clone https://github.com/SAP-samples/sap-btp-ai-best-practices.git
-   cd sap-btp-ai-best-practices/best-practices/access-to-generative-ai-models/typescript
+   cd sap-btp-ai-best-practices/best-practices/generative-ai/access-to-generative-ai-models/typescript
    ```
 
 2. **Install dependencies:**

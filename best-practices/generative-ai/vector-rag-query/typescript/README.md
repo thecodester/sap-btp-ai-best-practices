@@ -29,7 +29,7 @@ typescript
 
    ```bash
    git clone https://github.com/sap-btp-ai-best-practices.git
-   cd sap-btp-ai-best-practices/best-practices/vector-rag-query/typescript
+   cd sap-btp-ai-best-practices/best-practices/generative-ai/vector-rag-query/typescript
    ```
 
 2. **Install dependencies:**
@@ -70,7 +70,7 @@ typescript
    ```bash
    cf env ai-rag-query-typescript-demo-srv
    ```
-  
+
 7. **Run the application locally:**
 
    ```bash

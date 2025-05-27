@@ -1,8 +1,9 @@
 # AI Model Access Demo (Python)
 
-This project demonstrates best practices for developing linear regression models with SAP hana-ml (SAP HANA Python Client API for machine learning algorithms). The Linear Regression technique is illustrated during the execution of the Machine Learning workflow. 
+This project demonstrates best practices for developing linear regression models with SAP hana-ml (SAP HANA Python Client API for machine learning algorithms). The Linear Regression technique is illustrated during the execution of the Machine Learning workflow.
 
 ## Project Structure
+
 ```
 Linear Regression
 └── python
@@ -18,7 +19,7 @@ Linear Regression
 
    ```bash
    git clone https://github.com/SAP-samples/sap-btp-ai-best-practices/
-   cd sap-btp-ai-best-practices/best-practices/linear-regression/python
+   cd sap-btp-ai-best-practices/best-practices/narrow-ai/linear-regression/python
    ```
 
 2. **Create a virtual environment:**
@@ -47,8 +48,8 @@ Linear Regression
    ```bash
    jupyter notebook
    ```
-   - Open the `Linear_Regression.ipynb` notebook in your browser.
 
+   - Open the `Linear_Regression.ipynb` notebook in your browser.
 
 ## Usage Examples
 

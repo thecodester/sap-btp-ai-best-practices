@@ -43,7 +43,7 @@ access-to-generative-ai-models/java
 
    ```bash
    git clone https://github.com/SAP-samples/sap-btp-ai-best-practices.git
-   cd sap-btp-ai-best-practices/best-practices/data-masking/java
+   cd sap-btp-ai-best-practices/best-practices/generative-ai/data-masking/java
    ```
 
 2. **Configure environment variables:**

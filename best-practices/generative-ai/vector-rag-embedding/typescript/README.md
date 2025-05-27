@@ -31,7 +31,7 @@ typescript
 
    ```bash
    git clone https://github.com/SAP-samples/sap-btp-ai-best-practices.git
-   cd sap-btp-ai-best-practices/best-practices/vector-rag-embedding/typescript
+   cd sap-btp-ai-best-practices/best-practices/generative-ai/vector-rag-embedding/typescript
    ```
 
 2. **Install dependencies:**
@@ -72,7 +72,7 @@ typescript
    ```bash
    cf env ai-rag-embedding-typescript-demo-srv
    ```
-  
+
 7. **Run the application locally:**
 
    ```bash
@@ -93,7 +93,7 @@ For local deployment, set `$SAMPLE_HOST` as `http://localhost:3000`. For remote 
 ```bash
 curl --request POST --url http://$SAMPLE_HOST/uploadScienceData \
   --header 'Content-Type: multipart/form-data' \
-  --form 'csvFile=@../sample_files/science-data-sample.csv' 
+  --form 'csvFile=@../sample_files/science-data-sample.csv'
 ```
 
 ### View Science Data
