@@ -26,6 +26,7 @@ GIGYA_SECRET_KEY=<your_secret_key>
 
 ```bash
 npm install
+cf login -a https://api.cf.eu10-005.hana.ondemand.com/
 npm run watch
 ```
 
