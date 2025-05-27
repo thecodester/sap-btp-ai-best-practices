@@ -13,6 +13,10 @@ This section of the repository contains best practices for implementing AI solut
 | [Vector RAG - Embedding](./vector-rag-embedding/)                   | Methods for creating and managing vector embeddings for Retrieval-Augmented Generation (RAG) applications.                                                                      | In Progress |
 | [Vector RAG - Query](./vector-rag-query/)                           | Implementation patterns for effective vector-based querying in Retrieval-Augmented Generation systems.                                                                          | In Progress |
 
+## Prerequisites
+
+- Ensure you have a BTP subaccount and an AI Core service instance created.  See the [Prerequisites](./Prerequisites.md) section for detailed instructions.
+
 ## Getting Started
 
 To get started with a specific best practice:
