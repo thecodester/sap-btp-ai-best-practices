@@ -4,18 +4,18 @@ This section of the repository contains best practices for implementing AI solut
 
 ## Available Best Practices
 
-| Topic                                                               | Description                                                                                                                                                                     | Status      |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [Access to Generative AI Models](./access-to-generative-ai-models/) | Demonstrates how to establish secure connections to generative AI models, handle authentication, manage API calls, and process responses across multiple programming languages. | Available   |
-| [Content Filtering](./content-filtering/)                           | Guidance on implementing content filtering mechanisms for AI-generated content to ensure safe and appropriate outputs.                                                          | In Progress |
-| [Data Masking](./data-masking/)                                     | Techniques for protecting sensitive data when using AI services, including PII handling and data anonymization strategies.                                                      | In Progress |
-| [Prompt Templating](./prompt-templating/)                           | Best practices for creating, managing, and optimizing prompt templates for generative AI models to get consistent and high-quality results.                                     | In Progress |
-| [Vector RAG - Embedding](./vector-rag-embedding/)                   | Methods for creating and managing vector embeddings for Retrieval-Augmented Generation (RAG) applications.                                                                      | In Progress |
-| [Vector RAG - Query](./vector-rag-query/)                           | Implementation patterns for effective vector-based querying in Retrieval-Augmented Generation systems.                                                                          | In Progress |
+| Topic                                                               | Description                                                                                                                                                                     |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Access to Generative AI Models](./access-to-generative-ai-models/) | Demonstrates how to establish secure connections to generative AI models, handle authentication, manage API calls, and process responses across multiple programming languages. |
+| [Content Filtering](./content-filtering/)                           | Guidance on implementing content filtering mechanisms for AI-generated content to ensure safe and appropriate outputs.                                                          |
+| [Data Masking](./data-masking/)                                     | Techniques for protecting sensitive data when using AI services, including PII handling and data anonymization strategies.                                                      |
+| [Prompt Templating](./prompt-templating/)                           | Best practices for creating, managing, and optimizing prompt templates for generative AI models to get consistent and high-quality results.                                     |
+| [Vector RAG - Embedding](./vector-rag-embedding/)                   | Methods for creating and managing vector embeddings for Retrieval-Augmented Generation (RAG) applications.                                                                      |
+| [Vector RAG - Query](./vector-rag-query/)                           | Implementation patterns for effective vector-based querying in Retrieval-Augmented Generation systems.                                                                          |
 
 ## Prerequisites
 
-- Ensure you have a BTP subaccount and an AI Core service instance created.  See the [Prerequisites](./Prerequisites.md) section for detailed instructions.
+- Ensure you have a BTP subaccount and an AI Core service instance created. See the [Prerequisites](./Prerequisites.md) section for detailed instructions.
 
 ## Getting Started
 

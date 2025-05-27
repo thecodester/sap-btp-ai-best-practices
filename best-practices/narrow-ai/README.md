@@ -4,10 +4,10 @@ This section of the repository contains best practices for implementing Narrow A
 
 ## Available Best Practices
 
-| Topic                                     | Description                                                                                                                           | Status    |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| [Linear Regression](./linear-regression/) | Demonstrates how to build and evaluate linear regression models for predicting housing prices using SAP HANA and the hana-ml library. | Available |
-| [Anomaly Detection](./anomaly-detection/) | Shows techniques for detecting anomalies and outliers in tabular and time series data using SAP HANA and multiple ML algorithms.      | Available |
+| Topic                                     | Description                                                                                                                           |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| [Linear Regression](./linear-regression/) | Demonstrates how to build and evaluate linear regression models for predicting housing prices using SAP HANA and the hana-ml library. |
+| [Anomaly Detection](./anomaly-detection/) | Shows techniques for detecting anomalies and outliers in tabular and time series data using SAP HANA and multiple ML algorithms.      |
 
 ## Getting Started
 
