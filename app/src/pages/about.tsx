@@ -10,6 +10,7 @@ import "@ui5/webcomponents-icons/dist/idea-wall.js";
 import "@ui5/webcomponents-icons/dist/developer-settings.js";
 import "@ui5/webcomponents-icons/dist/tools-opportunity.js";
 import "@ui5/webcomponents-icons/dist/lightbulb.js";
+import "@ui5/webcomponents-icons/dist/workflow-tasks.js";
 
 import styles from "./about.module.css";
 
@@ -166,6 +167,12 @@ export default function About(): React.ReactNode {
                 <p>
                   Further SAP BTP AI Best Practices are in preparation. <strong>Stay tuned</strong> to keep your AI development on SAP BTP at the forefront!
                 </p>
+                <div className={styles.roadmapButtonWrapper}>
+                  <a href="/docs/SAP%20BTP%20AI%20Best%20Practices%20roadmap_with%20status.pdf" target="_blank" rel="noopener noreferrer" className={styles.roadmapButton}>
+                    <Icon name="workflow-tasks" className={styles.roadmapButtonIcon} style={{ marginRight: 8, fontSize: 22 }} />
+                    View Our Roadmap (PDF)
+                  </a>
+                </div>
               </div>
             </div>
           </div>
