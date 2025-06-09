@@ -2,7 +2,7 @@
 
 This section provides guidance and examples for accessing generative AI models, demonstrating how to establish connections, handle authentication, manage API calls, and process responses effectively.
 
-Article related to this topic: [Access to Generative AI Models](https://sap.sharepoint.com/sites/210313/SitePages/GenAI%20-%20Plain%20-%20Direct%20-%20Inference%20Request.aspx)
+Article related to this topic: [Access to Generative AI Models](https://btp-ai-bp.docs.sap/docs/technical-view/generative-ai/plain/access-to-generative-ai-models)
 
 ## Language-Specific Examples
 
