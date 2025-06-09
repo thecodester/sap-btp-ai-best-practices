@@ -9,19 +9,17 @@ Overall, the following tasks take place:
 - Training a **regression model** for the housing prices using **hana-ml Predictive Analysis Library** (PAL) functions
 - Performing **Model Evaluation** to show the model accuracy obtained
 
-The article related to this topic is: [Narrow AI - Linear Regression](https://sap.sharepoint.com/sites/210313/SitePages/Narrow%20AI%20-%20Linear%20Regression.aspx)
-
+The article related to this topic is: [Narrow AI - Linear Regression [TODO: Add link]](#TODO)
 
 #### References
-[1] [California Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html)
 
+[1] [California Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html)
 
 ## Language-Specific Examples
 
 This repository includes examples in multiple programming languages to demonstrate these best practices:
 
 - [Python](./python/): Python implementation for developing linear regression models with SAP hana-ml
-
 
 ## Getting Started
 

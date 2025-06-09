@@ -4,9 +4,9 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/REPO-NAME)](https://api.reuse.software/info/github.com/SAP-samples/REPO-NAME)
 -->
 
-<!-- [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/sap-btp-ai-best-practices)](https://api.reuse.software/info/github.com/SAP-samples/sap-btp-ai-best-practices) -->
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/sap-btp-ai-best-practices)](https://api.reuse.software/info/github.com/SAP-samples/sap-btp-ai-best-practices)
 
-For comprehensive documentation related to this code: [SAP BTP AI Best Practices](https://sap.sharepoint.com/sites/210313)
+For comprehensive documentation related to this code: [SAP BTP AI Best Practices](https://btp-ai-bp.docs.sap/)
 
 ## Description
 

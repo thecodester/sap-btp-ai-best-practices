@@ -1,8 +1,8 @@
 # Best Practices for Prompt Registry
 
-This section provides guidance and examples for using the prompt registry.  Prompt registry integrates prompt templates into SAP AI Core, making them discoverable across your applications and orchestration.  It reduces the complexity of dealing with prompt templates and leveraging integration capabilities.
+This section provides guidance and examples for using the prompt registry. Prompt registry integrates prompt templates into SAP AI Core, making them discoverable across your applications and orchestration. It reduces the complexity of dealing with prompt templates and leveraging integration capabilities.
 
-Article related to this topic: [Prompt Registry](https://sap.sharepoint.com/sites/210313/SitePages/GenAI%20-%20Plain%20-%20Orchestrated%20-%20Prompt%20Registry.aspx)
+Article related to this topic: [Prompt Registry](https://btp-ai-bp.docs.sap/docs/technical-view/generative-ai/plain/prompt-templating)
 
 ## Language-Specific Examples
 
