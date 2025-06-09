@@ -408,7 +408,7 @@ html a.cardButtonLinkWhite:hover {
   background: var(--ifm-color-primary-dark);
   color: #fff;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px) scale(1.03);
+  transform: translateY(-2px);
   text-decoration: none;
 }
 
@@ -433,4 +433,39 @@ html a.cardButtonLinkWhite:hover {
 [data-theme="dark"] .roadmapButtonIcon {
   color: #fff !important;
   fill: #fff !important;
+}
+
+.roadmapHighlightSection {
+  background: linear-gradient(90deg, #f5f7ff 0%, #e0e7ff 100%);
+  border-radius: 1rem;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 24px rgba(106, 80, 255, 0.08);
+  text-align: center;
+  position: relative;
+}
+
+[data-theme="dark"] .roadmapHighlightSection {
+  background: linear-gradient(90deg, #23243a 0%, #2a2d4d 100%);
+}
+
+.roadmapHeading {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #3a2e7b;
+}
+
+[data-theme="dark"] .roadmapHeading {
+  color: #b6aaff;
+}
+
+.roadmapDescription {
+  font-size: 1.15rem;
+  color: #4b4b6f;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme="dark"] .roadmapDescription {
+  color: #d1d1ff;
 }
