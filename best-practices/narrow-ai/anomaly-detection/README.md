@@ -10,15 +10,13 @@ Overall, the following tasks take place:
 - Implementing **time series anomaly detection** with specialized algorithms for temporal data
 - Performing **Model Evaluation** to assess the effectiveness of anomaly detection
 
-The article related to this topic is: [Narrow AI - Anomaly Detection](https://sap.sharepoint.com/sites/210313/SitePages/Narrow%20AI%20-%20Anomaly%20Detection.aspx)
-
+The article related to this topic is: [Narrow AI - Anomaly Detection [TODO: Add link]](#TODO)
 
 ## Language-Specific Examples
 
 This repository includes examples in multiple programming languages to demonstrate these best practices:
 
 - [Python](./python/): Python implementation for developing anomaly detection models with SAP hana-ml
-
 
 ## Getting Started
 
