@@ -81,6 +81,13 @@ export const TRACKING_EVENTS = {
     DOWNLOAD_DATA_MASKING: "btn-download-data-masking",
     DOWNLOAD_CONTENT_FILTERING: "btn-download-content-filtering",
     DOWNLOAD_VECTOR_RAG_EMBEDDING: "btn-download-vector-rag-embedding",
-    DOWNLOAD_VECTOR_RAG_QUERY_PIPELINE: "btn-download-vector-rag-query-pipeline"
+    DOWNLOAD_VECTOR_RAG_QUERY_PIPELINE: "btn-download-vector-rag-query-pipeline",
+    DOWNLOAD_KG_RAG_CREATION: "btn-download-kg-rag-creation",
+    DOWNLOAD_KG_RAG_QUERY_PIPELINE: "btn-download-kg-rag-query-pipeline",
+    DOWNLOAD_DOCUMENT_INFORMATION_EXTRACTION: "btn-download-document-information-extraction",
+    DOWNLOAD_DEPLOYMENT_CUSTOM_PREDICTIVE_MODELS: "btn-download-deployment-custom-predictive-models",
+    DOWNLOAD_LINEAR_REGRESSION: "btn-download-linear-regression",
+    DOWNLOAD_TIME_SERIES_FORECASTING: "btn-download-time-series-forecasting",
+    DOWNLOAD_ANOMALY_DETECTION: "btn-download-anomaly-detection"
   }
 } as const;
