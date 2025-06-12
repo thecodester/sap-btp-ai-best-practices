@@ -33,10 +33,10 @@ import "@ui5/webcomponents-icons/dist/lab.js";
 import "@ui5/webcomponents-icons/dist/machine.js";
 import "@ui5/webcomponents-icons/dist/add-product.js";
 import "@ui5/webcomponents-icons/dist/pipeline-analysis.js";
-
 import "@ui5/webcomponents-icons/dist/education.js";
-import "@ui5/webcomponents-icons/dist/machine.js";
-import "@ui5/webcomponents-icons/dist/machine.js";
+import "@ui5/webcomponents-icons/dist/puzzle.js";
+import "@ui5/webcomponents-icons/dist/scatter-chart.js";
+import "@ui5/webcomponents-icons/dist/area-chart.js";
 
 const capabilityIcons: Record<string, string> = {
   // === Functional View ===
@@ -81,7 +81,8 @@ const capabilityIcons: Record<string, string> = {
 
   // Add other functional view mappings... Ensure NO trailing slashes in keys
 
-  // === Technical View - Generative AI ===
+  // === Technical View ===
+
   // Plain
   "/docs/technical-view/generative-ai/plain": "discussion",
   "/docs/technical-view/generative-ai/plain/access-to-generative-ai-models": "connected",
@@ -102,9 +103,18 @@ const capabilityIcons: Record<string, string> = {
   "/docs/technical-view/generative-ai/agentic/single-agent": "lateness",
   "/docs/technical-view/generative-ai/agentic/multi-agent": "lateness",
 
-  // Default/Placeholder for others
-  // Add specific mappings here as new capabilities get icons
+  // Narrow AI
+  "/docs/technical-view/narrow-ai/linear-regression": "scatter-chart",
+  "/docs/technical-view/narrow-ai/time-series-forecasting": "area-chart",
+  "/docs/technical-view/narrow-ai/classification": "lateness",
+  "/docs/technical-view/narrow-ai/recommendation": "lateness",
+  "/docs/technical-view/narrow-ai/clustering": "lateness",
+  "/docs/technical-view/narrow-ai/anomaly-detection": "quality-issue",
+  "/docs/technical-view/narrow-ai/predictive-ai-bdc-btp": "lateness",
+  "/docs/technical-view/narrow-ai/deployment-custom-predictive-models": "puzzle",
 
+  // AI Services
+  "/docs/technical-view/ai-services/document-information-extraction": "ppt-attachment"
 };
 
 /**
