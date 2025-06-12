@@ -151,6 +151,17 @@ export default function About(): React.ReactNode {
               </div>
             </div> */}
 
+            <div className={styles.roadmapHighlightSection}>
+              <h2 className={styles.roadmapHeading}>See What's Next</h2>
+              <p className={styles.roadmapDescription}>Curious about upcoming BTP AI Best Practices? Check the roadmap to see what's planned and what's coming soon!</p>
+              <div className={styles.roadmapButtonWrapper}>
+                <a href="/docs/SAP%20BTP%20AI%20Best%20Practices%20roadmap_with%20status.pdf" target="_blank" rel="noopener noreferrer" className={styles.roadmapButton}>
+                  <Icon name="workflow-tasks" className={styles.roadmapButtonIcon} style={{ marginRight: 8, fontSize: 22 }} />
+                  Explore the Roadmap
+                </a>
+              </div>
+            </div>
+
             <div className={styles.contentSection}>
               <div className={styles.bestPracticesSection}>
                 <h2>Available Best Practices</h2>
@@ -163,16 +174,9 @@ export default function About(): React.ReactNode {
                   <IconLinkButton href="/docs/technical-view/generative-ai/rag/vector-rag-embedding" text="Vector-based RAG embedding" />
                   <IconLinkButton href="/docs/technical-view/generative-ai/rag/vector-rag-query-pipeline" text="Vector-based RAG Query Pipeline" />
                 </div>
-
                 <p>
                   Further SAP BTP AI Best Practices are in preparation. <strong>Stay tuned</strong> to keep your AI development on SAP BTP at the forefront!
                 </p>
-                <div className={styles.roadmapButtonWrapper}>
-                  <a href="/docs/SAP%20BTP%20AI%20Best%20Practices%20roadmap_with%20status.pdf" target="_blank" rel="noopener noreferrer" className={styles.roadmapButton}>
-                    <Icon name="workflow-tasks" className={styles.roadmapButtonIcon} style={{ marginRight: 8, fontSize: 22 }} />
-                    View Our Roadmap (PDF)
-                  </a>
-                </div>
               </div>
             </div>
           </div>
