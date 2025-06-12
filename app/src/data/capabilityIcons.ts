@@ -94,10 +94,10 @@ const capabilityIcons: Record<string, string> = {
   "/docs/technical-view/generative-ai/rag/vector-vs-graph": "compare",
   "/docs/technical-view/generative-ai/rag/vector-overall": "lateness",
   "/docs/technical-view/generative-ai/rag/vector-query": "lateness",
-  "/docs/technical-view/generative-ai/rag/graph-overall": "education",
-  "/docs/technical-view/generative-ai/rag/graph-query": "pipeline-analysis",
   "/docs/technical-view/generative-ai/rag/vector-rag-embedding": "add-product",
   "/docs/technical-view/generative-ai/rag/vector-rag-query-pipeline": "pipeline-analysis",
+  "/docs/technical-view/generative-ai/rag/kg-rag-creation": "education",
+  "/docs/technical-view/generative-ai/rag/kg-rag-query-pipeline": "pipeline-analysis",
 
   // Agentic
   "/docs/technical-view/generative-ai/agentic/single-agent": "lateness",
