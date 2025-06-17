@@ -1,0 +1,4 @@
+hana-ml
+pandas
+python-dotenv
+matplotlib
