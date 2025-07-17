@@ -96,7 +96,7 @@ The following notebook demonstrates anomaly detection for time series data:
 
 The following noteboook demosntrates anomaly detection for regression models:
 
-1. **[OutlierDetectionRegression.ipynb]()**: Implements anomaly detection for regression models with two different approaches:
+1. **[OutlierDetectionRegression.ipynb](regression_anomaly/OutlierDetectionRegression.ipynb)**: Implements anomaly detection for regression models with two different approaches:
    - Linear model: creates a linear model to fit data and detects the anomalous points by their deleted studentized residual
    - Tree model: creates a tree model to fit data and detects the anomalous points by the z-score of the residuals
 
