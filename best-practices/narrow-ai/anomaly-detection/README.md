@@ -11,7 +11,7 @@ Overall, the following tasks take place:
 - Implementing **anomaly detection for regression models** for linear and tree-based models
 - Performing **Model Evaluation** to assess the effectiveness of anomaly detection
 
-The article related to this topic is: [Narrow AI - Anomaly Detection [TODO: Add link]](#TODO)
+The article related to this topic is: [Narrow AI - Anomaly Detection](https://sap.sharepoint.com/sites/210313/SitePages/Narrow%20AI%20-%20Anomaly%20Detection.aspx)
 
 ## Language-Specific Examples
 

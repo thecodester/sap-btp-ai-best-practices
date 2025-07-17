@@ -13,7 +13,7 @@ The repository is organized into three main directories:
 - **[generate_anomaly_data/](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/anomaly-detection/python/generate_anomaly_data)**: Scripts for generating synthetic datasets with controlled anomalies
 - **[general_anomaly/](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/anomaly-detection/python/general_anomaly)**: Jupyter notebooks implementing various anomaly detection algorithms for tabular data
 - **[timeseries_anomaly/](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/anomaly-detection/python/timeseries_anomaly)**: Jupyter notebook implementing time series anomaly detection algorithms
-- **[regression_anomaly/]()**: Jupuyter notebook implementing regression anomaly detection algorithms
+- **[regression_anomaly/](regression_anomaly)**: Jupuyter notebook implementing regression anomaly detection algorithms
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ Two scripts are provided for generating synthetic data with controlled anomalies
 
 1. **[anomaly_generator.py](https://github.com/SAP-samples/sap-btp-ai-best-practices/blob/main/best-practices/anomaly-detection/python/generate_anomaly_data/anomaly_generator.py)**: Generates tabular data with multiple features and controlled anomaly distributions
 2. **[time_series_anomaly_generator.py](https://github.com/SAP-samples/sap-btp-ai-best-practices/blob/main/best-practices/anomaly-detection/python/generate_anomaly_data/time_series_anomaly_generator.py)**: Generates time series data with seasonal patterns and injected point anomalies
-3. **[regression_anomaly_generator.py]()**: Generates regression data with outliers in target values (vertical outliers), in the feature space (leverage points) and in both (influential points).
+3. **[regression_anomaly_generator.py](generate_anomaly_data/regression_anomaly_generator.py)**: Generates regression data with outliers in target values (vertical outliers), in the feature space (leverage points) and in both (influential points).
 
 Example usage:
 ```bash
