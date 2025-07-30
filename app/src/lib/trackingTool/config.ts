@@ -86,7 +86,7 @@ export const TRACKING_EVENTS = {
     DOWNLOAD_KG_RAG_QUERY_PIPELINE: "btn-download-kg-rag-query-pipeline",
     DOWNLOAD_DOCUMENT_INFORMATION_EXTRACTION: "btn-download-document-information-extraction",
     DOWNLOAD_DEPLOYMENT_CUSTOM_PREDICTIVE_MODELS: "btn-download-deployment-custom-predictive-models",
-    DOWNLOAD_LINEAR_REGRESSION: "btn-download-linear-regression",
+    DOWNLOAD_REGRESSION: "btn-download-regression",
     DOWNLOAD_TIME_SERIES_FORECASTING: "btn-download-time-series-forecasting",
     DOWNLOAD_ANOMALY_DETECTION: "btn-download-anomaly-detection"
   }

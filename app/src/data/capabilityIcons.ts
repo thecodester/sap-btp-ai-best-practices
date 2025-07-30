@@ -104,7 +104,7 @@ const capabilityIcons: Record<string, string> = {
   "/docs/technical-view/generative-ai/agentic/multi-agent": "lateness",
 
   // Narrow AI
-  "/docs/technical-view/narrow-ai/linear-regression": "scatter-chart",
+  "/docs/technical-view/narrow-ai/regression": "scatter-chart",
   "/docs/technical-view/narrow-ai/time-series-forecasting": "area-chart",
   "/docs/technical-view/narrow-ai/classification": "lateness",
   "/docs/technical-view/narrow-ai/recommendation": "lateness",
