@@ -44,9 +44,9 @@ import PageContributors from "@site/src/components/PageContributors";
     <div className="col col--4">
       <ul className="resource-links">
         <li>
-          <Link target="_blank" to={useBaseUrl("narrow-ai/time-series-forecasting/videos/#TODO")}>
+          <Link target="_blank" to={useBaseUrl("narrow-ai/time-series-forecasting/videos/BTP AI Best Practices -Time-series forecasting (intro)_external.mp4")}>
             <Icon name="video" />
-            <span>Teaser [TODO]</span>
+            <span>Teaser</span>
           </Link>
         </li>
         <LoginWall renderOnlyWhenLoggedIn={true}>
@@ -57,9 +57,9 @@ import PageContributors from "@site/src/components/PageContributors";
             </Link>
           </li>
           <li>
-            <Link target="_blank" to={useBaseUrl("narrow-ai/time-series-forecasting/pdfs/#TODO")}>
+            <Link target="_blank" to={useBaseUrl("narrow-ai/time-series-forecasting/pdfs/BTP AI Best Practices - Predictive AI - Time Series Forecasting.pdf")}>
               <Icon name="pdf-attachment" />
-              <span>Webinar (PDF Presentation) [TODO]</span>
+              <span>Webinar (PDF Presentation)</span>
             </Link>
           </li>
         </LoginWall>
@@ -86,26 +86,28 @@ import PageContributors from "@site/src/components/PageContributors";
 **Time series forecasting** is the process of analyzing time-ordered data points to predict future values. Time series data is a sequence of observations collected at successive points in time, typically at uniform intervals (e.g., daily stock prices, hourly temperature readings, monthly sales). Each data point is dependent on past values, making the temporal order crucial.
 
 ### Expected Outcome
+
 The expected outcome is a model that captures the underlying patterns in historical data (like trends, seasonality, and noise) and uses these patterns to forecast future values.
 
 ### Benefits
+
 - **Improved Decision-Making:** Forecasting future trends enables data-driven decisions in areas like budgeting, staffing, and supply chain management.
 - **Resource Optimization:** Helps allocate resources more efficiently by predicting demand, reducing waste, and avoiding stockouts or overproduction.
 - **Competitive Advantage:** Businesses that anticipate market trends and customer behavior gain a strategic edge over competitors.
 
 <LoginWall>
 
-
 ## <span className="step-number">2</span> <span className="step-title">Pre-requisites</span>
 
 ### Supported SAP HANA Versions and Editions
 
 SAP HANA ML capabilities, including both PAL and APL, are supported on various SAP HANA versions and editions. Key supported platforms include:
+
 - SAP HANA Platform: Available from [SAP HANA Platform 2.0 SPS 04](https://help.sap.com/doc/9c87e50e69c744f785f41ec5568b47d8/2.0.04/en-US/SAP_HANA_Machine_Learning_Overview_Guide_en.pdf) onwards
 - SAP HANA Cloud: Fully supported and recommended platform due to easier management of components like PAL and APL. More information on [HANA Cloud and Setup process](/docs/technology/sap-hana-cloud#setup).
-    - [Prerequisites](https://support.sap.com/en/alm/sap-cloud-alm/operations/expert-portal/setup-managed-services/setup-hana-cloud.html?anchorId=section_2065216453_c#section_copy_copy):
-        - You need to have access to SAP BTP Cockpit ([Setup Guide](/docs/technology/sap-business-technology-platform#setup-guide)).
-        - Your user in BTP Cockpit needs to be a member with the space role "Space Developer" for the space in which you want to create the SAP HANA Cloud database instance was created
+  - [Prerequisites](https://support.sap.com/en/alm/sap-cloud-alm/operations/expert-portal/setup-managed-services/setup-hana-cloud.html?anchorId=section_2065216453_c#section_copy_copy):
+    - You need to have access to SAP BTP Cockpit ([Setup Guide](/docs/technology/sap-business-technology-platform#setup-guide)).
+    - Your user in BTP Cockpit needs to be a member with the space role "Space Developer" for the space in which you want to create the SAP HANA Cloud database instance was created
 - **SAP HANA express edition:** Used for development and testing. [Installation instructions for SAP HANA](https://developers.sap.com/group.hxe-install-clients.html) and [Installation instructions for Client API](https://developers.sap.com/tutorials/hxe-ua-install-python-ml-api..html).
 - **SAP Datasphere (formerly Data Warehouse Cloud):** Supports PAL and API functions, provided underlying [SAP HANA Cloud Script Server](https://help.sap.com/docs/SAP_DATASPHERE/9f804b8efa8043539289f42f372c4862/287194276a7d4d778ec98fdde5f61335.html) is enabled for the tenant
 
@@ -120,24 +122,25 @@ Note, PAL and APL are also available from [SAP HANA Platform 2.0 SPS 04](https:/
 ### Required User Authorizations and Roles
 
 Executing PAL and APL functions requires specific database privileges. These are granted via predefined roles:
+
 - For [PAL](https://help.sap.com/docs/SAP_PREDICTIVE_ANALYTICS/f2ba2229f63148ef862cf2ef28e981eb/e7930a9c80b7101487253286b0e91070.html?version=2.5.0.0&locale=en-US)
-From the system connection in the SAP HANA Studio **Navigator** window, choose **Security > Users**.
-Double-click the `<HANA Online user account>`.
-On the **SQL Privileges** tab, click the + icon, select **AFL_WRAPPER_GENERATOR(SYSTEM)**, and choose **OK**.
-Under **Privileges for 'AFL_WRAPPER_GENERATOR(SYSTEM)'**, select **EXECUTE**.
-On the Granted Roles tab, click the + icon, select **AFL__SYS_AFL_AFLPAL_EXECUTE**, and choose OK.
+  From the system connection in the SAP HANA Studio **Navigator** window, choose **Security > Users**.
+  Double-click the `<HANA Online user account>`.
+  On the **SQL Privileges** tab, click the + icon, select **AFL_WRAPPER_GENERATOR(SYSTEM)**, and choose **OK**.
+  Under **Privileges for 'AFL_WRAPPER_GENERATOR(SYSTEM)'**, select **EXECUTE**.
+  On the Granted Roles tab, click the + icon, select **AFL\_\_SYS_AFL_AFLPAL_EXECUTE**, and choose OK.
 
 - For [APL](https://help.sap.com/docs/apl/419fd47c26b345239fdbb5e476a6bc54/654f4d920c5846b6b56903c7b06b0785.html):
-    - SAP HANA Cloud: The database role sap.pa.apl.base.roles::APL_EXECUTE is required. This role grants privileges to execute APL stored procedures, access related schemas, and use the APL cache. It should be granted by a database administrator to the APL user
-    - SAP HANA Platform (On-Premise): Privileges depend on the calling technique:
-        - Direct AFL Call: Requires granting AFL__SYS_AFL_APL_AREA_EXECUTE and AFLPM_CREATOR_ERASER_EXECUTE roles.
-        - Procedure Call (Recommended): Requires granting the activated role sap.pa.apl.base.roles::APL_EXECUTE.
+  - SAP HANA Cloud: The database role sap.pa.apl.base.roles::APL_EXECUTE is required. This role grants privileges to execute APL stored procedures, access related schemas, and use the APL cache. It should be granted by a database administrator to the APL user
+  - SAP HANA Platform (On-Premise): Privileges depend on the calling technique:
+    - Direct AFL Call: Requires granting AFL\_\_SYS_AFL_APL_AREA_EXECUTE and AFLPM_CREATOR_ERASER_EXECUTE roles.
+    - Procedure Call (Recommended): Requires granting the activated role sap.pa.apl.base.roles::APL_EXECUTE.
 - **General Privileges:** Beyond specific PAL/APL roles, users will need standard SQL privileges to access the data tables used as input for the algorithms (e.g., SELECT on relevant schemas/tables) and potentially privileges to create temporary tables or views depending on the workflow (e.g., CREATE TEMPORARY TABLE).
 
 ### Summary
 
 | Prerequisite Category            | Item                                               | Notes                                                                                          |
-|----------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------|
+| -------------------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | **SAP HANA Cloud Environment**   | SAP HANA Cloud, SAP HANA Cloud trial and free-tier | See trial / free-tier limitations.                                                             |
 | **SAP HANA Cloud Configuration** | Enabled services                                   | Script Server and NLP services                                                                 |
 | **User Authorizations**          | PAL Execution Role Granted                         | User needs `AFL__SYS_AFL_AFLPAL_EXECUTE` (Cloud/On-Prem) role.                                 |
@@ -146,6 +149,7 @@ On the Granted Roles tab, click the + icon, select **AFL__SYS_AFL_AFLPAL_EXECUTE
 |                                  | Object Creation Privileges (Optional)              | May need `CREATE TEMPORARY TABLE` etc., depending on workflow.                                 |
 
 ### High-level Reference Architecture
+
 ![High-level Reference Architecture](@site/static/narrow-ai/regression/images/arch.png)
 
 #### Calling PAL and APL Functions
@@ -161,16 +165,18 @@ On the Granted Roles tab, click the + icon, select **AFL__SYS_AFL_AFLPAL_EXECUTE
 Time series data is distinct from typical machine learning datasets due to its inherent features like time-based sequencing, autocorrelation between observations, and recurring seasonal patterns. These characteristics demand a specialized approach to data preparation to ensure accurate and meaningful analysis.
 
 ### Algorithm Selection
+
 SAP HANA Predictive Analytics Library, offers a wide range of time series forecasting algorithms. Choosing the right time series forecasting model in SAP HANA PAL depends on several key factors related to both the characteristics of your data and the business problem you're trying to address. Some of the commonly used algorithms are as follows:
+
 - **Additive Model Time Series Analysis** uses an additive model to forecast time series data. It handles data with strong seasonal effects and is robust to changes in historical trends. Additive model time series analysis – also called Prophet – uses a decomposable time series model with three main components: trend, seasonality, and holidays or events. Prophet offers two ways to model the trend:
-    - A non-linear saturating growth model, which is useful when the data shows a growth that eventually levels off.
-    - A piecewise linear model, which allows the trend to change at specific points, making it flexible for real-world data.
+  - A non-linear saturating growth model, which is useful when the data shows a growth that eventually levels off.
+  - A piecewise linear model, which allows the trend to change at specific points, making it flexible for real-world data.
 - **ARIMA (Auto Regressive Integrated Moving Average)** algorithm in SAP HANA PAL is a powerful statistical method used for forecasting univariate time series data. It combines three components: autoregression (AR), which uses the relationship between current and past values; integration (I), which involves differencing the data to make it stationary; and moving average (MA), which models the relationship between a data point and past forecast errors. ARIMA is well-suited for time series with trends but without strong seasonal patterns, and it helps uncover underlying temporal structures to make accurate future predictions. SAP HANA PAL provides efficient, in-database processing of ARIMA, allowing for scalable and fast time series forecasting.
 - **Bayesian Change Point Detection** is a time series analysis technique used to detect points where the statistical properties of the data change, such as shifts in mean or variance. This algorithm applies a Bayesian inference framework to estimate the probability of a change occurring at each time step, making it effective for identifying structural breaks, trends, or anomalies in the data. It is particularly valuable in scenarios like fraud detection, production monitoring, or financial analysis, where early detection of sudden changes is critical.
 - **Auto Exponential Smoothing** automatically calculates optimal parameters for Single, Double, and Triple Exponential Smoothing models. It forecasts based on these parameters by exploring the full parameter space and evaluating quality using MSE or MAPE, comparing historic and forecast values. Parameter optimization uses simulated annealing for global search and Nelder-Mead for local refinement, ensuring efficient results. A train-and-test scheme is applied to validate the model by training on one part of the series and testing on the other, enhancing flexibility and accuracy.
 - **Massive, data-parallel (aka segmented) time series forecasting**
-    - **Independently apply** Predictive Analysis Library (PAL) functions to subsets of data identified by a grouping column
-    - **Single call** invoking massive data-parallel ML processing
+  - **Independently apply** Predictive Analysis Library (PAL) functions to subsets of data identified by a grouping column
+  - **Single call** invoking massive data-parallel ML processing
 - **AutoML for Time Series:** AutoML frameworks like [SAP HANA Cloud PAL’s AutoML](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-predictive-analysis-library/automl-automl) implementation greatly help users in probing multiple algorithms and parameter variations for a given scenario for selecting the best possible algorithm and model. The following [link](https://github.com/SAP-samples/hana-ml-samples/blob/main/Python-API/usecase-examples/sapcommunity-automl-examples/Example%20-%20Using%20PAL%20AutoML%20for%20Time-Series.ipynb) includes an example on how to use AutoML for Time Series. An example using the Massive implementation can be seen in the following [link](https://github.com/SAP-samples/hana-ml-samples/blob/main/Python-API/pal/notebooks/24QRC03_2.22.ipynb).
 
 ### Data Preparation and Model Evaluation
@@ -180,9 +186,11 @@ The success of any machine learning model is fundamentally dependent on two core
 For a detailed guide on the methodologies, key metrics, and best practices for preparing your data and evaluating model performance across different ML tasks, please refer to our unified [Data Preparation and Model Evaluation page](https://sap.sharepoint.com/sites/210313/SitePages/Data%20prep%20and%20model%20evaluation.aspx).
 
 ### Leverage In-Database ML functions from SAP HANA whenever possible
+
 Prioritize HANA ML: If your data resides in SAP HANA or SAP Datasphere, using hana-ml is generally the most efficient approach due to minimized data movement and optimized performance.
 
 ### Anomaly and Outlier Detection
+
 Identifying anomalies or outliers is a critical aspect of building robust machine learning models. These unusual data points can represent data quality issues, unique real-world events, or errors in data collection that might otherwise skew model training and evaluation.
 
 For a comprehensive guide on the methodologies and best practices for discovering anomalies in your data, please refer to our unified [Anomaly Detection Best Practices](/docs/technical-view/narrow-ai/anomaly-detection) page.
@@ -197,7 +205,7 @@ When developing linear regression scenarios with SAP HANA’s Predictive Analysi
 
 - **Recommended Approach (Data Science Workflows):** Utilize the Python hana-ml library for a streamlined, intuitive experience aligned with standard data science practices, including convenient data manipulation and integration with machine learning workflows. This approach yields best productivity during ML model experimentation until the final model of choice and parameterization has been determined.
 - **Alternative Approaches:**
-    - **SQLScript database procedures and table functions** are the typical **HANA design-time artifacts** for embedding and invoking PAL and APL procedures into BTP CAP or XSA full-stack applications. Artifact generations from the hana-ml machine learning client in Python is supported.
+  - **SQLScript database procedures and table functions** are the typical **HANA design-time artifacts** for embedding and invoking PAL and APL procedures into BTP CAP or XSA full-stack applications. Artifact generations from the hana-ml machine learning client in Python is supported.
 
 The final choice should align with your team’s expertise and project requirements.
 
@@ -215,24 +223,29 @@ The final choice should align with your team’s expertise and project requireme
 </TrackableLink>
 
 ### Recommendation
+
 Use the hana_ml library for interacting with SAP HANA PAL and APL algorithms directly from Python.
 
 ### SDKs
+
 - [hana_ml](https://help.sap.com/doc/1d0ebfe5e8dd44d09606814d83308d4b/latest/en-US/hana_ml.html)
 
 ### Tutorials and Learning Journeys
 
 SAP Community Blogs:
+
 - [Identification of Seasonality in Time Series with Python Machine Learning Client for SAP HANA](https://community.sap.com/t5/technology-blog-posts-by-sap/identification-of-seasonality-in-time-series-with-python-machine-learning/ba-p/13472664)
 - [A Multivariate Time Series Modeling and Forecasting Guide with Python Machine Learning Client for SAP HANA](https://community.sap.com/t5/technology-blog-posts-by-sap/a-multivariate-time-series-modeling-and-forecasting-guide-with-python/ba-p/13517004)
 - [Anomaly Detection in Time-Series using Seasonal Decomposition in Python Machine Learning Client for SAP HANA](https://community.sap.com/t5/technology-blog-posts-by-sap/anomaly-detection-in-time-series-using-seasonal-decomposition-in-python/ba-p/13474482)
 
 SAP Developer Tutorials:
+
 - [Predictive AI with SAP AI Core](https://developers.sap.com/group.ai-core-get-started-basics.html) (General AI Core usage)
 
 ### Reference Code
 
 #### Recommended
+
 - [SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/narrow-ai/Time-series-Forecasting/python)
 
 #### Relevant Code
@@ -262,6 +275,7 @@ df
 apl_model.generate_html_report('TimeSeries_Report')
 apl_model.generate_notebook_iframe_report()
 ```
+
 </TabItem>
 
 <TabItem value="SQL" label="SQL">
@@ -269,16 +283,17 @@ apl_model.generate_notebook_iframe_report()
 ### Recommendation
 
 SAP HANA's Predictive Analysis Library (PAL) algorithms can be directly invoked through SQLScript. This approach is beneficial for:
+
 - **Performance Optimization:** Minimizes data movement by executing directly within the database.
 - **Integration:** Allows embedding ML logic within database procedures, views, or calculation views for seamless integration with existing SAP HANA applications.
 - **Governance:** Provides a standardized approach within existing database governance frameworks.
 
-
 When implementing with SQLScript, you'll typically:
+
 1. Create parameter tables with algorithm-specific settings.
 2. Prepare input data in the required format.
 3. Call the PAL procedure.
-5. Process the resulting output tables.
+4. Process the resulting output tables.
 
 ### SDKs
 
@@ -287,6 +302,7 @@ When implementing with SQLScript, you'll typically:
 ### Tutorials and Learning Journeys
 
 SAP Community Blogs:
+
 - [SAP HANA PAL Quick Start](https://community.sap.com/t5/technology-blog-posts-by-sap/sap-hana-pal-quick-start/ba-p/13084367)
 
 The following links point to the relevant SAP HANA PAL documentation for the SQLScript procedures:
@@ -820,8 +836,8 @@ CALL _SYS_AFL.PAL_STATIONARITY_TEST(PAL_TEST_DATA_TBL, PAL_PARAMETER_TBL, ?);
 ## <span className="post-article-first-title">Related Best Practices</span>
 
 <ul className="button-grid">
-    <IconLinkButton href="/docs/technical-view/narrow-ai/anomaly-detection" text="Anomaly Detection"/>
-    <IconLinkButton href="/docs/functional-view/decision-support/regression" text="Regression"/>
+  <IconLinkButton href="/docs/technical-view/narrow-ai/anomaly-detection" text="Anomaly Detection" />
+  <IconLinkButton href="/docs/functional-view/decision-support/regression" text="Regression" />
 </ul>
 
 </div>
