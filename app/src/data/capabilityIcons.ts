@@ -37,6 +37,7 @@ import "@ui5/webcomponents-icons/dist/education.js";
 import "@ui5/webcomponents-icons/dist/puzzle.js";
 import "@ui5/webcomponents-icons/dist/scatter-chart.js";
 import "@ui5/webcomponents-icons/dist/area-chart.js";
+import "@ui5/webcomponents-icons/dist/attachment-video.js";
 
 const capabilityIcons: Record<string, string> = {
   // === Functional View ===
@@ -114,7 +115,8 @@ const capabilityIcons: Record<string, string> = {
   "/docs/technical-view/narrow-ai/deployment-custom-predictive-models": "puzzle",
 
   // AI Services
-  "/docs/technical-view/ai-services/document-information-extraction": "ppt-attachment"
+  "/docs/technical-view/ai-services/document-information-extraction": "ppt-attachment",
+  "/docs/technical-view/ai-services/sap-document-ai": "attachment-video"
 };
 
 /**
