@@ -38,7 +38,7 @@ High-quality data is the foundation of any effective machine learning model. The
 - **Validation:** Use techniques like cross-validation and residual analysis to validate your imputation strategies and overall data quality.
 
 
-<LoginWall>
+[//]: # (<LoginWall>)
 
 ### Feature Engineering and Selection
 
@@ -77,11 +77,61 @@ The following metrics are used to evaluate models that predict a continuous nume
 
 For classification tasks, especially when dealing with imbalanced classes like in anomaly detection, a confusion matrix and related metrics are essential.
 
-| **Metric**                      | **Description**                                                                                                                                                                                                                                                                       | **How to Interpret**                                                                                                                                                           | **SAP HANA ML Implementation (hana-ml / PAL)**                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Confusion Matrix**            | A table displaying:<br/>- **True Positives (TP)**<br/>- **True Negatives (TN)**<br/>- **False Positives (FP)** (Type I error)<br/>- **False Negatives (FN)** (Type II error)                                                                                                          | Details correct and incorrect classifications, revealing error types. Minimizing False Negatives is often critical when missing an event (like an anomaly) has a high cost.    | [hana_ml.algorithms.pal.metrics.confusion_matrix](https://www.google.com/search?q=%5bhttps://help.sap.com/doc/1d0ebfe5e8dd44d09606814d83308d4b/2.0.05/en-US/pal/algorithms/hana_ml.algorithms.pal.metrics.confusion_matrix.html%23hana_ml.algorithms.pal.metrics.confusion_matrix%5d%28https://help.sap.com/doc/1d0ebfe5e8dd44d09606814d83308d4b/2.0.05/en-US/pal/algorithms/hana_ml.algorithms.pal.metrics.confusion_matrix.html%23hana_ml.algorithms.pal.metrics.confusion_matrix%29) |
-| **Precision, Recall, F1-Score** | - **Precision**: TP / (TP + FP). Measures the accuracy of positive predictions.<br/>- **Recall**: TP / (TP + FN). Measures how many actual positives were identified.<br/>- **F1-Score**: 2 × (Precision × Recall) / (Precision + Recall). The harmonic mean of Precision and Recall. | High precision minimizes false alarms; high recall minimizes missed positives. The F1-score provides a balance, which is especially useful for imbalanced datasets.            | Typically derived from the Confusion Matrix.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **ROC AUC**                     | **Area Under the Receiver Operating Characteristic Curve.**<br/>Plots True Positive Rate vs. False Positive Rate.                                                                                                                                                                     | Measures a model's ability to distinguish between classes across all thresholds. A value of 1 is perfect; 0.5 is random. It can be misleading with highly imbalanced datasets. | [hana_ml.algorithms.pal.metrics.auc](https://www.google.com/search?q=%5bhttps://help.sap.com/doc/1d0ebfe5e8dd44d09606814d83308d4b/2.0.07/en-US/pal/algorithms/hana_ml.algorithms.pal.metrics.auc.html%23hana_ml.algorithms.pal.metrics.auc%5d%28https://help.sap.com/doc/1d0ebfe5e8dd44d09606814d83308d4b/2.0.07/en-US/pal/algorithms/hana_ml.algorithms.pal.metrics.auc.html%23hana_ml.algorithms.pal.metrics.auc%29)                                                                  |
+<table style={{ borderCollapse: 'collapse', width: '100%'}}>
+    <thead>
+    <tr style={{ backgroundColor: '#FAFAFA' }}>
+        <th style={{ width: '15%', padding: '8px' }}><strong>Metric</strong></th>
+        <th style={{ width: '30%', padding: '8px' }}><strong>Description</strong></th>
+        <th style={{ width: '30%', padding: '8px' }}><strong>How to Interpret</strong></th>
+        <th style={{ width: '25%', padding: '8px' }}><strong>SAP HANA ML Implementation (hana-ml / PAL)</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td style={{ padding: '8px' }}><strong>Confusion Matrix</strong></td>
+        <td style={{ padding: '8px' }}>
+            A table displaying:<br/>
+            - <strong>True Positives (TP)</strong><br/>
+            - <strong>True Negatives (TN)</strong><br/>
+            - <strong>False Positives (FP)</strong> (Type I error)<br/>
+            - <strong>False Negatives (FN)</strong> (Type II error)
+        </td>
+        <td style={{ padding: '8px' }}>
+            Details correct and incorrect classifications, revealing error types. Minimizing False Negatives is often critical when missing an event (like an anomaly) has a high cost.
+        </td>
+        <td style={{ padding: '8px' }}>
+            <a href="https://help.sap.com/doc/1d0ebfe5e8dd44d09606814d83308d4b/2.0.05/en-US/pal/algorithms/hana_ml.algorithms.pal.metrics.confusion_matrix.html">hana_ml.algorithms.pal.metrics.confusion_matrix</a>
+        </td>
+    </tr>
+    <tr>
+        <td style={{ padding: '8px' }}><strong>Precision, Recall, F1-Score</strong></td>
+        <td style={{ padding: '8px' }}>
+            - <strong>Precision</strong>: TP / (TP + FP). Measures the accuracy of positive predictions.<br/>
+            - <strong>Recall</strong>: TP / (TP + FN). Measures how many actual positives were identified.<br/>
+            - <strong>F1-Score</strong>: 2 × (Precision × Recall) / (Precision + Recall). Harmonic mean of Precision and Recall.
+        </td>
+        <td style={{ padding: '8px' }}>
+            High precision minimizes false alarms; high recall minimizes missed positives. The F1-score provides a balance, especially for imbalanced datasets.
+        </td>
+        <td style={{ padding: '8px' }}>
+            Typically derived from the Confusion Matrix.
+        </td>
+    </tr>
+    <tr>
+        <td style={{ padding: '8px' }}><strong>ROC AUC</strong></td>
+        <td style={{ padding: '8px' }}>
+            <strong>Area Under the Receiver Operating Characteristic Curve.</strong><br/>
+            Plots True Positive Rate vs. False Positive Rate.
+        </td>
+        <td style={{ padding: '8px' }}>
+            Measures a model's ability to distinguish between classes across all thresholds. A value of 1 is perfect; 0.5 is random. Can be misleading with highly imbalanced datasets.
+        </td>
+        <td style={{ padding: '8px' }}>
+            <a href="https://help.sap.com/doc/1d0ebfe5e8dd44d09606814d83308d4b/2.0.07/en-US/pal/algorithms/hana_ml.algorithms.pal.metrics.auc.html">hana_ml.algorithms.pal.metrics.auc</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
 Example: Confusion Matrix
 
@@ -166,4 +216,4 @@ PAL supports [confidence and prediction intervals](https://help.sap.com/docs/han
 
 </div>
 
-</LoginWall>
+[//]: # (</LoginWall>)
