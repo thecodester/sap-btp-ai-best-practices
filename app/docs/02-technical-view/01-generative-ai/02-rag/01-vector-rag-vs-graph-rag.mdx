@@ -2,13 +2,20 @@
 title: "Vector RAG vs Graph RAG"
 description: ""
 hide_title: true
-sidebar_class_name: hidden
 ---
 
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
-
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import LoginWall from "@site/src/components/LoginWall";
+import Icon from "@site/src/components/Icon";
+import "@ui5/webcomponents-icons/dist/video.js";
+import "@ui5/webcomponents-icons/dist/pdf-attachment.js";
+import TrackableLink from "@site/src/components/TrackableLink";
+import IconLinkButton from "@site/src/components/IconLinkButton";
 import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
+import Link from "@docusaurus/Link";
+import PageContributors from "@site/src/components/PageContributors";
 
 <PageViewTracker />
 
@@ -16,4 +23,68 @@ import PageViewTracker from "@site/src/components/tracking/PageViewTracker";
   <h1>Vector RAG vs Graph RAG</h1>
 </div>
 
-In progress...
+This page contains information on the Pros and Cons of Vector RAG and Graph RAG. When choosing an approach, it is important to understand the advantages and disadvantages of each approach in order to maintain a balance between the capabilities and complexity of implementing the technology.
+
+## Pros and Cons of Vector RAG and Graph RAG
+
+The choice of which technology to use depends on the domain and the task being solved. But the general approach is that Vector RAG is necessary when it is necessary to work with a clear description of the subject area and limit generative models to specific data structures and attribute values. This allows you to avoid hallucinations and make the process more manageable.
+
+...
+
+<LoginWall>
+
+### Title
+
+...
+
+### Title 2
+
+...
+
+<br />
+
+<div className="section-with-background blue">
+
+## <span className="post-article-first-title">Related Best Practices</span>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/technical-view/generative-ai/rag/vector-rag-query-pipeline" text="Vector-based RAG - Query Pipeline" />
+</ul>
+
+</div>
+
+<br />
+
+<div className="section-with-background purple">
+
+## Related AI Capabilities
+
+<h3>
+  <Link to={useBaseUrl("/docs/functional-view/content-creation")}>Content Creation</Link>
+</h3>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/content-creation/generate-text-specific-knowledge" text="Generate Text based on Proprietary, Specific Knowledge" />
+</ul>
+
+<h3>
+  <Link to={useBaseUrl("/docs/functional-view/information-analysis-and-processing")}>Information Analysis & Processing</Link>
+</h3>
+
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/qa-on-enterprise-knowledge-base" text="Question & Answers on Enterprise Knowledge Base" />
+</ul>
+
+</div>
+
+<br />
+
+<div className="section-with-background gradient-violet-blue">
+
+## Contributors
+
+<PageContributors contributorIds={["andrii-rzhaksynskyi"]} />
+
+</div>
+
+</LoginWall>
