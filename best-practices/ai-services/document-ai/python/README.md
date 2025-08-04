@@ -1,6 +1,6 @@
-# Document Extraction Service
+# Document AI Service
 
-This repository contains a Python script, `document_extraction_service.py`, which interacts with the SAP Document Information Extraction REST API to extract information from documents such as invoices.
+This repository contains a Python script, `document_ai.py`, which interacts with the SAP Document AI REST API to extract information from documents such as invoices.
 
 ## Prerequisites
 
@@ -15,8 +15,8 @@ This repository contains a Python script, `document_extraction_service.py`, whic
 2. **Environment Variables**:
    - The script uses credentials and configuration stored in a `.env` file. Create a `.env` file in the root directory and populate it with the required variables (see below for an example).
 
-3. **Document Information Extraction Service**:
-   - Set up the SAP Document Information Extraction Service and UI. Refer to [SAP Documentation](https://developers.sap.com/tutorials/cp-aibus-dox-service-instance.html) for setup instructions.
+3. **Document AI Service**:
+   - Set up the SAP Document AI Service and UI. Refer to [SAP Documentation](https://developers.sap.com/tutorials/cp-aibus-dox-service-instance.html) for setup instructions.
 
 ## Environment Variables
 
@@ -29,16 +29,16 @@ URL=service_key['url']
 UAADOMAIN=service_key['uaa']['url']
 ```
 
-> **Note**: Replace the placeholder values with your actual SAP Document Information Extraction service credentials.
+> **Note**: Replace the placeholder values with your actual SAP Document AI service credentials.
 
 ## Usage Instructions
 
 1. **Run the Script**:
 
-   Execute the `document_extraction_service.py` file to extract information from a document:
+   Execute the `document_ai.py` file to extract information from a document:
 
    ```bash
-   python document_extraction_service.py
+   python document_ai.py
    ```
 
 2. **Input Document**:

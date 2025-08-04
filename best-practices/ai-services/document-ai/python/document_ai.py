@@ -1,4 +1,4 @@
-# Import DOX API client
+# Import Document AI API client
 from dotenv import load_dotenv
 import os
 from sap_business_document_processing import DoxApiClient
@@ -16,7 +16,7 @@ client_id = os.getenv('CLIENT_ID')
 client_secret = os.getenv('CLIENT_SECRET')
 uaa_url = os.getenv('UAADOMAIN')
 
-# Instantiate object used to communicate with Document Information Extraction REST API
+# Instantiate object used to communicate with Document AI REST API
 api_client = DoxApiClient(url, client_id, client_secret, uaa_url)
 
 # Get the available document types and corresponding extraction fields
