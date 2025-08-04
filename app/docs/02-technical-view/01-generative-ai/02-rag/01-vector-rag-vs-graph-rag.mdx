@@ -1,6 +1,7 @@
 ---
 title: "Vector RAG vs Graph RAG"
 description: ""
+hide_title: true
 ---
 
 import LoginWall from "@site/src/components/LoginWall";
@@ -17,74 +18,102 @@ import PageContributors from "@site/src/components/PageContributors";
 </div>
 
 ### Description
+
 This page contains information on the Pros and Cons of Vector RAG and Graph RAG. When choosing an approach, it is important to understand the advantages and disadvantages of each approach in order to maintain a balance between the capabilities and complexity of implementing the technology.
 
 ### Pros and Cons of Vector RAG and Graph RAG
 
 The choice of which technology to use depends on the domain and the task being solved. But the general approach is that Vector RAG is necessary when it is necessary to work with a clear description of the subject area and limit generative models to specific data structures and attribute values. This allows you to avoid hallucinations and make the process more manageable.
 
-<table style={{ borderCollapse: 'collapse', width: '100%', border: '.3px solid #0070f2' }}>
-    <thead>
-    <tr style={{ backgroundColor: '#0070f2', color: 'white' }}>
-        <th style={{ border: '.3px solid #0070f2', padding: '8px' }}></th>
-        <th style={{ border: '.3px solid #0070f2', padding: '8px' }}>Vector RAG</th>
-        <th style={{ border: '.3px solid #0070f2', padding: '8px' }}>Knowledge Graph RAG</th>
-    </tr>
-    </thead>
-    <tbody>
+<LoginWall>
+
+<table>
+  <thead>
     <tr>
-        <td style={{ backgroundColor: '#d1efff', fontWeight: 'bold', padding: '8px', border: '.3px solid #0070f2' }}>Description</td>
-        <td style={{ border: '.3px solid #0070f2', padding: '8px' }}>
-            RAG integrates external knowledge retrieval with generative models to ground responses in factual data. This approach enhances the accuracy and relevance of outputs, particularly in specialized domains.
-        </td>
-        <td style={{ border: '.3px solid #0070f2', padding: '8px' }}>
-            Combines Retrieval Augmented Generation with Knowledge Graphs, leveraging the structured nature of knowledge graphs for more context-rich information.
-        </td>
+      <th></th>
+      <th>Vector RAG</th>
+      <th>Knowledge Graph RAG</th>
     </tr>
-    <tr style={{ backgroundColor: '#D7E9FE' }}>
-        <td style={{ backgroundColor: '#d1efff', fontWeight: 'bold', padding: '8px', border: '.3px solid #0070f2' }}>Pros</td>
-        <td style={{ border: '.3px solid #0070f2', padding: '8px' }}>
-            <ul>
-                <li><strong>Improved Accuracy:</strong> Reduces hallucination in LLM outputs.</li>
-                <li><strong>Enhanced Contextual Relevance:</strong> Domain-specific responses are more precise.</li>
-                <li><strong>Scalability:</strong> Grows with data volume without loss in performance.</li>
-            </ul>
-        </td>
-        <td style={{ border: '.3px solid #0070f2', padding: '8px' }}>
-            <ul>
-                <li><strong>Contextual Depth:</strong> Captures complex relationships through graph structure.</li>
-                <li><strong>Precise Information Retrieval:</strong> Extracts fine-grained, relevant insights.</li>
-                <li><strong>Enhanced Decision-Making:</strong> Empowers analytical and traceable outcomes.</li>
-            </ul>
-        </td>
+  </thead>
+  <tbody>
+    <tr>
+      <td className="highlight-cell">Description</td>
+      <td>
+        RAG integrates external knowledge retrieval with generative models to ground responses in factual data. This approach enhances the accuracy and relevance of outputs,
+        particularly in specialized domains.
+      </td>
+      <td>Combines Retrieval Augmented Generation with Knowledge Graphs, leveraging the structured nature of knowledge graphs for more context-rich information.</td>
     </tr>
     <tr>
-        <td style={{ backgroundColor: '#d1efff', fontWeight: 'bold', padding: '8px', border: '.3px solid #0070f2' }}>Cons</td>
-        <td style={{ border: '.3px solid #0070f2', padding: '8px' }}>
-            <ul>
-                <li><strong>Complex Integration:</strong> Adds architectural complexity.</li>
-                <li><strong>Latency:</strong> Real-time retrieval may delay responses.</li>
-                <li><strong>Data Dependency:</strong> Quality of results depends on external sources.</li>
-            </ul>
-        </td>
-        <td style={{ border: '.3px solid #0070f2', padding: '8px' }}>
-            <ul>
-                <li><strong>High Resource Usage:</strong> Traversing large graphs is expensive.</li>
-                <li><strong>Maintenance Complexity:</strong> Updating graphs is effort-intensive.</li>
-                <li><strong>Integration Difficulty:</strong> Often requires major system refactoring.</li>
-            </ul>
-        </td>
+      <td className="highlight-cell">Pros</td>
+      <td>
+        <ul>
+          <li>
+            <strong>Improved Accuracy:</strong> Reduces hallucination in LLM outputs.
+          </li>
+          <li>
+            <strong>Enhanced Contextual Relevance:</strong> Domain-specific responses are more precise.
+          </li>
+          <li>
+            <strong>Scalability:</strong> Grows with data volume without loss in performance.
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <strong>Contextual Depth:</strong> Captures complex relationships through graph structure.
+          </li>
+          <li>
+            <strong>Precise Information Retrieval:</strong> Extracts fine-grained, relevant insights.
+          </li>
+          <li>
+            <strong>Enhanced Decision-Making:</strong> Empowers analytical and traceable outcomes.
+          </li>
+        </ul>
+      </td>
     </tr>
-    <tr style={{ backgroundColor: '#D7E9FE' }}>
-        <td style={{ backgroundColor: '#d1efff', fontWeight: 'bold', padding: '8px', border: '.3px solid #0070f2' }}>Using</td>
-        <td style={{ border: '.3px solid #0070f2', padding: '8px' }}>
-            Ideal for large unstructured corpora (documents, transcripts, etc.). Great for support bots, document search, or prototyping where source knowledge is spread or changes frequently.
-        </td>
-        <td style={{ border: '.3px solid #0070f2', padding: '8px' }}>
-            Best for domains with strong semantic structure and traceability needs (e.g., finance, manufacturing, compliance). Excellent for structured data reasoning and explainability.
-        </td>
+    <tr>
+      <td className="highlight-cell">Cons</td>
+      <td>
+        <ul>
+          <li>
+            <strong>Complex Integration:</strong> Adds architectural complexity.
+          </li>
+          <li>
+            <strong>Latency:</strong> Real-time retrieval may delay responses.
+          </li>
+          <li>
+            <strong>Data Dependency:</strong> Quality of results depends on external sources.
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <strong>High Resource Usage:</strong> Traversing large graphs is expensive.
+          </li>
+          <li>
+            <strong>Maintenance Complexity:</strong> Updating graphs is effort-intensive.
+          </li>
+          <li>
+            <strong>Integration Difficulty:</strong> Often requires major system refactoring.
+          </li>
+        </ul>
+      </td>
     </tr>
-    </tbody>
+    <tr>
+      <td className="highlight-cell">Using</td>
+      <td>
+        Ideal for large unstructured corpora (documents, transcripts, etc.). Great for support bots, document search, or prototyping where source knowledge is spread or changes
+        frequently.
+      </td>
+      <td>
+        Best for domains with strong semantic structure and traceability needs (e.g., finance, manufacturing, compliance). Excellent for structured data reasoning and
+        explainability.
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 Graph RAG also enables the following capabilities that are not available in classical RAG:
@@ -104,8 +133,6 @@ Also worth noting are the new challenges that come with using Graph RAG:
 - **Knowledge graph maintenance:** Ongoing maintenance and management processes are required to ensure the knowledge graph is accurate and up-to-date.
 
 Therefore, it is necessary to weigh the benefits and costs when using this approach.
-
-<LoginWall>
 
 ### Expand Your Knowledge
 
@@ -146,9 +173,7 @@ Therefore, it is necessary to weigh the benefits and costs when using this appro
 
 ## Contributors
 
-<PageContributors contributorIds={[
-    "andrii-rzhaksynskyi"
-]}/>
+<PageContributors contributorIds={["andrii-rzhaksynskyi"]} />
 
 </div>
 

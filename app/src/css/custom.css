@@ -446,6 +446,38 @@ ol.steps-list li::before {
   color: var(--sap-horizon-neutral-1);
 }
 
+/* Table */
+
+table {
+  width: 100%;
+}
+
+table thead {
+  background-color: var(--ifm-color-primary);
+  color: var(--sap-horizon-neutral-1);
+}
+
+table thead tr {
+  border: none;
+}
+
+table th {
+  border: 1px solid var(--ifm-color-primary);
+}
+
+table tr:nth-child(2n) {
+  background-color: rgb(215, 233, 254);
+}
+
+table td {
+  border: 1px solid var(--ifm-color-primary);
+}
+
+table td.highlight-cell {
+  background-color: #ebf7ff;
+  font-weight: 600;
+}
+
 /* Hero Header Section */
 .hero-header {
   background-image: url("/img/bg-title-page.jpeg");
