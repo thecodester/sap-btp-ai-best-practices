@@ -173,6 +173,12 @@ export default function About(): React.ReactNode {
                   <IconLinkButton href="/docs/technical-view/generative-ai/plain/content-filtering" text="Content Filtering" />
                   <IconLinkButton href="/docs/technical-view/generative-ai/rag/vector-rag-embedding" text="Vector-based RAG (1/2) Embedding" />
                   <IconLinkButton href="/docs/technical-view/generative-ai/rag/vector-rag-query-pipeline" text="Vector-based RAG (2/2) Query Pipeline" />
+                  <IconLinkButton href="/docs/technical-view/generative-ai/rag/kg-rag-creation" text="Knowledge Graph RAG (1/2) Creation" />
+                  <IconLinkButton href="/docs/technical-view/generative-ai/rag/kg-rag-query-pipeline" text="Knowledge Graph RAG (2/2) Query Pipeline" />
+                  <IconLinkButton href="/docs/technical-view/ai-services/sap-document-ai" text="Document AI" />
+                  <IconLinkButton href="/docs/technical-view/narrow-ai/regression" text="Regression" />
+                  <IconLinkButton href="/docs/technical-view/narrow-ai/time-series-forecasting" text="Time Series Forecasting" />
+                  <IconLinkButton href="/docs/technical-view/narrow-ai/anomaly-detection" text="Anomaly Detection" />
                 </div>
                 <p>
                   Further SAP BTP AI Best Practices are in preparation. <strong>Stay tuned</strong> to keep your AI development on SAP BTP at the forefront!

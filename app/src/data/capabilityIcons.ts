@@ -93,6 +93,7 @@ const capabilityIcons: Record<string, string> = {
   "/docs/technical-view/generative-ai/plain/content-filtering": "filter",
 
   // RAG
+  "/docs/technical-view/generative-ai/rag": "pipeline-analysis",
   "/docs/technical-view/generative-ai/rag/vector-rag-vs-graph-rag": "compare",
   "/docs/technical-view/generative-ai/rag/vector-overall": "lateness",
   "/docs/technical-view/generative-ai/rag/vector-query": "lateness",
