@@ -130,11 +130,14 @@ This approach recognizes that outliers in regression are points that don't follo
 
 HanaML capabilities, including both the Predictive Analysis Library (PAL) and the Automated Predictive Library (APL), are supported on various SAP HANA versions and editions. Key supported platforms include:
 
-    - **SAP HANA Cloud:** Fully supported and recommended platform due to easier management of components like PAL and APL. More information on [HANA Cloud and Setup process](/docs/technology/sap-hana-cloud#setup).
+- **SAP HANA Cloud:** Fully supported and recommended platform due to easier management of components like PAL and APL. More information on [HANA Cloud and Setup process](/docs/technology/sap-hana-cloud#setup).
 
-[Prerequisites](https://support.sap.com/en/alm/sap-cloud-alm/operations/expert-portal/setup-managed-services/setup-hana-cloud.html?anchorId=section_2065216453_c#section_copy_copy):
-You need to have access to SAP BTP Cockpit ([Setup Guide](/docs/technology/sap-business-technology-platform#setup-guide)).
-Your user in BTP Cockpit needs to be a member with the space role "Space Developer" for the space in which you want to create the SAP HANA Cloud database instance was created - **SAP HANA express edition:** Used for development and testing. [Installation instructions for SAP HANA](https://developers.sap.com/group.hxe-install-clients.html) and [Installation instructions for Client API](https://developers.sap.com/tutorials/hxe-ua-install-python-ml-api..html). - **SAP Datasphere (formerly Data Warehouse Cloud):** Supports PAL and API functions, provided underlying [SAP HANA Cloud Script Server](https://help.sap.com/docs/SAP_DATASPHERE/9f804b8efa8043539289f42f372c4862/287194276a7d4d778ec98fdde5f61335.html) is enabled for the tenant
+  - [Prerequisites](https://support.sap.com/en/alm/sap-cloud-alm/operations/expert-portal/setup-managed-services/setup-hana-cloud.html?anchorId=section_2065216453_c#section_copy_copy):
+    - You need to have access to SAP BTP Cockpit ([Setup Guide](/docs/technology/sap-business-technology-platform#setup-guide)).
+    - Your user in BTP Cockpit needs to be a member with the space role "Space Developer" for the space in which you want to create the SAP HANA Cloud database instance was created
+
+- **SAP HANA express edition:** Used for development and testing. [Installation instructions for SAP HANA](https://developers.sap.com/group.hxe-install-clients.html) and [Installation instructions for Client API](https://developers.sap.com/tutorials/hxe-ua-install-python-ml-api..html).
+- **SAP Datasphere (formerly Data Warehouse Cloud):** Supports PAL and API functions, provided underlying [SAP HANA Cloud Script Server](https://help.sap.com/docs/SAP_DATASPHERE/9f804b8efa8043539289f42f372c4862/287194276a7d4d778ec98fdde5f61335.html) is enabled for the tenant
 
 Note, PAL and APL are also available from [SAP HANA Platform 2.0 SPS 04](https://help.sap.com/doc/9c87e50e69c744f785f41ec5568b47d8/2.0.04/en-US/SAP_HANA_Machine_Learning_Overview_Guide_en.pdf) as well as SAP HANA express edition
 
@@ -158,7 +161,7 @@ Executing PAL and APL functions requires specific database privileges. These are
 ### Summary
 
 | Prerequisite Category            | Item                                               | Notes                                                                                          |
-|----------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------|
+| -------------------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | **SAP HANA Cloud Environment**   | SAP HANA Cloud, SAP HANA Cloud trial and free-tier | See trial / free-tier limitations.                                                             |
 | **SAP HANA Cloud Configuration** | Enabled services                                   | Script Server and NLP services                                                                 |
 | **User Authorizations**          | PAL Execution Role Granted                         | User needs `AFL__SYS_AFL_AFLPAL_EXECUTE` (Cloud/On-Prem) role.                                 |
@@ -195,53 +198,49 @@ Implementing anomaly detection effectively involves several key decisions and ad
 
 #### General Anomaly Detection Functions
 
-### DBSCAN
+##### DBSCAN
 
 | When it excels                                                                  | Why                                                                                           | Concrete example                                                                                                                                                                                       |
-|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Irregular, non-convex shapes** in the “normal” data                           | Density connectivity is shape-agnostic; no centroid assumption                                | To detect illegal fishing, vessel GPS pings are analyzed: clusters of pings typically follow winding, coast-hugging routes, while those that appear outside designated zones are flagged as suspicious |
 | **Varying cluster sizes/densities** where noise should be labeled explicitly    | Points with < `minPts` neighbors inside ε are automatically “noise”—no extra threshold tuning | For quality control on semiconductor wafers, pixel-level defect maps often show dense clusters of similar defects, while isolated hot pixels are treated as noise by the DBSCAN algorithm              |
 | **Low/medium-dimensional data** (≤ 20 dims) with a _meaningful distance metric_ | ε radius grows counter-intuitively in very high-dimensional spaces                            | Spatial point patterns, image coordinates, RFID-tag positions, etc.                                                                                                                                    |
 
-<br />
-### Isolation Forest
+##### Isolation Forest
 
 | When it excels                                                 | Why                                                                                                                                                                                                                                 | Concrete example                                                                                                                                                                         |
-|----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **For High-Dimensional Data Sets** (10 – hundreds of features) | Isolation Forest works well because it splits data along random axes. This approach avoids the "curse of dimensionality" problem that affects distance-based methods.                                                               | Detecting credit card fraud in real-time, where you might analyze hundreds of variables including merchant information, device data, transaction amounts, and customer behavior patterns |
 | **For Large Data Sets** (10⁵ – 10⁶+ rows)                      | Isolation Forest is efficient because it operates in O(n log n) time. Can even sample down to just 256 trees without losing much accuracy                                                                                           | Analyzing web server logs to find anomalies across gigabytes of hourly request records, Isolation Forest provides both speed and accuracy                                                |
 | **For Detecting Isolated Anomalies**                           | When anomalies are rare but spread throughout your data (not clustered together), Isolation Forest excels by creating short isolation paths to identify individual outlier points, even when they appear alone in the feature space | Predictive maintenance of machinery, when looking for rare combinations of vibration frequencies and temperatures that indicate potential failures                                       |
 
-<br />
-### One-Class SVM
+##### One-Class SVM
 
 | When it excels                                                                                              | Why                                                                                                                                                | Concrete example                                                                                                                           |
-|-------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | **For Abundant Normal Data with Few Anomalies** (pure novelty detection)                                    | When you have plenty of “normal” data but almost no labeled anomalies, One-Class SVM works well because it learns the boundary of normal behavior  | Network intrusion detection where you can train on months of clean traffic data to later identify novel exploit patterns                   |
 | **For Moderate-Sized, Complex Data Sets** (up to ~50k samples, 10²–10³ dims) where kernel methods add value | One-Class SVM with RBF or polynomial kernels creates effective non-linear boundaries, though computational costs increase approximately with O(n²) | Distinguishing subtle differences in manufactured lens characteristics where the decision boundary between normal and abnormal is complex  |
 | **When Theoretical Soundness Matters**                                                                      | One-Class SVM provides the same margin-maximizing approach as standard SVMs. This creates interpretable support vectors you can examine            | In medical imaging, this helps clinicians understand which “normal” images lie on the boundary between normal and abnormal classifications |
 
-<br />
-### K‑Means‑Based Outlier Scoring
+##### K‑Means‑Based Outlier Scoring
 
 | When it excels                                                                                                                | Why                                                                                                                                                                                                                                                                                                                                                                               | Concrete example                                                                                                                                                                                                |
-|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **For Well-Formed, Evenly Sized Clusters**                                                                                    | When your data naturally forms compact, convex, and similarly sized groups, K-Means-Based Outlier Scoring works effectively because the distance to cluster centroids accurately represents how typical a data point is                                                                                                                                                           | In customer segmentation, this approach excels at identifying rare “whale” customers who stand out due to their unusual purchase frequency and spending patterns that position them far from any cluster center |
 | **When K is Known in Advance** (business-defined segments, product tiers) and want a _fast_ baseline                          | [Lloyd’s algorithm](https://en.wikipedia.org/wiki/K-means_clustering#:~:text=Lloyd%27s%20algorithm%20is%20therefore%20often%2csuperpolynomial%20when%20performed%20until%20convergence.&text=iterations%2c%20so%20that%20the%20worst%2cof%20Lloyd%27s%20algorithm%20is%20superpolynomial) runs in O(n k d i) time complexity and can be easily parallelized for faster processing | IoT sensor monitoring where devices are grouped by type (K = the number of device families) to efficiently flag units producing measurements outside normal parameters                                          |
 | **When Explanation Clarity Matters** — K-Means excels because distance to a centroid provides an intuitive explanation format | You can clearly communicate that “this reading is an outlier because it is 3 times farther from its assigned cluster center than 95% of points.”                                                                                                                                                                                                                                  | Call center metrics analysis, where agent performance data typically forms tiers, and outliers may indicate agents requiring additional coaching                                                                |
 
-**Quick decision checklist**
+#### Quick decision checklist
 
 - Irregular shapes / density gaps → **DBSCAN**
 - Huge, high‑D, unlabeled tabular data → **Isolation Forest**
 - Normal‑only training set + curved boundary → **One‑Class SVM**
 - Compact globular clusters + need for speed/simple explanation → **K‑Means distance**
 
-<br />
 ### Timeseries Anomalies Detection
 
 | When OutlierDetectionTS really shines                                                      | Why the function is a particularly good fit                                                                                                                                                                                              | Concrete example                                                                                                                                                                                                                                  |
-|--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Pronounced trend + strong seasonality** (daily traffic, weekly sales, power-load curves) | Built-in seasonal decomposition can strip the cyclical component before scoring the residual, preventing every Christmas spike from being flagged.                                                                                       | For retail demand analysis with 7-day cycles, set `detect_seasonality = TRUE` with `default window.size = 1` and the `z1` outlier method for fast processing.                                                                                     |
 | **For Steady Sensors with Occasional Sharp Spikes**                                        | When monitoring sensors with generally smooth readings that experience rare, sudden glitches, a simple median filter with a sliding window effectively isolates one-off spikes while ignoring gradual drift.                             | Temperature monitoring in cold-chain logistics, where a freezer door left open creates a distinctive spike. Use `detect_seasonality = FALSE` with `window.size = 5` and `outlier.method="mad"` for enhanced robustness.                           |
 | **For Non-Seasonal but Variable Trend Data**                                               | When analyzing data without seasonal patterns but with curved trends, manual LOESS or advanced smoothing techniques help identify genuine anomalies by following the natural curve, making true deviations more apparent.                | Cryptocurrency price minute-by-minute analysis, where settings like `auto = FALSE`, `smooth_method="loess"`, `loess_lag = 9`, `current_value_flag = TRUE`, and `outlier.method="iqr"` help distinguish flash-crashes from normal price movements. |
@@ -249,7 +248,7 @@ Implementing anomaly detection effectively involves several key decisions and ad
 | **For Clustered Anomaly Events**                                                           | DBSCAN applied to residuals can effectively flag unusual clusters or bursts.                                                                                                                                                             | Social media sentiment analysis where coordinated negative campaigns create dense clusters of unusual activity (using `outlier.method="dbscan"` with `eps=0.4` and `minpts=3`).                                                                   |
 | **For Intermittent Demand Patterns**                                                       | When analyzing “lumpy” demand series with many zeros interrupted by bursts of activity, the `detect_intermittent_ts=TRUE` parameter prevents false positives by skipping anomaly detection during zero-value periods.                    | Spare parts inventory management where 90% of days show zero sales but restock orders arrive in clusters. Use `detect_intermittent_ts=TRUE`.                                                                                                      |
 
-**Quick decision checklist**
+#### Quick decision checklist
 
 - **Does the series have a repeating calendar pattern?** → Turn on detect_seasonality (or leave auto=TRUE) and let periodicities be removed before scoring.
 - **Is it smooth except for occasional single‑point jolts?** → Median filter residual (window.size ≥ 3) plus a simple Z‑ or MAD‑score.
@@ -258,11 +257,10 @@ Implementing anomaly detection effectively involves several key decisions and ad
 - **You care about clusters of unusual behaviour (bursts, events)?** → DBSCAN (outlier.method="dbscan").
 - **Data is sparse/intermittent (lots of zeros)?** → Set detect_intermittent_ts=TRUE; consider aggregating first if you still need detection.
 
-<br />
-**Regression Model Outlier Detection**
+#### Regression Model Outlier Detection
 
 | When OutlierDetectionRegression really shines                                           | Why the function is a particularly good fit                                                                                                                               | Concrete example                                                                                                                                                                              |
-|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Linear relationships with measurement errors** (quality control, manufacturing specs) | Linear model with deleted studentized residuals effectively identifies points that deviate from expected linear relationships while accounting for leverage and influence | Manufacturing quality control where product dimensions should follow linear specs based on machine settings, use `regression_model="linear"` with `threshold=3.0` to flag defective products  |
 | **Complex non-linear patterns with outliers** (pricing models, risk assessment)         | Tree-based model captures non-linear relationships and uses z-scores of residuals to identify anomalies in complex feature interactions                                   | Real estate pricing where property values depend non-linearly on multiple features, use `regression_model="tree"`, `iter_num=15`, `max_depth=8` to detect mispriced properties or data errors |
 | **High-leverage point detection** (financial modeling, experimental design)             | Deleted studentized residuals in linear model specifically designed to detect influential observations that could skew regression coefficients                            | Investment portfolio analysis where a single large position could distort risk models, use `regression_model="linear"` with `threshold=2.5` for sensitive leverage detection                  |
@@ -331,7 +329,7 @@ SAP Developer Tutorials:
 
 #### Recommended
 
-<ul className="download-source-link-in-list-container">
+<ul>
   <li>
     <strong>
       <TrackableLink
@@ -345,7 +343,6 @@ SAP Developer Tutorials:
   </li>
 </ul>
 
-<br />
 #### Relevant Code
 
 [DBSCAN](https://help.sap.com/doc/1d0ebfe5e8dd44d09606814d83308d4b/2.0.08/en-US/pal/algorithms/hana_ml.algorithms.pal.clustering.DBSCAN.html)
@@ -808,8 +805,8 @@ CALL _SYS_AFL.PAL_OUTLIER_DETECTION_FOR_REGRESSION(PAL_DATA_TBL,"#PAL_PARAMETER_
 </h3>
 
 <ul className="button-grid">
-  <IconLinkButton href="/docs/functional-view/decision-support/data-clustering" text="Data Clustering" />
   <IconLinkButton href="/docs/functional-view/decision-support/anomaly-detection" text="Anomaly Detection" />
+  <IconLinkButton href="/docs/functional-view/decision-support/data-clustering" text="Data Clustering" />
 </ul>
 
 </div>

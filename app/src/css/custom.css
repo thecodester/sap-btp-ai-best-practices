@@ -478,6 +478,14 @@ table td.highlight-cell {
   font-weight: 600;
 }
 
+[data-theme="dark"] table tr:nth-child(2n) {
+  background-color: var(--sap-horizon-neutral-10);
+}
+
+[data-theme="dark"] table td.highlight-cell {
+  background-color: var(--sap-horizon-neutral-9);
+}
+
 /* Hero Header Section */
 .hero-header {
   background-image: url("/img/bg-title-page.jpeg");

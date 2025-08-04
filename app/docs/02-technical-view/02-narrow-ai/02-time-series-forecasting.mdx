@@ -130,7 +130,6 @@ Executing PAL and APL functions requires specific database privileges. These are
   On the **SQL Privileges** tab, click the + icon, select **AFL_WRAPPER_GENERATOR(SYSTEM)**, and choose **OK**.
   Under **Privileges for 'AFL_WRAPPER_GENERATOR(SYSTEM)'**, select **EXECUTE**.
   On the Granted Roles tab, click the + icon, select **AFL\_\_SYS_AFL_AFLPAL_EXECUTE**, and choose OK.
-
 - For [APL](https://help.sap.com/docs/apl/419fd47c26b345239fdbb5e476a6bc54/654f4d920c5846b6b56903c7b06b0785.html):
   - SAP HANA Cloud: The database role sap.pa.apl.base.roles::APL_EXECUTE is required. This role grants privileges to execute APL stored procedures, access related schemas, and use the APL cache. It should be granted by a database administrator to the APL user
   - SAP HANA Platform (On-Premise): Privileges depend on the calling technique:
@@ -151,7 +150,7 @@ Executing PAL and APL functions requires specific database privileges. These are
 
 ### High-level Reference Architecture
 
-![High-level Reference Architecture](@site/static/narrow-ai/regression/images/arch.png)
+![High-level Reference Architecture](@site/static/narrow-ai/time-series-forecasting/images/arch.png)
 
 #### Calling PAL and APL Functions
 
@@ -178,6 +177,8 @@ SAP HANA Predictive Analytics Library, offers a wide range of time series foreca
 - **Massive, data-parallel (aka segmented) time series forecasting**
   - **Independently apply** Predictive Analysis Library (PAL) functions to subsets of data identified by a grouping column
   - **Single call** invoking massive data-parallel ML processing
+  - An example using the Massive implementation can be seen in the following [link](https://github.com/SAP-samples/hana-ml-samples/blob/main/Python-API/pal/notebooks/24QRC03_2.22.ipynb).
+    ![High-level Reference Architecture](@site/static/narrow-ai/time-series-forecasting/images/PAL-example.png)
 - **AutoML for Time Series:** AutoML frameworks like [SAP HANA Cloud PAL’s AutoML](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-predictive-analysis-library/automl-automl) implementation greatly help users in probing multiple algorithms and parameter variations for a given scenario for selecting the best possible algorithm and model. The following [link](https://github.com/SAP-samples/hana-ml-samples/blob/main/Python-API/usecase-examples/sapcommunity-automl-examples/Example%20-%20Using%20PAL%20AutoML%20for%20Time-Series.ipynb) includes an example on how to use AutoML for Time Series. An example using the Massive implementation can be seen in the following [link](https://github.com/SAP-samples/hana-ml-samples/blob/main/Python-API/pal/notebooks/24QRC03_2.22.ipynb).
 
 ### Data Preparation and Model Evaluation
@@ -247,7 +248,7 @@ SAP Developer Tutorials:
 
 #### Recommended
 
-<ul className="download-source-link-in-list-container">
+<ul>
   <li>
     <strong>
       <TrackableLink

@@ -1,6 +1,7 @@
 ---
 title: "Graph-based RAG (2/2) KG Query Pipeline"
 description: ""
+hide_title: true
 ---
 
 import TabItem from "@theme/TabItem";
@@ -33,12 +34,12 @@ import PageContributors from "@site/src/components/PageContributors";
         <li>
           <Link to="#2-pre-requisites">Pre-requisites</Link>
         </li>
-          <li>
-              <Link to="#3-illustration-of-the-process-through-an-example">Illustration of the Process Through an Example</Link>
-          </li>
-          <li>
-              <Link to="#4-expand-your-knowledge">Expand Your Knowledge</Link>
-          </li>
+        <li>
+          <Link to="#3-illustration-of-the-process-through-an-example">Illustration of the Process Through an Example</Link>
+        </li>
+        <li>
+          <Link to="#4-expand-your-knowledge">Expand Your Knowledge</Link>
+        </li>
       </ol>
     </div>
     <div className="col col--4">
@@ -91,12 +92,12 @@ We build on the foundation of the [Graph-based RAG KG Creation](/docs/technical-
 
 By following this guide, you can setup a simple process where business facts are found in documents and traced back to their definitions in your knowledge domain. This can improve the accuracy of your AI results and help you explain where each answer comes from.
 
-
-[//]: # (<LoginWall>)
+<LoginWall>
 
 ### Key Concepts
 
 In addition to the foundational concepts that we introduced in the [Graph-based RAG KG Creation](/docs/technical-view/generative-ai/rag/kg-rag-creation) Best Practice, let's first introduce some additional concepts that are critical to understand the remaining sections of this article.
+
 - **[Pipeline Integration](https://arxiv.org/pdf/2505.24478):** The process of connecting your KG to other AI components (like LLMs) so you can use facts from the graph as part of a bigger workflow. For example, the KG gives expected object properties to the LLM before extraction.
 - **[Prompt Templating](/docs/technical-view/generative-ai/plain/prompt-templating):** Building a structured prompt that includes terms or properties from your KG. This lets you control what the LLM looks for when reading documents.
 - **[Business Traceability](https://arxiv.org/html/2408.07705v1):** The ability to show where every answer comes from, by linking LLM outputs back to facts in your KG. This is important for audits and trust.
@@ -104,6 +105,7 @@ In addition to the foundational concepts that we introduced in the [Graph-based 
 ## <span className="step-number">2</span> <span className="step-title">Pre-requisites</span>
 
 ### Commercial
+
 - SAP AI Core with the “Extended” tier on SAP BTP
 - SAP HANA Cloud on SAP BTP
 - SAP AI Launchpad
@@ -111,6 +113,7 @@ In addition to the foundational concepts that we introduced in the [Graph-based 
 You can find pricing details for the above services in the [SAP Discovery Center](https://discovery-center.cloud.sap/serviceCatalog?commercialModel=btpea&regions=all).
 
 ### Technical
+
 1. Setup SAP Business Technology Platform (SAP BTP) subaccount ([Setup Guide](/docs/technology/sap-business-technology-platform))
 2. Create an instance of SAP HANA Cloud ([Setup Guide](/docs/technology/sap-hana-cloud))
 3. Enable Triple Store Service in SAP HANA Cloud ([Setup Guide](/docs/technology/sap-hana-cloud#enable-triple-store-service-in-sap-hana-cloud))
@@ -129,9 +132,25 @@ This example focuses on enhancing Large Language Model queries with domain knowl
 We use a real-world industrial equipment scenario to illustrate the process: identifying relevant properties from structured data and guiding the LLM to search for these specific terms in unstructured documents. You’ll learn how to combine the SAP HANA Cloud Knowledge Graph with LLMs to extract business-critical facts.
 
 ### Source Code and SDKs
-You can find the full source code of this example in the [BTP AI Best Practices GitHub repository](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/generative-ai/knowledge-graph).
+
+You can find the full source code of this example:
+
+<ul className="download-source-link-in-list-container">
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/generative-ai/knowledge-graph"
+        target="_blank"
+        trackingFeature="DOWNLOAD_KG_RAG_QUERY_PIPELINE"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
+</ul>
 
 This example is prepared in Python, and using SDKs like:
+
 - [sap-ai-sdk-gen](https://pypi.org/project/sap-ai-sdk-gen/): This SDK harmonizes the previous 3 SDKs ([SAP Generative AI hub SDK](https://pypi.org/project/generative-ai-hub-sdk/), [SAP AI Core SDK](https://help.sap.com/docs/link-disclaimer?site=https://pypi.org/project/ai-core-sdk/), and [AI API Client SDK](https://pypi.org/project/ai-api-client-sdk/)) as a unified library for Python.
 - [langchain](https://pypi.org/project/langchain/): A framework for developing applications powered by large language models.
 
@@ -139,6 +158,7 @@ Helper Functions for Working with SAP HANA Knowledge Graph Pipeline
 In the previous Best Practice [Graph-based RAG KG Creation](/docs/technical-view/generative-ai/rag/kg-rag-creation) we have already shown the simplest process of how to extract triples from a document, save them to HANA Cloud, and then retrieve these triples from the database in a simple way. Let's now use the acquired knowledge to implement more complex scenarios.
 
 For this purpose, we have prepared a number of functions for working with knowledge graphs that allow us to build more complex scenarios:
+
 - **extract_and_store_kg_from_pdf:** Reads a PDF and stores all facts from it as triples in the Knowledge Graph.
 - **get_unique_relations:** Finds all the types of relations present in the KG, so you know what information is available.
 - **filter_relations_by_business_question:** Uses your business question to select only the relevant types of relations from the KG.
@@ -146,23 +166,26 @@ For this purpose, we have prepared a number of functions for working with knowle
 - **ask_llm_sample:** Sends selected triples and your business question to the LLM for a concise, human-readable answer.
 - **clear_kg_graph:** Clears the KG when you need to start over.
 - **connect_hana and close_hana:** Handle database connections for the pipeline.
-We will now describe two use cases where we leverage the KG to enhance Large Language Model queries with domain knowledge.
+  We will now describe two use cases where we leverage the KG to enhance Large Language Model queries with domain knowledge.
 
 ### Use Case 1: Extract and Summarize Key properties from a Single Document
-In this scenario, a procurement expert receives a PDF document with the technical specifications for an industrial motor. Instead of searching manually through the document for important details, the expert uses an automated system to extract a structured Knowledge Graph from the PDF. Next, the expert asks a business question such as, **“*Summarize the energy efficiency of this motor.*”** The system automatically determines which relations in the Knowledge Graph are relevant for energy efficiency, retrieves those triples, and uses an LLM to generate a short, clear summary in response to the question. This way, the engineer quickly gets exactly the information needed, saving time and avoiding manual work.
+
+In this scenario, a procurement expert receives a PDF document with the technical specifications for an industrial motor. Instead of searching manually through the document for important details, the expert uses an automated system to extract a structured Knowledge Graph from the PDF. Next, the expert asks a business question such as, **“_Summarize the energy efficiency of this motor._”** The system automatically determines which relations in the Knowledge Graph are relevant for energy efficiency, retrieves those triples, and uses an LLM to generate a short, clear summary in response to the question. This way, the engineer quickly gets exactly the information needed, saving time and avoiding manual work.
 
 The pipeline:
+
 - Extract triples from PDF document
 - Get all relation types from the Knowledge Graph
 - Filter relevant relations for the business question
 - Retrieve only relevant triples from the Knowledge Graph
 - Prepare the prompt for the language model
 - Extract and summarize relevant facts with the language model
-The picture below depicts the above pipeline.
+  The picture below depicts the above pipeline.
 
 ![Use Case Step 1](@site/static/generative-ai/kg-rag-query-pipeline/images/use-case-1.png)
 
 #### Implementation
+
 Below is a complete example showing how the Knowledge Graph pipeline works for a single document. We demonstrate the workflow from extraction to business-ready summary, so you can easily adapt it to your own scenarios.
 
 ```python
@@ -226,13 +249,14 @@ clear_kg_graph(GRAPH_NAME, dbapi, hana_env)
 ```
 
 **Step-by-step Code Explanation**
+
 - **Extract triples from the PDF:** The document is processed, and all technical facts are saved in the SAP HANA Cloud Knowledge Graph.
 - **Get all relation types from the KG:** This step gives you a complete list of what kinds of technical information have been extracted, such as “has efficiency rating,” “has insulation class,” and so on.
 - **Filter relevant relations for the business question:** For example, if you want to know about energy efficiency, only those relations directly related to efficiency and insulation are kept. This focuses the analysis on exactly what matters for the business task.
 - **Retrieve only relevant triples from the KG:** Only the facts matching the selected relations are returned, keeping the output concise.
 - **Prepare the prompt for the language model:** The selected triples and business question are used to create a prompt for the LLM
 - **Generate a summary:** The prompt is sent to the LLM, which generates a short, practical summary in natural language.
-With this automated approach, the procurement expert instantly **receives a summary of the motor’s energy efficiency across different operating conditions, without having to dig through technical documents.** This enables the expert to quickly assess whether the motor meets required efficiency standards and make faster, more informed decisions.
+  With this automated approach, the procurement expert instantly **receives a summary of the motor’s energy efficiency across different operating conditions, without having to dig through technical documents.** This enables the expert to quickly assess whether the motor meets required efficiency standards and make faster, more informed decisions.
 
 ### Use Case 2: Compare Two Equipment specifications for Substitution
 
@@ -243,13 +267,14 @@ Traditionally, such a comparison involves manually searching through both docume
 In the automated approach presented here, each document is first transformed into a structured Knowledge Graph. The expert formulates a business question, such as, “Can motor B replace motor A in terms of power and efficiency?”. The system uses two Knowledge Graphs to filter out irrelevant information and extract only the triples that are most relevant to the question.
 
 The pipeline proceeds as follows:
-- Extract triples from PDF document A and  Extract triples from PDF document B
+
+- Extract triples from PDF document A and Extract triples from PDF document B
 - Get all relation types from Knowledge Graph A and Knowledge Graph B
 - Filter relevant relations from KG's for the business question
 - Retrieve relevant triples from both Knowledge Graphs
 - Prepare the prompt for the language model
 - Extract and summarize the comparison with the language model
-The picture below depicts the above pipeline.
+  The picture below depicts the above pipeline.
 
 ![Use Case Step 2](@site/static/generative-ai/kg-rag-query-pipeline/images/use-case-2.png)
 
@@ -370,40 +395,54 @@ clear_kg_graph(GRAPH_NAME_B, dbapi, hana_env)
 **Step-by-step Code Explanation**
 
 Each PDF is processed to extract triples, which are saved as separate Knowledge Graphs.
+
 - All relation types present in each KG are identified, providing a map of available technical attributes for both motors.
 - Using the business question, only those relations that matter for substitution like “has power rating” and “has efficiency rating” are kept.
 - The relevant triples from both KGs are retrieved.
 - The selected triples and business question are used to create a prompt for the LLM
 - The prompt is provided to the LLM, which produces a clear, side-by-side summary or substitution recommendation.
-By comparing the most important technical specifications side by side, the expert immediately sees that **Motor B does not meet the power and efficiency requirements needed to replace Motor A.** This targeted analysis saves time and helps avoid costly mistakes, ensuring only suitable equipment is considered for replacement.
+  By comparing the most important technical specifications side by side, the expert immediately sees that **Motor B does not meet the power and efficiency requirements needed to replace Motor A.** This targeted analysis saves time and helps avoid costly mistakes, ensuring only suitable equipment is considered for replacement.
 
 ## <span className="step-number">4</span> <span className="step-title">Expand Your Knowledge</span>
 
 ### Tutorials and Learning Journeys
-[Building Intelligent Data Applications with SAP HANA Cloud Knowledge Graphs](https://discovery-center.cloud.sap/protected/index.html#/missiondetail/4568/4856/) (Discovery Center Mission)
+
+- [Building Intelligent Data Applications with SAP HANA Cloud Knowledge Graphs](https://discovery-center.cloud.sap/protected/index.html#/missiondetail/4568/4856/) (Discovery Center Mission)
 
 #### Reference Code
-[SAP BTP AI Best Practices - Sample Code](https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/generative-ai/knowledge-graph)
 
-## Additional Materials
+<ul className="download-source-link-in-list-container">
+  <li>
+    <strong>
+      <TrackableLink
+        href="https://github.com/SAP-samples/sap-btp-ai-best-practices/tree/main/best-practices/generative-ai/knowledge-graph"
+        target="_blank"
+        trackingFeature="DOWNLOAD_KG_RAG_QUERY_PIPELINE"
+      >
+        <span>SAP BTP AI Best Practices - Sample Code</span>
+      </TrackableLink>
+    </strong>
+  </li>
+</ul>
 
-### Strategic Applications of Knowledge Graphs in AI
+### Additional Materials
+
+#### Strategic Applications of Knowledge Graphs in AI
 
 - [Knowledge graphs for LLM grounding and avoiding hallucination](https://community.sap.com/t5/technology-blogs-by-sap/knowledge-graphs-for-llm-grounding-and-avoiding-hallucination/ba-p/13779734) Leverage our unique structured and unstructured knowledge assets (business data models, business process metadata and documentation) for generative AI scenarios
 - [Leveraging Generative AI Advancements for Linked Business Data](https://community.sap.com/t5/technology-blogs-by-sap/leveraging-generative-ai-advancements-for-linked-business-data/ba-p/13721158) Dives into various aspects of SAP’s approach to generative AI, and its technical underpinnings
 - [SAP launches collaborative AI agents, adds Knowledge Graph](https://www.cio.com/article/3551017/sap-launches-collaborative-ai-agents-adds-knowledge-graph.html) SAP promises that its AI copilot, Joule, will support 80% of its most-used business tasks by year end
 
-### Practical Use and Tutorials
+#### Practical Use and Tutorials
 
 - [Explicit knowledge representation and reasoning with Knowledge Graphs: introduction & use case](https://community.sap.com/t5/technology-blog-posts-by-sap/explicit-knowledge-representation-and-reasoning-with-knowledge-graphs/ba-p/14124234) Explore how SAP HANA Cloud is further increasing its multi-model capabilities by supporting also RDF-based Knowledge Graphs and SPARQL querying and we will see a real-world business application of this
-- [Gain hands-on experience with SAP HANA Graph - YouTube](https://www.youtube.com/watch?v=oaSQu9laYKE&ab_channel=SAPCommunity)  Deep dive into SAP HANA Graph capabilities, explaining numerous use cases and specific benefits
+- [Gain hands-on experience with SAP HANA Graph - YouTube](https://www.youtube.com/watch?v=oaSQu9laYKE&ab_channel=SAPCommunity) Deep dive into SAP HANA Graph capabilities, explaining numerous use cases and specific benefits
 
-### Other articles
+#### Other articles
 
 - [Combining Knowledge Graphs and Large Language Models](https://arxiv.org/html/2407.06564v1) This research has systematically reviewed 28 papers on combining KGs and LLMs to highlight key methods, trends, and challenges for building more trustworthy AI solutions.
 - [HybridRAG: Integrating Knowledge Graphs and Vector Retrieval Augmented Generation for Efficient Information Extraction](https://arxiv.org/html/2408.04948v1) The HybridRAG method combines knowledge graph-based search and vector search in the HybridRAG approach, improving both search and answer accuracy, outperforming traditional RAG methods in financial Q&A problems and offering broader applicability to other domains.
 - [Using LLMs for the Extraction and Normalization of Product Attribute Values](https://arxiv.org/html/2403.02130v1#S4) This paper investigates how LLM's can be used to extract and normalize attribute-value pairs from product titles and descriptions on e-commerce websites, enabling accurate product filtering and recommendations.
-<br />
 
 <div className="section-with-background blue">
 
@@ -417,31 +456,23 @@ By comparing the most important technical specifications side by side, the exper
 
 </div>
 
-<br />
-
 <div className="section-with-background purple">
 
 ## Related AI Capabilities
 
-    <ul className="button-grid">
-        <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/qa-on-enterprise-knowledge-base" text="Question & Answers on Enterprise Knowledge Base" />
-        <IconLinkButton href="/docs/functional-view/content-creation/generate-text-specific-knowledge" text="Generate Text based on Proprietary, Specific Knowledge" />
-    </ul>
+<ul className="button-grid">
+  <IconLinkButton href="/docs/functional-view/information-analysis-and-processing/qa-on-enterprise-knowledge-base" text="Question & Answers on Enterprise Knowledge Base" />
+  <IconLinkButton href="/docs/functional-view/content-creation/generate-text-specific-knowledge" text="Generate Text based on Proprietary, Specific Knowledge" />
+</ul>
 
 </div>
-
-<br />
 
 <div className="section-with-background gradient-violet-blue">
 
 ## Contributors
 
-<PageContributors contributorIds={[
-    "andrii-rzhaksynskyi",
-    "luis-marques",
-    "marco-cigaina"
-]}/>
+<PageContributors contributorIds={["andrii-rzhaksynskyi", "luis-marques", "marco-cigaina"]} />
 
 </div>
 
-[//]: # (</LoginWall>)
+</LoginWall>
