@@ -11,7 +11,7 @@
 
 <script src="/cookieConsentConfig.js"></script>
 <script src="https://www.sap.com/sharedlibs/globaltop/script-latest.min.js"></script><link rel="stylesheet" href="/assets/css/styles.5dc6307b.css">
-<script src="/assets/js/runtime~main.e7116d1a.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.27e69e71.js" defer="defer"></script>
 <script src="/assets/js/main.c036b22b.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -23,7 +23,7 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="data-quality-and-cleaning">Data Quality and Cleaning<a href="#data-quality-and-cleaning" class="hash-link" aria-label="Direct link to Data Quality and Cleaning" title="Direct link to Data Quality and Cleaning">​</a></h3>
 <ul>
 <li><strong>Accuracy and Completeness:</strong> Ensure that your data, especially independent variables, is accurate, complete, and free from errors.</li>
-<li><strong>Handling Null Values:</strong> SAP HANA PAL functions may abort in the presence of NULL values. It is essential to have a strategy for handling them. You can replace NULLs with default values using SQL or employ imputation techniques. The <a href="https://www.google.com/search?q=%5bhttps://help.sap.com/doc/cd94b08fe2e041c2ba778374572ddba9/2025_1_QRC/en-US/pal/algorithms/hana_ml.algorithms.pal.preprocessing.Imputer.html%5d%28https://help.sap.com/doc/cd94b08fe2e041c2ba778374572ddba9/2025_1_QRC/en-US/pal/algorithms/hana_ml.algorithms.pal.preprocessing.Imputer.html%29" target="_blank" rel="noopener noreferrer">hana_ml.algorithms.pal.preprocessing.Imputer</a> offers various strategies like “mean”, “median”, “most_frequent”, “delete”, and “als”.</li>
+<li><strong>Handling Null Values:</strong> SAP HANA PAL functions may abort in the presence of NULL values. It is essential to have a strategy for handling them. You can replace NULLs with default values using SQL or employ imputation techniques. The <a href="https://help.sap.com/doc/cd94b08fe2e041c2ba778374572ddba9/2025_1_QRC/en-US/pal/algorithms/hana_ml.algorithms.pal.preprocessing.Imputer.html" target="_blank" rel="noopener noreferrer">hana_ml.algorithms.pal.preprocessing.Imputer</a> offers various strategies like “mean”, “median”, “most_frequent”, “delete”, and “als”.</li>
 <li><strong>Outlier Management:</strong> Outliers can distort analysis and model accuracy. Identify and handle them using techniques like capping, smoothing, or replacing them with interpolated values.</li>
 <li><strong>Sufficient Data:</strong> Ensure you have enough data points, considering the number of features and the noise level in your data.</li>
 <li><strong>Validation:</strong> Use techniques like cross-validation and residual analysis to validate your imputation strategies and overall data quality.</li>
