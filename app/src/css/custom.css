@@ -137,6 +137,18 @@ h6,
   font-family: var(--sapFontFamily) !important;
 }
 
+.markdown > h4 {
+  --ifm-h4-font-size: 1.25rem;
+}
+
+.markdown > h5 {
+  --ifm-h5-font-size: 1rem;
+}
+
+.markdown > h6 {
+  --ifm-h6-font-size: 0.875rem;
+}
+
 /* Navbar */
 
 .navbar__item.navbar__link {
@@ -432,6 +444,46 @@ ol.steps-list li::before {
 [data-theme="dark"] ol.steps-list li::before {
   background-color: var(--sap-horizon-neutral-10);
   color: var(--sap-horizon-neutral-1);
+}
+
+/* Table */
+
+table {
+  width: 100%;
+}
+
+table thead {
+  background-color: var(--ifm-color-primary);
+  color: var(--sap-horizon-neutral-1);
+}
+
+table thead tr {
+  border: none;
+}
+
+table th {
+  border: 1px solid var(--ifm-color-primary);
+}
+
+table tr:nth-child(2n) {
+  background-color: rgb(215, 233, 254);
+}
+
+table td {
+  border: 1px solid var(--ifm-color-primary);
+}
+
+table td.highlight-cell {
+  background-color: #ebf7ff;
+  font-weight: 600;
+}
+
+[data-theme="dark"] table tr:nth-child(2n) {
+  background-color: var(--sap-horizon-neutral-10);
+}
+
+[data-theme="dark"] table td.highlight-cell {
+  background-color: var(--sap-horizon-neutral-9);
 }
 
 /* Hero Header Section */
