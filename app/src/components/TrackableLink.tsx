@@ -12,7 +12,7 @@ interface TrackableLinkProps {
 
 export default function TrackableLink({ href, className, target, trackingFeature, children }: TrackableLinkProps) {
   const getFeatureName = () => {
-    return trackingFeature ? TRACKING_EVENTS.BUTTON_CLICK[trackingFeature] : `trackable-link:${href}`;
+    return trackingFeature ? TRACKING_EVENTS.BUTTON_CLICK[trackingFeature] : `[trackable-link]:${href}`;
   };
 
   const trackLinkClick = (e: React.MouseEvent) => {
