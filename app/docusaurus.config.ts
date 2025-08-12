@@ -8,6 +8,19 @@ import { environment } from "./src/config/environment"; // Import environment co
 // const baseUrl = environment.isDevelopment ? "/" : "/sap-btp-ai-best-practices/";
 const baseUrl = "/";
 
+function registerDownloadRoute() {
+  return {
+    name: "register-download-route",
+    async contentLoaded({ actions }) {
+      actions.addRoute({
+        path: "/download-source-code/:slug*",
+        component: "@site/src/pages/download-source-code.tsx",
+        exact: false
+      });
+    }
+  };
+}
+
 const config: Config = {
   title: "SAP BTP AI Best Practices",
   tagline: "Your Ultimate Guide for Building AI Solutions on SAP BTP",
@@ -87,6 +100,8 @@ const config: Config = {
       } satisfies Preset.Options
     ]
   ],
+
+  plugins: [registerDownloadRoute],
 
   themeConfig: {
     // Social card image
