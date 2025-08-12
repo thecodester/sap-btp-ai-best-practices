@@ -1,0 +1,14 @@
+{
+  "mime_types": {
+    ".js": "application/javascript",
+    ".mjs": "application/javascript",
+    ".css": "text/css",
+    ".map": "application/json"
+  },
+  "routes": [
+    {
+      "route": "/**",
+      "file": "index.html"
+    }
+  ]
+}

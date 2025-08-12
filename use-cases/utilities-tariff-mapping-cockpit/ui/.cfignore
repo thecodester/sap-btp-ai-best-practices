@@ -1,0 +1,9 @@
+# Exclude dependencies and build outputs from upload
+/node_modules
+
+# OS and editor files
+.DS_Store
+*.log
+
+# Env files
+.env*
