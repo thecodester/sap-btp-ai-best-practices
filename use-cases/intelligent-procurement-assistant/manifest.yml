@@ -1,0 +1,9 @@
+---
+applications:
+  - name: intelligent-procurement-assistant
+    timeout: 180 # in seconds
+    memory: 256M
+    disk_quota: 1GB
+    instances: 2
+    buildpacks:
+      - python_buildpack
