@@ -81,3 +81,7 @@ If you wish to contribute code, offer fixes or improvements, please send a pull 
 ## License
 
 Copyright (c) 2024 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
+
+## Devtoberfest Scavenger Hunt
+
+Congrats! You have found another clue in the [Devtoberfest Scavenger Hunt](https://community.sap.com/t5/devtoberfest-blog-posts/introducing-the-devtoberfest-scavenger-hunt/ba-p/14183972. Find the commit ID of the Devtoberfest commit on this repo, and derive the next 2 digits of the secret code based on the instructions in the blog post. 
